@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="sync_automatically">Auto-synchroniser</string>
+  <string name="sync_calendar">Agenda</string>
+  <string name="sync_contacts">Contacts</string>
+  <string name="sync_disabled">Sélectionner pour synchroniser automatiquement les données</string>
+  <string name="sync_do_nothing">Ne rien faire maintenant.</string>
+  <string name="sync_enabled">Synchroniser automatiquement les données</string>
+  <string name="sync_gmail">Gmail</string>
+  <string name="sync_is_failing">Il y a actuellement des problèmes de synchronisation. Elle sera de retour rapidement.</string>
+  <string name="sync_menu_sync_cancel">Annuler la synchronisation</string>
+  <string name="sync_menu_sync_now">Synchroniser maintenant</string>
+  <string name="sync_really_delete">Supprimez les éléments.</string>
+  <string name="sync_settings">Synchronisation données</string>
+  <string name="sync_settings_summary">Sélectionnez les applications à synchroniser</string>
+  <string name="sync_too_many_deletes">Limite de suppression dépassée</string>
+  <string name="sync_too_many_deletes_desc">Il y a %d éléments supprimés pour %s, compte %s. Que souhaitez-vous faire ?</string>
+  <string name="sync_undo_deletes">Annulez les suppressions.</string>
+</resources>

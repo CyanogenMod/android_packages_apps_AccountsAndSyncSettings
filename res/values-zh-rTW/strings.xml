@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="sync_automatically">自動同步</string>
+  <string name="sync_calendar">行事曆</string>
+  <string name="sync_contacts">連絡人</string>
+  <string name="sync_disabled">選取自動同步資料</string>
+  <string name="sync_do_nothing">目前不執行任何動作。</string>
+  <string name="sync_enabled">自動同步資料</string>
+  <string name="sync_gmail">Gmail</string>
+  <string name="sync_is_failing">同步目前發生問題。將會立即恢復正常。</string>
+  <string name="sync_menu_sync_cancel">取消同步</string>
+  <string name="sync_menu_sync_now">立即同步</string>
+  <string name="sync_really_delete">刪除項目。</string>
+  <string name="sync_settings">資料同步</string>
+  <string name="sync_settings_summary">選取要同步的應用程式</string>
+  <string name="sync_too_many_deletes">已經超過刪除上限</string>
+  <string name="sync_too_many_deletes_desc">%d 個 %s 刪除的項目，來自 %s 帳號。處理的方式為？</string>
+  <string name="sync_undo_deletes">復原刪除的項目。</string>
+</resources>

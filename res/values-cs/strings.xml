@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="sync_calendar">Kalendář</string>
+  <string name="sync_contacts">Kontakty</string>
+  <string name="sync_disabled">Vypnuto</string>
+  <string name="sync_enabled">Synchronizace se serverem Google povolena</string>
+  <string name="sync_gmail">Gmail</string>
+  <string name="sync_menu_sync_cancel">Zrušit synchronizaci</string>
+  <string name="sync_menu_sync_now">Synchronizovat</string>
+  <string name="sync_settings">Synchronizace</string>
+</resources>
