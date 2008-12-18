@@ -1,23 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-/*
- * Copyright (C) 2007 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
--->
-
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Sync settings -->
-    <string name="sync_gmail">Google Mail</string>
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- no translation found for sync_settings (8235378331392488746) -->
+    <skip />
+    <!-- no translation found for sync_settings_summary (2170159762576931473) -->
+    <skip />
+    <!-- no translation found for sync_too_many_deletes (787961384364877792) -->
+    <skip />
+    <!-- no translation found for background_data (3831063123648199584) -->
+    <skip />
+    <!-- no translation found for background_data_enabled (1011246115211054736) -->
+    <skip />
+    <!-- no translation found for background_data_disabled (741132043571520046) -->
+    <skip />
+    <!-- no translation found for sync_automatically (5023399315924864518) -->
+    <skip />
+    <!-- no translation found for sync_enabled (3118936391474000701) -->
+    <skip />
+    <!-- no translation found for sync_disabled (2710405826315197809) -->
+    <skip />
+    <!-- no translation found for sync_menu_sync_now (2018559214346014182) -->
+    <skip />
+    <!-- no translation found for sync_menu_sync_cancel (5663042105176122635) -->
+    <skip />
+    <string name="sync_gmail">"Google Mail"</string>
+    <!-- no translation found for sync_calendar (3676266228164122419) -->
+    <skip />
+    <!-- no translation found for sync_contacts (4366616523889586528) -->
+    <skip />
+    <!-- no translation found for sync_too_many_deletes_desc (3427885178408263966) -->
+    <skip />
+    <!-- no translation found for sync_really_delete (368496178797559653) -->
+    <skip />
+    <!-- no translation found for sync_undo_deletes (3656008804935475283) -->
+    <skip />
+    <!-- no translation found for sync_do_nothing (5244653227891679592) -->
+    <skip />
+    <!-- no translation found for sync_is_failing (27177391415779409) -->
+    <skip />
+    <!-- no translation found for sync_plug (5260877151006680681) -->
+    <skip />
 </resources>

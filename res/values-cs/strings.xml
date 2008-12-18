@@ -1,12 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="sync_calendar">Kalendář</string>
-  <string name="sync_contacts">Kontakty</string>
-  <string name="sync_disabled">Vypnuto</string>
-  <string name="sync_enabled">Synchronizace se serverem Google povolena</string>
-  <string name="sync_gmail">Gmail</string>
-  <string name="sync_menu_sync_cancel">Zrušit synchronizaci</string>
-  <string name="sync_menu_sync_now">Synchronizovat</string>
-  <string name="sync_settings">Synchronizace</string>
+    <string name="sync_settings">"Synchronizace"</string>
+    <!-- no translation found for sync_settings_summary (2170159762576931473) -->
+    <skip />
+    <!-- no translation found for sync_too_many_deletes (787961384364877792) -->
+    <skip />
+    <!-- no translation found for background_data (3831063123648199584) -->
+    <skip />
+    <!-- no translation found for background_data_enabled (1011246115211054736) -->
+    <skip />
+    <!-- no translation found for background_data_disabled (741132043571520046) -->
+    <skip />
+    <!-- no translation found for sync_automatically (5023399315924864518) -->
+    <skip />
+    <string name="sync_enabled">"Synchronizace se serverem Google povolena"</string>
+    <string name="sync_disabled">"Vypnuto"</string>
+    <string name="sync_menu_sync_now">"Synchronizovat"</string>
+    <string name="sync_menu_sync_cancel">"Zrušit synchronizaci"</string>
+    <string name="sync_gmail">"Gmail"</string>
+    <string name="sync_calendar">"Kalendář"</string>
+    <string name="sync_contacts">"Kontakty"</string>
+    <!-- no translation found for sync_too_many_deletes_desc (3427885178408263966) -->
+    <skip />
+    <!-- no translation found for sync_really_delete (368496178797559653) -->
+    <skip />
+    <!-- no translation found for sync_undo_deletes (3656008804935475283) -->
+    <skip />
+    <!-- no translation found for sync_do_nothing (5244653227891679592) -->
+    <skip />
+    <!-- no translation found for sync_is_failing (27177391415779409) -->
+    <skip />
+    <!-- no translation found for sync_plug (5260877151006680681) -->
+    <skip />
 </resources>

@@ -24,6 +24,7 @@ import android.preference.CheckBoxPreference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class SyncStateCheckBoxPreference extends CheckBoxPreference {
 
@@ -31,6 +32,12 @@ public class SyncStateCheckBoxPreference extends CheckBoxPreference {
     private boolean mIsPending = false;
     private boolean mFailed = false;
 
+    /**
+     * A mode for this preference where clicking does a one-time sync instead of
+     * toggling whether the provider will do autosync.
+     */
+    private boolean mOneTimeSyncMode = false;
+    
     public SyncStateCheckBoxPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setWidgetLayoutResource(R.layout.preference_widget_sync_toggle);
@@ -64,6 +71,21 @@ public class SyncStateCheckBoxPreference extends CheckBoxPreference {
 
         syncFailedView.setVisibility(showError ? View.VISIBLE : View.GONE);
         syncPendingView.setVisibility((showPending && !mIsActive) ? View.VISIBLE : View.GONE);
+        
+        View checkBox = view.findViewById(android.R.id.checkbox);
+        if (mOneTimeSyncMode) {
+            checkBox.setVisibility(View.GONE);
+            
+            /*
+             * Override the summary. Fill in the %1$s with the existing summary
+             * (what ends up happening is the old summary is shown on the next
+             * line).
+             */
+            TextView summary = (TextView) view.findViewById(android.R.id.summary);
+            summary.setText(getContext().getString(R.string.sync_one_time_sync, getSummary()));
+        } else {
+            checkBox.setVisibility(View.VISIBLE);
+        }
     }
 
     /**
@@ -92,4 +114,29 @@ public class SyncStateCheckBoxPreference extends CheckBoxPreference {
         mFailed = failed;
         notifyChanged();
     }
+
+    /**
+     * Sets whether the preference is in one-time sync mode.
+     */
+    public void setOneTimeSyncMode(boolean oneTimeSyncMode) {
+        mOneTimeSyncMode = oneTimeSyncMode;
+        notifyChanged();
+    }
+    
+    /**
+     * Gets whether the preference is in one-time sync mode.
+     */
+    public boolean isOneTimeSyncMode() {
+        return mOneTimeSyncMode;
+    }
+
+    @Override
+    protected void onClick() {
+        // When we're in one-time sync mode, we don't want a click to change the
+        // checkbox state
+        if (!mOneTimeSyncMode) {
+            super.onClick();
+        }            
+    }
+    
 }

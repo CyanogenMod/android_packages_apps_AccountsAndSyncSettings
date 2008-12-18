@@ -19,18 +19,21 @@ package com.android.settings;
 import com.android.providers.subscribedfeeds.R;
 
 import android.app.ActivityThread;
+import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ProviderInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.RemoteException;
-import android.pim.DateFormat;
+import android.text.format.DateFormat;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
+import android.provider.Gmail;
 import android.provider.Sync;
 import android.provider.SubscribedFeeds;
 import android.text.TextUtils;
@@ -45,6 +48,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
+
+import com.google.android.googlelogin.GoogleLoginServiceConstants;
+import com.google.android.googlelogin.GoogleLoginServiceHelper;
 
 public class SyncSettings
         extends PreferenceActivity
@@ -62,13 +68,20 @@ public class SyncSettings
     private static final String SYNC_CONNECTION_SETTING_CHANGED
         = "com.android.sync.SYNC_CONN_STATUS_CHANGED";
 
+    private static final String BACKGROUND_DATA_SETTING_CHANGED
+        = "com.android.sync.BG_DATA_STATUS_CHANGED";
+
     private static final String SYNC_KEY_PREFIX = "sync_";
     private static final String SYNC_CHECKBOX_KEY = "autoSyncCheckBox";
+    private static final String BACKGROUND_DATA_CHECKBOX_KEY = "backgroundDataCheckBox";
+
+    private static final String BACKGROUND_DATA_INTENT_EXTRA_NAME = "value";
 
     Sync.Settings.QueryMap mSyncSettings;
 
     private static final int MENU_SYNC_NOW_ID = Menu.FIRST;
     private static final int MENU_SYNC_CANCEL_ID = Menu.FIRST + 1;
+    private static final int GET_ACCOUNT_REQUEST = 14376;
 
     private Sync.Active.QueryMap mActiveSyncQueryMap = null;
     private Sync.Status.QueryMap mStatusSyncQueryMap = null;
@@ -102,8 +115,39 @@ public class SyncSettings
         mSyncSettings.addObserver(this);
 
         mAutoSyncCheckBox = (CheckBoxPreference) findPreference(SYNC_CHECKBOX_KEY);
+        
+        if (icicle == null) checkForAccount(); // First launch only; ignore orientation changes.
+        
         initProviders();
         initUI();
+
+        broadcastBackgroundDataSettingChange(mSyncSettings.getBackgroundData());
+    }
+    
+    private void checkForAccount() {
+        // This will request a Gmail account and if none present will invoke SetupWizard
+        // to login or create a new one. The result is returned through onActivityResult().
+        Bundle bundle = new Bundle();
+        bundle.putCharSequence("optional_message", getText(R.string.sync_plug));
+        GoogleLoginServiceHelper.getCredentials(
+                this, 
+                GET_ACCOUNT_REQUEST, 
+                bundle,
+                GoogleLoginServiceConstants.PREFER_HOSTED, 
+                Gmail.GMAIL_AUTH_SERVICE, 
+                true);
+    }
+    
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == GET_ACCOUNT_REQUEST) {
+            if (resultCode != RESULT_OK) {
+                // The user canceled and there are no accounts. Just return to the previous
+                // settings page...
+                finish();
+            }
+        } 
     }
 
     @Override
@@ -187,12 +231,20 @@ public class SyncSettings
     }
 
     private void initUI() {
+        // Set background connection state
+        CheckBoxPreference backgroundData =
+            (CheckBoxPreference) findPreference(BACKGROUND_DATA_CHECKBOX_KEY);
+        backgroundData.setChecked(mSyncSettings.getBackgroundData());
+
         // Set the Auto Sync toggle state
         CheckBoxPreference autoSync = (CheckBoxPreference) findPreference(SYNC_CHECKBOX_KEY);
         autoSync.setChecked(mSyncSettings.getListenForNetworkTickles());
+        setOneTimeSyncMode(!autoSync.isChecked());
 
         // Find individual sync provider's states and initialize the toggles
-        for (int i = 0; i < getPreferenceScreen().getPreferenceCount(); i++) {
+        int i;
+        int count = getPreferenceScreen().getPreferenceCount();
+        for (i = 0; i < count; i++) {
             Preference pref = getPreferenceScreen().getPreference(i);
             if (pref.hasKey() && pref.getKey().startsWith(SYNC_KEY_PREFIX)) {
                 CheckBoxPreference toggle = (CheckBoxPreference) pref;
@@ -205,10 +257,27 @@ public class SyncSettings
 
     }
 
+    private void broadcastBackgroundDataSettingChange(boolean setting) {
+        Intent intent = new Intent();
+        intent.setAction(BACKGROUND_DATA_SETTING_CHANGED);
+        intent.putExtra(BACKGROUND_DATA_INTENT_EXTRA_NAME, setting);
+        sendStickyBroadcast(intent);
+    }
+
     public boolean onPreferenceTreeClick(PreferenceScreen preferences, Preference preference) {
         CheckBoxPreference togglePreference = (CheckBoxPreference) preference;
         String key = preference.getKey();
-        if (key.equals(SYNC_CHECKBOX_KEY)) {
+        if (key.equals(BACKGROUND_DATA_CHECKBOX_KEY)) {
+            boolean oldBackgroundDataSetting = mSyncSettings.getBackgroundData();
+            boolean backgroundDataSetting = togglePreference.isChecked();
+            if (oldBackgroundDataSetting != backgroundDataSetting) {
+                if (backgroundDataSetting) {
+                    setBackgroundDataInt(true);
+                } else {
+                    confirmDisablingOfBackgroundData(togglePreference);
+                }
+            }
+        } else if (key.equals(SYNC_CHECKBOX_KEY)) {
             boolean oldListenForTickles = mSyncSettings.getListenForNetworkTickles();
             boolean listenForTickles = togglePreference.isChecked();
             if (oldListenForTickles != listenForTickles) {
@@ -223,17 +292,22 @@ public class SyncSettings
             if (!listenForTickles) {
                 cancelSyncForEnabledProviders();
             }
+            setOneTimeSyncMode(!listenForTickles);
         } else if (key.startsWith(SYNC_KEY_PREFIX)) {
+            SyncStateCheckBoxPreference syncPref = (SyncStateCheckBoxPreference) preference;
             String providerName = key.substring(SYNC_KEY_PREFIX.length());
-            boolean syncOn = togglePreference.isChecked();
-
-            boolean oldSyncState = mSyncSettings.getSyncProviderAutomatically(providerName);
-            if (syncOn != oldSyncState) {
-                mSyncSettings.setSyncProviderAutomatically(providerName, syncOn);
-                if (syncOn) {
-                    startSync(providerName);
-                } else {
-                    cancelSync(providerName);
+            if (syncPref.isOneTimeSyncMode()) {
+                startSync(providerName);
+            } else {
+                boolean syncOn = togglePreference.isChecked();
+                boolean oldSyncState = mSyncSettings.getSyncProviderAutomatically(providerName);
+                if (syncOn != oldSyncState) {
+                    mSyncSettings.setSyncProviderAutomatically(providerName, syncOn);
+                    if (syncOn) {
+                        startSync(providerName);
+                    } else {
+                        cancelSync(providerName);
+                    }
                 }
             }
         } else {
@@ -242,6 +316,40 @@ public class SyncSettings
         return true;
     }
 
+    private void setOneTimeSyncMode(boolean oneTimeSyncMode) {
+        int count = getPreferenceScreen().getPreferenceCount();
+        for (int i = 0; i < count; i++) {
+            Preference pref = getPreferenceScreen().getPreference(i);
+            if (pref.hasKey() && pref.getKey().startsWith(SYNC_KEY_PREFIX)) {
+                SyncStateCheckBoxPreference syncPref = (SyncStateCheckBoxPreference) pref;
+                syncPref.setOneTimeSyncMode(oneTimeSyncMode);
+            }
+        }
+    }
+    
+    private void confirmDisablingOfBackgroundData(final CheckBoxPreference
+            backgroundDataPreference) {
+        // This will get unchecked only if the user hits "Ok"
+        backgroundDataPreference.setChecked(true);
+        
+        new AlertDialog.Builder(this)
+            .setTitle(R.string.background_data_dialog_title)
+            .setIcon(android.R.drawable.ic_dialog_alert)
+            .setMessage(R.string.background_data_dialog_message)
+            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    setBackgroundDataInt(false);
+                    backgroundDataPreference.setChecked(false);
+                }})
+            .setNegativeButton(android.R.string.cancel, null)
+            .show();        
+    }
+
+    private void setBackgroundDataInt(boolean enabled) {
+        mSyncSettings.setBackgroundData(enabled);
+        broadcastBackgroundDataSettingChange(enabled);
+    }
+    
     private void startSyncForEnabledProviders() {
         cancelOrStartSyncForEnabledProviders(true /* start them */);
     }
@@ -251,7 +359,8 @@ public class SyncSettings
     }
 
     private void cancelOrStartSyncForEnabledProviders(boolean startSync) {
-        for (int i = 0; i < getPreferenceScreen().getPreferenceCount(); i++) {
+        int count = getPreferenceScreen().getPreferenceCount();
+        for (int i = 0; i < count; i++) {
             Preference pref = getPreferenceScreen().getPreference(i);
             if (pref.hasKey() && pref.getKey().startsWith(SYNC_KEY_PREFIX)) {
                 CheckBoxPreference toggle = (CheckBoxPreference) pref;
@@ -345,7 +454,8 @@ public class SyncSettings
         Date date = new Date();
         ContentValues activeSyncValues = mActiveSyncQueryMap.getActiveSyncInfo();
         boolean syncIsFailing = false;
-        for (int i = 0; i < getPreferenceScreen().getPreferenceCount(); i++) {
+        int count = getPreferenceScreen().getPreferenceCount();
+        for (int i = 0; i < count; i++) {
             Preference pref = getPreferenceScreen().getPreference(i);
             final String prefKey = pref.getKey();
             if (!TextUtils.isEmpty(prefKey) && prefKey.startsWith(SYNC_KEY_PREFIX)) {
