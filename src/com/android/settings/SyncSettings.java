@@ -120,8 +120,6 @@ public class SyncSettings
         
         initProviders();
         initUI();
-
-        broadcastBackgroundDataSettingChange(mSyncSettings.getBackgroundData());
     }
     
     private void checkForAccount() {
@@ -154,7 +152,7 @@ public class SyncSettings
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         menu.add(0, MENU_SYNC_NOW_ID, 0, getString(R.string.sync_menu_sync_now))
-                .setIcon(R.drawable.ic_menu_refresh);
+                .setIcon(android.R.drawable.ic_menu_refresh);
         menu.add(0, MENU_SYNC_CANCEL_ID, 0, getString(R.string.sync_menu_sync_cancel))
                 .setIcon(android.R.drawable.ic_menu_close_clear_cancel);
         return true;
@@ -257,11 +255,10 @@ public class SyncSettings
 
     }
 
-    private void broadcastBackgroundDataSettingChange(boolean setting) {
+    private void broadcastBackgroundDataSettingChange() {
         Intent intent = new Intent();
         intent.setAction(BACKGROUND_DATA_SETTING_CHANGED);
-        intent.putExtra(BACKGROUND_DATA_INTENT_EXTRA_NAME, setting);
-        sendStickyBroadcast(intent);
+        sendBroadcast(intent);
     }
 
     public boolean onPreferenceTreeClick(PreferenceScreen preferences, Preference preference) {
@@ -347,7 +344,7 @@ public class SyncSettings
 
     private void setBackgroundDataInt(boolean enabled) {
         mSyncSettings.setBackgroundData(enabled);
-        broadcastBackgroundDataSettingChange(enabled);
+        broadcastBackgroundDataSettingChange();
     }
     
     private void startSyncForEnabledProviders() {
