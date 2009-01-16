@@ -44,6 +44,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.provider.SubscribedFeeds;
 import android.util.Log;
+import android.text.TextUtils;
 
 /**
  * Implements a SyncAdapter for SubscribedFeeds
@@ -80,39 +81,32 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
      * Takes the entry, casts it to a SubscribedFeedsEntry and executes the
      * appropriate actions on the ContentProvider to represent the entry.
      */
-    @Override
-    protected void updateProvider(Feed feed,
-            long syncLocalId,
-            boolean forceDelete, Entry baseEntry,
-            ContentProvider provider,
-            Object syncInfo) throws ParseException {
-
-        final SubscribedFeedsEntry entry = (SubscribedFeedsEntry) baseEntry;
-        final String editUri = entry.getEditUri();
-
-        if (forceDelete) {
-            final String serverId =
-                    editUri.substring(editUri.lastIndexOf('/') + 1);
-            // Store the info about the subscribed feed
-            ContentValues values = new ContentValues();
-            values.put(SubscribedFeeds.Feeds._SYNC_ID, serverId);
-            provider.insert(SubscribedFeeds.Feeds.DELETED_CONTENT_URI, values);
-            return;
-        }
-
-        final String serverId = entry.getId().substring(entry.getId().lastIndexOf('/') + 1);
-        final String version = editUri.substring(editUri.lastIndexOf('/') + 1);
-
-        // Store the info about the person
+    protected void updateProvider(Feed feed, Long syncLocalId,
+            Entry baseEntry, ContentProvider provider, Object syncInfo)
+            throws ParseException {
         ContentValues values = new ContentValues();
-        values.put(SubscribedFeeds.Feeds.FEED, entry.getSubscribedFeed().getFeed());
         values.put(SubscribedFeeds.Feeds._SYNC_ACCOUNT, getAccount());
-        values.put(SubscribedFeeds.Feeds._SYNC_ID, serverId);
-        values.put(SubscribedFeeds.Feeds._SYNC_DIRTY, "0");
         values.put(SubscribedFeeds.Feeds._SYNC_LOCAL_ID, syncLocalId);
-        values.put(SubscribedFeeds.Feeds._SYNC_TIME, version);
-        values.put(SubscribedFeeds.Feeds._SYNC_VERSION, version);
-        provider.insert(SubscribedFeeds.Feeds.CONTENT_URI, values);
+        final SubscribedFeedsEntry entry = (SubscribedFeedsEntry) baseEntry;
+        final String id = entry.getId();
+        final String editUri = entry.getEditUri();
+        String version = null;
+        if (!TextUtils.isEmpty(id) && !TextUtils.isEmpty(editUri)) {
+            final String serverId = id.substring(id.lastIndexOf('/') + 1);
+            version = editUri.substring(editUri.lastIndexOf('/') + 1);
+            values.put(SubscribedFeeds.Feeds._SYNC_ID, serverId);
+            values.put(SubscribedFeeds.Feeds._SYNC_VERSION, version);
+        }
+        if (baseEntry.isDeleted()) {
+            provider.insert(SubscribedFeeds.Feeds.DELETED_CONTENT_URI, values);
+        } else {
+            values.put(SubscribedFeeds.Feeds.FEED, entry.getSubscribedFeed().getFeed());
+            if (!TextUtils.isEmpty(version)) {
+                values.put(SubscribedFeeds.Feeds._SYNC_TIME, version);
+            }
+            values.put(SubscribedFeeds.Feeds._SYNC_DIRTY, "0");
+            provider.insert(SubscribedFeeds.Feeds.CONTENT_URI, values);
+        }
     }
 
     @Override
