@@ -2,7 +2,6 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="sync_settings">"資料同步"</string>
-    <string name="sync_settings_summary">"選取要同步的應用程式"</string>
     <string name="sync_too_many_deletes">"已經超過刪除上限"</string>
     <!-- no translation found for background_data (3831063123648199584) -->
     <skip />
@@ -11,8 +10,6 @@
     <!-- no translation found for background_data_disabled (741132043571520046) -->
     <skip />
     <string name="sync_automatically">"自動同步"</string>
-    <string name="sync_enabled">"自動同步資料"</string>
-    <string name="sync_disabled">"選取自動同步資料"</string>
     <string name="sync_menu_sync_now">"立即同步"</string>
     <string name="sync_menu_sync_cancel">"取消同步"</string>
     <string name="sync_gmail">"Gmail"</string>

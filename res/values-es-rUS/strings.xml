@@ -2,7 +2,6 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="sync_settings">"Sincronización de datos"</string>
-    <string name="sync_settings_summary">"Seleccionar qué aplicaciones están sincronizadas"</string>
     <string name="sync_too_many_deletes">"Eliminar límite excedido"</string>
     <!-- no translation found for background_data (3831063123648199584) -->
     <skip />
@@ -11,8 +10,6 @@
     <!-- no translation found for background_data_disabled (741132043571520046) -->
     <skip />
     <string name="sync_automatically">"Sincronización automática"</string>
-    <string name="sync_enabled">"Sincronización automática de datos"</string>
-    <string name="sync_disabled">"Seleccione la sincronización automática de datos"</string>
     <string name="sync_menu_sync_now">"Sincronizar ahora"</string>
     <string name="sync_menu_sync_cancel">"Cancelar sincronización"</string>
     <string name="sync_gmail">"Gmail"</string>

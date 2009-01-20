@@ -152,7 +152,7 @@ public class SyncSettings
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         menu.add(0, MENU_SYNC_NOW_ID, 0, getString(R.string.sync_menu_sync_now))
-                .setIcon(android.R.drawable.ic_menu_refresh);
+                .setIcon(com.android.internal.R.drawable.ic_menu_refresh);
         menu.add(0, MENU_SYNC_CANCEL_ID, 0, getString(R.string.sync_menu_sync_cancel))
                 .setIcon(android.R.drawable.ic_menu_close_clear_cancel);
         return true;
