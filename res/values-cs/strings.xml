@@ -14,8 +14,6 @@
     <skip />
     <!-- no translation found for sync_automatically (5023399315924864518) -->
     <skip />
-    <string name="sync_enabled">"Synchronizace se serverem Google povolena"</string>
-    <string name="sync_disabled">"Vypnuto"</string>
     <string name="sync_menu_sync_now">"Synchronizovat"</string>
     <string name="sync_menu_sync_cancel">"Zrušit synchronizaci"</string>
     <string name="sync_gmail">"Gmail"</string>
