@@ -20,8 +20,7 @@
                  
         <uses-library android:name="com.google.android.gtalkservice" />
         
-        <activity android:name="com.android.settings.SyncSettings" android:label="@string/sync_settings"
-                android:theme="@android:style/Theme.NoTitleBar">
+        <activity android:name="com.android.settings.SyncSettings" android:label="@string/sync_settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.settings.SYNC_SETTINGS" />

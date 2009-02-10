@@ -22,9 +22,11 @@ import android.app.ActivityThread;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ProviderInfo;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.RemoteException;
@@ -232,7 +234,9 @@ public class SyncSettings
         // Set background connection state
         CheckBoxPreference backgroundData =
             (CheckBoxPreference) findPreference(BACKGROUND_DATA_CHECKBOX_KEY);
-        backgroundData.setChecked(mSyncSettings.getBackgroundData());
+        ConnectivityManager connManager =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        backgroundData.setChecked(connManager.getBackgroundDataSetting());
 
         // Set the Auto Sync toggle state
         CheckBoxPreference autoSync = (CheckBoxPreference) findPreference(SYNC_CHECKBOX_KEY);
@@ -255,17 +259,13 @@ public class SyncSettings
 
     }
 
-    private void broadcastBackgroundDataSettingChange() {
-        Intent intent = new Intent();
-        intent.setAction(BACKGROUND_DATA_SETTING_CHANGED);
-        sendBroadcast(intent);
-    }
-
     public boolean onPreferenceTreeClick(PreferenceScreen preferences, Preference preference) {
         CheckBoxPreference togglePreference = (CheckBoxPreference) preference;
         String key = preference.getKey();
         if (key.equals(BACKGROUND_DATA_CHECKBOX_KEY)) {
-            boolean oldBackgroundDataSetting = mSyncSettings.getBackgroundData();
+            ConnectivityManager connManager =
+                    (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            boolean oldBackgroundDataSetting = connManager.getBackgroundDataSetting();
             boolean backgroundDataSetting = togglePreference.isChecked();
             if (oldBackgroundDataSetting != backgroundDataSetting) {
                 if (backgroundDataSetting) {
@@ -343,8 +343,9 @@ public class SyncSettings
     }
 
     private void setBackgroundDataInt(boolean enabled) {
-        mSyncSettings.setBackgroundData(enabled);
-        broadcastBackgroundDataSettingChange();
+        ConnectivityManager connManager =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        connManager.setBackgroundDataSetting(enabled);
     }
     
     private void startSyncForEnabledProviders() {
