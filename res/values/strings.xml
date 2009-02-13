@@ -41,7 +41,7 @@
     <string name="sync_menu_sync_cancel">Cancel sync</string>
     <!-- Data synchronization settings screen, summary of a sync provider (for example, Gmail) when autosync is off and the user wants to do a one-time sync. -->
     <string name="sync_one_time_sync">Select to sync now<xliff:g id="last_sync_time">\n%1$s</xliff:g></string>
-    <!-- Data synchronization settings screen, checkbox setting option name. Controls whether Gmail should be synced. -->
+    <!-- Data synchronization settings screen, checkbox setting option name. Controls whether Gmail should be synced.  Should use "Gmail" to refer to this app.-->
     <string name="sync_gmail">Gmail</string>
     <!-- Data synchronization settings screen, checkbox setting option name. Controls whether Calendar shoudl be synced. -->
     <string name="sync_calendar">Calendar</string>
