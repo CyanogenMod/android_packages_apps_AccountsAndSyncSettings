@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="sync_settings">"Gegevenssynchronisatie"</string>
+    <string name="sync_too_many_deletes">"Verwijderingslimiet overschreden"</string>
+    <string name="background_data">"Achtergrondgegevens"</string>
+    <string name="background_data_summary">"Gebruik van achtergrondgegevens inschakelen"</string>
+    <string name="background_data_dialog_title">"Let op"</string>
+    <string name="background_data_dialog_message">"Als u achtergrondgegevens uitschakelt, bespaart u batterijlading en wordt het gegevensverbruik verlaagd. Sommige toepassingen maken mogelijk nog steeds gebruik van de achtergrondgegevensverbinding."</string>
+    <string name="sync_automatically">"Automatische synchronisatie"</string>
+    <string name="sync_automatically_summary">"Gegevens automatisch synchroniseren"</string>
+    <string name="sync_menu_sync_now">"Nu synchroniseren"</string>
+    <string name="sync_menu_sync_cancel">"Synchronisatie annuleren"</string>
+    <string name="sync_one_time_sync">"Selecteren om nu te synchroniseren<xliff:g id="LAST_SYNC_TIME">
+%1$s</xliff:g>"</string>
+    <string name="sync_gmail">"Gmail"</string>
+    <string name="sync_calendar">"Agenda"</string>
+    <string name="sync_contacts">"Contactpersonen"</string>
+    <string name="sync_too_many_deletes_desc">"Er zijn <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> verwijderde items voor <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, account <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Wat wilt u doen?"</string>
+    <string name="sync_really_delete">"De items verwijderen."</string>
+    <string name="sync_undo_deletes">"Verwijderingen ongedaan maken."</string>
+    <string name="sync_do_nothing">"Nu niets doen."</string>
+    <string name="sync_is_failing">"Er zijn momenteel problemen met de synchronisatie. Synchronisatie wordt snel opnieuw uitgevoerd."</string>
+    <string name="sync_plug"><font fgcolor="#ffffffff">"Welkom bij Google Sync!"</font>" "\n"Een benadering van Google voor de synchronisatie van gegevens, zodat u altijd en overal toegang heeft tot uw contactpersonen, afspraken en nog veel meer."</string>
+    <string name="header_application_sync_settings">"Synchronatie-instellingen van de toepassing"</string>
+    <string name="header_general_sync_settings">"Algemene instellingen voor synchronisatie"</string>
+</resources>

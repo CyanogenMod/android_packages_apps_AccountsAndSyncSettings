@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="sync_settings">"데이터 동기화"</string>
+    <string name="sync_too_many_deletes">"삭제 한도를 초과했습니다."</string>
+    <string name="background_data">"배경 데이터"</string>
+    <string name="background_data_summary">"배경 데이터 사용 설정"</string>
+    <string name="background_data_dialog_title">"주의"</string>
+    <string name="background_data_dialog_message">"배경 데이터를 사용하지 않도록 설정하면 배터리가 절약되고 데이터 사용률이 낮아집니다. 일부 응용프로그램은 여전히 배경 데이터 연결을 사용할 수 있습니다."</string>
+    <string name="sync_automatically">"자동 동기화"</string>
+    <string name="sync_automatically_summary">"자동으로 데이터 동기화"</string>
+    <string name="sync_menu_sync_now">"지금 동기화"</string>
+    <string name="sync_menu_sync_cancel">"동기화 취소"</string>
+    <string name="sync_one_time_sync">"지금 동기화하도록 선택(<xliff:g id="LAST_SYNC_TIME">
+%1$s</xliff:g>)"</string>
+    <string name="sync_gmail">"Gmail"</string>
+    <string name="sync_calendar">"캘린더"</string>
+    <string name="sync_contacts">"주소록"</string>
+    <string name="sync_too_many_deletes_desc">"<xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g> 계정에 대해 <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g>개의 삭제된 항목이 있습니다. 어떻게 하시겠습니까?"</string>
+    <string name="sync_really_delete">"항목 삭제"</string>
+    <string name="sync_undo_deletes">"삭제 실행취소"</string>
+    <string name="sync_do_nothing">"지금은 아무 작업도 안함"</string>
+    <string name="sync_is_failing">"동기화에 현재 문제가 발생했습니다. 곧 다시 동기화됩니다."</string>
+    <string name="sync_plug"><font fgcolor="#ffffffff">"Google 동기화를 시작합니다."</font>" "\n"사용자가 어디에서든지 주소록, 일정 등에 액세스할 수 있도록 데이터를 동기화하는 방법입니다."</string>
+    <string name="header_application_sync_settings">"응용프로그램 동기화 설정"</string>
+    <string name="header_general_sync_settings">"기본 동기화 설정"</string>
+</resources>

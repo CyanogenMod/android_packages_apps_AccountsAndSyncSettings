@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="sync_settings">"Synchronizace dat"</string>
+    <string name="sync_too_many_deletes">"Byl překročen limit mazání."</string>
+    <string name="background_data">"Data na pozadí"</string>
+    <string name="background_data_summary">"Povolit používání dat na pozadí"</string>
+    <string name="background_data_dialog_title">"Upozornění"</string>
+    <string name="background_data_dialog_message">"Zakázání dat na pozadí šetří baterii a snižuje objem použitých dat. Některé aplikace mohou přesto datové připojení na pozadí používat."</string>
+    <string name="sync_automatically">"Automatická synchronizace"</string>
+    <string name="sync_automatically_summary">"Data jsou synchronizována automaticky"</string>
+    <string name="sync_menu_sync_now">"Synchronizovat nyní"</string>
+    <string name="sync_menu_sync_cancel">"Zrušit synchronizaci"</string>
+    <string name="sync_one_time_sync">"Synchronizovat nyní<xliff:g id="LAST_SYNC_TIME">
+%1$s</xliff:g>"</string>
+    <string name="sync_gmail">"Gmail"</string>
+    <string name="sync_calendar">"Kalendář"</string>
+    <string name="sync_contacts">"Kontakty"</string>
+    <string name="sync_too_many_deletes_desc">"Počet smazaných položek: <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g>, typ synchronizace: <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, účet: <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Jakou akci chcete provést?"</string>
+    <string name="sync_really_delete">"Smazat položky."</string>
+    <string name="sync_undo_deletes">"Vrátit mazání zpět."</string>
+    <string name="sync_do_nothing">"Nyní neprovádět žádnou akci."</string>
+    <string name="sync_is_failing">"Nastaly potíže se synchronizací. Služba bude brzy obnovena."</string>
+    <string name="sync_plug"><font fgcolor="#ffffffff">"Vítá vás aplikace Google Sync"</font>" "\n"Nový pohled na synchronizaci dat v režii Google. Poskytuje vám přístup ke kontaktům, schůzkám a dalším náležitostem, ať jste kdekoli."</string>
+    <string name="header_application_sync_settings">"Nastavení synchronizace aplikace"</string>
+    <string name="header_general_sync_settings">"Obecná nastavení synchronizace"</string>
+</resources>
