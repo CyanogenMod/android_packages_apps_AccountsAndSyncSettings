@@ -12,14 +12,14 @@
     <uses-permission android:name="android.permission.READ_SYNC_STATS" />
     <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_READ" />
     <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_WRITE" />
-
+        
     <application android:process="system"
                  android:allowClearUserData="false"
                  android:icon="@drawable/app_icon"
                  android:label="Sync Feeds">
-
+                 
         <uses-library android:name="com.google.android.gtalkservice" />
-
+        
         <activity android:name="com.android.settings.SyncSettings" android:label="@string/sync_settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,14 +36,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
+        
         <provider android:name="GoogleSubscribedFeedsProvider"
                 android:authorities="subscribedfeeds" android:syncable="true"
                 android:multiprocess="false"
                 android:readPermission="android.permission.SUBSCRIBED_FEEDS_READ"
                 android:writePermission="android.permission.SUBSCRIBED_FEEDS_WRITE" />
-
-        <receiver android:name="SubscribedFeedsBroadcastReceiver">
+                
+        <receiver android:name="SubscribedFeedsService">
             <intent-filter>
                 <action android:name="android.intent.action.GTALK_DATA_MESSAGE_RECEIVED" />
                 <category android:name="GSYNC_TICKLE"/>
@@ -55,6 +55,6 @@
                 <action android:name="com.android.subscribedfeeds.action.REFRESH" />
             </intent-filter>
         </receiver>
-        <service android:name="SubscribedFeedsIntentService"/>
+        
     </application>
 </manifest>
