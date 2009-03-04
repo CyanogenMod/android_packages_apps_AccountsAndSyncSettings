@@ -1,0 +1,60 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.android.providers.subscribedfeeds"
+        android:sharedUserId="android.uid.system">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.google.android.googleapps.permission.GOOGLE_AUTH" />
+    <uses-permission android:name="com.google.android.googleapps.permission.GOOGLE_AUTH.cp" />
+    <uses-permission android:name="com.google.android.googleapps.permission.GOOGLE_AUTH.cl" />
+    <uses-permission android:name="com.google.android.googleapps.permission.GOOGLE_AUTH.mail" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SYNC_STATS" />
+    <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_READ" />
+    <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_WRITE" />
+
+    <application android:process="system"
+                 android:allowClearUserData="false"
+                 android:icon="@drawable/app_icon"
+                 android:label="Sync Feeds">
+
+        <uses-library android:name="com.google.android.gtalkservice" />
+
+        <activity android:name="com.android.settings.SyncSettings" android:label="@string/sync_settings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.settings.SYNC_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.android.settings.SyncActivityTooManyDeletes"
+                  android:theme="@android:style/Theme.Dialog"
+                  android:label="@string/sync_too_many_deletes">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <provider android:name="GoogleSubscribedFeedsProvider"
+                android:authorities="subscribedfeeds" android:syncable="true"
+                android:multiprocess="false"
+                android:readPermission="android.permission.SUBSCRIBED_FEEDS_READ"
+                android:writePermission="android.permission.SUBSCRIBED_FEEDS_WRITE" />
+
+        <receiver android:name="SubscribedFeedsBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.GTALK_DATA_MESSAGE_RECEIVED" />
+                <category android:name="GSYNC_TICKLE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.android.subscribedfeeds.action.REFRESH" />
+            </intent-filter>
+        </receiver>
+        <service android:name="SubscribedFeedsIntentService"/>
+    </application>
+</manifest>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="sync_settings">"Sincronizzazione dati"</string>
+    <string name="sync_too_many_deletes">"Limite di eliminazioni superato"</string>
+    <string name="background_data">"Dati in background"</string>
+    <string name="background_data_summary">"Attiva utilizzo dei dati in background"</string>
+    <string name="background_data_dialog_title">"Attenzione"</string>
+    <string name="background_data_dialog_message">"La disattivazione dei dati in background consente di ridurre il consumo delle batterie e l\'utilizzo dei dati. Alcune applicazioni potrebbero utilizzare comunque la connessione dati in background."</string>
+    <string name="sync_automatically">"Sincronizzazione automatica"</string>
+    <string name="sync_automatically_summary">"Sincronizza i dati automaticamente"</string>
+    <string name="sync_menu_sync_now">"Sincronizza ora"</string>
+    <string name="sync_menu_sync_cancel">"Annulla sincronizzazione"</string>
+    <string name="sync_one_time_sync">"Seleziona per sincronizzare ora<xliff:g id="LAST_SYNC_TIME">
+%1$s</xliff:g>"</string>
+    <string name="sync_gmail">"Gmail"</string>
+    <string name="sync_calendar">"Calendario"</string>
+    <string name="sync_contacts">"Contatti"</string>
+    <string name="sync_too_many_deletes_desc">"Esistono <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> elementi eliminati per <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, account <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Specifica l\'operazione da eseguire."</string>
+    <string name="sync_really_delete">"Elimina gli elementi."</string>
+    <string name="sync_undo_deletes">"Annulla le eliminazioni."</string>
+    <string name="sync_do_nothing">"Non fare nulla per ora."</string>
+    <string name="sync_is_failing">"La sincronizzazione presenta dei problemi. L\'operazione verrà ripristinata a breve."</string>
+    <string name="sync_plug"><font fgcolor="#ffffffff">"Benvenuto in Google Sync."</font>" "\n"L\'approccio di Google alla sincronizzazione di dati per consentirti l\'accesso ai tuoi contatti, appuntamenti e altro ancora, dovunque tu sia."</string>
+    <string name="header_application_sync_settings">"Impostazioni sincronizzazione applicazioni"</string>
+    <string name="header_general_sync_settings">"Impostazioni generali di sincronizzazione"</string>
+</resources>

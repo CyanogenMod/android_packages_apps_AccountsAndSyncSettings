@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="sync_settings">"資料同步"</string>
+    <string name="sync_too_many_deletes">"達到刪除上限"</string>
+    <string name="background_data">"背景資料"</string>
+    <string name="background_data_summary">"啟用背景資料"</string>
+    <string name="background_data_dialog_title">"注意"</string>
+    <string name="background_data_dialog_message">"停用背景資料可節省電力並減少使用資料。但某些應用程式可能仍會使用背景資料連線。"</string>
+    <string name="sync_automatically">"自動同步"</string>
+    <string name="sync_automatically_summary">"自動同步資料"</string>
+    <string name="sync_menu_sync_now">"立即同步"</string>
+    <string name="sync_menu_sync_cancel">"取消同步"</string>
+    <string name="sync_one_time_sync">"選取此處立即開始同步<xliff:g id="LAST_SYNC_TIME">
+%1$s</xliff:g>"</string>
+    <string name="sync_gmail">"Gmail"</string>
+    <string name="sync_calendar">"日曆"</string>
+    <string name="sync_contacts">"通訊錄"</string>
+    <string name="sync_too_many_deletes_desc">"<xliff:g id="ACCOUNT_NAME">%3$s</xliff:g> 帳戶的 <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g> 同步有 <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> 個刪除的項目。您想要怎麼做？"</string>
+    <string name="sync_really_delete">"刪除這些項目。"</string>
+    <string name="sync_undo_deletes">"復原刪除。"</string>
+    <string name="sync_do_nothing">"暫時不要執行任何動作"</string>
+    <string name="sync_is_failing">"同步目前發生問題。將於短時間內恢復。"</string>
+    <string name="sync_plug"><font fgcolor="#ffffffff">"歡迎使用 Google Sync！"</font>\n"這是 Google 提供用來同步資料的方法，可以讓您隨時隨地存取通訊錄、約會等資料。"</string>
+    <string name="header_application_sync_settings">"應用程式同步設定"</string>
+    <string name="header_general_sync_settings">"一般同步設定"</string>
+</resources>

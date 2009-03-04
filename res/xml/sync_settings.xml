@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+            android:title="@string/header_general_sync_settings" />
+
+    <CheckBoxPreference android:key="backgroundDataCheckBox"
+        android:persistent="false"
+        android:title="@string/background_data"
+        android:summary="@string/background_data_summary"/>
+    <CheckBoxPreference android:key="autoSyncCheckBox"
+        android:persistent="false"
+        android:title="@string/sync_automatically"
+        android:summary="@string/sync_automatically_summary"
+        android:dependency="backgroundDataCheckBox"/>
+
+    <PreferenceCategory
+            android:title="@string/header_application_sync_settings" />
+
+    <!-- The following keys are special. They correspond to
+         content providers sans the "sync_" prefix. This is
+         because very specific content providers are being
+         enabled for sync in this release.
+        -->
+    <com.android.settings.SyncStateCheckBoxPreference android:key="sync_gmail-ls"
+        android:persistent="false"
+        android:title="@string/sync_gmail"
+        android:summary=""
+        android:dependency="backgroundDataCheckBox"/>
+    <com.android.settings.SyncStateCheckBoxPreference android:key="sync_calendar"
+        android:persistent="false"
+        android:title="@string/sync_calendar"
+        android:summary=""
+        android:dependency="backgroundDataCheckBox"/>
+    <com.android.settings.SyncStateCheckBoxPreference android:key="sync_contacts"
+        android:persistent="false"
+        android:title="@string/sync_contacts"
+        android:summary=""
+        android:dependency="backgroundDataCheckBox"/>
+</PreferenceScreen>
