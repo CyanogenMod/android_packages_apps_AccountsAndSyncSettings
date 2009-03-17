@@ -60,7 +60,7 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
         super(context, provider);
         mSubscribedFeedsClient =
             new SubscribedFeedsClient(
-                    new AndroidGDataClient(context.getContentResolver()),
+                    new AndroidGDataClient(context),
                     new XmlSubscribedFeedsGDataParserFactory(
                             new AndroidXmlParserFactory()));
     }

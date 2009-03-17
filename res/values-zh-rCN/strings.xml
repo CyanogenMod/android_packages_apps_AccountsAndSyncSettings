@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="sync_settings">"数据同步"</string>
+    <string name="sync_too_many_deletes">"超出删除限制"</string>
+    <string name="background_data">"背景数据"</string>
+    <string name="background_data_summary">"启用背景数据使用"</string>
+    <string name="background_data_dialog_title">"注意事项"</string>
+    <string name="background_data_dialog_message">"禁用背景数据可节省电池并可降低数据使用率。有些应用程序可能仍会使用背景数据连接。"</string>
+    <string name="sync_automatically">"自动同步"</string>
+    <string name="sync_automatically_summary">"自动同步数据"</string>
+    <string name="sync_menu_sync_now">"立即同步"</string>
+    <string name="sync_menu_sync_cancel">"取消同步"</string>
+    <string name="sync_one_time_sync">"选择立即同步<xliff:g id="LAST_SYNC_TIME">
+%1$s</xliff:g>"</string>
+    <string name="sync_gmail">"Gmail"</string>
+    <string name="sync_calendar">"日历"</string>
+    <string name="sync_contacts">"联系人"</string>
+    <string name="sync_too_many_deletes_desc">"帐户<xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>有 <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> 个关于<xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>的删除项。您要如何操作？"</string>
+    <string name="sync_really_delete">"删除这些项。"</string>
+    <string name="sync_undo_deletes">"撤消删除。"</string>
+    <string name="sync_do_nothing">"目前不进行任何操作。"</string>
+    <string name="sync_is_failing">"同步现在遇到问题。很快将返回此操作。"</string>
+    <string name="sync_plug"><font fgcolor="#ffffffff">"欢迎使用 Google Sync！"</font>\n"Google 同步数据的方法可以让您从任何地方访问您的联系人、约会以及更多信息。"</string>
+    <string name="header_application_sync_settings">"应用程序同步设置"</string>
+    <string name="header_general_sync_settings">"常规同步设置"</string>
+</resources>

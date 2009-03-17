@@ -20,11 +20,14 @@ import com.android.providers.subscribedfeeds.R;
 
 import android.app.ActivityThread;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ProviderInfo;
+import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.RemoteException;
@@ -86,6 +89,8 @@ public class SyncSettings
     private Sync.Active.QueryMap mActiveSyncQueryMap = null;
     private Sync.Status.QueryMap mStatusSyncQueryMap = null;
 
+    private static final int DIALOG_DISABLE_BACKGROUND_DATA = 1;
+    
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -232,7 +237,9 @@ public class SyncSettings
         // Set background connection state
         CheckBoxPreference backgroundData =
             (CheckBoxPreference) findPreference(BACKGROUND_DATA_CHECKBOX_KEY);
-        backgroundData.setChecked(mSyncSettings.getBackgroundData());
+        ConnectivityManager connManager =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        backgroundData.setChecked(connManager.getBackgroundDataSetting());
 
         // Set the Auto Sync toggle state
         CheckBoxPreference autoSync = (CheckBoxPreference) findPreference(SYNC_CHECKBOX_KEY);
@@ -255,17 +262,14 @@ public class SyncSettings
 
     }
 
-    private void broadcastBackgroundDataSettingChange() {
-        Intent intent = new Intent();
-        intent.setAction(BACKGROUND_DATA_SETTING_CHANGED);
-        sendBroadcast(intent);
-    }
-
+    @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferences, Preference preference) {
         CheckBoxPreference togglePreference = (CheckBoxPreference) preference;
         String key = preference.getKey();
         if (key.equals(BACKGROUND_DATA_CHECKBOX_KEY)) {
-            boolean oldBackgroundDataSetting = mSyncSettings.getBackgroundData();
+            ConnectivityManager connManager =
+                    (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            boolean oldBackgroundDataSetting = connManager.getBackgroundDataSetting();
             boolean backgroundDataSetting = togglePreference.isChecked();
             if (oldBackgroundDataSetting != backgroundDataSetting) {
                 if (backgroundDataSetting) {
@@ -328,23 +332,37 @@ public class SyncSettings
             backgroundDataPreference) {
         // This will get unchecked only if the user hits "Ok"
         backgroundDataPreference.setChecked(true);
+        showDialog(DIALOG_DISABLE_BACKGROUND_DATA);        
+    }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+            case DIALOG_DISABLE_BACKGROUND_DATA:
+                final CheckBoxPreference pref =
+                    (CheckBoxPreference) findPreference(BACKGROUND_DATA_CHECKBOX_KEY); 
+                return new AlertDialog.Builder(this)
+                        .setTitle(R.string.background_data_dialog_title)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setMessage(R.string.background_data_dialog_message)
+                        .setPositiveButton(android.R.string.ok,
+                                    new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    setBackgroundDataInt(false);
+                                    pref.setChecked(false);
+                                }
+                            })
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .create();
+        }
         
-        new AlertDialog.Builder(this)
-            .setTitle(R.string.background_data_dialog_title)
-            .setIcon(android.R.drawable.ic_dialog_alert)
-            .setMessage(R.string.background_data_dialog_message)
-            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    setBackgroundDataInt(false);
-                    backgroundDataPreference.setChecked(false);
-                }})
-            .setNegativeButton(android.R.string.cancel, null)
-            .show();        
+        return null;
     }
 
     private void setBackgroundDataInt(boolean enabled) {
-        mSyncSettings.setBackgroundData(enabled);
-        broadcastBackgroundDataSettingChange();
+        ConnectivityManager connManager =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        connManager.setBackgroundDataSetting(enabled);
     }
     
     private void startSyncForEnabledProviders() {

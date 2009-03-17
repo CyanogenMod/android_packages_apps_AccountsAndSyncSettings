@@ -5,7 +5,8 @@ LOCAL_MODULE_TAGS := user
 
 base_packages := ../../../frameworks/base/packages
 source_files := $(base_packages)/SubscribedFeedsProvider/src/com/android/providers/subscribedfeeds/SubscribedFeedsProvider.java
-source_files += $(base_packages)/SubscribedFeedsProvider/src/com/android/providers/subscribedfeeds/SubscribedFeedsService.java
+source_files += $(base_packages)/SubscribedFeedsProvider/src/com/android/providers/subscribedfeeds/SubscribedFeedsIntentService.java
+source_files += $(base_packages)/SubscribedFeedsProvider/src/com/android/providers/subscribedfeeds/SubscribedFeedsBroadcastReceiver.java
 
 LOCAL_SRC_FILES := $(call all-subdir-java-files) $(source_files)
 
