@@ -15,14 +15,14 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="sync_settings">"データの同期化"</string>
+    <string name="sync_settings">"データの同期"</string>
     <string name="sync_too_many_deletes">"削除の制限を超えました"</string>
     <string name="background_data">"バックグラウンドデータ"</string>
     <string name="background_data_summary">"バックグラウンドデータの使用を有効にする"</string>
     <string name="background_data_dialog_title">"注意"</string>
     <string name="background_data_dialog_message">"バックグラウンドデータを無効にすると、データの使用が減るため電池を節約できます。一部のアプリケーションでは引き続きバックグラウンドデータの接続を使用します。"</string>
     <string name="sync_automatically">"自動同期"</string>
-    <string name="sync_automatically_summary">"自動的にデータを同期"</string>
+    <string name="sync_automatically_summary">"自動的にデータを同期する"</string>
     <string name="sync_menu_sync_now">"今すぐ同期"</string>
     <string name="sync_menu_sync_cancel">"同期をキャンセル"</string>
     <string name="sync_one_time_sync">"今すぐ同期を選択<xliff:g id="LAST_SYNC_TIME">
@@ -37,5 +37,5 @@
     <string name="sync_is_failing">"現在同期で問題が発生しています。しばらくお待ちください。"</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">"Google Syncへようこそ"</font>" "\n"このサービスを使用すると、データを同期してどこからでも連絡先や予定などにアクセスできます。"</string>
     <string name="header_application_sync_settings">"アプリケーションの同期設定"</string>
-    <string name="header_general_sync_settings">"同期の全般設定"</string>
+    <string name="header_general_sync_settings">"同期の基本設定"</string>
 </resources>
