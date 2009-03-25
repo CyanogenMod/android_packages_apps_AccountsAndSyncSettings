@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="sync_settings">"Datasynkronisering"</string>
+    <string name="sync_too_many_deletes">"Grensen for sletting nådd"</string>
+    <string name="background_data">"Bakgrunnsdata"</string>
+    <string name="background_data_summary">"Slå på bruk av bakgrunnsdata"</string>
+    <string name="background_data_dialog_title">"NB"</string>
+    <string name="background_data_dialog_message">"Det å slå av bakgrunnsdata sparer batteri og reduserer datatrafikken. Noen applikasjoner kan fortsatt bruke tilkoblingen for bakgrunnsdata."</string>
+    <string name="sync_automatically">"Autosynk"</string>
+    <string name="sync_automatically_summary">"Synkroniser data automatisk"</string>
+    <string name="sync_menu_sync_now">"Synkroniser nå"</string>
+    <string name="sync_menu_sync_cancel">"Avbryt synkronisering"</string>
+    <string name="sync_one_time_sync">"Velg for å synkronisere nå<xliff:g id="LAST_SYNC_TIME">
+%1$s</xliff:g>"</string>
+    <string name="sync_gmail">"Gmail"</string>
+    <string name="sync_calendar">"Kalender"</string>
+    <string name="sync_contacts">"Kontakter"</string>
+    <string name="sync_too_many_deletes_desc">"Det er <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> slettede innslag for <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g> under kontoen <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Hva ønsker du å gjøre?"</string>
+    <string name="sync_really_delete">"Slett innslagene."</string>
+    <string name="sync_undo_deletes">"Angre slettingen."</string>
+    <string name="sync_do_nothing">"Ikke gjør noe nå."</string>
+    <string name="sync_is_failing">"Det er midlertidige problemer med synkroniseringen. Vent litt."</string>
+    <string name="sync_plug"><font fgcolor="#ffffffff">"Velkommen til Google-synkronisering!"</font>" "\n"En Google-løsning for å synkronisere data så du får tilgang til kontakter, avtaler og mer uansett hvor du er."</string>
+    <string name="header_application_sync_settings">"Synkronisering av applikasjoner"</string>
+    <string name="header_general_sync_settings">"Generelle synkroniseringsinnstillinger"</string>
+</resources>
