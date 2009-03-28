@@ -30,7 +30,7 @@
     <string name="sync_gmail">"Gmail"</string>
     <string name="sync_calendar">"カレンダー"</string>
     <string name="sync_contacts">"連絡先"</string>
-    <string name="sync_too_many_deletes_desc">"アカウント「<xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>」で<xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>の<xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g>個の項目が削除されています。処理を選択してください。"</string>
+    <string name="sync_too_many_deletes_desc">"<xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>アカウントの<xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>で<xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g>件の削除があります。操作を選択してください。"</string>
     <string name="sync_really_delete">"項目を削除します。"</string>
     <string name="sync_undo_deletes">"削除を元に戻します。"</string>
     <string name="sync_do_nothing">"今は何もしません。"</string>
