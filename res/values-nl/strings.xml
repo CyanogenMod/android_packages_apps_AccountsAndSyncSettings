@@ -29,13 +29,13 @@
 %1$s</xliff:g>"</string>
     <string name="sync_gmail">"Gmail"</string>
     <string name="sync_calendar">"Agenda"</string>
-    <string name="sync_contacts">"Contactpersonen"</string>
+    <string name="sync_contacts">"Contacten"</string>
     <string name="sync_too_many_deletes_desc">"Er zijn <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> verwijderde items voor <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, account <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Wat wilt u doen?"</string>
     <string name="sync_really_delete">"De items verwijderen."</string>
     <string name="sync_undo_deletes">"Verwijderingen ongedaan maken."</string>
     <string name="sync_do_nothing">"Nu niets doen."</string>
     <string name="sync_is_failing">"Er zijn momenteel problemen met de synchronisatie. Synchronisatie wordt snel opnieuw uitgevoerd."</string>
-    <string name="sync_plug"><font fgcolor="#ffffffff">"Welkom bij Google Sync!"</font>" "\n"Een benadering van Google voor de synchronisatie van gegevens, zodat u altijd en overal toegang heeft tot uw contactpersonen, afspraken en nog veel meer."</string>
+    <string name="sync_plug"><font fgcolor="#ffffffff">"Welkom bij Google Sync!"</font>" "\n"Een benadering van Google voor de synchronisatie van gegevens, zodat u altijd en overal toegang heeft tot uw contacten, afspraken en nog veel meer."</string>
     <string name="header_application_sync_settings">"Synchronatie-instellingen van de toepassing"</string>
     <string name="header_general_sync_settings">"Algemene instellingen voor synchronisatie"</string>
 </resources>
