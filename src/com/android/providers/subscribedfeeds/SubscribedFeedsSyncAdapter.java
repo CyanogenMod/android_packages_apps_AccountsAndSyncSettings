@@ -31,6 +31,10 @@ import com.google.wireless.gdata.subscribedfeeds.data.FeedUrl;
 import com.google.wireless.gdata.subscribedfeeds.data.SubscribedFeedsEntry;
 import com.google.wireless.gdata.subscribedfeeds.parser.xml.XmlSubscribedFeedsGDataParserFactory;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.accounts.AuthenticatorException;
+import android.accounts.OperationCanceledException;
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.Context;
@@ -45,6 +49,8 @@ import android.provider.Settings;
 import android.provider.SubscribedFeeds;
 import android.util.Log;
 import android.text.TextUtils;
+
+import java.io.IOException;
 
 /**
  * Implements a SyncAdapter for SubscribedFeeds
@@ -169,14 +175,19 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
 
         String authToken;
         try {
-            authToken =
-                    GoogleLoginServiceBlockingHelper.getAuthToken(getContext(), account, service);
-        } catch (GoogleLoginServiceBlockingHelper.AuthenticationException e) {
+            authToken = AccountManager.get(getContext()).blockingGetAuthToken(
+                    new Account(account, "com.google.GAIA"), service, true);
+        } catch (IOException e) {
             Log.e("Sync", "caught exception while attempting to get an " +
                     "authtoken for account " + account +
                     ", service " + service + ": " + e.toString());
             throw new ParseException(e.getMessage(), e);
-        } catch (GoogleLoginServiceNotFoundException e) {
+        } catch (AuthenticatorException e) {
+            Log.e("Sync", "caught exception while attempting to get an " +
+                    "authtoken for account " + account +
+                    ", service " + service + ": " + e.toString());
+            throw new ParseException(e.getMessage(), e);
+        } catch (OperationCanceledException e) {
             Log.e("Sync", "caught exception while attempting to get an " +
                     "authtoken for account " + account +
                     ", service " + service + ": " + e.toString());
