@@ -21,7 +21,7 @@
     <string name="background_data_summary">"Verwendung von Hintergrunddaten aktivieren"</string>
     <string name="background_data_dialog_title">"Achtung"</string>
     <string name="background_data_dialog_message">"Durch die Deaktivierung von Hintergrunddaten kann Strom gespart und die Verwendung von Daten verringert werden. Einige Anwendungen nutzen die Hintergrunddatenverbindung möglicherweise weiterhin."</string>
-    <string name="sync_automatically">"Autom. Synchronisierung"</string>
+    <string name="sync_automatically">"Autom. synchronisieren"</string>
     <string name="sync_automatically_summary">"Daten automatisch synchronisieren"</string>
     <string name="sync_menu_sync_now">"Jetzt synchronisieren"</string>
     <string name="sync_menu_sync_cancel">"Synchronisierung abbrechen"</string>
