@@ -17,7 +17,13 @@
 package com.android.settings;
 
 import com.android.providers.subscribedfeeds.R;
+import com.google.android.googlelogin.GoogleLoginServiceConstants;
 
+import android.accounts.AccountManager;
+import android.accounts.AuthenticatorException;
+import android.accounts.Future2;
+import android.accounts.Future2Callback;
+import android.accounts.OperationCanceledException;
 import android.app.ActivityThread;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -51,9 +57,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
-
-import com.google.android.googlelogin.GoogleLoginServiceConstants;
-import com.google.android.googlelogin.GoogleLoginServiceHelper;
+import java.io.IOException;
 
 public class SyncSettings
         extends PreferenceActivity
@@ -84,7 +88,6 @@ public class SyncSettings
 
     private static final int MENU_SYNC_NOW_ID = Menu.FIRST;
     private static final int MENU_SYNC_CANCEL_ID = Menu.FIRST + 1;
-    private static final int GET_ACCOUNT_REQUEST = 14376;
 
     private Sync.Active.QueryMap mActiveSyncQueryMap = null;
     private Sync.Status.QueryMap mStatusSyncQueryMap = null;
@@ -132,25 +135,30 @@ public class SyncSettings
         // to login or create a new one. The result is returned through onActivityResult().
         Bundle bundle = new Bundle();
         bundle.putCharSequence("optional_message", getText(R.string.sync_plug));
-        GoogleLoginServiceHelper.getCredentials(
-                this, 
-                GET_ACCOUNT_REQUEST, 
-                bundle,
-                GoogleLoginServiceConstants.PREFER_HOSTED, 
-                Gmail.GMAIL_AUTH_SERVICE, 
-                true);
-    }
-    
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == GET_ACCOUNT_REQUEST) {
-            if (resultCode != RESULT_OK) {
-                // The user canceled and there are no accounts. Just return to the previous
-                // settings page...
-                finish();
+        AccountManager.get(this).getAuthTokenByFeatures(
+                    GoogleLoginServiceConstants.ACCOUNT_TYPE, Gmail.GMAIL_AUTH_SERVICE,
+                    new String[]{GoogleLoginServiceConstants.FEATURE_GOOGLE_OR_DASHER}, this,
+                    bundle, null /* loginOptions */, new Future2Callback() {
+            public void run(Future2 future) {
+                try {
+                    // do this to check if this request succeeded or not
+                    future.getResult();
+                    // nothing to do here
+                } catch (OperationCanceledException e) {
+                    // The user canceled and there are no accounts. Just return to the previous
+                    // settings page...
+                    finish();
+                } catch (IOException e) {
+                    // The request failed and there are no accounts. Just return to the previous
+                    // settings page...
+                    finish();
+                } catch (AuthenticatorException e) {
+                    // The request failed and there are no accounts. Just return to the previous
+                    // settings page...
+                    finish();
+                }
             }
-        } 
+        }, null /* handler */);
     }
 
     @Override
