@@ -21,11 +21,11 @@
     <string name="background_data_summary">"Włącz używanie danych w tle"</string>
     <string name="background_data_dialog_title">"Uwaga"</string>
     <string name="background_data_dialog_message">"Wyłączenie danych w tle umożliwia oszczędzanie baterii i zmniejsza wykorzystanie danych. Mimo to niektóre aplikacje mogą nadal korzystać z połączenia transmisji danych w tle."</string>
-    <string name="sync_automatically">"Automatyczna synchronizacja"</string>
+    <string name="sync_automatically">"Autosynchronizacja"</string>
     <string name="sync_automatically_summary">"Automatycznie synchronizuj dane"</string>
     <string name="sync_menu_sync_now">"Synchronizuj teraz"</string>
     <string name="sync_menu_sync_cancel">"Anuluj synchronizację"</string>
-    <string name="sync_one_time_sync">"Wybierz elementy do zsynchronizowania teraz<xliff:g id="LAST_SYNC_TIME">
+    <string name="sync_one_time_sync">"Wybierz, aby zsynchronizować teraz<xliff:g id="LAST_SYNC_TIME">
 %1$s</xliff:g>"</string>
     <string name="sync_gmail">"Gmail"</string>
     <string name="sync_calendar">"Kalendarz"</string>
