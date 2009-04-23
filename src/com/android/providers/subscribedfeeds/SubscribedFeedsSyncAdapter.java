@@ -91,7 +91,9 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
             Entry baseEntry, ContentProvider provider, Object syncInfo)
             throws ParseException {
         ContentValues values = new ContentValues();
-        values.put(SubscribedFeeds.Feeds._SYNC_ACCOUNT, getAccount());
+        final Account account = getAccount();
+        values.put(SubscribedFeeds.Feeds._SYNC_ACCOUNT, account.mName);
+        values.put(SubscribedFeeds.Feeds._SYNC_ACCOUNT_TYPE, account.mType);
         values.put(SubscribedFeeds.Feeds._SYNC_LOCAL_ID, syncLocalId);
         final SubscribedFeedsEntry entry = (SubscribedFeedsEntry) baseEntry;
         final String id = entry.getId();
@@ -116,7 +118,7 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
     }
 
     @Override
-    protected String getFeedUrl(String account) {
+    protected String getFeedUrl(Account account) {
         return FEED_URL;
     }
 
@@ -145,7 +147,7 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
         super.getServerDiffs(context, syncData, tempProvider, extras, syncInfo, syncResult);
     }
 
-    public void onAccountsChanged(String[] accounts) {
+    public void onAccountsChanged(Account[] accounts) {
         // no need to do anything
     }
 
@@ -168,7 +170,11 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
     @Override
     protected String cursorToEntry(SyncContext context,
             Cursor c, Entry baseEntry, Object syncInfo) throws ParseException {
-        final String account = c.getString(c.getColumnIndex(SubscribedFeeds.Feeds._SYNC_ACCOUNT));
+        final String accountName =
+                c.getString(c.getColumnIndex(SubscribedFeeds.Feeds._SYNC_ACCOUNT));
+        final String accountType =
+                c.getString(c.getColumnIndex(SubscribedFeeds.Feeds._SYNC_ACCOUNT_TYPE));
+        final Account account = new Account(accountName, accountType);
         final String service = c.getString(c.getColumnIndex(SubscribedFeeds.Feeds.SERVICE));
         final String id = c.getString(c.getColumnIndex(SubscribedFeeds.Feeds._SYNC_ID));
         final String feed = c.getString(c.getColumnIndex(SubscribedFeeds.Feeds.FEED));
@@ -176,7 +182,7 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
         String authToken;
         try {
             authToken = AccountManager.get(getContext()).blockingGetAuthToken(
-                    new Account(account, "com.google.GAIA"), service, true);
+                    new Account(accountName, "com.google.GAIA"), service, true);
         } catch (IOException e) {
             Log.e("Sync", "caught exception while attempting to get an " +
                     "authtoken for account " + account +
@@ -206,7 +212,7 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
 
         String createUrl = null;
         if (id == null) {
-            createUrl = getFeedUrl(account);    
+            createUrl = getFeedUrl(account);
         }
         return createUrl;
     }
@@ -227,7 +233,7 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
      * @param account the account whose routing info we want
      * @return the GSyncSubscriptionServer routing string for this account
      */
-    public String getRoutingInfoForAccount(String account) {
+    public String getRoutingInfoForAccount(Account account) {
         long androidId;
         try {
             androidId = GoogleLoginServiceBlockingHelper.getAndroidId(getContext());
@@ -235,7 +241,7 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
             Log.e(TAG, "Could not get routing info for account", e);
             return null;
         }
-        return Uri.parse("gtalk://" + account
+        return Uri.parse("gtalk://" + account.mName
                 + "#" + Settings.getGTalkDeviceId(androidId)).toString();
     }
 

@@ -30,6 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.accounts.Account;
 
 /**
  * Presents multiple options for handling the case where a sync was aborted because there
@@ -40,7 +41,7 @@ public class SyncActivityTooManyDeletes extends Activity
         implements AdapterView.OnItemClickListener {
 
     private long mNumDeletes;
-    private String mAccount;
+    private String mAccountName;
     private String mProvider;
 
     @Override
@@ -54,7 +55,7 @@ public class SyncActivityTooManyDeletes extends Activity
         }
 
         mNumDeletes = extras.getLong("numDeletes");
-        mAccount = extras.getString("account");
+        mAccountName = extras.getString("account");
         mProvider = extras.getString("provider");
 
         // the order of these must match up with the constants for position used in onItemClick
@@ -78,7 +79,7 @@ public class SyncActivityTooManyDeletes extends Activity
         CharSequence tooManyDeletesDescFormat =
                 getResources().getText(R.string.sync_too_many_deletes_desc);
         textView.setText(String.format(tooManyDeletesDescFormat.toString(),
-                mNumDeletes, mProvider, mAccount));
+                mNumDeletes, mProvider, mAccountName));
 
         final LinearLayout ll = new LinearLayout(this);
         ll.setOrientation(LinearLayout.VERTICAL);
@@ -99,7 +100,8 @@ public class SyncActivityTooManyDeletes extends Activity
     private void startSyncReallyDelete() {
         Uri uri = Uri.parse("content://" + mProvider);
         Bundle extras = new Bundle();
-        extras.putString(ContentResolver.SYNC_EXTRAS_ACCOUNT, mAccount);
+        extras.putParcelable(ContentResolver.SYNC_EXTRAS_ACCOUNT,
+                new Account(mAccountName, "com.google.GAIA"));
         extras.putBoolean(ContentResolver.SYNC_EXTRAS_OVERRIDE_TOO_MANY_DELETIONS, true);
         extras.putBoolean(ContentResolver.SYNC_EXTRAS_FORCE, true);
         extras.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
@@ -110,7 +112,8 @@ public class SyncActivityTooManyDeletes extends Activity
     private void startSyncUndoDeletes() {
         Uri uri = Uri.parse("content://" + mProvider);
         Bundle extras = new Bundle();
-        extras.putString(ContentResolver.SYNC_EXTRAS_ACCOUNT, mAccount);
+        extras.putParcelable(ContentResolver.SYNC_EXTRAS_ACCOUNT,
+                new Account(mAccountName, "com.google.GAIA"));
         extras.putBoolean(ContentResolver.SYNC_EXTRAS_DISCARD_LOCAL_DELETIONS, true);
         extras.putBoolean(ContentResolver.SYNC_EXTRAS_FORCE, true);
         extras.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
