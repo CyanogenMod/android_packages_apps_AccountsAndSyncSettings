@@ -64,7 +64,6 @@ public class SyncSettings
         implements Observer {
 
     List<String>       mProviderNames;
-    List<ProviderInfo> mProviderInfos;
 
     CheckBoxPreference mAutoSyncCheckBox;
     TextView mErrorInfoView;
@@ -195,13 +194,7 @@ public class SyncSettings
 
     private void initProviders() {
         mProviderNames = new ArrayList<String>();
-        mProviderInfos = new ArrayList<ProviderInfo>();
 
-        try {
-            ActivityThread.getPackageManager().querySyncProviders(mProviderNames,
-                    mProviderInfos);
-        } catch (RemoteException e) {
-        }
         /*
         for (int i = 0; i < mProviderNames.size(); i++) {
             Log.i("SyncProviders", mProviderNames.get(i));
