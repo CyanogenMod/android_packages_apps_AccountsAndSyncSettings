@@ -20,6 +20,14 @@
 
         <uses-library android:name="com.google.android.gtalkservice" />
 
+        <service android:name="SubscribedFeedsSyncAdapterService" android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter"
+                       android:resource="@xml/syncadapter" />
+        </service>
+
         <activity android:name="com.android.settings.SyncSettings" android:label="@string/sync_settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
