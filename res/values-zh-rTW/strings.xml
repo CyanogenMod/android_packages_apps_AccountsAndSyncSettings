@@ -33,7 +33,7 @@
     <string name="sync_too_many_deletes_desc">"<xliff:g id="ACCOUNT_NAME">%3$s</xliff:g> 帳戶的 <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g> 同步有 <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> 個刪除的項目。您想要怎麼做？"</string>
     <string name="sync_really_delete">"刪除這些項目。"</string>
     <string name="sync_undo_deletes">"復原刪除。"</string>
-    <string name="sync_do_nothing">"暫時不要執行任何動作"</string>
+    <string name="sync_do_nothing">"暫停執行 。"</string>
     <string name="sync_is_failing">"同步處理目前發生問題。將於短時間內恢復。"</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">"歡迎使用 Google Sync！"</font>\n"這是 Google 所提供用於同步處理資料的程式，可讓您隨時隨地存取聯絡人、約會等資料。"</string>
     <string name="header_application_sync_settings">"應用程式同步處理設定"</string>
