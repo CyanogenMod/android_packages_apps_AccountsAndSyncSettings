@@ -27,11 +27,16 @@ import android.accounts.OperationCanceledException;
 import android.app.ActivityThread;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ActiveSyncInfo;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.IContentService;
+import android.content.ISyncStatusObserver;
 import android.content.Intent;
+import android.content.SyncStatusInfo;
+import android.content.SyncStorageEngine;
 import android.content.pm.ProviderInfo;
 import android.net.ConnectivityManager;
 import android.net.Uri;
@@ -43,7 +48,6 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.provider.Gmail;
-import android.provider.Sync;
 import android.provider.SubscribedFeeds;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -59,10 +63,9 @@ import java.util.Observable;
 import java.util.Observer;
 import java.io.IOException;
 
-public class SyncSettings
-        extends PreferenceActivity
-        implements Observer {
+public class SyncSettings extends PreferenceActivity {
 
+    IContentService    mContentService;
     List<String>       mProviderNames;
 
     CheckBoxPreference mAutoSyncCheckBox;
@@ -83,19 +86,17 @@ public class SyncSettings
 
     private static final String BACKGROUND_DATA_INTENT_EXTRA_NAME = "value";
 
-    Sync.Settings.QueryMap mSyncSettings;
-
     private static final int MENU_SYNC_NOW_ID = Menu.FIRST;
     private static final int MENU_SYNC_CANCEL_ID = Menu.FIRST + 1;
-
-    private Sync.Active.QueryMap mActiveSyncQueryMap = null;
-    private Sync.Status.QueryMap mStatusSyncQueryMap = null;
 
     private static final int DIALOG_DISABLE_BACKGROUND_DATA = 1;
     
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        
+        mContentService = ContentResolver.getContentService();
+        
         setContentView(R.layout.sync_settings_list_content);
         addPreferencesFromResource(R.xml.sync_settings);
 
@@ -106,20 +107,6 @@ public class SyncSettings
 
         mDateFormat = DateFormat.getDateFormat(this);
         mTimeFormat = DateFormat.getTimeFormat(this);
-
-        mStatusSyncQueryMap = new Sync.Status.QueryMap(getContentResolver(),
-                false /* don't keep updated yet, we will change this in onResume()/onPause() */,
-                null /* use this thread's handler for notifications */);
-        mStatusSyncQueryMap.addObserver(mSyncSuccessesObserver);
-
-        mActiveSyncQueryMap = new Sync.Active.QueryMap(getContentResolver(),
-                false /* don't keep updated yet, we will change this in onResume()/onPause() */,
-                null /* use this thread's handler for notifications */);
-        mActiveSyncQueryMap.addObserver(mSyncActiveObserver);
-
-        mSyncSettings = new Sync.Settings.QueryMap(getContentResolver(),
-                true /* keep updated */, null);
-        mSyncSettings.addObserver(this);
 
         mAutoSyncCheckBox = (CheckBoxPreference) findPreference(SYNC_CHECKBOX_KEY);
         
@@ -173,7 +160,11 @@ public class SyncSettings
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        final boolean syncActive = mActiveSyncQueryMap.getActiveSyncInfo() != null;
+        boolean syncActive = false;
+        try {
+            syncActive = mContentService.getActiveSync() != null;
+        } catch (RemoteException e) {
+        }
         menu.findItem(MENU_SYNC_NOW_ID).setVisible(!syncActive);
         menu.findItem(MENU_SYNC_CANCEL_ID).setVisible(syncActive);
         return true;
@@ -205,33 +196,29 @@ public class SyncSettings
     @Override
     protected void onResume() {
         super.onResume();
-        mActiveSyncQueryMap.setKeepUpdated(true);
-        mStatusSyncQueryMap.setKeepUpdated(true);
+        try {
+            mContentService.addStatusChangeListener(
+                    SyncStorageEngine.CHANGE_ACTIVE
+                    | SyncStorageEngine.CHANGE_STATUS
+                    | SyncStorageEngine.CHANGE_SETTINGS,
+                    mSyncStatusObserver);
+        } catch (RemoteException e) {
+        }
         onSyncStateUpdated();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        mActiveSyncQueryMap.setKeepUpdated(false);
-        mStatusSyncQueryMap.setKeepUpdated(false);
+        try {
+            mContentService.removeStatusChangeListener(mSyncStatusObserver);
+        } catch (RemoteException e) {
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mSyncSettings != null) {
-            mSyncSettings.close();
-            mSyncSettings = null;
-        }
-        if (mActiveSyncQueryMap != null) {
-            mActiveSyncQueryMap.close();
-            mActiveSyncQueryMap = null;
-        }
-        if (mStatusSyncQueryMap != null) {
-            mStatusSyncQueryMap.close();
-            mStatusSyncQueryMap = null;
-        }
     }
 
     private void initUI() {
@@ -244,7 +231,10 @@ public class SyncSettings
 
         // Set the Auto Sync toggle state
         CheckBoxPreference autoSync = (CheckBoxPreference) findPreference(SYNC_CHECKBOX_KEY);
-        autoSync.setChecked(mSyncSettings.getListenForNetworkTickles());
+        try {
+            autoSync.setChecked(mContentService.getListenForNetworkTickles());
+        } catch (RemoteException e) {
+        }
         setOneTimeSyncMode(!autoSync.isChecked());
 
         // Find individual sync provider's states and initialize the toggles
@@ -255,8 +245,11 @@ public class SyncSettings
             if (pref.hasKey() && pref.getKey().startsWith(SYNC_KEY_PREFIX)) {
                 CheckBoxPreference toggle = (CheckBoxPreference) pref;
                 String providerName = toggle.getKey().substring(SYNC_KEY_PREFIX.length());
-                boolean enabled =
-                    mSyncSettings.getSyncProviderAutomatically(providerName);
+                boolean enabled = false;
+                try {
+                    enabled = mContentService.getSyncProviderAutomatically(providerName);
+                } catch (RemoteException e) {
+                }
                 toggle.setChecked(enabled);
             }
         }
@@ -280,10 +273,17 @@ public class SyncSettings
                 }
             }
         } else if (key.equals(SYNC_CHECKBOX_KEY)) {
-            boolean oldListenForTickles = mSyncSettings.getListenForNetworkTickles();
+            boolean oldListenForTickles = false;
+            try {
+                oldListenForTickles = mContentService.getListenForNetworkTickles();
+            } catch (RemoteException e) {
+            }
             boolean listenForTickles = togglePreference.isChecked();
             if (oldListenForTickles != listenForTickles) {
-                mSyncSettings.setListenForNetworkTickles(listenForTickles);
+                try {
+                    mContentService.setListenForNetworkTickles(listenForTickles);
+                } catch (RemoteException e) {
+                }
                 Intent intent = new Intent();
                 intent.setAction(SYNC_CONNECTION_SETTING_CHANGED);
                 sendBroadcast(intent);
@@ -302,9 +302,16 @@ public class SyncSettings
                 startSync(providerName);
             } else {
                 boolean syncOn = togglePreference.isChecked();
-                boolean oldSyncState = mSyncSettings.getSyncProviderAutomatically(providerName);
+                boolean oldSyncState = false;
+                try {
+                    oldSyncState = mContentService.getSyncProviderAutomatically(providerName);
+                } catch (RemoteException e) {
+                }
                 if (syncOn != oldSyncState) {
-                    mSyncSettings.setSyncProviderAutomatically(providerName, syncOn);
+                    try {
+                        mContentService.setSyncProviderAutomatically(providerName, syncOn);
+                    } catch (RemoteException e) {
+                    }
                     if (syncOn) {
                         startSync(providerName);
                     } else {
@@ -412,63 +419,24 @@ public class SyncSettings
         getContentResolver().cancelSync(Uri.parse("content://" + authority));
     }
 
-    private Observer mSyncSuccessesObserver = new Observer() {
-        public void update(Observable o, Object arg) {
-            onSyncStateUpdated();
+    private ISyncStatusObserver mSyncStatusObserver = new ISyncStatusObserver.Stub() {
+        public void onStatusChanged(int which) throws RemoteException {
+            getWindow().getDecorView().getHandler().post(new Runnable() {
+                public void run() {
+                    onSyncStateUpdated();
+                }
+            });
         }
     };
-
-    private Observer mSyncActiveObserver = new Observer() {
-        public void update(Observable o, Object arg) {
-            onSyncStateUpdated();
-        }
-    };
-
-    /**
-     * Returns the status row that matches the authority. If there are multiples accounts for
-     * the authority, the row with the latest LAST_SUCCESS_TIME column is returned.
-     * @param authority the authority whose row should be selected
-     * @return the ContentValues for the authority, or null if none exists
-     */
-    private ContentValues getStatusByAuthority(String authority) {
-        ContentValues row = null;
-        Map<String, ContentValues> rows = mStatusSyncQueryMap.getRows();
-        for (ContentValues values : rows.values()) {
-            if (values.getAsString(Sync.Status.AUTHORITY).equals(authority)) {
-                if (row == null) {
-                    row = values;
-                    continue;
-                }
-                final Long curTime = row.getAsLong(Sync.Status.LAST_SUCCESS_TIME);
-                if (curTime == null) {
-                    row = values;
-                    continue;
-                }
-                final Long newTime = values.getAsLong(Sync.Status.LAST_SUCCESS_TIME);
-                if (newTime == null) continue;
-                if (newTime > curTime) {
-                    row = values;
-                }
-            }
-        }
-        return row;
-    }
-
-    boolean isAuthorityPending(String authority) {
-        Map<String, ContentValues> rows = mStatusSyncQueryMap.getRows();
-        for (ContentValues values : rows.values()) {
-            if (values.getAsString(Sync.Status.AUTHORITY).equals(authority)
-                    && values.getAsLong(Sync.Status.PENDING) != 0) {
-                return true;
-            }
-        }
-        return false;
-    }
 
     private void onSyncStateUpdated() {
         // iterate over all the preferences, setting the state properly for each
         Date date = new Date();
-        ContentValues activeSyncValues = mActiveSyncQueryMap.getActiveSyncInfo();
+        ActiveSyncInfo activeSyncValues = null;
+        try {
+            activeSyncValues = mContentService.getActiveSync();
+        } catch (RemoteException e) {
+        }
         boolean syncIsFailing = false;
         int count = getPreferenceScreen().getPreferenceCount();
         for (int i = 0; i < count; i++) {
@@ -477,24 +445,29 @@ public class SyncSettings
             if (!TextUtils.isEmpty(prefKey) && prefKey.startsWith(SYNC_KEY_PREFIX)) {
                 String authority = prefKey.substring(SYNC_KEY_PREFIX.length());
                 SyncStateCheckBoxPreference toggle = (SyncStateCheckBoxPreference)pref;
-                ContentValues status = getStatusByAuthority(authority);
+                SyncStatusInfo status = null;
+                boolean syncEnabled = false;
+                boolean authorityIsPending = false;
+                try {
+                    status = mContentService.getStatusByAuthority(authority);
+                    syncEnabled = mContentService.getSyncProviderAutomatically(authority);
+                    authorityIsPending = mContentService.isAuthorityPending(null, authority);
+                } catch (RemoteException e) {
+                }
 
-                boolean syncEnabled = mSyncSettings.getSyncProviderAutomatically(authority);
-
-                boolean authorityIsPending = isAuthorityPending(authority);
                 boolean activelySyncing = activeSyncValues != null
-                        && activeSyncValues.getAsString(Sync.Active.AUTHORITY).equals(authority);
+                        && activeSyncValues.authority.equals(authority);
                 boolean lastSyncFailed = status != null
-                        && status.getAsString(Sync.Status.LAST_FAILURE_MESG) != null
-                        && status.getAsLong(Sync.Status.LAST_FAILURE_MESG)
-                           != Sync.Status.ERROR_SYNC_ALREADY_IN_PROGRESS;
+                        && status.lastFailureTime != 0
+                        && status.getLastFailureMesgAsInt(0)
+                           != SyncStorageEngine.ERROR_SYNC_ALREADY_IN_PROGRESS;
                 if (!syncEnabled) lastSyncFailed = false;
                 if (lastSyncFailed && !activelySyncing && !authorityIsPending) {
                     syncIsFailing = true;
                 }
-                final Long successEndTime =
-                        status == null ? null : status.getAsLong(Sync.Status.LAST_SUCCESS_TIME);
-                if (successEndTime != null) {
+                final long successEndTime =
+                    status == null ? 0 : status.lastSuccessTime;
+                if (successEndTime != 0) {
                     date.setTime(successEndTime);
                     final String timeString = mDateFormat.format(date) + " "
                             + mTimeFormat.format(date);
@@ -508,10 +481,5 @@ public class SyncSettings
             }
         }
         mErrorInfoView.setVisibility(syncIsFailing ? View.VISIBLE : View.GONE);
-    }
-
-    /** called when the sync settings change */
-    public void update(Observable o, Object arg) {
-        onSyncStateUpdated();
     }
 }
