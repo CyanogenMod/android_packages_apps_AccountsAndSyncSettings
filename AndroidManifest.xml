@@ -53,7 +53,7 @@
 
         <receiver android:name="SubscribedFeedsBroadcastReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.GTALK_DATA_MESSAGE_RECEIVED" />
+                <action android:name="android.intent.action.REMOTE_INTENT" />
                 <category android:name="GSYNC_TICKLE"/>
             </intent-filter>
             <intent-filter>
