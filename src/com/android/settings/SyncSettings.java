@@ -35,6 +35,7 @@ import android.content.pm.ProviderInfo;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.RemoteException;
 import android.text.format.DateFormat;
 import android.preference.CheckBoxPreference;
@@ -71,6 +72,8 @@ public class SyncSettings extends PreferenceActivity {
     java.text.DateFormat mDateFormat;
     java.text.DateFormat mTimeFormat;
 
+    final Handler mHandler = new Handler();
+    
     private static final String SYNC_CONNECTION_SETTING_CHANGED
         = "com.android.sync.SYNC_CONN_STATUS_CHANGED";
 
@@ -420,7 +423,7 @@ public class SyncSettings extends PreferenceActivity {
 
     private ISyncStatusObserver mSyncStatusObserver = new ISyncStatusObserver.Stub() {
         public void onStatusChanged(int which) throws RemoteException {
-            getWindow().getDecorView().getHandler().post(new Runnable() {
+            mHandler.post(new Runnable() {
                 public void run() {
                     onSyncStateUpdated();
                 }
