@@ -18,88 +18,67 @@ package com.android.settings;
 
 import com.android.providers.subscribedfeeds.R;
 import com.google.android.googlelogin.GoogleLoginServiceConstants;
+import com.google.android.collect.Maps;
 
 import android.accounts.AccountManager;
 import android.accounts.AuthenticatorException;
 import android.accounts.Future2;
 import android.accounts.Future2Callback;
 import android.accounts.OperationCanceledException;
-import android.app.ActivityThread;
+import android.accounts.Account;
+import android.accounts.OnAccountsUpdatedListener;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ActiveSyncInfo;
 import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.IContentService;
-import android.content.ISyncStatusObserver;
-import android.content.Intent;
 import android.content.SyncStatusInfo;
-import android.content.SyncStorageEngine;
-import android.content.pm.ProviderInfo;
+import android.content.SyncAdapterType;
+import android.content.SyncStatusObserver;
 import android.net.ConnectivityManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.RemoteException;
 import android.text.format.DateFormat;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.provider.Gmail;
-import android.provider.SubscribedFeeds;
-import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Observable;
-import java.util.Observer;
+import java.util.HashMap;
 import java.io.IOException;
 
-public class SyncSettings extends PreferenceActivity {
-
-    IContentService    mContentService;
-    List<String>       mProviderNames;
-
-    CheckBoxPreference mAutoSyncCheckBox;
+public class SyncSettings extends PreferenceActivity implements OnAccountsUpdatedListener {
+    CheckBoxPreference mBackgroundDataCheckBox;
+    CheckBoxPreference mMasterAutoSyncCheckBox;
     TextView mErrorInfoView;
 
     java.text.DateFormat mDateFormat;
     java.text.DateFormat mTimeFormat;
 
     final Handler mHandler = new Handler();
-    
-    private static final String SYNC_CONNECTION_SETTING_CHANGED
-        = "com.android.sync.SYNC_CONN_STATUS_CHANGED";
 
-    private static final String BACKGROUND_DATA_SETTING_CHANGED
-        = "com.android.sync.BG_DATA_STATUS_CHANGED";
-
-    private static final String SYNC_KEY_PREFIX = "sync_";
-    private static final String SYNC_CHECKBOX_KEY = "autoSyncCheckBox";
+  private static final String MASTER_AUTO_SYNC_CHECKBOX_KEY = "autoSyncCheckBox";
     private static final String BACKGROUND_DATA_CHECKBOX_KEY = "backgroundDataCheckBox";
-
-    private static final String BACKGROUND_DATA_INTENT_EXTRA_NAME = "value";
 
     private static final int MENU_SYNC_NOW_ID = Menu.FIRST;
     private static final int MENU_SYNC_CANCEL_ID = Menu.FIRST + 1;
 
     private static final int DIALOG_DISABLE_BACKGROUND_DATA = 1;
-    
+    private static final String TAG = "SyncSettings";
+
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        
-        mContentService = ContentResolver.getContentService();
-        
+
         setContentView(R.layout.sync_settings_list_content);
         addPreferencesFromResource(R.xml.sync_settings);
 
@@ -111,14 +90,28 @@ public class SyncSettings extends PreferenceActivity {
         mDateFormat = DateFormat.getDateFormat(this);
         mTimeFormat = DateFormat.getTimeFormat(this);
 
-        mAutoSyncCheckBox = (CheckBoxPreference) findPreference(SYNC_CHECKBOX_KEY);
-        
-        if (icicle == null) checkForAccount(); // First launch only; ignore orientation changes.
-        
-        initProviders();
-        initUI();
+        mMasterAutoSyncCheckBox =
+                (CheckBoxPreference) findPreference(MASTER_AUTO_SYNC_CHECKBOX_KEY);
+        mBackgroundDataCheckBox = (CheckBoxPreference) findPreference(BACKGROUND_DATA_CHECKBOX_KEY);
+
+        AccountManager.get(this).addOnAccountsUpdatedListener(this, null, true);
     }
-    
+
+    ArrayList<SyncStateCheckBoxPreference> mCheckBoxen =
+            new ArrayList<SyncStateCheckBoxPreference>();
+
+    private void addSyncStateCheckBox(Account account, String authority) {
+        SyncStateCheckBoxPreference item =
+                new SyncStateCheckBoxPreference(this, account, authority);
+        item.setPersistent(false);
+//        item.setDependency("backgroundDataCheckBox");
+        final String name = authority + ", " + account.mName + ", " + account.mType;
+        item.setTitle(name);
+        item.setKey(name);
+        getPreferenceScreen().addPreference(item);
+        mCheckBoxen.add(item);
+    }
+
     private void checkForAccount() {
         // This will request a Gmail account and if none present will invoke SetupWizard
         // to login or create a new one. The result is returned through onActivityResult().
@@ -163,11 +156,7 @@ public class SyncSettings extends PreferenceActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        boolean syncActive = false;
-        try {
-            syncActive = mContentService.getActiveSync() != null;
-        } catch (RemoteException e) {
-        }
+        boolean syncActive = ContentResolver.getActiveSync() != null;
         menu.findItem(MENU_SYNC_NOW_ID).setVisible(!syncActive);
         menu.findItem(MENU_SYNC_CANCEL_ID).setVisible(syncActive);
         return true;
@@ -186,37 +175,23 @@ public class SyncSettings extends PreferenceActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void initProviders() {
-        mProviderNames = new ArrayList<String>();
-
-        /*
-        for (int i = 0; i < mProviderNames.size(); i++) {
-            Log.i("SyncProviders", mProviderNames.get(i));
-        }
-        */
-    }
+    Object mStatusChangeListenerHandle;
 
     @Override
     protected void onResume() {
         super.onResume();
-        try {
-            mContentService.addStatusChangeListener(
-                    SyncStorageEngine.CHANGE_ACTIVE
-                    | SyncStorageEngine.CHANGE_STATUS
-                    | SyncStorageEngine.CHANGE_SETTINGS,
-                    mSyncStatusObserver);
-        } catch (RemoteException e) {
-        }
+        mStatusChangeListenerHandle = ContentResolver.addStatusChangeListener(
+                ContentResolver.SYNC_OBSERVER_TYPE_ACTIVE
+                | ContentResolver.SYNC_OBSERVER_TYPE_STATUS
+                | ContentResolver.SYNC_OBSERVER_TYPE_SETTINGS,
+                mSyncStatusObserver);
         onSyncStateUpdated();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        try {
-            mContentService.removeStatusChangeListener(mSyncStatusObserver);
-        } catch (RemoteException e) {
-        }
+        ContentResolver.removeStatusChangeListener(mStatusChangeListenerHandle);
     }
 
     @Override
@@ -224,102 +199,47 @@ public class SyncSettings extends PreferenceActivity {
         super.onDestroy();
     }
 
-    private void initUI() {
-        // Set background connection state
-        CheckBoxPreference backgroundData =
-            (CheckBoxPreference) findPreference(BACKGROUND_DATA_CHECKBOX_KEY);
-        ConnectivityManager connManager =
-                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        backgroundData.setChecked(connManager.getBackgroundDataSetting());
-
-        // Set the Auto Sync toggle state
-        CheckBoxPreference autoSync = (CheckBoxPreference) findPreference(SYNC_CHECKBOX_KEY);
-        try {
-            autoSync.setChecked(mContentService.getListenForNetworkTickles());
-        } catch (RemoteException e) {
-        }
-        setOneTimeSyncMode(!autoSync.isChecked());
-
-        // Find individual sync provider's states and initialize the toggles
-        int i;
-        int count = getPreferenceScreen().getPreferenceCount();
-        for (i = 0; i < count; i++) {
-            Preference pref = getPreferenceScreen().getPreference(i);
-            if (pref.hasKey() && pref.getKey().startsWith(SYNC_KEY_PREFIX)) {
-                CheckBoxPreference toggle = (CheckBoxPreference) pref;
-                String providerName = toggle.getKey().substring(SYNC_KEY_PREFIX.length());
-                boolean enabled = false;
-                try {
-                    enabled = mContentService.getSyncProviderAutomatically(providerName);
-                } catch (RemoteException e) {
-                }
-                toggle.setChecked(enabled);
-            }
-        }
-
-    }
-
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferences, Preference preference) {
-        CheckBoxPreference togglePreference = (CheckBoxPreference) preference;
-        String key = preference.getKey();
-        if (key.equals(BACKGROUND_DATA_CHECKBOX_KEY)) {
+        if (preference == mBackgroundDataCheckBox) {
             ConnectivityManager connManager =
                     (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
             boolean oldBackgroundDataSetting = connManager.getBackgroundDataSetting();
-            boolean backgroundDataSetting = togglePreference.isChecked();
+            boolean backgroundDataSetting = mBackgroundDataCheckBox.isChecked();
             if (oldBackgroundDataSetting != backgroundDataSetting) {
                 if (backgroundDataSetting) {
                     setBackgroundDataInt(true);
                 } else {
-                    confirmDisablingOfBackgroundData(togglePreference);
+                    // This will get unchecked only if the user hits "Ok"
+                    mBackgroundDataCheckBox.setChecked(true);
+                    showDialog(DIALOG_DISABLE_BACKGROUND_DATA);
                 }
             }
-        } else if (key.equals(SYNC_CHECKBOX_KEY)) {
-            boolean oldListenForTickles = false;
-            try {
-                oldListenForTickles = mContentService.getListenForNetworkTickles();
-            } catch (RemoteException e) {
-            }
-            boolean listenForTickles = togglePreference.isChecked();
-            if (oldListenForTickles != listenForTickles) {
-                try {
-                    mContentService.setListenForNetworkTickles(listenForTickles);
-                } catch (RemoteException e) {
-                }
-                Intent intent = new Intent();
-                intent.setAction(SYNC_CONNECTION_SETTING_CHANGED);
-                sendBroadcast(intent);
-                if (listenForTickles) {
+        } else if (preference == mMasterAutoSyncCheckBox) {
+            boolean oldMasterSyncAutomatically = ContentResolver.getMasterSyncAutomatically();
+            boolean newMasterSyncAutomatically = mMasterAutoSyncCheckBox.isChecked();
+            if (oldMasterSyncAutomatically != newMasterSyncAutomatically) {
+                ContentResolver.setMasterSyncAutomatically(newMasterSyncAutomatically);
+                if (newMasterSyncAutomatically) {
                     startSyncForEnabledProviders();
                 }
             }
-            if (!listenForTickles) {
+            if (!newMasterSyncAutomatically) {
                 cancelSyncForEnabledProviders();
             }
-            setOneTimeSyncMode(!listenForTickles);
-        } else if (key.startsWith(SYNC_KEY_PREFIX)) {
+            setOneTimeSyncMode(!newMasterSyncAutomatically);
+        } else if (preference instanceof SyncStateCheckBoxPreference) {
             SyncStateCheckBoxPreference syncPref = (SyncStateCheckBoxPreference) preference;
-            String providerName = key.substring(SYNC_KEY_PREFIX.length());
+            String authority = syncPref.getAuthority();
+            Account account = syncPref.getAccount();
             if (syncPref.isOneTimeSyncMode()) {
-                startSync(providerName);
+                requestOrCancelSync(account, authority, true);
             } else {
-                boolean syncOn = togglePreference.isChecked();
-                boolean oldSyncState = false;
-                try {
-                    oldSyncState = mContentService.getSyncProviderAutomatically(providerName);
-                } catch (RemoteException e) {
-                }
+                boolean syncOn = syncPref.isChecked();
+                boolean oldSyncState = ContentResolver.getSyncAutomatically(account, authority);
                 if (syncOn != oldSyncState) {
-                    try {
-                        mContentService.setSyncProviderAutomatically(providerName, syncOn);
-                    } catch (RemoteException e) {
-                    }
-                    if (syncOn) {
-                        startSync(providerName);
-                    } else {
-                        cancelSync(providerName);
-                    }
+                    ContentResolver.setSyncAutomatically(account, authority, syncOn);
+                    requestOrCancelSync(account, authority, syncOn);
                 }
             }
         } else {
@@ -332,18 +252,11 @@ public class SyncSettings extends PreferenceActivity {
         int count = getPreferenceScreen().getPreferenceCount();
         for (int i = 0; i < count; i++) {
             Preference pref = getPreferenceScreen().getPreference(i);
-            if (pref.hasKey() && pref.getKey().startsWith(SYNC_KEY_PREFIX)) {
+            if (pref instanceof SyncStateCheckBoxPreference) {
                 SyncStateCheckBoxPreference syncPref = (SyncStateCheckBoxPreference) pref;
                 syncPref.setOneTimeSyncMode(oneTimeSyncMode);
             }
         }
-    }
-    
-    private void confirmDisablingOfBackgroundData(final CheckBoxPreference
-            backgroundDataPreference) {
-        // This will get unchecked only if the user hits "Ok"
-        backgroundDataPreference.setChecked(true);
-        showDialog(DIALOG_DISABLE_BACKGROUND_DATA);        
     }
 
     @Override
@@ -351,7 +264,7 @@ public class SyncSettings extends PreferenceActivity {
         switch (id) {
             case DIALOG_DISABLE_BACKGROUND_DATA:
                 final CheckBoxPreference pref =
-                    (CheckBoxPreference) findPreference(BACKGROUND_DATA_CHECKBOX_KEY); 
+                    (CheckBoxPreference) findPreference(BACKGROUND_DATA_CHECKBOX_KEY);
                 return new AlertDialog.Builder(this)
                         .setTitle(R.string.background_data_dialog_title)
                         .setIcon(android.R.drawable.ic_dialog_alert)
@@ -366,7 +279,7 @@ public class SyncSettings extends PreferenceActivity {
                         .setNegativeButton(android.R.string.cancel, null)
                         .create();
         }
-        
+
         return null;
     }
 
@@ -375,55 +288,42 @@ public class SyncSettings extends PreferenceActivity {
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         connManager.setBackgroundDataSetting(enabled);
     }
-    
+
     private void startSyncForEnabledProviders() {
-        cancelOrStartSyncForEnabledProviders(true /* start them */);
+        requestOrCancelSyncForEnabledProviders(true /* start them */);
     }
 
     private void cancelSyncForEnabledProviders() {
-        cancelOrStartSyncForEnabledProviders(false /* cancel them */);
+        requestOrCancelSyncForEnabledProviders(false /* cancel them */);
     }
 
-    private void cancelOrStartSyncForEnabledProviders(boolean startSync) {
+    private void requestOrCancelSyncForEnabledProviders(boolean startSync) {
         int count = getPreferenceScreen().getPreferenceCount();
         for (int i = 0; i < count; i++) {
             Preference pref = getPreferenceScreen().getPreference(i);
-            if (pref.hasKey() && pref.getKey().startsWith(SYNC_KEY_PREFIX)) {
-                CheckBoxPreference toggle = (CheckBoxPreference) pref;
-                if (!toggle.isChecked()) {
-                    continue;
-                }
-                final String authority = toggle.getKey().substring(SYNC_KEY_PREFIX.length());
-                if (startSync) {
-                    startSync(authority);
-                } else {
-                    cancelSync(authority);
-                }
+            if (! (pref instanceof SyncStateCheckBoxPreference)) {
+                continue;
             }
+            SyncStateCheckBoxPreference syncPref = (SyncStateCheckBoxPreference) pref;
+            if (!syncPref.isChecked()) {
+                continue;
+            }
+            requestOrCancelSync(syncPref.getAccount(), syncPref.getAuthority(), startSync);
         }
+    }
 
-        // treat SubscribedFeeds as an enabled provider
-        final String authority = SubscribedFeeds.Feeds.CONTENT_URI.getAuthority();
-        if (startSync) {
-            startSync(authority);
+    private void requestOrCancelSync(Account account, String authority, boolean flag) {
+        if (flag) {
+            Bundle extras = new Bundle();
+            extras.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
+            ContentResolver.requestSync(account, authority, extras);
         } else {
-            cancelSync(authority);
+            ContentResolver.cancelSync(account, authority);
         }
     }
 
-    private void startSync(String providerName) {
-        Uri uriToSync = (providerName != null) ? Uri.parse("content://" + providerName) : null;
-        Bundle extras = new Bundle();
-        extras.putBoolean(ContentResolver.SYNC_EXTRAS_FORCE, true);
-        getContentResolver().startSync(uriToSync, extras);
-    }
-
-    private void cancelSync(String authority) {
-        getContentResolver().cancelSync(Uri.parse("content://" + authority));
-    }
-
-    private ISyncStatusObserver mSyncStatusObserver = new ISyncStatusObserver.Stub() {
-        public void onStatusChanged(int which) throws RemoteException {
+    private SyncStatusObserver mSyncStatusObserver = new SyncStatusObserver() {
+        public void onStatusChanged(int which) {
             mHandler.post(new Runnable() {
                 public void run() {
                     onSyncStateUpdated();
@@ -433,56 +333,92 @@ public class SyncSettings extends PreferenceActivity {
     };
 
     private void onSyncStateUpdated() {
+        // Set background connection state
+        ConnectivityManager connManager =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        mBackgroundDataCheckBox.setChecked(connManager.getBackgroundDataSetting());
+        final boolean masterSyncAutomatically = ContentResolver.getMasterSyncAutomatically();
+        mMasterAutoSyncCheckBox.setChecked(masterSyncAutomatically);
+
         // iterate over all the preferences, setting the state properly for each
         Date date = new Date();
-        ActiveSyncInfo activeSyncValues = null;
-        try {
-            activeSyncValues = mContentService.getActiveSync();
-        } catch (RemoteException e) {
-        }
+        ActiveSyncInfo activeSyncValues = ContentResolver.getActiveSync();
         boolean syncIsFailing = false;
-        int count = getPreferenceScreen().getPreferenceCount();
-        for (int i = 0; i < count; i++) {
+        for (int i = 0, count = getPreferenceScreen().getPreferenceCount(); i < count; i++) {
             Preference pref = getPreferenceScreen().getPreference(i);
-            final String prefKey = pref.getKey();
-            if (!TextUtils.isEmpty(prefKey) && prefKey.startsWith(SYNC_KEY_PREFIX)) {
-                String authority = prefKey.substring(SYNC_KEY_PREFIX.length());
-                SyncStateCheckBoxPreference toggle = (SyncStateCheckBoxPreference)pref;
-                SyncStatusInfo status = null;
-                boolean syncEnabled = false;
-                boolean authorityIsPending = false;
-                try {
-                    status = mContentService.getStatusByAuthority(authority);
-                    syncEnabled = mContentService.getSyncProviderAutomatically(authority);
-                    authorityIsPending = mContentService.isAuthorityPending(null, authority);
-                } catch (RemoteException e) {
-                }
-
-                boolean activelySyncing = activeSyncValues != null
-                        && activeSyncValues.authority.equals(authority);
-                boolean lastSyncFailed = status != null
-                        && status.lastFailureTime != 0
-                        && status.getLastFailureMesgAsInt(0)
-                           != SyncStorageEngine.ERROR_SYNC_ALREADY_IN_PROGRESS;
-                if (!syncEnabled) lastSyncFailed = false;
-                if (lastSyncFailed && !activelySyncing && !authorityIsPending) {
-                    syncIsFailing = true;
-                }
-                final long successEndTime =
-                    status == null ? 0 : status.lastSuccessTime;
-                if (successEndTime != 0) {
-                    date.setTime(successEndTime);
-                    final String timeString = mDateFormat.format(date) + " "
-                            + mTimeFormat.format(date);
-                    toggle.setSummary(timeString);
-                } else {
-                    toggle.setSummary("");
-                }
-                toggle.setActive(activelySyncing);
-                toggle.setPending(authorityIsPending);
-                toggle.setFailed(lastSyncFailed);
+            if (! (pref instanceof SyncStateCheckBoxPreference)) {
+                continue;
             }
+            SyncStateCheckBoxPreference syncPref = (SyncStateCheckBoxPreference) pref;
+
+            String authority = syncPref.getAuthority();
+            Account account = syncPref.getAccount();
+
+            SyncStatusInfo status = ContentResolver.getSyncStatus(account, authority);
+            boolean syncEnabled = ContentResolver.getSyncAutomatically(account, authority);
+            boolean authorityIsPending = ContentResolver.isSyncPending(account, authority);
+
+            boolean activelySyncing = activeSyncValues != null
+                    && activeSyncValues.authority.equals(authority)
+                    && activeSyncValues.account.equals(account);
+            boolean lastSyncFailed = status != null
+                    && status.lastFailureTime != 0
+                    && status.getLastFailureMesgAsInt(0)
+                       != ContentResolver.SYNC_ERROR_SYNC_ALREADY_IN_PROGRESS;
+            if (!syncEnabled) lastSyncFailed = false;
+            if (lastSyncFailed && !activelySyncing && !authorityIsPending) {
+                syncIsFailing = true;
+            }
+            final long successEndTime = (status == null) ? 0 : status.lastSuccessTime;
+            if (successEndTime != 0) {
+                date.setTime(successEndTime);
+                final String timeString = mDateFormat.format(date) + " "
+                        + mTimeFormat.format(date);
+                syncPref.setSummary(timeString);
+            } else {
+                syncPref.setSummary("");
+            }
+            syncPref.setActive(activelySyncing);
+            syncPref.setPending(authorityIsPending);
+            syncPref.setFailed(lastSyncFailed);
+            syncPref.setOneTimeSyncMode(!masterSyncAutomatically);
+            syncPref.setChecked(syncEnabled);
         }
         mErrorInfoView.setVisibility(syncIsFailing ? View.VISIBLE : View.GONE);
+    }
+
+    public void onAccountsUpdated(Account[] accounts) {
+        SyncAdapterType[] syncAdapters = ContentResolver.getSyncAdapterTypes();
+        HashMap<String, ArrayList<String>> accountTypeToAuthorities = Maps.newHashMap();
+        for (int i = 0, n = syncAdapters.length; i < n; i++) {
+            final SyncAdapterType sa = syncAdapters[i];
+            ArrayList<String> authorities = accountTypeToAuthorities.get(sa.accountType);
+            if (authorities == null) {
+                authorities = new ArrayList<String>();
+                accountTypeToAuthorities.put(sa.accountType, authorities);
+            }
+            Log.d(TAG, "added authority " + sa.authority + " to accountType " + sa.accountType);
+            authorities.add(sa.authority);
+        }
+
+        for (int i = 0, n = mCheckBoxen.size(); i < n; i++) {
+            getPreferenceScreen().removePreference(mCheckBoxen.get(i));
+        }
+        mCheckBoxen.clear();
+
+        for (int i = 0, n = accounts.length; i < n; i++) {
+            final Account account = accounts[i];
+            Log.d(TAG, "looking for sync adapters that match account " + account);
+            final ArrayList<String> authorities = accountTypeToAuthorities.get(account.mType);
+            if (authorities != null) {
+                for (int j = 0, m = authorities.size(); j < m; j++) {
+                    final String authority = authorities.get(j);
+                    Log.d(TAG, "  found authority " + authority);
+                    addSyncStateCheckBox(account, authority);
+                }
+            }
+        }
+
+        onSyncStateUpdated();
     }
 }

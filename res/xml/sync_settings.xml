@@ -31,25 +31,4 @@
 
     <PreferenceCategory
             android:title="@string/header_application_sync_settings" />
-
-    <!-- The following keys are special. They correspond to
-         content providers sans the "sync_" prefix. This is
-         because very specific content providers are being
-         enabled for sync in this release.
-        -->
-    <com.android.settings.SyncStateCheckBoxPreference android:key="sync_gmail-ls"
-        android:persistent="false"
-        android:title="@string/sync_gmail"
-        android:summary=""
-        android:dependency="backgroundDataCheckBox"/>
-    <com.android.settings.SyncStateCheckBoxPreference android:key="sync_calendar"
-        android:persistent="false"
-        android:title="@string/sync_calendar"
-        android:summary=""
-        android:dependency="backgroundDataCheckBox"/>
-    <com.android.settings.SyncStateCheckBoxPreference android:key="sync_contacts"
-        android:persistent="false"
-        android:title="@string/sync_contacts"
-        android:summary=""
-        android:dependency="backgroundDataCheckBox"/>
 </PreferenceScreen>
