@@ -15,6 +15,7 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label">"Synchronisation des flux"</string>
     <string name="sync_settings">"Synchronisation"</string>
     <string name="sync_too_many_deletes">"Le nombre maximum de suppressions a été atteint."</string>
     <string name="background_data">"Données en arrière-plan"</string>
@@ -28,7 +29,7 @@
     <string name="sync_one_time_sync">"Synchroniser maintenant <xliff:g id="LAST_SYNC_TIME">
 %1$s</xliff:g>"</string>
     <string name="sync_gmail">"Gmail"</string>
-    <string name="sync_calendar">"Google Agenda"</string>
+    <string name="sync_calendar">"Agenda"</string>
     <string name="sync_contacts">"Contacts"</string>
     <string name="sync_too_many_deletes_desc">"Il y a <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> éléments supprimés pour <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, pour le compte <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Que souhaitez-vous faire ?"</string>
     <string name="sync_really_delete">"Supprimer les éléments"</string>

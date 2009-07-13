@@ -15,6 +15,7 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label">"同步資訊提供"</string>
     <string name="sync_settings">"資料同步處理"</string>
     <string name="sync_too_many_deletes">"達到刪除上限"</string>
     <string name="background_data">"背景資料"</string>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- no translation found for app_label (2800463760279909883) -->
+    <skip />
+    <string name="sync_settings">"Datasynkronisering"</string>
+    <string name="sync_too_many_deletes">"Gränsen för borttagning har överskridits"</string>
+    <string name="background_data">"Bakgrundsdata"</string>
+    <string name="background_data_summary">"Aktivera användning av bakgrundsdata"</string>
+    <string name="background_data_dialog_title">"Obs!"</string>
+    <string name="background_data_dialog_message">"Om du inaktiverar bakgrundsdata sparar du batteri och minskar dataanvändning. Vissa program kanske fortfarande använder anslutningen för bakgrundsdata."</string>
+    <string name="sync_automatically">"Automatisk synkron."</string>
+    <string name="sync_automatically_summary">"Synkronisera data automatiskt"</string>
+    <string name="sync_menu_sync_now">"Synkronisera nu"</string>
+    <string name="sync_menu_sync_cancel">"Avbryt synkronisering"</string>
+    <string name="sync_one_time_sync">"Välj om du vill synkronisera nu<xliff:g id="LAST_SYNC_TIME">
+%1$s</xliff:g>"</string>
+    <string name="sync_gmail">"Gmail"</string>
+    <string name="sync_calendar">"Kalender"</string>
+    <string name="sync_contacts">"Kontakter"</string>
+    <string name="sync_too_many_deletes_desc">"Det finns <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> borttagna objekt för <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, konto <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Vad vill du göra?"</string>
+    <string name="sync_really_delete">"Ta bort artiklarna."</string>
+    <string name="sync_undo_deletes">"Ångra borttagningarna."</string>
+    <string name="sync_do_nothing">"Gör ingenting just nu."</string>
+    <string name="sync_is_failing">"Det är för närvarande problem med synkronisering. Det fungerar igen om en stund."</string>
+    <string name="sync_plug"><font fgcolor="#ffffffff">"Välkommen till Google Sync!"</font>" "\n"En funktion i Google som du kan använda om du vill synkronisera data så att du kommer åt dina kontakter, din kalender osv. var du än befinner dig."</string>
+    <string name="header_application_sync_settings">"Programmets synkroniseringsinställningar"</string>
+    <string name="header_general_sync_settings">"Allmänna synkroniseringsinställningar"</string>
+</resources>

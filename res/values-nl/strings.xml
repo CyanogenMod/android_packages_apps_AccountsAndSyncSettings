@@ -15,6 +15,7 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label">"Feeds synchroniseren"</string>
     <string name="sync_settings">"Gegevenssynchronisatie"</string>
     <string name="sync_too_many_deletes">"Verwijderingslimiet overschreden"</string>
     <string name="background_data">"Achtergrondgegevens"</string>
@@ -36,6 +37,6 @@
     <string name="sync_do_nothing">"Nu niets doen."</string>
     <string name="sync_is_failing">"Er zijn momenteel problemen met de synchronisatie. Synchronisatie wordt snel opnieuw uitgevoerd."</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">"Welkom bij Google Sync!"</font>" "\n"Een benadering van Google voor de synchronisatie van gegevens, zodat u altijd en overal toegang heeft tot uw contacten, afspraken en nog veel meer."</string>
-    <string name="header_application_sync_settings">"Synchronatie-instellingen van de toepassing"</string>
+    <string name="header_application_sync_settings">"Synchronisatie-instellingen van de toepassing"</string>
     <string name="header_general_sync_settings">"Algemene instellingen voor synchronisatie"</string>
 </resources>

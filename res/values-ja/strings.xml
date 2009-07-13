@@ -15,6 +15,8 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- no translation found for app_label (2800463760279909883) -->
+    <skip />
     <string name="sync_settings">"データの同期"</string>
     <string name="sync_too_many_deletes">"削除の制限を超えました"</string>
     <string name="background_data">"バックグラウンドデータ"</string>

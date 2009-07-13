@@ -15,12 +15,14 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- no translation found for app_label (2800463760279909883) -->
+    <skip />
     <string name="sync_settings">"数据同步"</string>
     <string name="sync_too_many_deletes">"超出删除限制"</string>
     <string name="background_data">"背景数据"</string>
-    <string name="background_data_summary">"启用背景数据使用"</string>
+    <string name="background_data_summary">"启用背景数据"</string>
     <string name="background_data_dialog_title">"注意事项"</string>
-    <string name="background_data_dialog_message">"禁用背景数据可节省电池并可降低数据使用率。有些应用程序可能仍会使用背景数据连接。"</string>
+    <string name="background_data_dialog_message">"禁用背景数据可节省电量并可降低数据使用量。有些应用程序可能仍会使用背景数据连接。"</string>
     <string name="sync_automatically">"自动同步"</string>
     <string name="sync_automatically_summary">"自动同步数据"</string>
     <string name="sync_menu_sync_now">"立即同步"</string>
