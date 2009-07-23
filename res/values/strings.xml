@@ -37,6 +37,10 @@
     <string name="sync_automatically">Auto-sync</string>
     <!-- Data synchronization settings screen, setting option summary text when check box is selected -->
     <string name="sync_automatically_summary">Automatically sync data</string>
+    <!-- Data synchronization settings screen, setting option name -->
+    <string name="settings_backup">Back up settings</string>
+    <!-- Data synchronization settings screen, setting option summary text when check box is selected -->
+    <string name="settings_backup_summary">Enable back up of settings</string>
     <!-- Data synchronization settings screen, menu option -->
     <string name="sync_menu_sync_now">Sync now</string>
     <!-- Data synchronization settings screen, menu option -->

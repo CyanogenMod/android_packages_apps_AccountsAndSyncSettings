@@ -28,6 +28,11 @@
         android:title="@string/sync_automatically"
         android:summary="@string/sync_automatically_summary"
         android:dependency="backgroundDataCheckBox"/>
+    <CheckBoxPreference android:key="settingsBackupCheckBox"
+        android:persistent="false"
+        android:title="@string/settings_backup"
+        android:summary="@string/settings_backup_summary"
+        android:dependency="backgroundDataCheckBox"/>
 
     <PreferenceCategory
             android:title="@string/header_application_sync_settings" />

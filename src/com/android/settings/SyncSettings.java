@@ -29,6 +29,7 @@ import android.accounts.Account;
 import android.accounts.OnAccountsUpdatedListener;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.backup.IBackupManager;
 import android.content.ActiveSyncInfo;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -39,6 +40,8 @@ import android.content.SyncStatusObserver;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.ServiceManager;
+import android.os.RemoteException;
 import android.text.format.DateFormat;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
@@ -59,6 +62,7 @@ import java.io.IOException;
 public class SyncSettings extends PreferenceActivity implements OnAccountsUpdatedListener {
     CheckBoxPreference mBackgroundDataCheckBox;
     CheckBoxPreference mMasterAutoSyncCheckBox;
+    CheckBoxPreference mSettingsBackupCheckBox;
     TextView mErrorInfoView;
 
     java.text.DateFormat mDateFormat;
@@ -66,8 +70,9 @@ public class SyncSettings extends PreferenceActivity implements OnAccountsUpdate
 
     final Handler mHandler = new Handler();
 
-  private static final String MASTER_AUTO_SYNC_CHECKBOX_KEY = "autoSyncCheckBox";
     private static final String BACKGROUND_DATA_CHECKBOX_KEY = "backgroundDataCheckBox";
+    private static final String MASTER_AUTO_SYNC_CHECKBOX_KEY = "autoSyncCheckBox";
+    private static final String SETTINGS_BACKUP_CHECKBOX_KEY = "settingsBackupCheckBox";
 
     private static final int MENU_SYNC_NOW_ID = Menu.FIRST;
     private static final int MENU_SYNC_CANCEL_ID = Menu.FIRST + 1;
@@ -93,6 +98,7 @@ public class SyncSettings extends PreferenceActivity implements OnAccountsUpdate
         mMasterAutoSyncCheckBox =
                 (CheckBoxPreference) findPreference(MASTER_AUTO_SYNC_CHECKBOX_KEY);
         mBackgroundDataCheckBox = (CheckBoxPreference) findPreference(BACKGROUND_DATA_CHECKBOX_KEY);
+        mSettingsBackupCheckBox = (CheckBoxPreference) findPreference(SETTINGS_BACKUP_CHECKBOX_KEY);
 
         AccountManager.get(this).addOnAccountsUpdatedListener(this, null, true);
     }
@@ -228,6 +234,14 @@ public class SyncSettings extends PreferenceActivity implements OnAccountsUpdate
                 cancelSyncForEnabledProviders();
             }
             setOneTimeSyncMode(!newMasterSyncAutomatically);
+        } else if (preference == mSettingsBackupCheckBox) {
+            boolean newValue = mSettingsBackupCheckBox.isChecked();
+            IBackupManager bmgr = IBackupManager.Stub.asInterface(
+                    ServiceManager.getService(Context.BACKUP_SERVICE));
+            try {
+                bmgr.setBackupEnabled(newValue);
+            } catch (RemoteException e) {
+            }
         } else if (preference instanceof SyncStateCheckBoxPreference) {
             SyncStateCheckBoxPreference syncPref = (SyncStateCheckBoxPreference) preference;
             String authority = syncPref.getAuthority();
@@ -339,6 +353,14 @@ public class SyncSettings extends PreferenceActivity implements OnAccountsUpdate
         mBackgroundDataCheckBox.setChecked(connManager.getBackgroundDataSetting());
         final boolean masterSyncAutomatically = ContentResolver.getMasterSyncAutomatically();
         mMasterAutoSyncCheckBox.setChecked(masterSyncAutomatically);
+
+        IBackupManager bmgr = IBackupManager.Stub.asInterface(
+                ServiceManager.getService(Context.BACKUP_SERVICE));
+        try {
+            mSettingsBackupCheckBox.setChecked(bmgr.isBackupEnabled());
+        } catch (RemoteException e) {
+        }
+
 
         // iterate over all the preferences, setting the state properly for each
         Date date = new Date();
