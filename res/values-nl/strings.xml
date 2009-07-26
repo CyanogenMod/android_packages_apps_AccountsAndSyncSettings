@@ -36,6 +36,6 @@
     <string name="sync_do_nothing">"Nu niets doen."</string>
     <string name="sync_is_failing">"Er zijn momenteel problemen met de synchronisatie. Synchronisatie wordt snel opnieuw uitgevoerd."</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">"Welkom bij Google Sync!"</font>" "\n"Een benadering van Google voor de synchronisatie van gegevens, zodat u altijd en overal toegang heeft tot uw contacten, afspraken en nog veel meer."</string>
-    <string name="header_application_sync_settings">"Synchronisatie-instellingen van de toepassing"</string>
+    <string name="header_application_sync_settings">"Synchronatie-instellingen van de toepassing"</string>
     <string name="header_general_sync_settings">"Algemene instellingen voor synchronisatie"</string>
 </resources>

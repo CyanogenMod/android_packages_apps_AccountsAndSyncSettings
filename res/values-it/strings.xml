@@ -21,7 +21,7 @@
     <string name="background_data_summary">"Attiva utilizzo dei dati in background"</string>
     <string name="background_data_dialog_title">"Attenzione"</string>
     <string name="background_data_dialog_message">"La disattivazione dei dati in background consente di ridurre il consumo delle batterie e l\'utilizzo dei dati. Alcune applicazioni potrebbero utilizzare comunque la connessione dati in background."</string>
-    <string name="sync_automatically">"Sincronizz. automatica"</string>
+    <string name="sync_automatically">"Sincronizzazione automatica"</string>
     <string name="sync_automatically_summary">"Sincronizza i dati automaticamente"</string>
     <string name="sync_menu_sync_now">"Sincronizza ora"</string>
     <string name="sync_menu_sync_cancel">"Annulla sincronizzazione"</string>
