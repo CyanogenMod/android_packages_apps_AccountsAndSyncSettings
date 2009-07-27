@@ -42,6 +42,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.ServiceManager;
 import android.os.RemoteException;
+import android.provider.Settings;
 import android.text.format.DateFormat;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
@@ -357,10 +358,11 @@ public class SyncSettings extends PreferenceActivity implements OnAccountsUpdate
         IBackupManager bmgr = IBackupManager.Stub.asInterface(
                 ServiceManager.getService(Context.BACKUP_SERVICE));
         try {
+            mSettingsBackupCheckBox.setEnabled(Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.BACKUP_PROVISIONED, 0) != 0);
             mSettingsBackupCheckBox.setChecked(bmgr.isBackupEnabled());
         } catch (RemoteException e) {
         }
-
 
         // iterate over all the preferences, setting the state properly for each
         Date date = new Date();
