@@ -15,6 +15,7 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label">"Synchronizace zdrojů"</string>
     <string name="sync_settings">"Synchronizace dat"</string>
     <string name="sync_too_many_deletes">"Byl překročen limit mazání."</string>
     <string name="background_data">"Data na pozadí"</string>

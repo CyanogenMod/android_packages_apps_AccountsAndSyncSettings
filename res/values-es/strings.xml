@@ -15,6 +15,7 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_label">"Sincronización de feeds"</string>
     <string name="sync_settings">"Sincronización de datos"</string>
     <string name="sync_too_many_deletes">"Límite de eliminaciones superado"</string>
     <string name="background_data">"Datos de referencia"</string>
