@@ -67,8 +67,37 @@
     <string name="sync_plug"><font fgcolor="#ffffffff">Welcome to Google Sync!</font>
     \nA Google approach to synchronizing data to allow access to your contacts, appointments and more from wherever you are.
     </string>
+
+    <!-- TODO: Remove -->
     <!-- Header title for those settings relating to application syncing. -->
     <string name="header_application_sync_settings">Application sync settings</string>
+    <!-- TODO: end -->
+
+    <!-- Accounts & Synchronization settings --><skip/>
+    <!-- Header title for list of accounts on Accounts & Synchronization settings -->
+    <string name="header_manage_accounts">Manage Accounts</string>
     <!-- Header title for those settings relating to general syncing. -->
     <string name="header_general_sync_settings">General sync settings</string>
+    <!-- Sync status messages on Accounts & Synchronization settings --><skip/>
+    <!-- Account is signed in and synced -->
+    <string name="signed_in_synced">Signed in, Synced</string>
+    <!-- Account is signed in, some sync features disabled -->
+    <string name="singed_in_synced_partial">Signed in, Partial Sync</string>
+    <!-- Account is signed in, but all sync features are turned off -->
+    <string name="signed_in_sync_disabled">Signed in, Sync is OFF</string>
+    <!-- Account is signed in, but there was a problem syncing -->
+    <string name="signed_in_sync_error">Signed in, Sync Error</string>
+    <!-- Button label to add an account -->
+    <string name="add_account_label">Add account</string>
+    <!-- Header for data and synchronization -->
+    <string name="header_data_and_synchronization">Data and Synchronization</string>
+    <!-- Preference item that lets the user change password -->
+    <string name="preference_change_password_title">Change password</string>
+    <!-- Header that appears at the top of Account Settings screen -->
+    <string name="header_account_settings">Account Settings</string>
+    <!-- Button label to remove current account -->
+    <string name="remove_account_label">Remove account</string>
+    <!-- Title shown in AddAccount -->
+    <string name="header_add_an_account">Add an account</string>
+
 </resources>
