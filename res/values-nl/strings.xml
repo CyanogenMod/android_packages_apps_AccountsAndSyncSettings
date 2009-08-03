@@ -15,28 +15,28 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label">"Feeds synchroniseren"</string>
-    <string name="sync_settings">"Gegevenssynchronisatie"</string>
-    <string name="sync_too_many_deletes">"Verwijderingslimiet overschreden"</string>
-    <string name="background_data">"Achtergrondgegevens"</string>
-    <string name="background_data_summary">"Gebruik van achtergrondgegevens inschakelen"</string>
-    <string name="background_data_dialog_title">"Let op"</string>
-    <string name="background_data_dialog_message">"Als u achtergrondgegevens uitschakelt, bespaart u batterijlading en wordt het gegevensverbruik verlaagd. Sommige toepassingen maken mogelijk nog steeds gebruik van de achtergrondgegevensverbinding."</string>
-    <string name="sync_automatically">"Automatische synchronisatie"</string>
-    <string name="sync_automatically_summary">"Gegevens automatisch synchroniseren"</string>
-    <string name="sync_menu_sync_now">"Nu synchroniseren"</string>
-    <string name="sync_menu_sync_cancel">"Synchronisatie annuleren"</string>
-    <string name="sync_one_time_sync">"Selecteren om nu te synchroniseren<xliff:g id="LAST_SYNC_TIME">
+    <string name="app_label" msgid="2800463760279909883">"Feeds synchroniseren"</string>
+    <string name="sync_settings" msgid="4549768061467147584">"Gegevenssynchronisatie"</string>
+    <string name="sync_too_many_deletes" msgid="1621369057980827097">"Verwijderingslimiet overschreden"</string>
+    <string name="background_data" msgid="1103557117473896066">"Achtergrondgegevens"</string>
+    <string name="background_data_summary" msgid="4689952168187153486">"Gebruik van achtergrondgegevens inschakelen"</string>
+    <string name="background_data_dialog_title" msgid="6303755495467986079">"Let op"</string>
+    <string name="background_data_dialog_message" msgid="2817489591533703840">"Als u achtergrondgegevens uitschakelt, bespaart u batterijlading en wordt het gegevensverbruik verlaagd. Sommige toepassingen maken mogelijk nog steeds gebruik van de achtergrondgegevensverbinding."</string>
+    <string name="sync_automatically" msgid="4694735102757960100">"Automatische synchronisatie"</string>
+    <string name="sync_automatically_summary" msgid="6210073947698673774">"Gegevens automatisch synchroniseren"</string>
+    <string name="sync_menu_sync_now" msgid="5796024841315572404">"Nu synchroniseren"</string>
+    <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Synchronisatie annuleren"</string>
+    <string name="sync_one_time_sync" msgid="3474532720071919514">"Selecteren om nu te synchroniseren<xliff:g id="LAST_SYNC_TIME">
 %1$s</xliff:g>"</string>
-    <string name="sync_gmail">"Gmail"</string>
-    <string name="sync_calendar">"Agenda"</string>
-    <string name="sync_contacts">"Contacten"</string>
-    <string name="sync_too_many_deletes_desc">"Er zijn <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> verwijderde items voor <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, account <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Wat wilt u doen?"</string>
-    <string name="sync_really_delete">"De items verwijderen."</string>
-    <string name="sync_undo_deletes">"Verwijderingen ongedaan maken."</string>
-    <string name="sync_do_nothing">"Nu niets doen."</string>
-    <string name="sync_is_failing">"Er zijn momenteel problemen met de synchronisatie. Synchronisatie wordt snel opnieuw uitgevoerd."</string>
-    <string name="sync_plug"><font fgcolor="#ffffffff">"Welkom bij Google Sync!"</font>" "\n"Een benadering van Google voor de synchronisatie van gegevens, zodat u altijd en overal toegang heeft tot uw contacten, afspraken en nog veel meer."</string>
-    <string name="header_application_sync_settings">"Synchronisatie-instellingen van de toepassing"</string>
-    <string name="header_general_sync_settings">"Algemene instellingen voor synchronisatie"</string>
+    <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
+    <string name="sync_calendar" msgid="1796292773734071897">"Agenda"</string>
+    <string name="sync_contacts" msgid="2035690905925565660">"Contacten"</string>
+    <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"Er zijn <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> verwijderde items voor <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, account <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Wat wilt u doen?"</string>
+    <string name="sync_really_delete" msgid="5456355204562588976">"De items verwijderen."</string>
+    <string name="sync_undo_deletes" msgid="8695514459839593307">"Verwijderingen ongedaan maken."</string>
+    <string name="sync_do_nothing" msgid="5798755982392201673">"Nu niets doen."</string>
+    <string name="sync_is_failing" msgid="5230237058552433773">"Er zijn momenteel problemen met de synchronisatie. Synchronisatie wordt snel opnieuw uitgevoerd."</string>
+    <string name="sync_plug" msgid="4526246957714417280"><font fgcolor="#ffffffff">"Welkom bij Google Sync!"</font>" "\n"Een benadering van Google voor de synchronisatie van gegevens, zodat u altijd en overal toegang heeft tot uw contacten, afspraken en nog veel meer."</string>
+    <string name="header_application_sync_settings" msgid="5263025067167527890">"Synchronisatie-instellingen van de toepassing"</string>
+    <string name="header_general_sync_settings" msgid="1598537524696692308">"Algemene instellingen voor synchronisatie"</string>
 </resources>

@@ -17,27 +17,27 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- no translation found for app_label (2800463760279909883) -->
     <skip />
-    <string name="sync_settings">"Datasynkronisering"</string>
-    <string name="sync_too_many_deletes">"Gränsen för borttagning har överskridits"</string>
-    <string name="background_data">"Bakgrundsdata"</string>
-    <string name="background_data_summary">"Aktivera användning av bakgrundsdata"</string>
-    <string name="background_data_dialog_title">"Obs!"</string>
-    <string name="background_data_dialog_message">"Om du inaktiverar bakgrundsdata sparar du batteri och minskar dataanvändning. Vissa program kanske fortfarande använder anslutningen för bakgrundsdata."</string>
-    <string name="sync_automatically">"Automatisk synkron."</string>
-    <string name="sync_automatically_summary">"Synkronisera data automatiskt"</string>
-    <string name="sync_menu_sync_now">"Synkronisera nu"</string>
-    <string name="sync_menu_sync_cancel">"Avbryt synkronisering"</string>
-    <string name="sync_one_time_sync">"Välj om du vill synkronisera nu<xliff:g id="LAST_SYNC_TIME">
+    <string name="sync_settings" msgid="4549768061467147584">"Datasynkronisering"</string>
+    <string name="sync_too_many_deletes" msgid="1621369057980827097">"Gränsen för borttagning har överskridits"</string>
+    <string name="background_data" msgid="1103557117473896066">"Bakgrundsdata"</string>
+    <string name="background_data_summary" msgid="4689952168187153486">"Aktivera användning av bakgrundsdata"</string>
+    <string name="background_data_dialog_title" msgid="6303755495467986079">"Obs!"</string>
+    <string name="background_data_dialog_message" msgid="2817489591533703840">"Om du inaktiverar bakgrundsdata sparar du batteri och minskar dataanvändning. Vissa program kanske fortfarande använder anslutningen för bakgrundsdata."</string>
+    <string name="sync_automatically" msgid="4694735102757960100">"Automatisk synkron."</string>
+    <string name="sync_automatically_summary" msgid="6210073947698673774">"Synkronisera data automatiskt"</string>
+    <string name="sync_menu_sync_now" msgid="5796024841315572404">"Synkronisera nu"</string>
+    <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Avbryt synkronisering"</string>
+    <string name="sync_one_time_sync" msgid="3474532720071919514">"Välj om du vill synkronisera nu<xliff:g id="LAST_SYNC_TIME">
 %1$s</xliff:g>"</string>
-    <string name="sync_gmail">"Gmail"</string>
-    <string name="sync_calendar">"Kalender"</string>
-    <string name="sync_contacts">"Kontakter"</string>
-    <string name="sync_too_many_deletes_desc">"Det finns <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> borttagna objekt för <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, konto <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Vad vill du göra?"</string>
-    <string name="sync_really_delete">"Ta bort artiklarna."</string>
-    <string name="sync_undo_deletes">"Ångra borttagningarna."</string>
-    <string name="sync_do_nothing">"Gör ingenting just nu."</string>
-    <string name="sync_is_failing">"Det är för närvarande problem med synkronisering. Det fungerar igen om en stund."</string>
-    <string name="sync_plug"><font fgcolor="#ffffffff">"Välkommen till Google Sync!"</font>" "\n"En funktion i Google som du kan använda om du vill synkronisera data så att du kommer åt dina kontakter, din kalender osv. var du än befinner dig."</string>
-    <string name="header_application_sync_settings">"Programmets synkroniseringsinställningar"</string>
-    <string name="header_general_sync_settings">"Allmänna synkroniseringsinställningar"</string>
+    <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
+    <string name="sync_calendar" msgid="1796292773734071897">"Kalender"</string>
+    <string name="sync_contacts" msgid="2035690905925565660">"Kontakter"</string>
+    <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"Det finns <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> borttagna objekt för <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, konto <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Vad vill du göra?"</string>
+    <string name="sync_really_delete" msgid="5456355204562588976">"Ta bort artiklarna."</string>
+    <string name="sync_undo_deletes" msgid="8695514459839593307">"Ångra borttagningarna."</string>
+    <string name="sync_do_nothing" msgid="5798755982392201673">"Gör ingenting just nu."</string>
+    <string name="sync_is_failing" msgid="5230237058552433773">"Det är för närvarande problem med synkronisering. Det fungerar igen om en stund."</string>
+    <string name="sync_plug" msgid="4526246957714417280"><font fgcolor="#ffffffff">"Välkommen till Google Sync!"</font>" "\n"En funktion i Google som du kan använda om du vill synkronisera data så att du kommer åt dina kontakter, din kalender osv. var du än befinner dig."</string>
+    <string name="header_application_sync_settings" msgid="5263025067167527890">"Programmets synkroniseringsinställningar"</string>
+    <string name="header_general_sync_settings" msgid="1598537524696692308">"Allmänna synkroniseringsinställningar"</string>
 </resources>

@@ -17,27 +17,27 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- no translation found for app_label (2800463760279909883) -->
     <skip />
-    <string name="sync_settings">"Sincronização de dados"</string>
-    <string name="sync_too_many_deletes">"Limite de exclusão excedido"</string>
-    <string name="background_data">"Dados de segundo plano"</string>
-    <string name="background_data_summary">"Ativar o uso de dados de segundo plano"</string>
-    <string name="background_data_dialog_title">"Atenção"</string>
-    <string name="background_data_dialog_message">"A desativação dos dados de segundo plano economiza a bateria e diminui o uso dos dados. Alguns aplicativos ainda podem usar a conexão de dados de segundo plano."</string>
-    <string name="sync_automatically">"Sincronização automática"</string>
-    <string name="sync_automatically_summary">"Sincronizar dados automaticamente"</string>
-    <string name="sync_menu_sync_now">"Sincronizar agora"</string>
-    <string name="sync_menu_sync_cancel">"Cancelar a sincronização"</string>
-    <string name="sync_one_time_sync">"Selecione para sincronizar agora<xliff:g id="LAST_SYNC_TIME">
+    <string name="sync_settings" msgid="4549768061467147584">"Sincronização de dados"</string>
+    <string name="sync_too_many_deletes" msgid="1621369057980827097">"Limite de exclusão excedido"</string>
+    <string name="background_data" msgid="1103557117473896066">"Dados de segundo plano"</string>
+    <string name="background_data_summary" msgid="4689952168187153486">"Ativar o uso de dados de segundo plano"</string>
+    <string name="background_data_dialog_title" msgid="6303755495467986079">"Atenção"</string>
+    <string name="background_data_dialog_message" msgid="2817489591533703840">"A desativação dos dados de segundo plano economiza a bateria e diminui o uso dos dados. Alguns aplicativos ainda podem usar a conexão de dados de segundo plano."</string>
+    <string name="sync_automatically" msgid="4694735102757960100">"Sincronização automática"</string>
+    <string name="sync_automatically_summary" msgid="6210073947698673774">"Sincronizar dados automaticamente"</string>
+    <string name="sync_menu_sync_now" msgid="5796024841315572404">"Sincronizar agora"</string>
+    <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Cancelar a sincronização"</string>
+    <string name="sync_one_time_sync" msgid="3474532720071919514">"Selecione para sincronizar agora<xliff:g id="LAST_SYNC_TIME">
 %1$s</xliff:g>"</string>
-    <string name="sync_gmail">"Gmail"</string>
-    <string name="sync_calendar">"Agenda"</string>
-    <string name="sync_contacts">"Contatos"</string>
-    <string name="sync_too_many_deletes_desc">"Há <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> itens excluídos para <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, conta <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. O que você deseja fazer?"</string>
-    <string name="sync_really_delete">"Excluir os itens."</string>
-    <string name="sync_undo_deletes">"Desfazer as exclusões."</string>
-    <string name="sync_do_nothing">"Não fazer nada por enquanto."</string>
-    <string name="sync_is_failing">"O Google Sync está enfrentando problemas no momento. Ele retornará em breve."</string>
-    <string name="sync_plug"><font fgcolor="#ffffffff">"Bem-vindo ao Google Sync!"</font>" "\n"Um método do Google para sincronizar dados de modo a permitir o acesso aos seus contatos, compromissos e muito mais, onde quer que você esteja."</string>
-    <string name="header_application_sync_settings">"Configurações de sincronização do aplicativo"</string>
-    <string name="header_general_sync_settings">"Configurações de sincronização geral"</string>
+    <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
+    <string name="sync_calendar" msgid="1796292773734071897">"Agenda"</string>
+    <string name="sync_contacts" msgid="2035690905925565660">"Contatos"</string>
+    <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"Há <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> itens excluídos para <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, conta <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. O que você deseja fazer?"</string>
+    <string name="sync_really_delete" msgid="5456355204562588976">"Excluir os itens."</string>
+    <string name="sync_undo_deletes" msgid="8695514459839593307">"Desfazer as exclusões."</string>
+    <string name="sync_do_nothing" msgid="5798755982392201673">"Não fazer nada por enquanto."</string>
+    <string name="sync_is_failing" msgid="5230237058552433773">"O Google Sync está enfrentando problemas no momento. Ele retornará em breve."</string>
+    <string name="sync_plug" msgid="4526246957714417280"><font fgcolor="#ffffffff">"Bem-vindo ao Google Sync!"</font>" "\n"Um método do Google para sincronizar dados de modo a permitir o acesso aos seus contatos, compromissos e muito mais, onde quer que você esteja."</string>
+    <string name="header_application_sync_settings" msgid="5263025067167527890">"Configurações de sincronização do aplicativo"</string>
+    <string name="header_general_sync_settings" msgid="1598537524696692308">"Configurações de sincronização geral"</string>
 </resources>

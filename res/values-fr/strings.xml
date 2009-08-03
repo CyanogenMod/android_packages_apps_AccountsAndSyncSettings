@@ -15,28 +15,28 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label">"Synchronisation des flux"</string>
-    <string name="sync_settings">"Synchronisation"</string>
-    <string name="sync_too_many_deletes">"Le nombre maximum de suppressions a été atteint."</string>
-    <string name="background_data">"Données en arrière-plan"</string>
-    <string name="background_data_summary">"Activer l\'utilisation des données en arrière-plan"</string>
-    <string name="background_data_dialog_title">"Attention"</string>
-    <string name="background_data_dialog_message">"La désactivation des données en arrière-plan permet d\'économiser la batterie et de réduire l\'utilisation des données. Certaines applications peuvent utiliser la connexion des données en arrière-plan."</string>
-    <string name="sync_automatically">"Synchronisation auto"</string>
-    <string name="sync_automatically_summary">"Synchronisation automatique des données"</string>
-    <string name="sync_menu_sync_now">"Synchroniser maintenant"</string>
-    <string name="sync_menu_sync_cancel">"Annuler la synchronisation"</string>
-    <string name="sync_one_time_sync">"Synchroniser maintenant <xliff:g id="LAST_SYNC_TIME">
+    <string name="app_label" msgid="2800463760279909883">"Synchronisation des flux"</string>
+    <string name="sync_settings" msgid="4549768061467147584">"Synchronisation"</string>
+    <string name="sync_too_many_deletes" msgid="1621369057980827097">"Le nombre maximum de suppressions a été atteint."</string>
+    <string name="background_data" msgid="1103557117473896066">"Données en arrière-plan"</string>
+    <string name="background_data_summary" msgid="4689952168187153486">"Activer l\'utilisation des données en arrière-plan"</string>
+    <string name="background_data_dialog_title" msgid="6303755495467986079">"Attention"</string>
+    <string name="background_data_dialog_message" msgid="2817489591533703840">"La désactivation des données en arrière-plan permet d\'économiser la batterie et de réduire l\'utilisation des données. Certaines applications peuvent utiliser la connexion des données en arrière-plan."</string>
+    <string name="sync_automatically" msgid="4694735102757960100">"Synchronisation auto"</string>
+    <string name="sync_automatically_summary" msgid="6210073947698673774">"Synchronisation automatique des données"</string>
+    <string name="sync_menu_sync_now" msgid="5796024841315572404">"Synchroniser maintenant"</string>
+    <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Annuler la synchronisation"</string>
+    <string name="sync_one_time_sync" msgid="3474532720071919514">"Synchroniser maintenant <xliff:g id="LAST_SYNC_TIME">
 %1$s</xliff:g>"</string>
-    <string name="sync_gmail">"Gmail"</string>
-    <string name="sync_calendar">"Agenda"</string>
-    <string name="sync_contacts">"Contacts"</string>
-    <string name="sync_too_many_deletes_desc">"Il y a <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> éléments supprimés pour <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, pour le compte <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Que souhaitez-vous faire ?"</string>
-    <string name="sync_really_delete">"Supprimer les éléments"</string>
-    <string name="sync_undo_deletes">"Annuler les suppressions"</string>
-    <string name="sync_do_nothing">"Ne rien faire pour l\'instant"</string>
-    <string name="sync_is_failing">"La synchronisation rencontre actuellement des problèmes. Elle sera rétablie sous peu."</string>
-    <string name="sync_plug"><font fgcolor="#ffffffff">"Bienvenue sur Google Sync !"</font>" "\n"Une approche Google pour synchroniser vos données afin de vous permettre l\'accès à vos contacts, rendez-vous et plus encore, où que vous vous trouviez."</string>
-    <string name="header_application_sync_settings">"Paramètres des applications"</string>
-    <string name="header_general_sync_settings">"Paramètres généraux"</string>
+    <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
+    <string name="sync_calendar" msgid="1796292773734071897">"Agenda"</string>
+    <string name="sync_contacts" msgid="2035690905925565660">"Contacts"</string>
+    <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"Il y a <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> éléments supprimés pour <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, pour le compte <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Que souhaitez-vous faire ?"</string>
+    <string name="sync_really_delete" msgid="5456355204562588976">"Supprimer les éléments"</string>
+    <string name="sync_undo_deletes" msgid="8695514459839593307">"Annuler les suppressions"</string>
+    <string name="sync_do_nothing" msgid="5798755982392201673">"Ne rien faire pour l\'instant"</string>
+    <string name="sync_is_failing" msgid="5230237058552433773">"La synchronisation rencontre actuellement des problèmes. Elle sera rétablie sous peu."</string>
+    <string name="sync_plug" msgid="4526246957714417280"><font fgcolor="#ffffffff">"Bienvenue sur Google Sync !"</font>" "\n"Une approche Google pour synchroniser vos données afin de vous permettre l\'accès à vos contacts, rendez-vous et plus encore, où que vous vous trouviez."</string>
+    <string name="header_application_sync_settings" msgid="5263025067167527890">"Paramètres des applications"</string>
+    <string name="header_general_sync_settings" msgid="1598537524696692308">"Paramètres généraux"</string>
 </resources>
