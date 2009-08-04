@@ -30,7 +30,9 @@
                        android:resource="@xml/syncadapter" />
         </service>
 
-        <activity android:name="com.android.settings.ManageAccountsSettings" android:label="@string/sync_settings">
+        <activity android:name="com.android.settings.ManageAccountsSettings"
+            android:label="@string/sync_settings"
+            android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.settings.SYNC_SETTINGS" />
