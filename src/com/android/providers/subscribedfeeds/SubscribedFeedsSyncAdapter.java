@@ -88,7 +88,8 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
      * appropriate actions on the ContentProvider to represent the entry.
      */
     protected void updateProvider(Feed feed, Long syncLocalId,
-            Entry baseEntry, ContentProvider provider, Object syncInfo)
+            Entry baseEntry, ContentProvider provider, Object syncInfo,
+            GDataSyncData.FeedData feedSyncData)
             throws ParseException {
         ContentValues values = new ContentValues();
         final Account account = getAccount();
@@ -127,7 +128,7 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
     }
 
     @Override
-    protected void updateQueryParameters(QueryParams params) {
+    protected void updateQueryParameters(QueryParams params, GDataSyncData.FeedData feedSyncData) {
         params.setParamValue(ROUTINGINFO_PARAMETER, getRoutingInfoForAccount(getAccount()));
     }
 
