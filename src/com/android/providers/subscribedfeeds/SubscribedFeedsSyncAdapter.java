@@ -36,6 +36,7 @@ import android.accounts.AccountManager;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.content.ContentProvider;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SyncContext;
@@ -232,18 +233,27 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
      * can use it.
      *
      * @param account the account whose routing info we want
-     * @return the GSyncSubscriptionServer routing string for this account
+     * @return the routing info for this account
      */
     public String getRoutingInfoForAccount(Account account) {
+	Context context = getContext();
         long androidId;
         try {
-            androidId = GoogleLoginServiceBlockingHelper.getAndroidId(getContext());
+            androidId = GoogleLoginServiceBlockingHelper.getAndroidId(context);
         } catch (GoogleLoginServiceNotFoundException e) {
             Log.e(TAG, "Could not get routing info for account", e);
             return null;
         }
-        return Uri.parse("gtalk://" + account.mName
-                + "#" + Settings.getGTalkDeviceId(androidId)).toString();
+
+	ContentResolver cr = context.getContentResolver();
+	boolean useRmq2RoutingInfo = "true".equals(
+	    Settings.Gservices.getString(cr, Settings.Gservices.GSYNC_USE_RMQ2_ROUTING_INFO));
+	if (useRmq2RoutingInfo) {
+	    return Uri.parse("android://" + Long.toHexString(androidId)).toString();
+	} else {
+            return Uri.parse("gtalk://" + account.mName
+                    + "#" + Settings.getGTalkDeviceId(androidId)).toString();
+	}
     }
 
     @Override
