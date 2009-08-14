@@ -24,8 +24,8 @@
 
     <ImageView
         android:id="@+id/providerIcon"
-        android:layout_width="48dip"
-        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginRight="5dip"
         android:layout_gravity="center" />
 
