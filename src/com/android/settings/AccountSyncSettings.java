@@ -17,38 +17,19 @@
 package com.android.settings;
 
 import com.android.providers.subscribedfeeds.R;
-import com.google.android.googlelogin.GoogleLoginServiceConstants;
 import com.google.android.collect.Maps;
 
 import android.accounts.AccountManager;
-import android.accounts.AuthenticatorDescription;
-import android.accounts.AuthenticatorException;
-import android.accounts.Future1;
-import android.accounts.Future1Callback;
-import android.accounts.Future2;
-import android.accounts.Future2Callback;
-import android.accounts.OperationCanceledException;
 import android.accounts.Account;
-import android.accounts.OnAccountsUpdatedListener;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.ActiveSyncInfo;
 import android.content.ContentResolver;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SyncStatusInfo;
 import android.content.SyncAdapterType;
-import android.content.SyncStatusObserver;
-import android.graphics.drawable.Drawable;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.format.DateFormat;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
-import android.provider.Gmail;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -59,7 +40,6 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.io.IOException;
 
 public class AccountSyncSettings extends AccountPreferenceBase {
     TextView mUserId;
@@ -109,8 +89,8 @@ public class AccountSyncSettings extends AccountPreferenceBase {
         mAccount = (Account) getIntent().getParcelableExtra("account");
         if (mAccount != null) {
             Log.v(TAG, "Got account: " + mAccount);
-            mUserId.setText(mAccount.mName);
-            mProviderId.setText(mAccount.mType);
+            mUserId.setText(mAccount.name);
+            mProviderId.setText(mAccount.type);
         }
         AccountManager.get(this).addOnAccountsUpdatedListener(this, null, true);
         updateAuthDescriptions();
@@ -291,7 +271,7 @@ public class AccountSyncSettings extends AccountPreferenceBase {
         for (int i = 0, n = accounts.length; i < n; i++) {
             final Account account = accounts[i];
             Log.d(TAG, "looking for sync adapters that match account " + account);
-            final ArrayList<String> authorities = accountTypeToAuthorities.get(account.mType);
+            final ArrayList<String> authorities = accountTypeToAuthorities.get(account.type);
             if (authorities != null && (mAccount == null || mAccount.equals(account))) {
                 for (int j = 0, m = authorities.size(); j < m; j++) {
                     final String authority = authorities.get(j);
@@ -306,15 +286,11 @@ public class AccountSyncSettings extends AccountPreferenceBase {
 
     /**
      * Updates the titlebar with an icon for the provider type.
-     * This happens asynchronously, so the icon may not be correct when this function returns,
-     * but will be updated sometime later.
-     *
-     * @param type
      */
     @Override
     protected void onAuthDescriptionsUpdated() {
         super.onAuthDescriptionsUpdated();
-        mProviderIcon.setImageDrawable(getDrawableForType(mAccount.mType));
-        mProviderId.setText(getLabelForType(mAccount.mType));
+        mProviderIcon.setImageDrawable(getDrawableForType(mAccount.type));
+        mProviderId.setText(getLabelForType(mAccount.type));
     }
 }

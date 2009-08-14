@@ -53,7 +53,7 @@ public class AccountPreference extends Preference {
         mAuthorities = authorities;
         mProviderIcon = icon;
         setLayoutResource(R.layout.account_preference);
-        setTitle(mAccount.mName);
+        setTitle(mAccount.name);
         setSummary(R.string.signed_in_sync_disabled);
         // Add account info to the intent for AccountSyncSettings
         Intent intent = new Intent("android.settings.ACCOUNT_SYNC_SETTINGS");
@@ -146,6 +146,6 @@ public class AccountPreference extends Preference {
             // Put other preference types above us
             return 1;
         }
-        return mAccount.mName.compareTo(((AccountPreference) other).mAccount.mName);
+        return mAccount.name.compareTo(((AccountPreference) other).mAccount.name);
     }
 }

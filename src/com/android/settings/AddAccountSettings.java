@@ -20,9 +20,9 @@ import com.android.providers.subscribedfeeds.R;
 
 import android.accounts.AccountManager;
 import android.accounts.AuthenticatorException;
-import android.accounts.Future2;
-import android.accounts.Future2Callback;
+import android.accounts.AccountManagerFuture;
 import android.accounts.OperationCanceledException;
+import android.accounts.AccountManagerCallback;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -84,8 +84,8 @@ public class AddAccountSettings extends AccountPreferenceBase {
         }
     }
 
-    private Future2Callback mCallback = new Future2Callback() {
-        public void run(Future2 future) {
+    private AccountManagerCallback<Bundle> mCallback = new AccountManagerCallback<Bundle>() {
+        public void run(AccountManagerFuture<Bundle> future) {
             try {
                 Bundle bundle = future.getResult();
                 bundle.keySet();

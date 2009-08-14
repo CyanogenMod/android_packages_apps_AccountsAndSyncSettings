@@ -17,16 +17,9 @@
 package com.android.settings;
 
 import com.android.providers.subscribedfeeds.R;
-import com.android.settings.SyncStateCheckBoxPreference;
-import com.google.android.collect.Maps;
 
 import android.accounts.AccountManager;
-import android.accounts.AuthenticatorDescription;
-import android.accounts.Future1;
-import android.accounts.Future1Callback;
-import android.accounts.OperationCanceledException;
 import android.accounts.Account;
-import android.accounts.OnAccountsUpdatedListener;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ActiveSyncInfo;
@@ -35,17 +28,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SyncStatusInfo;
-import android.content.SyncAdapterType;
-import android.content.SyncStatusObserver;
-import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.format.DateFormat;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.view.Menu;
@@ -53,12 +41,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ManageAccountsSettings extends AccountPreferenceBase implements View.OnClickListener {
     private static final String MANAGE_ACCOUNTS_CATEGORY_KEY = "manageAccountsCategory";
@@ -295,7 +280,7 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
 
         for (int i = 0, n = accounts.length; i < n; i++) {
             final Account account = accounts[i];
-            final ArrayList<String> auths = getAuthoritiesForAccountType(account.mType);
+            final ArrayList<String> auths = getAuthoritiesForAccountType(account.type);
 
             boolean showAccount = true;
             if (mAuthorities != null) {
@@ -309,7 +294,7 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
             }
 
             if (showAccount) {
-                Drawable icon = getDrawableForType(account.mType);
+                Drawable icon = getDrawableForType(account.type);
                 AccountPreference preference = new AccountPreference(this, account, icon, auths);
                 preference.setSyncStatus(AccountPreference.SYNC_ALL_OK);
                 mManageAccountsCategory.addPreference(preference);
@@ -323,8 +308,8 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
         // Update account icons for all account preference items
         for (int i = 0; i < mManageAccountsCategory.getPreferenceCount(); i++) {
             AccountPreference pref = (AccountPreference) mManageAccountsCategory.getPreference(i);
-            pref.setProviderIcon(getDrawableForType(pref.getAccount().mType));
-            pref.setSummary(getLabelForType(pref.getAccount().mType));
+            pref.setProviderIcon(getDrawableForType(pref.getAccount().type));
+            pref.setSummary(getLabelForType(pref.getAccount().type));
         }
     }
 

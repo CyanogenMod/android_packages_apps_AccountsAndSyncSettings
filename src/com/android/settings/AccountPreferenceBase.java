@@ -25,10 +25,7 @@ import com.google.android.collect.Maps;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AuthenticatorDescription;
-import android.accounts.Future1;
-import android.accounts.Future1Callback;
 import android.accounts.OnAccountsUpdatedListener;
-import android.accounts.OperationCanceledException;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SyncAdapterType;
@@ -170,26 +167,14 @@ class AccountPreferenceBase extends PreferenceActivity implements OnAccountsUpda
     }
 
     /**
-     * Asynchronously updates provider icons. Subclasses should call this in onCreate()
+     * Updates provider icons. Subclasses should call this in onCreate()
      * and update any UI that depends on AuthenticatorDescriptions in onAuthDescriptionsUpdated().
      */
     protected void updateAuthDescriptions() {
-        AccountManager.get(this).getAuthenticatorTypes(
-                new Future1Callback<AuthenticatorDescription[]>() {
-            public void run(Future1<AuthenticatorDescription[]> future) {
-                if (isFinishing()) return;
-
-                try {
-                    mAuthDescs = future.getResult();
-                    for (int i = 0; i < mAuthDescs.length; i++) {
-                        mTypeToAuthDescription.put(mAuthDescs[i].type, mAuthDescs[i]);
-                    }
-                } catch (OperationCanceledException e) {
-                    // the request was canceled
-                    Log.w(TAG, "getAuthenticatorTypes(): Operation was canceled");
-                }
-                onAuthDescriptionsUpdated();
-            }
-        }, mHandler);
+        mAuthDescs = AccountManager.get(this).getAuthenticatorTypes();
+        for (int i = 0; i < mAuthDescs.length; i++) {
+            mTypeToAuthDescription.put(mAuthDescs[i].type, mAuthDescs[i]);
+        }
+        onAuthDescriptionsUpdated();
     }
 }
