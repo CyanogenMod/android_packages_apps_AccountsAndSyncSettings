@@ -94,8 +94,8 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
             throws ParseException {
         ContentValues values = new ContentValues();
         final Account account = getAccount();
-        values.put(SubscribedFeeds.Feeds._SYNC_ACCOUNT, account.mName);
-        values.put(SubscribedFeeds.Feeds._SYNC_ACCOUNT_TYPE, account.mType);
+        values.put(SubscribedFeeds.Feeds._SYNC_ACCOUNT, account.name);
+        values.put(SubscribedFeeds.Feeds._SYNC_ACCOUNT_TYPE, account.type);
         values.put(SubscribedFeeds.Feeds._SYNC_LOCAL_ID, syncLocalId);
         final SubscribedFeedsEntry entry = (SubscribedFeedsEntry) baseEntry;
         final String id = entry.getId();
@@ -251,7 +251,7 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
 	if (useRmq2RoutingInfo) {
 	    return Uri.parse("android://" + Long.toHexString(androidId)).toString();
 	} else {
-            return Uri.parse("gtalk://" + account.mName
+            return Uri.parse("gtalk://" + account.name
                     + "#" + Settings.getGTalkDeviceId(androidId)).toString();
 	}
     }
