@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:text="@string/sync_is_failing" />
 
-    <LinearLayout
+    <LinearLayout android:id="@+id/remove_account_area"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -62,5 +62,23 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"/>
     </LinearLayout>
+    
+    <RelativeLayout android:id="@+id/finish_button_area"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:background="@android:drawable/bottom_bar"
+        android:visibility="gone">
+        
+        <Button android:id="@+id/finish_button"
+            android:layout_width="150dip"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dip"
+            android:layout_alignParentRight="true"
+            android:drawableRight="@drawable/ic_btn_next"
+            android:drawablePadding="3dip"
+            android:text="@string/finish_button_label"
+        />
+        
+    </RelativeLayout>
 
 </LinearLayout>
