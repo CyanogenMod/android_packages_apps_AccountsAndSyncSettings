@@ -37,6 +37,6 @@
     <string name="sync_do_nothing" msgid="5798755982392201673">"Nyní neprovádět žádnou akci."</string>
     <string name="sync_is_failing" msgid="5230237058552433773">"Nastaly potíže se synchronizací. Služba bude brzy obnovena."</string>
     <string name="sync_plug" msgid="4526246957714417280"><font fgcolor="#ffffffff">"Vítá vás aplikace Google Sync"</font>" "\n"Nový pohled na synchronizaci dat v režii Google. Poskytuje vám přístup ke kontaktům, schůzkám a dalším náležitostem, ať jste kdekoli."</string>
-    <string name="header_application_sync_settings" msgid="5263025067167527890">"Nastavení synchronizace aplikace"</string>
+    <string name="header_application_sync_settings" msgid="5263025067167527890">"Nastavení synchronizace aplikací"</string>
     <string name="header_general_sync_settings" msgid="1598537524696692308">"Obecná nastavení synchronizace"</string>
 </resources>
