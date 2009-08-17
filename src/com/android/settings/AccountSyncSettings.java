@@ -103,7 +103,7 @@ public class AccountSyncSettings extends AccountPreferenceBase {
         SyncStateCheckBoxPreference item =
                 new SyncStateCheckBoxPreference(this, account, authority);
         item.setPersistent(false);
-        //final String name = authority + ", " + account.mName + ", " + account.mType;
+        //final String name = authority + ", " + account.name + ", " + account.type;
         final String name = authority;
         item.setTitle(name);
         item.setKey(name);
