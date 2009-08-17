@@ -23,4 +23,5 @@
 <sync-adapter xmlns:android="http://schemas.android.com/apk/res/android"
     android:contentAuthority="subscribedfeeds"
     android:accountType="com.google.GAIA"
+    android:userVisible="false"
 />
