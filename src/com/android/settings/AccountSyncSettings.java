@@ -254,13 +254,15 @@ public class AccountSyncSettings extends AccountPreferenceBase {
         HashMap<String, ArrayList<String>> accountTypeToAuthorities = Maps.newHashMap();
         for (int i = 0, n = syncAdapters.length; i < n; i++) {
             final SyncAdapterType sa = syncAdapters[i];
-            ArrayList<String> authorities = accountTypeToAuthorities.get(sa.accountType);
-            if (authorities == null) {
-                authorities = new ArrayList<String>();
-                accountTypeToAuthorities.put(sa.accountType, authorities);
+            if (sa.isUserFacing) {
+                ArrayList<String> authorities = accountTypeToAuthorities.get(sa.accountType);
+                if (authorities == null) {
+                    authorities = new ArrayList<String>();
+                    accountTypeToAuthorities.put(sa.accountType, authorities);
+                }
+                Log.d(TAG, "added authority " + sa.authority + " to accountType " + sa.accountType);
+                authorities.add(sa.authority);
             }
-            Log.d(TAG, "added authority " + sa.authority + " to accountType " + sa.accountType);
-            authorities.add(sa.authority);
         }
 
         for (int i = 0, n = mCheckBoxes.size(); i < n; i++) {
@@ -276,7 +278,9 @@ public class AccountSyncSettings extends AccountPreferenceBase {
                 for (int j = 0, m = authorities.size(); j < m; j++) {
                     final String authority = authorities.get(j);
                     Log.d(TAG, "  found authority " + authority);
-                    addSyncStateCheckBox(account, authority);
+                    if (ContentResolver.getIsSyncable(account, authority) > 0) {
+                        addSyncStateCheckBox(account, authority);
+                    }
                 }
             }
         }
