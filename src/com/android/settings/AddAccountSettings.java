@@ -90,6 +90,7 @@ public class AddAccountSettings extends AccountPreferenceBase {
                 Bundle bundle = future.getResult();
                 bundle.keySet();
                 Log.d(TAG, "account added: " + bundle);
+                finish();
             } catch (OperationCanceledException e) {
                 Log.d(TAG, "addAccount was canceled");
             } catch (IOException e) {

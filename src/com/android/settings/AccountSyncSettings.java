@@ -21,8 +21,15 @@ import com.google.android.collect.Maps;
 
 import android.accounts.AccountManager;
 import android.accounts.Account;
+import android.accounts.AccountManagerCallback;
+import android.accounts.AccountManagerFuture;
+import android.accounts.AuthenticatorException;
+import android.accounts.OperationCanceledException;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ActiveSyncInfo;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.SyncStatusInfo;
 import android.content.SyncAdapterType;
 import android.os.Bundle;
@@ -33,34 +40,84 @@ import android.preference.PreferenceScreen;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.util.Log;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-public class AccountSyncSettings extends AccountPreferenceBase {
-    TextView mUserId;
-    TextView mProviderId;
-    ImageView mProviderIcon;
-
-    java.text.DateFormat mDateFormat;
-    java.text.DateFormat mTimeFormat;
-
-    final Handler mHandler = new Handler();
-
-    private Preference mChangePasswordPreference;
-    TextView mErrorInfoView;
-
-    private Account mAccount;
-
+public class AccountSyncSettings extends AccountPreferenceBase implements OnClickListener {
+    private static final String TAG = "SyncSettings";
     private static final String CHANGE_PASSWORD_KEY = "changePassword";
-
     private static final int MENU_SYNC_NOW_ID = Menu.FIRST;
     private static final int MENU_SYNC_CANCEL_ID = Menu.FIRST + 1;
-    private static final String TAG = "SyncSettings";
+    private static final int REALLY_REMOVE_DIALOG = 100;
+    private static final int FAILED_REMOVAL_DIALOG = 101;
+    private TextView mUserId;
+    private TextView mProviderId;
+    private ImageView mProviderIcon;
+    private TextView mErrorInfoView;
+    protected View mRemoveAccountArea;
+    private java.text.DateFormat mDateFormat;
+    private java.text.DateFormat mTimeFormat; 
+    private Preference mAuthenticatorPreferences;
+    private Account mAccount;
+    private Button mRemoveAccountButton;
+    
+    public void onClick(View v) {
+        if (v == mRemoveAccountButton) {
+            showDialog(REALLY_REMOVE_DIALOG);
+        }
+    }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        Dialog dialog = null;
+        if (id == REALLY_REMOVE_DIALOG) {
+            dialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.really_remove_account_title)
+                .setMessage(R.string.really_remove_account_message)
+                .setPositiveButton(R.string.remove_account_label, 
+                        new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        AccountManager.get(AccountSyncSettings.this).removeAccount(mAccount, 
+                                new AccountManagerCallback<Boolean>() {
+                            public void run(AccountManagerFuture<Boolean> future) {
+                                boolean failed = true;
+                                try {
+                                    if (future.getResult() == true) {
+                                        failed = false;
+                                    }
+                                } catch (OperationCanceledException e) {
+                                    // ignore it
+                                } catch (IOException e) {
+                                    // TODO: retry?
+                                } catch (AuthenticatorException e) {
+                                    // TODO: retry?
+                                }
+                                if (failed) {
+                                    showDialog(FAILED_REMOVAL_DIALOG);
+                                } else {
+                                    finish();
+                                }
+                            }
+                        }, null);
+                    }
+                })
+                .create();
+        } else if (id == FAILED_REMOVAL_DIALOG) {
+            dialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.really_remove_account_title)
+                .setMessage(R.string.remove_account_failed)
+                .create();
+        }
+        return dialog;
+    }
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -68,19 +125,19 @@ public class AccountSyncSettings extends AccountPreferenceBase {
 
         setContentView(R.layout.account_sync_screen);
         addPreferencesFromResource(R.xml.account_sync_settings);
-
+        addAuthenticatorPreferences();
+        
         mErrorInfoView = (TextView) findViewById(R.id.sync_settings_error_info);
         mErrorInfoView.setVisibility(View.GONE);
         mErrorInfoView.setCompoundDrawablesWithIntrinsicBounds(
                 getResources().getDrawable(R.drawable.ic_list_syncerror), null, null, null);
 
-        //TODO: add authenticator-specific settings here when AuthenticatorDesc supports it.
-        //TODO: maybe make this an authenticator-provided settings
-        mChangePasswordPreference = findPreference(CHANGE_PASSWORD_KEY);
-
         mUserId = (TextView) findViewById(R.id.user_id);
         mProviderId = (TextView) findViewById(R.id.provider_id);
         mProviderIcon = (ImageView) findViewById(R.id.provider_icon);
+        mRemoveAccountArea = (View) findViewById(R.id.remove_account_area);
+        mRemoveAccountButton = (Button) findViewById(R.id.remove_account_button);
+        mRemoveAccountButton.setOnClickListener(this);
 
 
         mDateFormat = DateFormat.getDateFormat(this);
@@ -94,6 +151,14 @@ public class AccountSyncSettings extends AccountPreferenceBase {
         }
         AccountManager.get(this).addOnAccountsUpdatedListener(this, null, true);
         updateAuthDescriptions();
+    }
+
+    /*
+     * Get settings.xml from authenticator for this account.
+     * TODO: replace with authenticator-specific settings here when AuthenticatorDesc supports it.
+     */
+    private void addAuthenticatorPreferences() {
+        mAuthenticatorPreferences = findPreference(CHANGE_PASSWORD_KEY);
     }
 
     ArrayList<SyncStateCheckBoxPreference> mCheckBoxes =
@@ -296,5 +361,7 @@ public class AccountSyncSettings extends AccountPreferenceBase {
         super.onAuthDescriptionsUpdated();
         mProviderIcon.setImageDrawable(getDrawableForType(mAccount.type));
         mProviderId.setText(getLabelForType(mAccount.type));
+        // TODO: Enable Remove accounts when we can tell the account can be removed
+        
     }
 }
