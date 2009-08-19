@@ -284,7 +284,8 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
             boolean authorityIsPending = ContentResolver.isSyncPending(account, authority);
 
             boolean activelySyncing = activeSyncValues != null
-                    && activeSyncValues.account.equals(account);
+                    && activeSyncValues.account.equals(account)
+                    && activeSyncValues.authority.equals(authority);
             boolean lastSyncFailed = status != null
                     && status.lastFailureTime != 0
                     && status.getLastFailureMesgAsInt(0)
