@@ -320,7 +320,7 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
         HashMap<String, ArrayList<String>> accountTypeToAuthorities = Maps.newHashMap();
         for (int i = 0, n = syncAdapters.length; i < n; i++) {
             final SyncAdapterType sa = syncAdapters[i];
-            if (sa.userVisible) {
+            if (sa.isUserVisible()) {
                 ArrayList<String> authorities = accountTypeToAuthorities.get(sa.accountType);
                 if (authorities == null) {
                     authorities = new ArrayList<String>();
