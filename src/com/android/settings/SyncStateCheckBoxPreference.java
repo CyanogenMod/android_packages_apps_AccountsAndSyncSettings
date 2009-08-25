@@ -63,11 +63,15 @@ public class SyncStateCheckBoxPreference extends CheckBoxPreference {
         View syncFailedView = view.findViewById(R.id.sync_failed);
 
         syncActiveView.setVisibility(mIsActive ? View.VISIBLE : View.GONE);
-        AnimationDrawable anim = (AnimationDrawable) syncActiveView.getDrawable();
+        final AnimationDrawable anim = (AnimationDrawable) syncActiveView.getDrawable();
         boolean showError;
         boolean showPending;
         if (mIsActive) {
-            anim.start();
+            syncActiveView.post(new Runnable() {
+                public void run() {
+                    anim.start();
+                }
+            });
             showPending = false;
             showError = false;
         } else {
