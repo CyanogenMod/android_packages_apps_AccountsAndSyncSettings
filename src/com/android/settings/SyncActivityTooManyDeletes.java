@@ -20,6 +20,8 @@ import com.android.providers.subscribedfeeds.R;
 
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +31,10 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.ImageView;
 import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.accounts.AuthenticatorDescription;
 
 /**
  * Presents multiple options for handling the case where a sync was aborted because there
@@ -78,7 +83,7 @@ public class SyncActivityTooManyDeletes extends Activity
         CharSequence tooManyDeletesDescFormat =
                 getResources().getText(R.string.sync_too_many_deletes_desc);
         textView.setText(String.format(tooManyDeletesDescFormat.toString(),
-                mNumDeletes, mProvider, mAccount));
+                mNumDeletes, mProvider, mAccount.name));
 
         final LinearLayout ll = new LinearLayout(this);
         ll.setOrientation(LinearLayout.VERTICAL);
@@ -86,6 +91,22 @@ public class SyncActivityTooManyDeletes extends Activity
                 ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 0);
         ll.addView(textView, lp);
         ll.addView(listView, lp);
+
+        // TODO: consider displaying the icon of the account type
+//        AuthenticatorDescription[] descs = AccountManager.get(this).getAuthenticatorTypes();
+//        for (AuthenticatorDescription desc : descs) {
+//            if (desc.type.equals(mAccount.type)) {
+//                try {
+//                    final Context authContext = createPackageContext(desc.packageName, 0);
+//                    ImageView imageView = new ImageView(this);
+//                    imageView.setImageDrawable(authContext.getResources().getDrawable(desc.iconId));
+//                    ll.addView(imageView, lp);
+//                } catch (PackageManager.NameNotFoundException e) {
+//                }
+//                break;
+//            }
+//        }
+
         setContentView(ll);
     }
 

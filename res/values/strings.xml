@@ -108,5 +108,8 @@
     \nProceed?</string>
     <!-- This is shown if the autheticator for a given account fails to remove it. -->
     <string name="remove_account_failed">Could not remove this account.</string>
+    <!-- What to show in messaging that refers to this provider, e.g. AccountSyncSettings -->
+    <string name="provider_label">Push Subscriptions</string>
+
 
 </resources>
