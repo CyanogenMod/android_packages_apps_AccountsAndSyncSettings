@@ -220,8 +220,14 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
                 boolean syncOn = syncPref.isChecked();
                 boolean oldSyncState = ContentResolver.getSyncAutomatically(account, authority);
                 if (syncOn != oldSyncState) {
+                    // if we're enabling sync, this will request a sync as well
                     ContentResolver.setSyncAutomatically(account, authority, syncOn);
-                    requestOrCancelSync(account, authority, syncOn);
+                    // if the master sync switch is off, the request above will
+                    // get dropped.  when the user clicks on this toggle,
+                    // we want to force the sync, however.
+                    if (!ContentResolver.getMasterSyncAutomatically()) {
+                        requestOrCancelSync(account, authority, syncOn);
+                    }
                 }
             }
         } else {
