@@ -110,6 +110,7 @@
     <string name="remove_account_failed">Could not remove this account.</string>
     <!-- What to show in messaging that refers to this provider, e.g. AccountSyncSettings -->
     <string name="provider_label">Push Subscriptions</string>
-
+    <!-- Formatter in AccountSyncSettings for each application we wish to synchronize, e.g. "Sync Calendar" -->
+    <string name="sync_item_title">Sync <xliff:g id="authority" example="Calendar">%s</xliff:g></string>
 
 </resources>
