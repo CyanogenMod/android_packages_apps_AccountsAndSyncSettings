@@ -78,12 +78,13 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
     }
 
     @Override
-    protected Dialog onCreateDialog(int id) {
+    protected Dialog onCreateDialog(final int id) {
         Dialog dialog = null;
         if (id == REALLY_REMOVE_DIALOG) {
             dialog = new AlertDialog.Builder(this)
                 .setTitle(R.string.really_remove_account_title)
                 .setMessage(R.string.really_remove_account_message)
+                .setNegativeButton(android.R.string.cancel, null)
                 .setPositiveButton(R.string.remove_account_label, 
                         new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -96,11 +97,11 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
                                         failed = false;
                                     }
                                 } catch (OperationCanceledException e) {
-                                    // ignore it
+                                    // handled below
                                 } catch (IOException e) {
-                                    // TODO: retry?
+                                    // handled below
                                 } catch (AuthenticatorException e) {
-                                    // TODO: retry?
+                                    // handled below
                                 }
                                 if (failed) {
                                     showDialog(FAILED_REMOVAL_DIALOG);
@@ -115,6 +116,7 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
         } else if (id == FAILED_REMOVAL_DIALOG) {
             dialog = new AlertDialog.Builder(this)
                 .setTitle(R.string.really_remove_account_title)
+                .setPositiveButton(android.R.string.ok, null)
                 .setMessage(R.string.remove_account_failed)
                 .create();
         }
