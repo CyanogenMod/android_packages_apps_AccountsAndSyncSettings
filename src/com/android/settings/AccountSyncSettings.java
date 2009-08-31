@@ -235,7 +235,7 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
                     // if the master sync switch is off, the request above will
                     // get dropped.  when the user clicks on this toggle,
                     // we want to force the sync, however.
-                    if (!ContentResolver.getMasterSyncAutomatically()) {
+                    if (!ContentResolver.getMasterSyncAutomatically() || !syncOn) {
                         requestOrCancelSync(account, authority, syncOn);
                     }
                 }
