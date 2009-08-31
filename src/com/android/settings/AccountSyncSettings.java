@@ -32,8 +32,10 @@ import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.SyncStatusInfo;
 import android.content.SyncAdapterType;
+import android.content.pm.ProviderInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
@@ -168,10 +170,16 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
         SyncStateCheckBoxPreference item =
                 new SyncStateCheckBoxPreference(this, account, authority);
         item.setPersistent(false);
-        //final String name = authority + ", " + account.name + ", " + account.type;
-        final String name = authority;
-        item.setTitle(name);
-        item.setKey(name);
+        final ProviderInfo providerInfo = getPackageManager().resolveContentProvider(authority, 0);
+        CharSequence providerLabel = providerInfo != null
+                ? providerInfo.loadLabel(getPackageManager()) : null;
+        if (TextUtils.isEmpty(providerLabel)) {
+            Log.e(TAG, "Provider needs a label for authority '" + authority + "'");
+            providerLabel = authority;
+        }
+        String title = getString(R.string.sync_item_title, providerLabel);
+        item.setTitle(title);
+        item.setKey(authority);
         getPreferenceScreen().addPreference(item);
         mCheckBoxes.add(item);
     }
