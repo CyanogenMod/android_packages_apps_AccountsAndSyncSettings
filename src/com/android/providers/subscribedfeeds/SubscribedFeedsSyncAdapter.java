@@ -19,6 +19,7 @@ package com.android.providers.subscribedfeeds;
 import com.google.android.gdata.client.AndroidGDataClient;
 import com.google.android.gdata.client.AndroidXmlParserFactory;
 import com.google.android.googlelogin.GoogleLoginServiceBlockingHelper;
+import com.google.android.googlelogin.GoogleLoginServiceConstants;
 import com.google.android.googlelogin.GoogleLoginServiceNotFoundException;
 import com.google.android.providers.AbstractGDataSyncAdapter;
 import com.google.wireless.gdata.client.GDataServiceClient;
@@ -236,7 +237,7 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
      * @return the routing info for this account
      */
     public String getRoutingInfoForAccount(Account account) {
-	Context context = getContext();
+        Context context = getContext();
         long androidId;
         try {
             androidId = GoogleLoginServiceBlockingHelper.getAndroidId(context);
@@ -248,12 +249,31 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
 	ContentResolver cr = context.getContentResolver();
 	boolean useRmq2RoutingInfo = "true".equals(
 	    Settings.Gservices.getString(cr, Settings.Gservices.GSYNC_USE_RMQ2_ROUTING_INFO));
-	if (useRmq2RoutingInfo) {
+        if (useRmq2RoutingInfo) {
 	    return Uri.parse("android://" + Long.toHexString(androidId)).toString();
 	} else {
-            return Uri.parse("gtalk://" + account.name
-                    + "#" + Settings.getGTalkDeviceId(androidId)).toString();
-	}
+            // We have to send the routing info for the primary (legacy) account.
+            final AccountManager accountManager = AccountManager.get(getContext());
+            try {
+                String[] features =
+                        new String[]{GoogleLoginServiceConstants.FEATURE_LEGACY_HOSTED_OR_GOOGLE};
+                Account[] accounts = accountManager.getAccountsByTypeAndFeatures(
+                        GoogleLoginServiceConstants.ACCOUNT_TYPE, features, null, null).getResult();
+                if (accounts.length == 0) {
+                    Log.e(TAG, "No matching accounts.");
+                    return null;
+                }
+                return Uri.parse("gtalk://" + accounts[0].name
+                        + "#" + Settings.getGTalkDeviceId(androidId)).toString();
+            } catch (IOException e) {
+                Log.e(TAG, "Could not get account", e);
+            } catch (AuthenticatorException e) {
+                Log.e(TAG, "Could not get account", e);
+            } catch (OperationCanceledException e) {
+                Log.e(TAG, "Could not get account", e);
+            }
+        }
+        return null;
     }
 
     @Override
