@@ -17,27 +17,27 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- no translation found for app_label (2800463760279909883) -->
     <skip />
-    <string name="sync_settings">"Συγχρονισμός δεδομένων"</string>
-    <string name="sync_too_many_deletes">"Έγινε υπέρβαση του ορίου διαγραφής."</string>
-    <string name="background_data">"Δεδομένα φόντου"</string>
-    <string name="background_data_summary">"Ενεργοποίηση χρήσης δεδομένων φόντου"</string>
-    <string name="background_data_dialog_title">"Προσοχή"</string>
-    <string name="background_data_dialog_message">"Η απενεργοποίηση δεδομένων φόντου εξοικονομεί ενέργεια μπαταρίας και μειώνει τη χρήση δεδομένων. Ορισμένες εφαρμογές ενδέχεται να συνεχίσουν να χρησιμοποιούν την σύνδεση δεδομένων φόντου."</string>
-    <string name="sync_automatically">"Αυτόματος συγχρονισμός"</string>
-    <string name="sync_automatically_summary">"Αυτόματος συγχρονισμός δεδομένων"</string>
-    <string name="sync_menu_sync_now">"Να γίνει συγχρονισμός τώρα"</string>
-    <string name="sync_menu_sync_cancel">"Ακύρωση συγχρονισμού"</string>
-    <string name="sync_one_time_sync">"Επιλέξτε για συγχρονισμό τώρα<xliff:g id="LAST_SYNC_TIME">
+    <string name="sync_settings" msgid="4549768061467147584">"Συγχρονισμός δεδομένων"</string>
+    <string name="sync_too_many_deletes" msgid="1621369057980827097">"Έγινε υπέρβαση του ορίου διαγραφής."</string>
+    <string name="background_data" msgid="1103557117473896066">"Δεδομένα φόντου"</string>
+    <string name="background_data_summary" msgid="4689952168187153486">"Ενεργοποίηση χρήσης δεδομένων φόντου"</string>
+    <string name="background_data_dialog_title" msgid="6303755495467986079">"Προσοχή"</string>
+    <string name="background_data_dialog_message" msgid="2817489591533703840">"Η απενεργοποίηση δεδομένων φόντου εξοικονομεί ενέργεια μπαταρίας και μειώνει τη χρήση δεδομένων. Ορισμένες εφαρμογές ενδέχεται να συνεχίσουν να χρησιμοποιούν τη σύνδεση δεδομένων φόντου."</string>
+    <string name="sync_automatically" msgid="4694735102757960100">"Αυτόματος συγχρονισμός"</string>
+    <string name="sync_automatically_summary" msgid="6210073947698673774">"Αυτόματος συγχρονισμός δεδομένων"</string>
+    <string name="sync_menu_sync_now" msgid="5796024841315572404">"Να γίνει συγχρονισμός τώρα"</string>
+    <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Ακύρωση συγχρονισμού"</string>
+    <string name="sync_one_time_sync" msgid="3474532720071919514">"Επιλέξτε για συγχρονισμό τώρα<xliff:g id="LAST_SYNC_TIME">
 %1$s</xliff:g>"</string>
-    <string name="sync_gmail">"Gmail"</string>
-    <string name="sync_calendar">"Ημερολόγιο"</string>
-    <string name="sync_contacts">"Επαφές"</string>
-    <string name="sync_too_many_deletes_desc">"Υπάρχουν <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> διαγραμμένα αντικείμενα για <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, λογαριασμός <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Τι επιθυμείτε να κάνετε;"</string>
-    <string name="sync_really_delete">"Διαγραφή αντικειμένων."</string>
-    <string name="sync_undo_deletes">"Αναίρεση των διαγραφών."</string>
-    <string name="sync_do_nothing">"Να μην γίνει καμία ενέργεια τώρα."</string>
-    <string name="sync_is_failing">"Το Sync αντιμετωπίζει προβλήματα αυτή τη στιγμή. Θα είναι διαθέσιμο ξανά σε λίγο."</string>
-    <string name="sync_plug"><font fgcolor="#ffffffff">"Καλώς ορίσατε στο Google Sync!"</font>" "\n"Μια προσέγγιση της Google στον συγχρονισμό δεδομένων ώστε να αποκτήσετε πρόσβαση στις επαφές σας, στις συναντήσεις σας και σε άλλα, οπουδήποτε κι αν είστε."</string>
-    <string name="header_application_sync_settings">"Ρυθμίσεις συγχρονισμού εφαρμογής"</string>
-    <string name="header_general_sync_settings">"Γενικές ρυθμίσεις συγχρονισμού"</string>
+    <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
+    <string name="sync_calendar" msgid="1796292773734071897">"Ημερολόγιο"</string>
+    <string name="sync_contacts" msgid="2035690905925565660">"Επαφές"</string>
+    <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"Υπάρχουν <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> διαγραμμένα αντικείμενα για <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, λογαριασμός <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Τι επιθυμείτε να κάνετε;"</string>
+    <string name="sync_really_delete" msgid="5456355204562588976">"Διαγραφή αντικειμένων."</string>
+    <string name="sync_undo_deletes" msgid="8695514459839593307">"Αναίρεση των διαγραφών."</string>
+    <string name="sync_do_nothing" msgid="5798755982392201673">"Να μην γίνει καμία ενέργεια τώρα."</string>
+    <string name="sync_is_failing" msgid="5230237058552433773">"Το Sync αντιμετωπίζει προβλήματα αυτή τη στιγμή. Θα είναι διαθέσιμο ξανά σε λίγο."</string>
+    <string name="sync_plug" msgid="4526246957714417280"><font fgcolor="#ffffffff">"Καλώς ορίσατε στο Google Sync!"</font>" "\n"Μια προσέγγιση της Google στον συγχρονισμό δεδομένων ώστε να αποκτήσετε πρόσβαση στις επαφές σας, στις συναντήσεις σας και σε άλλα, οπουδήποτε κι αν είστε."</string>
+    <string name="header_application_sync_settings" msgid="5263025067167527890">"Ρυθμίσεις συγχρονισμού εφαρμογής"</string>
+    <string name="header_general_sync_settings" msgid="1598537524696692308">"Γενικές ρυθμίσεις συγχρονισμού"</string>
 </resources>

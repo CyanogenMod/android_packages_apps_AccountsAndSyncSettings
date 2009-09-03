@@ -15,28 +15,28 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label">"Synchronizowanie kanałów"</string>
-    <string name="sync_settings">"Synchronizacja danych"</string>
-    <string name="sync_too_many_deletes">"Przekroczono limit usuwania"</string>
-    <string name="background_data">"Dane w tle"</string>
-    <string name="background_data_summary">"Włącz używanie danych w tle"</string>
-    <string name="background_data_dialog_title">"Uwaga"</string>
-    <string name="background_data_dialog_message">"Wyłączenie danych w tle umożliwia oszczędzanie baterii i zmniejsza wykorzystanie danych. Mimo to niektóre aplikacje mogą nadal korzystać z połączenia transmisji danych w tle."</string>
-    <string name="sync_automatically">"Autosynchronizacja"</string>
-    <string name="sync_automatically_summary">"Automatycznie synchronizuj dane"</string>
-    <string name="sync_menu_sync_now">"Synchronizuj teraz"</string>
-    <string name="sync_menu_sync_cancel">"Anuluj synchronizację"</string>
-    <string name="sync_one_time_sync">"Wybierz, aby zsynchronizować teraz<xliff:g id="LAST_SYNC_TIME">
+    <string name="app_label" msgid="2800463760279909883">"Synchronizowanie kanałów"</string>
+    <string name="sync_settings" msgid="4549768061467147584">"Synchronizacja danych"</string>
+    <string name="sync_too_many_deletes" msgid="1621369057980827097">"Przekroczono limit usuwania"</string>
+    <string name="background_data" msgid="1103557117473896066">"Dane w tle"</string>
+    <string name="background_data_summary" msgid="4689952168187153486">"Włącz używanie danych w tle"</string>
+    <string name="background_data_dialog_title" msgid="6303755495467986079">"Uwaga"</string>
+    <string name="background_data_dialog_message" msgid="2817489591533703840">"Wyłączenie danych w tle umożliwia oszczędzanie baterii i zmniejsza wykorzystanie danych. Mimo to niektóre aplikacje mogą nadal korzystać z połączenia transmisji danych w tle."</string>
+    <string name="sync_automatically" msgid="4694735102757960100">"Autosynchronizacja"</string>
+    <string name="sync_automatically_summary" msgid="6210073947698673774">"Automatycznie synchronizuj dane"</string>
+    <string name="sync_menu_sync_now" msgid="5796024841315572404">"Synchronizuj teraz"</string>
+    <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Anuluj synchronizację"</string>
+    <string name="sync_one_time_sync" msgid="3474532720071919514">"Wybierz, aby zsynchronizować teraz<xliff:g id="LAST_SYNC_TIME">
 %1$s</xliff:g>"</string>
-    <string name="sync_gmail">"Gmail"</string>
-    <string name="sync_calendar">"Kalendarz"</string>
-    <string name="sync_contacts">"Kontakty"</string>
-    <string name="sync_too_many_deletes_desc">"Liczba usuniętych elementów: <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> dla <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g> na koncie <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Co chcesz zrobić?"</string>
-    <string name="sync_really_delete">"Usuń elementy."</string>
-    <string name="sync_undo_deletes">"Cofnij usunięcie."</string>
-    <string name="sync_do_nothing">"Nie wykonuj teraz żadnych czynności."</string>
-    <string name="sync_is_failing">"Podczas synchronizacji wystąpiły problemy. Synchronizacja zostanie wkrótce wznowiona."</string>
-    <string name="sync_plug"><font fgcolor="#ffffffff">"Witamy w Google Sync!"</font>" "\n"Firma Google umożliwia synchronizację danych i dostęp do kontaktów, terminów oraz innych informacji z dowolnego miejsca."</string>
-    <string name="header_application_sync_settings">"Ustawienia synchronizacji aplikacji"</string>
-    <string name="header_general_sync_settings">"Ogólne ustawienia synchronizacji"</string>
+    <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
+    <string name="sync_calendar" msgid="1796292773734071897">"Kalendarz"</string>
+    <string name="sync_contacts" msgid="2035690905925565660">"Kontakty"</string>
+    <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"Liczba usuniętych elementów: <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> dla <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g> na koncie <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Co chcesz zrobić?"</string>
+    <string name="sync_really_delete" msgid="5456355204562588976">"Usuń elementy."</string>
+    <string name="sync_undo_deletes" msgid="8695514459839593307">"Cofnij usunięcie."</string>
+    <string name="sync_do_nothing" msgid="5798755982392201673">"Nie wykonuj teraz żadnych czynności."</string>
+    <string name="sync_is_failing" msgid="5230237058552433773">"Podczas synchronizacji wystąpiły problemy. Synchronizacja zostanie wkrótce wznowiona."</string>
+    <string name="sync_plug" msgid="4526246957714417280"><font fgcolor="#ffffffff">"Witamy w Google Sync!"</font>" "\n"Firma Google umożliwia synchronizację danych i dostęp do kontaktów, terminów oraz innych informacji z dowolnego miejsca."</string>
+    <string name="header_application_sync_settings" msgid="5263025067167527890">"Ustawienia synchronizacji aplikacji"</string>
+    <string name="header_general_sync_settings" msgid="1598537524696692308">"Ogólne ustawienia synchronizacji"</string>
 </resources>

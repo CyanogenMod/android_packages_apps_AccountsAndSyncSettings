@@ -17,27 +17,27 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- no translation found for app_label (2800463760279909883) -->
     <skip />
-    <string name="sync_settings">"Veri senkronizasyonu"</string>
-    <string name="sync_too_many_deletes">"Silme sınırı aşıldı"</string>
-    <string name="background_data">"Arka plan veri"</string>
-    <string name="background_data_summary">"Arka plan veri kullanımını etkinleştir"</string>
-    <string name="background_data_dialog_title">"Dikkat"</string>
-    <string name="background_data_dialog_message">"Arka plan verilerini devre dışı bırakmak pilden tasarruf sağlar ve veri kullanımını düşürür. Bazı uygulamalar yine de arka plan veri bağlantısını kullanabilir."</string>
-    <string name="sync_automatically">"Otomatik senk."</string>
-    <string name="sync_automatically_summary">"Verileri otomatik olarak senkronize et"</string>
-    <string name="sync_menu_sync_now">"Şimdi senk. et"</string>
-    <string name="sync_menu_sync_cancel">"Senkronizasyonu iptal et"</string>
-    <string name="sync_one_time_sync">"Şimdi senkronize etmek için seçin<xliff:g id="LAST_SYNC_TIME">
+    <string name="sync_settings" msgid="4549768061467147584">"Veri senkronizasyonu"</string>
+    <string name="sync_too_many_deletes" msgid="1621369057980827097">"Silme sınırı aşıldı"</string>
+    <string name="background_data" msgid="1103557117473896066">"Arka plan veri"</string>
+    <string name="background_data_summary" msgid="4689952168187153486">"Arka plan veri kullanımını etkinleştir"</string>
+    <string name="background_data_dialog_title" msgid="6303755495467986079">"Dikkat"</string>
+    <string name="background_data_dialog_message" msgid="2817489591533703840">"Arka plan verilerini devre dışı bırakmak pilden tasarruf sağlar ve veri kullanımını düşürür. Bazı uygulamalar yine de arka plan veri bağlantısını kullanabilir."</string>
+    <string name="sync_automatically" msgid="4694735102757960100">"Otomatik senk."</string>
+    <string name="sync_automatically_summary" msgid="6210073947698673774">"Verileri otomatik olarak senkronize et"</string>
+    <string name="sync_menu_sync_now" msgid="5796024841315572404">"Şimdi senk. et"</string>
+    <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Senkronizasyonu iptal et"</string>
+    <string name="sync_one_time_sync" msgid="3474532720071919514">"Şimdi senkronize etmek için seçin<xliff:g id="LAST_SYNC_TIME">
 %1$s</xliff:g>"</string>
-    <string name="sync_gmail">"Gmail"</string>
-    <string name="sync_calendar">"Takvim"</string>
-    <string name="sync_contacts">"Kişiler"</string>
-    <string name="sync_too_many_deletes_desc">"<xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g> hesabı için <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> silinmiş öğe var. Ne yapmak istiyorsunuz?"</string>
-    <string name="sync_really_delete">"Öğeleri silin."</string>
-    <string name="sync_undo_deletes">"Silme işlemlerini geri alın."</string>
-    <string name="sync_do_nothing">"Şimdilik bir şey yapma."</string>
-    <string name="sync_is_failing">"Senk. şu anda sorun yaşıyor. Kısa bir süre sonra yeniden devreye girecek."</string>
-    <string name="sync_plug"><font fgcolor="#ffffffff">"Google Sync\'e Hoş Geldiniz!"</font>" "\n"Kişilerinize, randevularınıza ve diğer bilgilerinize istediğiniz yerden erişebilmenize olanak tanımak için veri senkronizasyonuna bir Google yaklaşımı."</string>
-    <string name="header_application_sync_settings">"Uygulama senk. ayarları"</string>
-    <string name="header_general_sync_settings">"Genel senk. ayarları"</string>
+    <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
+    <string name="sync_calendar" msgid="1796292773734071897">"Takvim"</string>
+    <string name="sync_contacts" msgid="2035690905925565660">"Kişiler"</string>
+    <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"<xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g> hesabı için <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> silinmiş öğe var. Ne yapmak istiyorsunuz?"</string>
+    <string name="sync_really_delete" msgid="5456355204562588976">"Öğeleri silin."</string>
+    <string name="sync_undo_deletes" msgid="8695514459839593307">"Silme işlemlerini geri alın."</string>
+    <string name="sync_do_nothing" msgid="5798755982392201673">"Şimdilik bir şey yapma."</string>
+    <string name="sync_is_failing" msgid="5230237058552433773">"Senk. şu anda sorun yaşıyor. Kısa bir süre sonra yeniden devreye girecek."</string>
+    <string name="sync_plug" msgid="4526246957714417280"><font fgcolor="#ffffffff">"Google Sync\'e Hoş Geldiniz!"</font>" "\n"Kişilerinize, randevularınıza ve diğer bilgilerinize istediğiniz yerden erişebilmenize olanak tanımak için veri senkronizasyonuna bir Google yaklaşımı."</string>
+    <string name="header_application_sync_settings" msgid="5263025067167527890">"Uygulama senk. ayarları"</string>
+    <string name="header_general_sync_settings" msgid="1598537524696692308">"Genel senk. ayarları"</string>
 </resources>

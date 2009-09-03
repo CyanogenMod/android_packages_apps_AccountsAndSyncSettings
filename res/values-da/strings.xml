@@ -17,27 +17,27 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- no translation found for app_label (2800463760279909883) -->
     <skip />
-    <string name="sync_settings">"Datasynkronisering"</string>
-    <string name="sync_too_many_deletes">"Grænsen for sletning er overskredet"</string>
-    <string name="background_data">"Baggrundsdata"</string>
-    <string name="background_data_summary">"Aktiver baggrundsdatabrug"</string>
-    <string name="background_data_dialog_title">"Bemærk"</string>
-    <string name="background_data_dialog_message">"Deaktivering af baggrundsdata sparer på batteriet og mindsker databrug. Nogle programmer kan muligvis stadig bruge baggrundsdataforbindelsen."</string>
-    <string name="sync_automatically">"Automatisk synkronisering"</string>
-    <string name="sync_automatically_summary">"Synkroniser automatisk data"</string>
-    <string name="sync_menu_sync_now">"Synkroniser nu"</string>
-    <string name="sync_menu_sync_cancel">"Annuller synkronisering"</string>
-    <string name="sync_one_time_sync">"Vælg at synkronisere nu<xliff:g id="LAST_SYNC_TIME">
+    <string name="sync_settings" msgid="4549768061467147584">"Datasynkronisering"</string>
+    <string name="sync_too_many_deletes" msgid="1621369057980827097">"Grænsen for sletning er overskredet"</string>
+    <string name="background_data" msgid="1103557117473896066">"Baggrundsdata"</string>
+    <string name="background_data_summary" msgid="4689952168187153486">"Aktiver baggrundsdatabrug"</string>
+    <string name="background_data_dialog_title" msgid="6303755495467986079">"Bemærk"</string>
+    <string name="background_data_dialog_message" msgid="2817489591533703840">"Deaktivering af baggrundsdata sparer på batteriet og mindsker databrug. Nogle programmer kan muligvis stadig bruge baggrundsdataforbindelsen."</string>
+    <string name="sync_automatically" msgid="4694735102757960100">"Autom. synkronisering"</string>
+    <string name="sync_automatically_summary" msgid="6210073947698673774">"Synkroniser automatisk data"</string>
+    <string name="sync_menu_sync_now" msgid="5796024841315572404">"Synkroniser nu"</string>
+    <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Annuller synkronisering"</string>
+    <string name="sync_one_time_sync" msgid="3474532720071919514">"Vælg at synkronisere nu<xliff:g id="LAST_SYNC_TIME">
 %1$s</xliff:g>"</string>
-    <string name="sync_gmail">"Gmail"</string>
-    <string name="sync_calendar">"Kalender"</string>
-    <string name="sync_contacts">"Kontaktpersoner"</string>
-    <string name="sync_too_many_deletes_desc">"Der er <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> slettede elementer for <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, konto <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Hvad ønsker du at gøre?"</string>
-    <string name="sync_really_delete">"Slet elementerne."</string>
-    <string name="sync_undo_deletes">"Fortryd sletningerne."</string>
-    <string name="sync_do_nothing">"Gør ikke noget lige nu."</string>
-    <string name="sync_is_failing">"Der er problemer med synkronisering i øjeblikket. Det vender snart tilbage."</string>
-    <string name="sync_plug"><font fgcolor="#ffffffff">"Velkommen til Google\nSync!"</font>" "\n"En tilgang til synkronisering af data fra Google, hvilket lader dig få adgang til dine kontaktpersoner, aftaler og mere, uanset hvor du er."</string>
-    <string name="header_application_sync_settings">"Indstillinger for programsynkronisering"</string>
-    <string name="header_general_sync_settings">"Generelle synkroniseringsindstillinger"</string>
+    <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
+    <string name="sync_calendar" msgid="1796292773734071897">"Kalender"</string>
+    <string name="sync_contacts" msgid="2035690905925565660">"Kontakter"</string>
+    <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"Der er <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> slettede elementer for <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, konto <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Hvad ønsker du at gøre?"</string>
+    <string name="sync_really_delete" msgid="5456355204562588976">"Slet elementerne."</string>
+    <string name="sync_undo_deletes" msgid="8695514459839593307">"Fortryd sletningerne."</string>
+    <string name="sync_do_nothing" msgid="5798755982392201673">"Gør ikke noget lige nu."</string>
+    <string name="sync_is_failing" msgid="5230237058552433773">"Der er problemer med synkronisering i øjeblikket. Det vender snart tilbage."</string>
+    <string name="sync_plug" msgid="4526246957714417280"><font fgcolor="#ffffffff">"Velkommen til Google Sync!"</font>" "\n"En tilgang til synkronisering af data fra Google, hvilket lader dig få adgang til dine kontakter, aftaler og mere, uanset hvor du er."</string>
+    <string name="header_application_sync_settings" msgid="5263025067167527890">"Indstillinger for programsynkronisering"</string>
+    <string name="header_general_sync_settings" msgid="1598537524696692308">"Generelle synkroniseringsindstillinger"</string>
 </resources>

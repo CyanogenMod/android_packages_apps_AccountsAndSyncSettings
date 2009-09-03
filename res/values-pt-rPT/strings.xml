@@ -17,27 +17,27 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- no translation found for app_label (2800463760279909883) -->
     <skip />
-    <string name="sync_settings">"Sincronização de dados"</string>
-    <string name="sync_too_many_deletes">"Limite de eliminações excedido"</string>
-    <string name="background_data">"Dados em segundo plano"</string>
-    <string name="background_data_summary">"Activar utilização de dados em segundo plano"</string>
-    <string name="background_data_dialog_title">"Atenção"</string>
-    <string name="background_data_dialog_message">"A desactivação de dados em segundo plano economiza a bateria e reduz a utilização de dados. Algumas aplicações podem continuar a utilizar a ligação de dados em segundo plano."</string>
-    <string name="sync_automatically">"Sincronização automática"</string>
-    <string name="sync_automatically_summary">"Sincronizar dados automaticamente"</string>
-    <string name="sync_menu_sync_now">"Sincronizar agora"</string>
-    <string name="sync_menu_sync_cancel">"Cancelar sincronização"</string>
-    <string name="sync_one_time_sync">"Optar por sincronizar agora<xliff:g id="LAST_SYNC_TIME">
+    <string name="sync_settings" msgid="4549768061467147584">"Sincronização de dados"</string>
+    <string name="sync_too_many_deletes" msgid="1621369057980827097">"Limite de eliminações excedido"</string>
+    <string name="background_data" msgid="1103557117473896066">"Dados em segundo plano"</string>
+    <string name="background_data_summary" msgid="4689952168187153486">"Activar utilização de dados em segundo plano"</string>
+    <string name="background_data_dialog_title" msgid="6303755495467986079">"Atenção"</string>
+    <string name="background_data_dialog_message" msgid="2817489591533703840">"A desactivação de dados em segundo plano economiza a bateria e reduz a utilização de dados. Algumas aplicações podem continuar a utilizar a ligação de dados em segundo plano."</string>
+    <string name="sync_automatically" msgid="4694735102757960100">"Sincronização automática"</string>
+    <string name="sync_automatically_summary" msgid="6210073947698673774">"Sincronizar dados automaticamente"</string>
+    <string name="sync_menu_sync_now" msgid="5796024841315572404">"Sincronizar agora"</string>
+    <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Cancelar sincronização"</string>
+    <string name="sync_one_time_sync" msgid="3474532720071919514">"Optar por sincronizar agora<xliff:g id="LAST_SYNC_TIME">
 %1$s</xliff:g>"</string>
-    <string name="sync_gmail">"Gmail"</string>
-    <string name="sync_calendar">"Calendário"</string>
-    <string name="sync_contacts">"Contactos"</string>
-    <string name="sync_too_many_deletes_desc">"Existem <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> itens eliminados para <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, conta <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. O que pretende fazer?"</string>
-    <string name="sync_really_delete">"Eliminar os itens."</string>
-    <string name="sync_undo_deletes">"Anular as eliminações."</string>
-    <string name="sync_do_nothing">"Não fazer nada por agora."</string>
-    <string name="sync_is_failing">"A sincronização está actualmente com problemas e será retomada em breve."</string>
-    <string name="sync_plug"><font fgcolor="#ffffffff">"Bem vindo ao Google Sync!"</font>" "\n"Uma abordagem do Google à sincronização de dados que permite aceder aos contactos, compromissos e outros itens, onde quer que esteja."</string>
-    <string name="header_application_sync_settings">"Definições de sincronização da aplicação"</string>
-    <string name="header_general_sync_settings">"Definições gerais de sincronização"</string>
+    <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
+    <string name="sync_calendar" msgid="1796292773734071897">"Calendário"</string>
+    <string name="sync_contacts" msgid="2035690905925565660">"Contactos"</string>
+    <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"Existem <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> itens eliminados para <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, conta <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. O que pretende fazer?"</string>
+    <string name="sync_really_delete" msgid="5456355204562588976">"Eliminar os itens."</string>
+    <string name="sync_undo_deletes" msgid="8695514459839593307">"Anular as eliminações."</string>
+    <string name="sync_do_nothing" msgid="5798755982392201673">"Não fazer nada por agora."</string>
+    <string name="sync_is_failing" msgid="5230237058552433773">"A sincronização está actualmente com problemas e será retomada em breve."</string>
+    <string name="sync_plug" msgid="4526246957714417280"><font fgcolor="#ffffffff">"Bem vindo ao Google Sync!"</font>" "\n"Uma abordagem do Google à sincronização de dados que permite aceder aos contactos, compromissos e outros itens, onde quer que esteja."</string>
+    <string name="header_application_sync_settings" msgid="5263025067167527890">"Definições de sincronização da aplicação"</string>
+    <string name="header_general_sync_settings" msgid="1598537524696692308">"Definições gerais de sincronização"</string>
 </resources>

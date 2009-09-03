@@ -15,29 +15,28 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2800463760279909883) -->
-    <skip />
-    <string name="sync_settings">"データの同期"</string>
-    <string name="sync_too_many_deletes">"削除の制限を超えました"</string>
-    <string name="background_data">"バックグラウンドデータ"</string>
-    <string name="background_data_summary">"バックグラウンドデータの使用を有効にする"</string>
-    <string name="background_data_dialog_title">"注意"</string>
-    <string name="background_data_dialog_message">"バックグラウンドデータを無効にすると、データの使用が減るため電池を節約できます。一部のアプリケーションでは引き続きバックグラウンドデータの接続を使用します。"</string>
-    <string name="sync_automatically">"自動同期"</string>
-    <string name="sync_automatically_summary">"自動的にデータを同期する"</string>
-    <string name="sync_menu_sync_now">"今すぐ同期"</string>
-    <string name="sync_menu_sync_cancel">"同期をキャンセル"</string>
-    <string name="sync_one_time_sync">"今すぐ同期を選択<xliff:g id="LAST_SYNC_TIME">
+    <string name="app_label" msgid="2800463760279909883">"フィードの同期"</string>
+    <string name="sync_settings" msgid="4549768061467147584">"データの同期"</string>
+    <string name="sync_too_many_deletes" msgid="1621369057980827097">"削除の制限を超えました"</string>
+    <string name="background_data" msgid="1103557117473896066">"バックグラウンドデータ"</string>
+    <string name="background_data_summary" msgid="4689952168187153486">"バックグラウンドデータの使用を有効にする"</string>
+    <string name="background_data_dialog_title" msgid="6303755495467986079">"注意"</string>
+    <string name="background_data_dialog_message" msgid="2817489591533703840">"バックグラウンドデータを無効にすると、データの使用が減るため電池を節約できます。一部のアプリケーションでは引き続きバックグラウンドデータの接続を使用します。"</string>
+    <string name="sync_automatically" msgid="4694735102757960100">"自動同期"</string>
+    <string name="sync_automatically_summary" msgid="6210073947698673774">"自動的にデータを同期する"</string>
+    <string name="sync_menu_sync_now" msgid="5796024841315572404">"今すぐ同期"</string>
+    <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"同期をキャンセル"</string>
+    <string name="sync_one_time_sync" msgid="3474532720071919514">"今すぐ同期を選択<xliff:g id="LAST_SYNC_TIME">
 %1$s</xliff:g>"</string>
-    <string name="sync_gmail">"Gmail"</string>
-    <string name="sync_calendar">"カレンダー"</string>
-    <string name="sync_contacts">"連絡先"</string>
-    <string name="sync_too_many_deletes_desc">"<xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>アカウントの<xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>で<xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g>件の削除があります。操作を選択してください。"</string>
-    <string name="sync_really_delete">"項目を削除します。"</string>
-    <string name="sync_undo_deletes">"削除を元に戻します。"</string>
-    <string name="sync_do_nothing">"今は何もしません。"</string>
-    <string name="sync_is_failing">"現在同期で問題が発生しています。しばらくお待ちください。"</string>
-    <string name="sync_plug"><font fgcolor="#ffffffff">"Google Syncへようこそ"</font>" "\n"このサービスを使用すると、データを同期してどこからでも連絡先や予定などにアクセスできます。"</string>
-    <string name="header_application_sync_settings">"アプリケーションの同期設定"</string>
-    <string name="header_general_sync_settings">"同期の基本設定"</string>
+    <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
+    <string name="sync_calendar" msgid="1796292773734071897">"カレンダー"</string>
+    <string name="sync_contacts" msgid="2035690905925565660">"連絡先"</string>
+    <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"<xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>アカウントの<xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>で<xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g>件の削除があります。操作を選択してください。"</string>
+    <string name="sync_really_delete" msgid="5456355204562588976">"項目を削除します。"</string>
+    <string name="sync_undo_deletes" msgid="8695514459839593307">"削除を元に戻します。"</string>
+    <string name="sync_do_nothing" msgid="5798755982392201673">"今は何もしません。"</string>
+    <string name="sync_is_failing" msgid="5230237058552433773">"現在同期で問題が発生しています。しばらくお待ちください。"</string>
+    <string name="sync_plug" msgid="4526246957714417280"><font fgcolor="#ffffffff">"Google Syncへようこそ"</font>" "\n"このサービスを使用すると、データを同期してどこからでも連絡先や予定などにアクセスできます。"</string>
+    <string name="header_application_sync_settings" msgid="5263025067167527890">"アプリケーションの同期設定"</string>
+    <string name="header_general_sync_settings" msgid="1598537524696692308">"同期の基本設定"</string>
 </resources>

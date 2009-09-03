@@ -15,28 +15,28 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label">"Synchronizace zdrojů"</string>
-    <string name="sync_settings">"Synchronizace dat"</string>
-    <string name="sync_too_many_deletes">"Byl překročen limit mazání."</string>
-    <string name="background_data">"Data na pozadí"</string>
-    <string name="background_data_summary">"Povolit používání dat na pozadí"</string>
-    <string name="background_data_dialog_title">"Upozornění"</string>
-    <string name="background_data_dialog_message">"Zakázání dat na pozadí šetří baterii a snižuje objem použitých dat. Některé aplikace mohou přesto datové připojení na pozadí používat."</string>
-    <string name="sync_automatically">"Automatická synchronizace"</string>
-    <string name="sync_automatically_summary">"Data jsou synchronizována automaticky"</string>
-    <string name="sync_menu_sync_now">"Synchronizovat nyní"</string>
-    <string name="sync_menu_sync_cancel">"Zrušit synchronizaci"</string>
-    <string name="sync_one_time_sync">"Synchronizovat nyní<xliff:g id="LAST_SYNC_TIME">
+    <string name="app_label" msgid="2800463760279909883">"Synchronizace zdrojů"</string>
+    <string name="sync_settings" msgid="4549768061467147584">"Synchronizace dat"</string>
+    <string name="sync_too_many_deletes" msgid="1621369057980827097">"Byl překročen limit mazání."</string>
+    <string name="background_data" msgid="1103557117473896066">"Data na pozadí"</string>
+    <string name="background_data_summary" msgid="4689952168187153486">"Povolit používání dat na pozadí"</string>
+    <string name="background_data_dialog_title" msgid="6303755495467986079">"Upozornění"</string>
+    <string name="background_data_dialog_message" msgid="2817489591533703840">"Zakázání dat na pozadí šetří baterii a snižuje objem použitých dat. Některé aplikace mohou přesto datové připojení na pozadí používat."</string>
+    <string name="sync_automatically" msgid="4694735102757960100">"Automatická synchronizace"</string>
+    <string name="sync_automatically_summary" msgid="6210073947698673774">"Data jsou synchronizována automaticky"</string>
+    <string name="sync_menu_sync_now" msgid="5796024841315572404">"Synchronizovat nyní"</string>
+    <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Zrušit synchronizaci"</string>
+    <string name="sync_one_time_sync" msgid="3474532720071919514">"Synchronizovat nyní<xliff:g id="LAST_SYNC_TIME">
 %1$s</xliff:g>"</string>
-    <string name="sync_gmail">"Gmail"</string>
-    <string name="sync_calendar">"Kalendář"</string>
-    <string name="sync_contacts">"Kontakty"</string>
-    <string name="sync_too_many_deletes_desc">"Počet smazaných položek: <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g>, typ synchronizace: <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, účet: <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Jakou akci chcete provést?"</string>
-    <string name="sync_really_delete">"Smazat položky."</string>
-    <string name="sync_undo_deletes">"Vrátit mazání zpět."</string>
-    <string name="sync_do_nothing">"Nyní neprovádět žádnou akci."</string>
-    <string name="sync_is_failing">"Nastaly potíže se synchronizací. Služba bude brzy obnovena."</string>
-    <string name="sync_plug"><font fgcolor="#ffffffff">"Vítá vás aplikace Google Sync"</font>" "\n"Nový pohled na synchronizaci dat v režii Google. Poskytuje vám přístup ke kontaktům, schůzkám a dalším náležitostem, ať jste kdekoli."</string>
-    <string name="header_application_sync_settings">"Nastavení synchronizace aplikace"</string>
-    <string name="header_general_sync_settings">"Obecná nastavení synchronizace"</string>
+    <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
+    <string name="sync_calendar" msgid="1796292773734071897">"Kalendář"</string>
+    <string name="sync_contacts" msgid="2035690905925565660">"Kontakty"</string>
+    <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"Počet smazaných položek: <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g>, typ synchronizace: <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, účet: <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Jakou akci chcete provést?"</string>
+    <string name="sync_really_delete" msgid="5456355204562588976">"Smazat položky."</string>
+    <string name="sync_undo_deletes" msgid="8695514459839593307">"Vrátit mazání zpět."</string>
+    <string name="sync_do_nothing" msgid="5798755982392201673">"Nyní neprovádět žádnou akci."</string>
+    <string name="sync_is_failing" msgid="5230237058552433773">"Nastaly potíže se synchronizací. Služba bude brzy obnovena."</string>
+    <string name="sync_plug" msgid="4526246957714417280"><font fgcolor="#ffffffff">"Vítá vás aplikace Google Sync"</font>" "\n"Nový pohled na synchronizaci dat v režii Google. Poskytuje vám přístup ke kontaktům, schůzkám a dalším náležitostem, ať jste kdekoli."</string>
+    <string name="header_application_sync_settings" msgid="5263025067167527890">"Nastavení synchronizace aplikací"</string>
+    <string name="header_general_sync_settings" msgid="1598537524696692308">"Obecná nastavení synchronizace"</string>
 </resources>
