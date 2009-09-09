@@ -18,6 +18,7 @@ package com.android.settings;
 
 import com.android.providers.subscribedfeeds.R;
 import com.google.android.collect.Maps;
+import com.google.android.collect.Lists;
 
 import android.accounts.AccountManager;
 import android.accounts.Account;
@@ -66,11 +67,14 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
     private TextView mErrorInfoView;
     protected View mRemoveAccountArea;
     private java.text.DateFormat mDateFormat;
-    private java.text.DateFormat mTimeFormat; 
+    private java.text.DateFormat mTimeFormat;
     private Preference mAuthenticatorPreferences;
     private Account mAccount;
     private Button mRemoveAccountButton;
-    
+    private ArrayList<SyncStateCheckBoxPreference> mCheckBoxes =
+                new ArrayList<SyncStateCheckBoxPreference>();
+    private ArrayList<String> mInvisibleAdapters = Lists.newArrayList();
+
     public void onClick(View v) {
         if (v == mRemoveAccountButton) {
             showDialog(REALLY_REMOVE_DIALOG);
@@ -165,9 +169,6 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
         mAuthenticatorPreferences = findPreference(CHANGE_PASSWORD_KEY);
     }
 
-    ArrayList<SyncStateCheckBoxPreference> mCheckBoxes =
-            new ArrayList<SyncStateCheckBoxPreference>();
-
     private void addSyncStateCheckBox(Account account, String authority) {
         SyncStateCheckBoxPreference item =
                 new SyncStateCheckBoxPreference(this, account, authority);
@@ -255,6 +256,7 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
     }
 
     private void requestOrCancelSyncForEnabledProviders(boolean startSync) {
+        // sync everything that the user has enabled
         int count = getPreferenceScreen().getPreferenceCount();
         for (int i = 0; i < count; i++) {
             Preference pref = getPreferenceScreen().getPreference(i);
@@ -266,6 +268,12 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
                 continue;
             }
             requestOrCancelSync(syncPref.getAccount(), syncPref.getAuthority(), startSync);
+        }
+        // plus whatever the system needs to sync, e.g., invisible sync adapters
+        if (mAccount != null) {
+            for (String authority : mInvisibleAdapters) {
+                requestOrCancelSync(mAccount, authority, startSync);
+            }
         }
     }
 
@@ -332,8 +340,12 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
     @Override
     public void onAccountsUpdated(Account[] accounts) {
         super.onAccountsUpdated(accounts);
+
+        mInvisibleAdapters.clear();
+
         SyncAdapterType[] syncAdapters = ContentResolver.getSyncAdapterTypes();
-        HashMap<String, ArrayList<String>> accountTypeToAuthorities = Maps.newHashMap();
+        HashMap<String, ArrayList<String>> accountTypeToAuthorities =
+            Maps.newHashMap();
         for (int i = 0, n = syncAdapters.length; i < n; i++) {
             final SyncAdapterType sa = syncAdapters[i];
             if (sa.isUserVisible()) {
@@ -344,6 +356,10 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
                 }
                 Log.d(TAG, "added authority " + sa.authority + " to accountType " + sa.accountType);
                 authorities.add(sa.authority);
+            } else {
+                // keep track of invisible sync adapters, so sync now forces
+                // them to sync as well.
+                mInvisibleAdapters.add(sa.authority);
             }
         }
 
@@ -379,6 +395,5 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
         mProviderIcon.setImageDrawable(getDrawableForType(mAccount.type));
         mProviderId.setText(getLabelForType(mAccount.type));
         // TODO: Enable Remove accounts when we can tell the account can be removed
-        
     }
 }
