@@ -35,6 +35,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceScreen;
 import android.util.Log;
 
 class AccountPreferenceBase extends PreferenceActivity implements OnAccountsUpdatedListener {
@@ -121,10 +122,7 @@ class AccountPreferenceBase extends PreferenceActivity implements OnAccountsUpda
 
     /**
      * Gets an icon associated with a particular account type. If none found, return null.
-     * Note this should only be called after {@link #onAuthDescriptionsUpdated()} has been called
-     * since AuthenticatorDescriptions are fetched asynchronously.
-     *
-     * @param account the type of account
+     * @param accountType the type of account
      * @return a drawable for the icon or null if one cannot be found.
      */
     protected Drawable getDrawableForType(final String accountType) {
@@ -136,7 +134,7 @@ class AccountPreferenceBase extends PreferenceActivity implements OnAccountsUpda
                 Context authContext = createPackageContext(desc.packageName, 0);
                 icon = authContext.getResources().getDrawable(desc.iconId);
             } catch (PackageManager.NameNotFoundException e) {
-                // TODO: place holder icon for missing account icons
+                // TODO: place holder icon for missing account icons?
                 Log.w(TAG, "No icon for account type " + accountType);
             }
         }
@@ -145,9 +143,7 @@ class AccountPreferenceBase extends PreferenceActivity implements OnAccountsUpda
 
     /**
      * Gets the label associated with a particular account type. If none found, return null.
-     * Note this should only be called after {@link #onAuthDescriptionsUpdated()} has been called
-     * since AuthenticatorDescriptions are fetched asynchronously.
-     * @param account the type of account
+     * @param accountType the type of account
      * @return a CharSequence for the label or null if one cannot be found.
      */
     protected CharSequence getLabelForType(final String accountType) {
@@ -159,11 +155,33 @@ class AccountPreferenceBase extends PreferenceActivity implements OnAccountsUpda
                  Context authContext = createPackageContext(desc.packageName, 0);
                  label = authContext.getResources().getText(desc.labelId);
              } catch (PackageManager.NameNotFoundException e) {
-                 // TODO: place holder icon for missing account icons?
                  Log.w(TAG, "No label for account type " + ", type " + accountType);
              }
         }
         return label;
+    }
+
+    /**
+     * Gets the preferences.xml file associated with a particular account type.
+     * @param accountType the type of account
+     * @return a PreferenceScreen inflated from accountPreferenceId.
+     */
+    protected PreferenceScreen addPreferencesForType(final String accountType) {
+        PreferenceScreen prefs = null;
+        if (mTypeToAuthDescription.containsKey(accountType)) {
+            AuthenticatorDescription desc = null;
+            try {
+                desc = (AuthenticatorDescription) mTypeToAuthDescription.get(accountType);
+                if (desc != null && desc.accountPreferencesId != 0) {
+                    Context authContext = createPackageContext(desc.packageName, 0);
+                    prefs = getPreferenceManager().inflateFromResource(authContext,
+                            desc.accountPreferencesId, getPreferenceScreen());
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                Log.w(TAG, "Couldn't load preferences.xml file from " + desc.packageName);
+            }
+        }
+        return prefs;
     }
 
     /**

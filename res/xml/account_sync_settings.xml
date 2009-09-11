@@ -16,13 +16,6 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory
-            android:title="@string/header_account_settings" />
-
-    <Preference
-        android:key="changePassword"
-        android:title="@string/preference_change_password_title" />
-
     <PreferenceCategory android:key="dataAndSynchronization"
             android:title="@string/header_data_and_synchronization" />
 
