@@ -31,6 +31,7 @@ import android.app.Dialog;
 import android.content.ActiveSyncInfo;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SyncStatusInfo;
 import android.content.SyncAdapterType;
 import android.content.pm.ProviderInfo;
@@ -133,7 +134,6 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
 
         setContentView(R.layout.account_sync_screen);
         addPreferencesFromResource(R.xml.account_sync_settings);
-        addAuthenticatorPreferences();
         
         mErrorInfoView = (TextView) findViewById(R.id.sync_settings_error_info);
         mErrorInfoView.setVisibility(View.GONE);
@@ -159,14 +159,6 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
         }
         AccountManager.get(this).addOnAccountsUpdatedListener(this, null, true);
         updateAuthDescriptions();
-    }
-
-    /*
-     * Get settings.xml from authenticator for this account.
-     * TODO: replace with authenticator-specific settings here when AuthenticatorDesc supports it.
-     */
-    private void addAuthenticatorPreferences() {
-        mAuthenticatorPreferences = findPreference(CHANGE_PASSWORD_KEY);
     }
 
     private void addSyncStateCheckBox(Account account, String authority) {
@@ -241,10 +233,10 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
                     }
                 }
             }
+            return true;
         } else {
-            return false;
+            return super.onPreferenceTreeClick(preferences, preference);
         }
-        return true;
     }
 
     private void startSyncForEnabledProviders() {
@@ -392,8 +384,25 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
     @Override
     protected void onAuthDescriptionsUpdated() {
         super.onAuthDescriptionsUpdated();
+        getPreferenceScreen().removeAll();
         mProviderIcon.setImageDrawable(getDrawableForType(mAccount.type));
         mProviderId.setText(getLabelForType(mAccount.type));
-        // TODO: Enable Remove accounts when we can tell the account can be removed
+        PreferenceScreen prefs = addPreferencesForType(mAccount.type);
+        if (prefs != null) {
+            addNewTaskFlagToIntents(prefs);
+        }
+        addPreferencesFromResource(R.xml.account_sync_settings);
+    }
+
+    private void addNewTaskFlagToIntents(PreferenceScreen prefs) {
+        // This is somewhat of a hack. Since the preference screen we're accessing comes from
+        // another package, we need to modify the intent to launch it with FLAG_ACTIVITY_NEW_TASK.
+        // TODO: Do something smarter if we ever have PreferenceScreens of our own.
+        for (int i = 0; i < prefs.getPreferenceCount(); i++) {
+            Intent intent = prefs.getPreference(i).getIntent();
+            if (intent != null) {
+                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NEW_TASK);
+            }
+        }
     }
 }
