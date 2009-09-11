@@ -56,6 +56,7 @@ import java.util.Date;
 import java.util.HashMap;
 
 public class AccountSyncSettings extends AccountPreferenceBase implements OnClickListener {
+    private static final String ACCOUNT_KEY = "account";
     private static final String TAG = "SyncSettings";
     private static final String CHANGE_PASSWORD_KEY = "changePassword";
     private static final int MENU_SYNC_NOW_ID = Menu.FIRST;
@@ -151,7 +152,7 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
         mDateFormat = DateFormat.getDateFormat(this);
         mTimeFormat = DateFormat.getTimeFormat(this);
 
-        mAccount = (Account) getIntent().getParcelableExtra("account");
+        mAccount = (Account) getIntent().getParcelableExtra(ACCOUNT_KEY);
         if (mAccount != null) {
             Log.v(TAG, "Got account: " + mAccount);
             mUserId.setText(mAccount.name);
@@ -389,18 +390,20 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
         mProviderId.setText(getLabelForType(mAccount.type));
         PreferenceScreen prefs = addPreferencesForType(mAccount.type);
         if (prefs != null) {
-            addNewTaskFlagToIntents(prefs);
+            updatePreferenceIntents(prefs);
         }
         addPreferencesFromResource(R.xml.account_sync_settings);
     }
 
-    private void addNewTaskFlagToIntents(PreferenceScreen prefs) {
-        // This is somewhat of a hack. Since the preference screen we're accessing comes from
-        // another package, we need to modify the intent to launch it with FLAG_ACTIVITY_NEW_TASK.
-        // TODO: Do something smarter if we ever have PreferenceScreens of our own.
+    private void updatePreferenceIntents(PreferenceScreen prefs) {
         for (int i = 0; i < prefs.getPreferenceCount(); i++) {
             Intent intent = prefs.getPreference(i).getIntent();
             if (intent != null) {
+                intent.putExtra(ACCOUNT_KEY, mAccount);
+                // This is somewhat of a hack. Since the preference screen we're accessing comes
+                // from another package, we need to modify the intent to launch it with
+                // FLAG_ACTIVITY_NEW_TASK.
+                // TODO: Do something smarter if we ever have PreferenceScreens of our own.
                 intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NEW_TASK);
             }
         }
