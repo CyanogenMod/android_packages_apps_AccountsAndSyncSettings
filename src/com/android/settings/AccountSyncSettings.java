@@ -30,11 +30,13 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ActiveSyncInfo;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SyncStatusInfo;
 import android.content.SyncAdapterType;
 import android.content.pm.ProviderInfo;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -323,8 +325,11 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
             syncPref.setActive(activelySyncing);
             syncPref.setPending(authorityIsPending);
             syncPref.setFailed(lastSyncFailed);
+            ConnectivityManager connManager =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
             final boolean masterSyncAutomatically = ContentResolver.getMasterSyncAutomatically();
-            syncPref.setOneTimeSyncMode(!masterSyncAutomatically);
+            final boolean backgroundDataEnabled = connManager.getBackgroundDataSetting();
+            syncPref.setOneTimeSyncMode(!masterSyncAutomatically || !backgroundDataEnabled);
             syncPref.setChecked(syncEnabled);
         }
         mErrorInfoView.setVisibility(syncIsFailing ? View.VISIBLE : View.GONE);
