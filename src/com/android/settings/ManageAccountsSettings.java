@@ -46,6 +46,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class ManageAccountsSettings extends AccountPreferenceBase implements View.OnClickListener {
+    private static final String AUTO_SYNC_CHECKBOX_KEY = "syncAutomaticallyCheckBox";
     private static final String MANAGE_ACCOUNTS_CATEGORY_KEY = "manageAccountsCategory";
     private static final String BACKGROUND_DATA_CHECKBOX_KEY = "backgroundDataCheckBox";
     private static final int MENU_SYNC_NOW_ID = Menu.FIRST;
@@ -56,9 +57,8 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
     private PreferenceCategory mManageAccountsCategory;
     private String[] mAuthorities;
     private TextView mErrorInfoView;
-    private java.text.DateFormat mDateFormat;
-    private java.text.DateFormat mTimeFormat;
     private Button mAddAccountButton;
+    private CheckBoxPreference mAutoSyncCheckbox;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -72,10 +72,8 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
         mErrorInfoView.setCompoundDrawablesWithIntrinsicBounds(
                 getResources().getDrawable(R.drawable.ic_list_syncerror), null, null, null);
 
-        mDateFormat = DateFormat.getDateFormat(this);
-        mTimeFormat = DateFormat.getTimeFormat(this);
-
         mBackgroundDataCheckBox = (CheckBoxPreference) findPreference(BACKGROUND_DATA_CHECKBOX_KEY);
+        mAutoSyncCheckbox = (CheckBoxPreference) findPreference(AUTO_SYNC_CHECKBOX_KEY);
 
         mManageAccountsCategory =
                 (PreferenceCategory) findPreference(MANAGE_ACCOUNTS_CATEGORY_KEY);
@@ -129,26 +127,16 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
             if (oldBackgroundDataSetting != backgroundDataSetting) {
                 if (backgroundDataSetting) {
                     setBackgroundDataInt(true);
+                    onSyncStateUpdated();
                 } else {
                     // This will get unchecked only if the user hits "Ok"
                     mBackgroundDataCheckBox.setChecked(true);
                     showDialog(DIALOG_DISABLE_BACKGROUND_DATA);
                 }
             }
-        } else if (preference instanceof SyncStateCheckBoxPreference) {
-            SyncStateCheckBoxPreference syncPref = (SyncStateCheckBoxPreference) preference;
-            String authority = syncPref.getAuthority();
-            Account account = syncPref.getAccount();
-            if (syncPref.isOneTimeSyncMode()) {
-                requestOrCancelSync(account, authority, true);
-            } else {
-                boolean syncOn = syncPref.isChecked();
-                boolean oldSyncState = ContentResolver.getSyncAutomatically(account, authority);
-                if (syncOn != oldSyncState) {
-                    ContentResolver.setSyncAutomatically(account, authority, syncOn);
-                    requestOrCancelSync(account, authority, syncOn);
-                }
-            }
+        } else if (preference == mAutoSyncCheckbox) {
+            ContentResolver.setMasterSyncAutomatically(mAutoSyncCheckbox.isChecked());
+            onSyncStateUpdated();
         } else {
             return false;
         }
@@ -170,6 +158,7 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
                                 public void onClick(DialogInterface dialog, int which) {
                                     setBackgroundDataInt(false);
                                     pref.setChecked(false);
+                                    onSyncStateUpdated();
                                 }
                             })
                         .setNegativeButton(android.R.string.cancel, null)
@@ -223,24 +212,30 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
         // Set background connection state
         ConnectivityManager connManager =
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        mBackgroundDataCheckBox.setChecked(connManager.getBackgroundDataSetting());
+        boolean backgroundDataSetting = connManager.getBackgroundDataSetting();
+        mBackgroundDataCheckBox.setChecked(backgroundDataSetting);
+        boolean masterSyncAutomatically = ContentResolver.getMasterSyncAutomatically();
+        mAutoSyncCheckbox.setChecked(masterSyncAutomatically);
 
         // iterate over all the preferences, setting the state properly for each
-        Date date = new Date();
         ActiveSyncInfo activeSyncValues = ContentResolver.getActiveSync();
-        boolean syncIsFailing = false;
-        for (int i = 0, count = getPreferenceScreen().getPreferenceCount(); i < count; i++) {
-            Preference pref = getPreferenceScreen().getPreference(i);
+
+        boolean anySyncFailed = false; // true if sync on any account failed
+        for (int i = 0, count = mManageAccountsCategory.getPreferenceCount(); i < count; i++) {
+            Preference pref = mManageAccountsCategory.getPreference(i);
             if (! (pref instanceof AccountPreference)) {
                 continue;
             }
 
             AccountPreference accountPref = (AccountPreference) pref;
             Account account = accountPref.getAccount();
-            boolean syncEnabled = false;
+            int syncCount = 0;
+            boolean syncIsFailing = false;
             for (String authority : accountPref.getAuthorities()) {
                 SyncStatusInfo status = ContentResolver.getSyncStatus(account, authority);
-                syncEnabled |= ContentResolver.getSyncAutomatically(account, authority);
+                boolean syncEnabled = ContentResolver.getSyncAutomatically(account, authority)
+                        && masterSyncAutomatically
+                        && backgroundDataSetting;
                 boolean authorityIsPending = ContentResolver.isSyncPending(account, authority);
                 boolean activelySyncing = activeSyncValues != null
                         && activeSyncValues.authority.equals(authority)
@@ -252,32 +247,28 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
                            != ContentResolver.SYNC_ERROR_SYNC_ALREADY_IN_PROGRESS;
                 if (lastSyncFailed && !activelySyncing && !authorityIsPending) {
                     syncIsFailing = true;
+                    anySyncFailed = true;
                 }
-                final long successEndTime = (status == null) ? 0 : status.lastSuccessTime;
-                if (successEndTime != 0) {
-                    date.setTime(successEndTime);
-                    String dateString = mTimeFormat.format(date);
-                    final String timeString = mDateFormat.format(date) + " " + dateString;
-                    accountPref.setSummary(timeString);
-                } else {
-                    accountPref.setSummary("");
-                }
+                syncCount += syncEnabled ? 1 : 0;
             }
+            int syncStatus = AccountPreference.SYNC_NONE;
             if (syncIsFailing) {
-                accountPref.setSyncStatus(AccountPreference.SYNC_ERROR);
+                syncStatus = AccountPreference.SYNC_ERROR;
+            } else if (syncCount == 0) {
+                syncStatus = AccountPreference.SYNC_NONE;
+            } else if (syncCount == accountPref.getAuthorities().size()) {
+                syncStatus = AccountPreference.SYNC_ALL_OK;
             } else {
-                accountPref.setSyncStatus(
-                        syncEnabled ? AccountPreference.SYNC_ALL_OK : AccountPreference.SYNC_NONE);
+                syncStatus = AccountPreference.SYNC_SOME_OK;
             }
+            accountPref.setSyncStatus(syncStatus);
         }
 
-        mErrorInfoView.setVisibility(syncIsFailing ? View.VISIBLE : View.GONE);
+        mErrorInfoView.setVisibility(anySyncFailed ? View.VISIBLE : View.GONE);
     }
 
     public void onAccountsUpdated(Account[] accounts) {
-
         mManageAccountsCategory.removeAll();
-
         for (int i = 0, n = accounts.length; i < n; i++) {
             final Account account = accounts[i];
             final ArrayList<String> auths = getAuthoritiesForAccountType(account.type);
@@ -296,7 +287,6 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
             if (showAccount) {
                 Drawable icon = getDrawableForType(account.type);
                 AccountPreference preference = new AccountPreference(this, account, icon, auths);
-                preference.setSyncStatus(AccountPreference.SYNC_ALL_OK);
                 mManageAccountsCategory.addPreference(preference);
             }
         }
