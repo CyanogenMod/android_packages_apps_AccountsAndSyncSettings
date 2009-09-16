@@ -26,7 +26,7 @@ import android.accounts.AccountManagerCallback;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.PreferenceCategory;
+import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 
@@ -35,9 +35,8 @@ import java.util.ArrayList;
 
 public class AddAccountSettings extends AccountPreferenceBase {
     private static final String TAG = "AddAccount";
-    private static final String ADD_ACCOUNT_CATEGORY_KEY = "addAccountCategory";
     private String[] mAuthorities;
-    private PreferenceCategory mAddAccountCategory;
+    private PreferenceGroup mAddAccountGroup;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -46,14 +45,14 @@ public class AddAccountSettings extends AccountPreferenceBase {
         setContentView(R.layout.add_account_screen);
         addPreferencesFromResource(R.xml.add_account_settings);
         mAuthorities = getIntent().getStringArrayExtra(AUTHORITIES_FILTER_KEY);
-        mAddAccountCategory = (PreferenceCategory) findPreference(ADD_ACCOUNT_CATEGORY_KEY);
+        mAddAccountGroup = getPreferenceScreen();
         updateAuthDescriptions();
     }
 
     @Override
     protected void onAuthDescriptionsUpdated() {
         // Add all account types to the preference screen
-        mAddAccountCategory.removeAll();
+        mAddAccountGroup.removeAll();
 
         // Add the new ones
         for (int i = 0; i < mAuthDescs.length; i++) {
@@ -75,7 +74,7 @@ public class AddAccountSettings extends AccountPreferenceBase {
             }
             if (addAccountPref) {
                 Drawable drawable = getDrawableForType(accountType);
-                mAddAccountCategory.addPreference(
+                mAddAccountGroup.addPreference(
                         new ProviderPreference(this, accountType, drawable, providerName));
                 Log.v(TAG, "Added new pref for provider " + providerName);
             } else {
