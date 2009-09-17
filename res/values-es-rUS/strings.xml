@@ -15,9 +15,9 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2800463760279909883) -->
+    <string name="app_label" msgid="2800463760279909883">"Canales de sincronización"</string>
+    <!-- no translation found for sync_settings (8707056705985552604) -->
     <skip />
-    <string name="sync_settings" msgid="4549768061467147584">"Sincronización de datos"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"Eliminar el límite excedido"</string>
     <string name="background_data" msgid="1103557117473896066">"Datos de fondo"</string>
     <string name="background_data_summary" msgid="4689952168187153486">"Activar el uso de datos de fondo"</string>
@@ -25,10 +25,8 @@
     <string name="background_data_dialog_message" msgid="2817489591533703840">"Al desactivar los datos de fondo, se ahorra batería y se reduce el uso de los datos. Algunas aplicaciones incluso pueden utilizar una conexión de datos de fondo."</string>
     <string name="sync_automatically" msgid="4694735102757960100">"Sincroniz. automática"</string>
     <string name="sync_automatically_summary" msgid="6210073947698673774">"Datos sincronizados automáticamente"</string>
-    <!-- no translation found for settings_backup (6114299464740014762) -->
-    <skip />
-    <!-- no translation found for settings_backup_summary (5308702862293201877) -->
-    <skip />
+    <string name="settings_backup" msgid="6114299464740014762">"Hacer una copia de seguridad de configuraciones"</string>
+    <string name="settings_backup_summary" msgid="5308702862293201877">"Habilitar copia de seguridad de configuraciones"</string>
     <string name="sync_menu_sync_now" msgid="5796024841315572404">"Sincronizar ahora"</string>
     <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Cancelar sincronización"</string>
     <string name="sync_one_time_sync" msgid="3474532720071919514">"Selecciona sincronización ahora<xliff:g id="LAST_SYNC_TIME">
@@ -43,39 +41,23 @@
     <string name="sync_is_failing" msgid="5230237058552433773">"En este momento la sincronización experimenta problemas. Volverá en breve."</string>
     <string name="sync_plug" msgid="4526246957714417280"><font fgcolor="#ffffffff">"¡Bienvenido a\nGoogle Sync!"</font>" "\n"Un método de Google que sincroniza datos para permitir el acceso a tus contactos, citas y mucho más desde cualquier lugar en donde estés."</string>
     <string name="header_application_sync_settings" msgid="5263025067167527890">"Config. de sincroniz. de la aplic."</string>
-    <!-- no translation found for header_manage_accounts (5158208858092427004) -->
+    <!-- no translation found for header_manage_accounts (381956296995298770) -->
     <skip />
     <string name="header_general_sync_settings" msgid="1598537524696692308">"Configuración de sincronización general"</string>
-    <!-- no translation found for signed_in_synced (5792089100632583454) -->
-    <skip />
-    <!-- no translation found for singed_in_synced_partial (7255154572093675570) -->
-    <skip />
-    <!-- no translation found for signed_in_sync_disabled (6574910480212121933) -->
-    <skip />
-    <!-- no translation found for signed_in_sync_error (5557609237101936924) -->
-    <skip />
-    <!-- no translation found for add_account_label (2035321485672826779) -->
-    <skip />
-    <!-- no translation found for header_data_and_synchronization (7274711697016911550) -->
-    <skip />
-    <!-- no translation found for preference_change_password_title (6468827554159468315) -->
-    <skip />
-    <!-- no translation found for header_account_settings (8795624691307728708) -->
-    <skip />
-    <!-- no translation found for remove_account_label (5624712684599197863) -->
-    <skip />
-    <!-- no translation found for header_add_an_account (2198078922829535425) -->
-    <skip />
-    <!-- no translation found for finish_button_label (6121560986057356757) -->
-    <skip />
-    <!-- no translation found for really_remove_account_title (8808121039511188784) -->
-    <skip />
-    <!-- no translation found for really_remove_account_message (9058660516139501549) -->
-    <skip />
-    <!-- no translation found for remove_account_failed (1834355229721070397) -->
-    <skip />
-    <!-- no translation found for provider_label (4860292144158484350) -->
-    <skip />
-    <!-- no translation found for sync_item_title (7984962124867021854) -->
-    <skip />
+    <string name="signed_in_synced" msgid="5792089100632583454">"Sesión iniciada, Sincronizada"</string>
+    <string name="singed_in_synced_partial" msgid="7255154572093675570">"Sesión iniciada, Sincronización parcial"</string>
+    <string name="signed_in_sync_disabled" msgid="6574910480212121933">"Sesión iniciada; la Sincronización está INHABILITADA"</string>
+    <string name="signed_in_sync_error" msgid="5557609237101936924">"Sesión iniciada, Error en la sincronización"</string>
+    <string name="add_account_label" msgid="2035321485672826779">"Agregar cuenta"</string>
+    <string name="header_data_and_synchronization" msgid="7274711697016911550">"Datos y sincronización"</string>
+    <string name="preference_change_password_title" msgid="6468827554159468315">"Cambiar contraseña"</string>
+    <string name="header_account_settings" msgid="8795624691307728708">"Configuración de cuenta"</string>
+    <string name="remove_account_label" msgid="5624712684599197863">"Eliminar cuenta"</string>
+    <string name="header_add_an_account" msgid="2198078922829535425">"Agregar una cuenta"</string>
+    <string name="finish_button_label" msgid="6121560986057356757">"Finalizar"</string>
+    <string name="really_remove_account_title" msgid="8808121039511188784">"Eliminar cuenta"</string>
+    <string name="really_remove_account_message" msgid="9058660516139501549">"¿Deseas realmente eliminar esta cuenta? Al eliminarla se eliminarán todos los datos asociados con la cuenta. "\n"¿Deseas proceder?"</string>
+    <string name="remove_account_failed" msgid="1834355229721070397">"No se pudo eliminar esta cuenta"</string>
+    <string name="provider_label" msgid="4860292144158484350">"Suscripciones de inserción"</string>
+    <string name="sync_item_title" msgid="7984962124867021854">"Sincronización<xliff:g id="AUTHORITY">%s</xliff:g>"</string>
 </resources>
