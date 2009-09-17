@@ -16,7 +16,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_label" msgid="2800463760279909883">"同步資訊提供"</string>
-    <string name="sync_settings" msgid="4549768061467147584">"資料同步處理"</string>
+    <!-- no translation found for sync_settings (8707056705985552604) -->
+    <skip />
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"達到刪除上限"</string>
     <string name="background_data" msgid="1103557117473896066">"背景資料"</string>
     <string name="background_data_summary" msgid="4689952168187153486">"啟用背景資料"</string>
@@ -24,10 +25,8 @@
     <string name="background_data_dialog_message" msgid="2817489591533703840">"停用背景資料可節省電源並減少資料的使用。但某些應用程式可能仍會使用背景資料連線。"</string>
     <string name="sync_automatically" msgid="4694735102757960100">"自動同步處理"</string>
     <string name="sync_automatically_summary" msgid="6210073947698673774">"自動同步處理資料"</string>
-    <!-- no translation found for settings_backup (6114299464740014762) -->
-    <skip />
-    <!-- no translation found for settings_backup_summary (5308702862293201877) -->
-    <skip />
+    <string name="settings_backup" msgid="6114299464740014762">"備份設定"</string>
+    <string name="settings_backup_summary" msgid="5308702862293201877">"啟用設定備份功能"</string>
     <string name="sync_menu_sync_now" msgid="5796024841315572404">"立即同步處理"</string>
     <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"取消同步處理"</string>
     <string name="sync_one_time_sync" msgid="3474532720071919514">"選取此處立即開始同步處理<xliff:g id="LAST_SYNC_TIME">
@@ -42,39 +41,23 @@
     <string name="sync_is_failing" msgid="5230237058552433773">"同步處理目前發生問題。將於短時間內恢復。"</string>
     <string name="sync_plug" msgid="4526246957714417280"><font fgcolor="#ffffffff">"歡迎使用 Google Sync！"</font>\n"這是 Google 所提供用於同步處理資料的程式，可讓您隨時隨地存取聯絡人、約會等資料。"</string>
     <string name="header_application_sync_settings" msgid="5263025067167527890">"應用程式同步處理設定"</string>
-    <!-- no translation found for header_manage_accounts (5158208858092427004) -->
+    <!-- no translation found for header_manage_accounts (381956296995298770) -->
     <skip />
     <string name="header_general_sync_settings" msgid="1598537524696692308">"一般同步處理設定"</string>
-    <!-- no translation found for signed_in_synced (5792089100632583454) -->
-    <skip />
-    <!-- no translation found for singed_in_synced_partial (7255154572093675570) -->
-    <skip />
-    <!-- no translation found for signed_in_sync_disabled (6574910480212121933) -->
-    <skip />
-    <!-- no translation found for signed_in_sync_error (5557609237101936924) -->
-    <skip />
-    <!-- no translation found for add_account_label (2035321485672826779) -->
-    <skip />
-    <!-- no translation found for header_data_and_synchronization (7274711697016911550) -->
-    <skip />
-    <!-- no translation found for preference_change_password_title (6468827554159468315) -->
-    <skip />
-    <!-- no translation found for header_account_settings (8795624691307728708) -->
-    <skip />
-    <!-- no translation found for remove_account_label (5624712684599197863) -->
-    <skip />
-    <!-- no translation found for header_add_an_account (2198078922829535425) -->
-    <skip />
-    <!-- no translation found for finish_button_label (6121560986057356757) -->
-    <skip />
-    <!-- no translation found for really_remove_account_title (8808121039511188784) -->
-    <skip />
-    <!-- no translation found for really_remove_account_message (9058660516139501549) -->
-    <skip />
-    <!-- no translation found for remove_account_failed (1834355229721070397) -->
-    <skip />
-    <!-- no translation found for provider_label (4860292144158484350) -->
-    <skip />
-    <!-- no translation found for sync_item_title (7984962124867021854) -->
-    <skip />
+    <string name="signed_in_synced" msgid="5792089100632583454">"已登入；已同步處理"</string>
+    <string name="singed_in_synced_partial" msgid="7255154572093675570">"已登入；進行部分同步處理"</string>
+    <string name="signed_in_sync_disabled" msgid="6574910480212121933">"已登入；同步處理功能全數關閉"</string>
+    <string name="signed_in_sync_error" msgid="5557609237101936924">"已登入；同步處理功能發生錯誤"</string>
+    <string name="add_account_label" msgid="2035321485672826779">"新增帳戶"</string>
+    <string name="header_data_and_synchronization" msgid="7274711697016911550">"資料與資料同步"</string>
+    <string name="preference_change_password_title" msgid="6468827554159468315">"變更密碼"</string>
+    <string name="header_account_settings" msgid="8795624691307728708">"帳戶設定"</string>
+    <string name="remove_account_label" msgid="5624712684599197863">"移除帳戶"</string>
+    <string name="header_add_an_account" msgid="2198078922829535425">"新增帳戶"</string>
+    <string name="finish_button_label" msgid="6121560986057356757">"完成"</string>
+    <string name="really_remove_account_title" msgid="8808121039511188784">"移除帳戶"</string>
+    <string name="really_remove_account_message" msgid="9058660516139501549">"確定要移除這個帳戶嗎？移除帳戶將會一併移除所有與其關聯的資料。"\n"要繼續嗎？"</string>
+    <string name="remove_account_failed" msgid="1834355229721070397">"無法移除這個帳戶。"</string>
+    <string name="provider_label" msgid="4860292144158484350">"預先載入訂閱項目"</string>
+    <string name="sync_item_title" msgid="7984962124867021854">"同步處理<xliff:g id="AUTHORITY">%s</xliff:g>"</string>
 </resources>
