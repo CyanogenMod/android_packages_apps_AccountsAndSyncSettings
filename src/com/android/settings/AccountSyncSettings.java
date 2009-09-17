@@ -65,6 +65,7 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
     private static final int MENU_SYNC_CANCEL_ID = Menu.FIRST + 1;
     private static final int REALLY_REMOVE_DIALOG = 100;
     private static final int FAILED_REMOVAL_DIALOG = 101;
+    private static final int CANT_DO_ONETIME_SYNC_DIALOG = 102;
     private TextView mUserId;
     private TextView mProviderId;
     private ImageView mProviderIcon;
@@ -126,6 +127,12 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
                 .setTitle(R.string.really_remove_account_title)
                 .setPositiveButton(android.R.string.ok, null)
                 .setMessage(R.string.remove_account_failed)
+                .create();
+        } else if (id == CANT_DO_ONETIME_SYNC_DIALOG) {
+            dialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.cant_sync_dialog_title)
+                .setMessage(R.string.cant_sync_dialog_message)
+                .setPositiveButton(android.R.string.ok, null)
                 .create();
         }
         return dialog;
@@ -220,11 +227,16 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
             SyncStateCheckBoxPreference syncPref = (SyncStateCheckBoxPreference) preference;
             String authority = syncPref.getAuthority();
             Account account = syncPref.getAccount();
+            boolean syncAutomatically = ContentResolver.getSyncAutomatically(account, authority);
             if (syncPref.isOneTimeSyncMode()) {
-                requestOrCancelSync(account, authority, true);
+                if (syncAutomatically) {
+                    requestOrCancelSync(account, authority, true);
+                } else {
+                    showDialog(CANT_DO_ONETIME_SYNC_DIALOG);
+                }
             } else {
                 boolean syncOn = syncPref.isChecked();
-                boolean oldSyncState = ContentResolver.getSyncAutomatically(account, authority);
+                boolean oldSyncState = syncAutomatically;
                 if (syncOn != oldSyncState) {
                     // if we're enabling sync, this will request a sync as well
                     ContentResolver.setSyncAutomatically(account, authority, syncOn);
