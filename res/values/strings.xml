@@ -22,7 +22,7 @@
     <string name="app_label">Sync Feeds</string>
     <!-- Sync settings -->
     <!-- Main Settings screen setting option name to go into the screen for data sync settings-->
-    <string name="sync_settings">Data synchronization</string>
+    <string name="sync_settings">Accounts &amp; sync settings</string>
     <!-- Error message when the sync tried to delete too many things -->
     <string name="sync_too_many_deletes">Delete limit exceeded</string>
     <!-- Data synchronization settings screen, title of setting that controls whether background data should be used -->
@@ -75,7 +75,7 @@
 
     <!-- Accounts & Synchronization settings --><skip/>
     <!-- Header title for list of accounts on Accounts & Synchronization settings -->
-    <string name="header_manage_accounts">Manage Accounts</string>
+    <string name="header_manage_accounts">Manage accounts</string>
     <!-- Header title for those settings relating to general syncing. -->
     <string name="header_general_sync_settings">General sync settings</string>
     <!-- Sync status messages on Accounts & Synchronization settings --><skip/>
