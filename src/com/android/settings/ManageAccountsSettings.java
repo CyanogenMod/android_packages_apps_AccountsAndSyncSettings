@@ -49,8 +49,6 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
     private static final String AUTO_SYNC_CHECKBOX_KEY = "syncAutomaticallyCheckBox";
     private static final String MANAGE_ACCOUNTS_CATEGORY_KEY = "manageAccountsCategory";
     private static final String BACKGROUND_DATA_CHECKBOX_KEY = "backgroundDataCheckBox";
-    private static final int MENU_SYNC_NOW_ID = Menu.FIRST;
-    private static final int MENU_SYNC_CANCEL_ID = Menu.FIRST + 1;
     private static final int DIALOG_DISABLE_BACKGROUND_DATA = 1;
 
     private CheckBoxPreference mBackgroundDataCheckBox;
@@ -83,38 +81,6 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
 
         AccountManager.get(this).addOnAccountsUpdatedListener(this, null, true);
         updateAuthDescriptions();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        menu.add(0, MENU_SYNC_NOW_ID, 0, getString(R.string.sync_menu_sync_now))
-                .setIcon(com.android.internal.R.drawable.ic_menu_refresh);
-        menu.add(0, MENU_SYNC_CANCEL_ID, 0, getString(R.string.sync_menu_sync_cancel))
-                .setIcon(android.R.drawable.ic_menu_close_clear_cancel);
-        return true;
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-        boolean syncActive = ContentResolver.getActiveSync() != null;
-        menu.findItem(MENU_SYNC_NOW_ID).setVisible(!syncActive);
-        menu.findItem(MENU_SYNC_CANCEL_ID).setVisible(syncActive);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case MENU_SYNC_NOW_ID:
-                startSyncForEnabledProviders();
-                return true;
-            case MENU_SYNC_CANCEL_ID:
-                cancelSyncForEnabledProviders();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -172,39 +138,6 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
         ConnectivityManager connManager =
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         connManager.setBackgroundDataSetting(enabled);
-    }
-
-    private void startSyncForEnabledProviders() {
-        requestOrCancelSyncForEnabledProviders(true /* start them */);
-    }
-
-    private void cancelSyncForEnabledProviders() {
-        requestOrCancelSyncForEnabledProviders(false /* cancel them */);
-    }
-
-    private void requestOrCancelSyncForEnabledProviders(boolean startSync) {
-        int count = getPreferenceScreen().getPreferenceCount();
-        for (int i = 0; i < count; i++) {
-            Preference pref = getPreferenceScreen().getPreference(i);
-            if (! (pref instanceof SyncStateCheckBoxPreference)) {
-                continue;
-            }
-            SyncStateCheckBoxPreference syncPref = (SyncStateCheckBoxPreference) pref;
-            if (!syncPref.isChecked()) {
-                continue;
-            }
-            requestOrCancelSync(syncPref.getAccount(), syncPref.getAuthority(), startSync);
-        }
-    }
-
-    private void requestOrCancelSync(Account account, String authority, boolean flag) {
-        if (flag) {
-            Bundle extras = new Bundle();
-            extras.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
-            ContentResolver.requestSync(account, authority, extras);
-        } else {
-            ContentResolver.cancelSync(account, authority);
-        }
     }
 
     @Override
