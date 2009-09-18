@@ -17,6 +17,7 @@
 package com.android.settings;
 
 import com.android.providers.subscribedfeeds.R;
+import com.google.android.collect.Maps;
 
 import android.accounts.AccountManager;
 import android.accounts.Account;
@@ -27,6 +28,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SyncAdapterType;
 import android.content.SyncStatusInfo;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
@@ -44,6 +46,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class ManageAccountsSettings extends AccountPreferenceBase implements View.OnClickListener {
     private static final String AUTO_SYNC_CHECKBOX_KEY = "syncAutomaticallyCheckBox";
@@ -154,6 +158,16 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
         ActiveSyncInfo activeSyncValues = ContentResolver.getActiveSync();
 
         boolean anySyncFailed = false; // true if sync on any account failed
+
+        // only track userfacing sync adapters when deciding if account is synced or not
+        final SyncAdapterType[] syncAdapters = ContentResolver.getSyncAdapterTypes();
+        HashSet<String> userFacing = new HashSet<String>();
+        for (int k = 0, n = syncAdapters.length; k < n; k++) {
+            final SyncAdapterType sa = syncAdapters[k];
+            if (sa.isUserVisible()) {
+                userFacing.add(sa.authority);
+            }
+        }
         for (int i = 0, count = mManageAccountsCategory.getPreferenceCount(); i < count; i++) {
             Preference pref = mManageAccountsCategory.getPreference(i);
             if (! (pref instanceof AccountPreference)) {
@@ -182,17 +196,15 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
                     syncIsFailing = true;
                     anySyncFailed = true;
                 }
-                syncCount += syncEnabled ? 1 : 0;
+                syncCount += syncEnabled && userFacing.contains(authority) ? 1 : 0;
             }
-            int syncStatus = AccountPreference.SYNC_NONE;
+            int syncStatus = AccountPreference.SYNC_DISABLED;
             if (syncIsFailing) {
                 syncStatus = AccountPreference.SYNC_ERROR;
             } else if (syncCount == 0) {
-                syncStatus = AccountPreference.SYNC_NONE;
-            } else if (syncCount == accountPref.getAuthorities().size()) {
-                syncStatus = AccountPreference.SYNC_ALL_OK;
-            } else {
-                syncStatus = AccountPreference.SYNC_SOME_OK;
+                syncStatus = AccountPreference.SYNC_DISABLED;
+            } else if (syncCount > 0) {
+                syncStatus = AccountPreference.SYNC_ENABLED;
             }
             accountPref.setSyncStatus(syncStatus);
         }
