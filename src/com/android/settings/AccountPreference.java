@@ -35,10 +35,9 @@ import android.widget.ImageView;
  */
 public class AccountPreference extends Preference {
     private static final String TAG = "AccountPreference";
-    public static final int SYNC_ALL_OK = 0; // all know sync adapters are enabled and OK
-    public static final int SYNC_SOME_OK = 1;  // some sync adapters enabled and OK
-    public static final int SYNC_NONE = 2; // no sync adapters are enabled
-    public static final int SYNC_ERROR = 3; // one or more sync adapters have a problem
+    public static final int SYNC_ENABLED = 0; // all know sync adapters are enabled and OK
+    public static final int SYNC_DISABLED = 1; // no sync adapters are enabled
+    public static final int SYNC_ERROR = 2; // one or more sync adapters have a problem
     private int mStatus;
     private Account mAccount;
     private ArrayList<String> mAuthorities;
@@ -54,13 +53,13 @@ public class AccountPreference extends Preference {
         mProviderIcon = icon;
         setLayoutResource(R.layout.account_preference);
         setTitle(mAccount.name);
-        setSummary(R.string.signed_in_sync_disabled);
+        setSummary("");
         // Add account info to the intent for AccountSyncSettings
         Intent intent = new Intent("android.settings.ACCOUNT_SYNC_SETTINGS");
         intent.putExtra("account", mAccount);
         setIntent(intent);
         setPersistent(false);
-        setSyncStatus(SYNC_NONE);
+        setSyncStatus(SYNC_DISABLED);
     }
 
     public Account getAccount() {
@@ -99,20 +98,17 @@ public class AccountPreference extends Preference {
     private int getSyncStatusMessage(int status) {
         int res;
         switch (status) {
-            case SYNC_ALL_OK:
-                res = R.string.signed_in_synced;
+            case SYNC_ENABLED:
+                res = R.string.sync_enabled;
                 break;
-            case SYNC_SOME_OK:
-                res = R.string.singed_in_synced_partial;
-                break;
-            case SYNC_NONE:
-                res = R.string.signed_in_sync_disabled;
+            case SYNC_DISABLED:
+                res = R.string.sync_disabled;
                 break;
             case SYNC_ERROR:
-                res = R.string.signed_in_sync_error;
+                res = R.string.sync_error;
                 break;
             default:
-                res = R.string.signed_in_sync_error;
+                res = R.string.sync_error;
                 Log.e(TAG, "Unknown sync status: " + status);
         }
         return res;
@@ -121,20 +117,17 @@ public class AccountPreference extends Preference {
     private int getSyncStatusIcon(int status) {
         int res;
         switch (status) {
-            case SYNC_ALL_OK:
-                res = R.drawable.ic_signed_in_synced;
+            case SYNC_ENABLED:
+                res = R.drawable.ic_sync_green;
                 break;
-            case SYNC_SOME_OK:
-                res = R.drawable.ic_signed_in_synced_partial;
-                break;
-            case SYNC_NONE:
-                res = R.drawable.ic_signed_in_sync_disabled;
+            case SYNC_DISABLED:
+                res = R.drawable.ic_sync_grey;
                 break;
             case SYNC_ERROR:
-                res = R.drawable.ic_signed_in_sync_error;
+                res = R.drawable.ic_sync_red;
                 break;
             default:
-                res = R.drawable.ic_signed_in_sync_error;
+                res = R.drawable.ic_sync_red;
                 Log.e(TAG, "Unknown sync status: " + status);
         }
         return res;
