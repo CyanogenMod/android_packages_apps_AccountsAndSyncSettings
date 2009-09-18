@@ -78,15 +78,15 @@
     <string name="header_manage_accounts">Manage accounts</string>
     <!-- Header title for those settings relating to general syncing. -->
     <string name="header_general_sync_settings">General sync settings</string>
+
     <!-- Sync status messages on Accounts & Synchronization settings --><skip/>
-    <!-- Account is signed in and synced -->
-    <string name="signed_in_synced">Signed in, Synced</string>
-    <!-- Account is signed in, some sync features disabled -->
-    <string name="singed_in_synced_partial">Signed in, Partial Sync</string>
-    <!-- Account is signed in, but all sync features are turned off -->
-    <string name="signed_in_sync_disabled">Signed in, Sync is OFF</string>
-    <!-- Account is signed in, but there was a problem syncing -->
-    <string name="signed_in_sync_error">Signed in, Sync Error</string>
+    <!-- Sync status shown when sync is enabled -->
+    <string name="sync_enabled">Sync is ON</string>
+    <!-- Sync status shown when sync is disabled -->
+    <string name="sync_disabled">Sync is OFF</string>
+    <!-- Sync status shown when last sync resulted in an error -->
+    <string name="sync_error">Sync Error</string>
+
     <!-- Button label to add an account -->
     <string name="add_account_label">Add account</string>
     <!-- Header for data and synchronization -->

@@ -113,6 +113,7 @@ public class AddAccountSettings extends AccountPreferenceBase {
                     this,
                     mCallback,
                     null /* handler */);
+            finish();
         }
         return true;
     }
