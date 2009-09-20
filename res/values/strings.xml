@@ -112,5 +112,8 @@
     <string name="provider_label">Push Subscriptions</string>
     <!-- Formatter in AccountSyncSettings for each application we wish to synchronize, e.g. "Sync Calendar" -->
     <string name="sync_item_title">Sync <xliff:g id="authority" example="Calendar">%s</xliff:g></string>
-
+    <!-- Title of dialog shown when you can't manually sync an item because it's disabled -->
+    <string name="cant_sync_dialog_title">Cannot manually sync</string>
+    <!-- Messaage shown in dialog when you can't manually sync -->
+    <string name="cant_sync_dialog_message">Sync for this item is currently disabled. To change your preference, temporarily turn on background data and automatic sync.</string>
 </resources>
