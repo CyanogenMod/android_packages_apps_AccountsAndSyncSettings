@@ -49,6 +49,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.provider.SubscribedFeeds;
+import android.provider.SyncConstValue;
 import android.util.Log;
 import android.text.TextUtils;
 
@@ -59,11 +60,20 @@ import java.io.IOException;
  */
 public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
     private final SubscribedFeedsClient mSubscribedFeedsClient;
+    public static final String ACCOUNT_TYPE = "com.google.GAIA";
+    public static final String FEATURE_SERVICE_PREFIX = "service_";
 
     private final static String FEED_URL = "https://android.clients.google.com/gsync/sub";
 
     private static final String ROUTINGINFO_PARAMETER = "routinginfo";
-
+    
+    /** 
+     * If an account has no subscriptions there is no need to connect to the server.
+     * Server will expire and delete unused feeds automatically.
+     * This also skips subscription feeds for foreign/youtube accounts. 
+     */
+    private boolean mAccountHasEntries = true;
+    
     protected SubscribedFeedsSyncAdapter(Context context, SyncableContentProvider provider) {
         super(context, provider);
         mSubscribedFeedsClient =
@@ -73,6 +83,36 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
                             new AndroidXmlParserFactory()));
     }
 
+    private boolean hasEntries(Account account) {
+        Cursor cursor = null;
+        try {
+            cursor = getContext().getContentResolver().query(SubscribedFeeds.Feeds.CONTENT_URI, 
+                null /* columns */,
+                SyncConstValue._SYNC_ACCOUNT + "=? AND " +
+                		SyncConstValue._SYNC_ACCOUNT_TYPE + "=?",
+                new String[]{account.name, account.type},
+                null/* orderBy */);
+            if (cursor == null || cursor.getCount() == 0) {
+                return false;
+            } else {
+                return true;
+            }
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+    
+    public void onSyncStarting(SyncContext context, Account account, boolean manualSync,
+            SyncResult result) {
+        mAccountHasEntries = hasEntries(account);
+        if (mAccountHasEntries) {
+            // will get the auth token
+            super.onSyncStarting(context, account, manualSync, result);
+        }
+    }
+    
     @Override
     protected GDataServiceClient getGDataServiceClient() {
         return mSubscribedFeedsClient;
@@ -146,6 +186,12 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
     public void getServerDiffs(SyncContext context, SyncData syncData,
             SyncableContentProvider tempProvider,
             Bundle extras, Object syncInfo, SyncResult syncResult) {
+        if (!mAccountHasEntries) {
+            // foreign accounts or accounts with no subscriptions
+            // Server will expire the subscriptions automatically.
+            return;
+        }
+        
         tempProvider.setContainsDiffs(false /* the server returns all records, not just diffs */);
         super.getServerDiffs(context, syncData, tempProvider, extras, syncInfo, syncResult);
     }
@@ -283,4 +329,5 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
         // should exist.
         return false;
     }
+        
 }
