@@ -104,7 +104,7 @@
     <!-- Title of remove message for remove account dialog -->
     <string name="really_remove_account_title">Remove account</string>
     <!-- Remove account message in dialog -->
-    <string name="really_remove_account_message">Do you really want to remove this account? Removing it will remove all data associated with the account.
+    <string name="really_remove_account_message">Do you really want to delete this account? Deleting it will also delete all of its messages, contacts, and other data from the phone.
     \nProceed?</string>
     <!-- This is shown if the autheticator for a given account fails to remove it. -->
     <string name="remove_account_failed">This account is required by some applications. You can only delete it by resetting the phone to factory defaults (which deletes all your personal data). You do that in the Settings application, under About phone.</string>
