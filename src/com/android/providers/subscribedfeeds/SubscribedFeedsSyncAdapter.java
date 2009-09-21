@@ -110,6 +110,10 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
         if (mAccountHasEntries) {
             // will get the auth token
             super.onSyncStarting(context, account, manualSync, result);
+        } else {
+            // Will be needed later - super would also try to get the token, which 
+            // may fail ( and does a HTTP request we want to avoid ).
+            mAccount = account;
         }
     }
     
