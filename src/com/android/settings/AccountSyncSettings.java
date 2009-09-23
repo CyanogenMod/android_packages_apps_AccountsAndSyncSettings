@@ -320,7 +320,8 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
 
             SyncStatusInfo status = ContentResolver.getSyncStatus(account, authority);
             boolean syncEnabled = ContentResolver.getSyncAutomatically(account, authority);
-            boolean authorityIsPending = status.pending;
+            boolean authorityIsPending = status == null ? false : status.pending;
+            boolean initialSync = status == null ? false : status.initialize;
 
             boolean activelySyncing = activeSyncValues != null
                     && activeSyncValues.account.equals(account)
@@ -348,10 +349,11 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
                 syncPref.setSummary("");
             }
             int syncState = ContentResolver.getIsSyncable(account, authority);
+
             syncPref.setActive(activelySyncing && (syncState >= 0) &&
-                    !(status.initialize));
+                    !initialSync);
             syncPref.setPending(authorityIsPending && (syncState >= 0) &&
-                    !(status.initialize));
+                    !initialSync);
 
             syncPref.setFailed(lastSyncFailed);
             ConnectivityManager connManager =
