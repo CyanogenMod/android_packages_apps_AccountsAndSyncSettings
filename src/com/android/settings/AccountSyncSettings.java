@@ -174,6 +174,12 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
         updateAuthDescriptions();
         onAccountsUpdated(AccountManager.get(this).getAccounts());
     }
+    
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        AccountManager.get(this).removeOnAccountsUpdatedListener(this);
+    }
 
     private void addSyncStateCheckBox(Account account, String authority) {
         SyncStateCheckBoxPreference item =
