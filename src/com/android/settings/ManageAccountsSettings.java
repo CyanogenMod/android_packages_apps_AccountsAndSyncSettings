@@ -88,6 +88,12 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
     }
 
     @Override
+    public void onDestroy() {
+        AccountManager.get(this).removeOnAccountsUpdatedListener(this);
+        super.onDestroy();
+    }
+
+    @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferences, Preference preference) {
         if (preference == mBackgroundDataCheckBox) {
             ConnectivityManager connManager =
