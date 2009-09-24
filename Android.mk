@@ -8,7 +8,7 @@ source_files := $(base_packages)/SubscribedFeedsProvider/src/com/android/provide
 source_files += $(base_packages)/SubscribedFeedsProvider/src/com/android/providers/subscribedfeeds/SubscribedFeedsIntentService.java
 source_files += $(base_packages)/SubscribedFeedsProvider/src/com/android/providers/subscribedfeeds/SubscribedFeedsBroadcastReceiver.java
 
-LOCAL_SRC_FILES := $(call all-subdir-java-files) $(source_files)
+LOCAL_SRC_FILES := $(call all-java-files-under, src) $(source_files)
 
 # We depend on googlelogin-client also, but that is already being included by google-framework
 LOCAL_STATIC_JAVA_LIBRARIES := google-framework
