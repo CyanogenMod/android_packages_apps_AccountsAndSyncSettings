@@ -44,10 +44,6 @@
     <!-- no translation found for header_manage_accounts (381956296995298770) -->
     <skip />
     <string name="header_general_sync_settings" msgid="1598537524696692308">"一般同步處理設定"</string>
-    <string name="signed_in_synced" msgid="5792089100632583454">"已登入；已同步處理"</string>
-    <string name="singed_in_synced_partial" msgid="7255154572093675570">"已登入；進行部分同步處理"</string>
-    <string name="signed_in_sync_disabled" msgid="6574910480212121933">"已登入；同步處理功能全數關閉"</string>
-    <string name="signed_in_sync_error" msgid="5557609237101936924">"已登入；同步處理功能發生錯誤"</string>
     <string name="add_account_label" msgid="2035321485672826779">"新增帳戶"</string>
     <string name="header_data_and_synchronization" msgid="7274711697016911550">"資料與資料同步"</string>
     <string name="preference_change_password_title" msgid="6468827554159468315">"變更密碼"</string>

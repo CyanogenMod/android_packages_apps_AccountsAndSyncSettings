@@ -44,10 +44,6 @@
     <!-- no translation found for header_manage_accounts (381956296995298770) -->
     <skip />
     <string name="header_general_sync_settings" msgid="1598537524696692308">"Configuración de sincronización general"</string>
-    <string name="signed_in_synced" msgid="5792089100632583454">"Has accedido a la cuenta, y esta se ha sincronizado."</string>
-    <string name="singed_in_synced_partial" msgid="7255154572093675570">"Has accedido a la cuenta, pero solo están habilitadas algunas funciones de sincronización."</string>
-    <string name="signed_in_sync_disabled" msgid="6574910480212121933">"Has accedido a la cuenta, pero la sincronización está desactivada."</string>
-    <string name="signed_in_sync_error" msgid="5557609237101936924">"Has accedido a la cuenta, pero se ha producido un error de sincronización."</string>
     <string name="add_account_label" msgid="2035321485672826779">"Añadir cuenta"</string>
     <string name="header_data_and_synchronization" msgid="7274711697016911550">"Datos y sincronización"</string>
     <string name="preference_change_password_title" msgid="6468827554159468315">"Cambiar contraseña"</string>
