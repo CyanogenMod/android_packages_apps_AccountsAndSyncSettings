@@ -44,10 +44,6 @@
     <!-- no translation found for header_manage_accounts (381956296995298770) -->
     <skip />
     <string name="header_general_sync_settings" msgid="1598537524696692308">"同期の基本設定"</string>
-    <string name="signed_in_synced" msgid="5792089100632583454">"ログインしました、同期済み"</string>
-    <string name="singed_in_synced_partial" msgid="7255154572093675570">"ログインしました、一部同期"</string>
-    <string name="signed_in_sync_disabled" msgid="6574910480212121933">"ログインしました、同期はOFF"</string>
-    <string name="signed_in_sync_error" msgid="5557609237101936924">"ログインしました、同期エラー"</string>
     <string name="add_account_label" msgid="2035321485672826779">"アカウントを追加"</string>
     <string name="header_data_and_synchronization" msgid="7274711697016911550">"データと同期"</string>
     <string name="preference_change_password_title" msgid="6468827554159468315">"パスワードを変更"</string>

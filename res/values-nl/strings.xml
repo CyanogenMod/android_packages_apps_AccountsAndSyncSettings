@@ -44,10 +44,6 @@
     <!-- no translation found for header_manage_accounts (381956296995298770) -->
     <skip />
     <string name="header_general_sync_settings" msgid="1598537524696692308">"Algemene instellingen voor synchronisatie"</string>
-    <string name="signed_in_synced" msgid="5792089100632583454">"Aangemeld, gesynchroniseerd"</string>
-    <string name="singed_in_synced_partial" msgid="7255154572093675570">"Aangemeld, gedeeltelijke synchronisatie"</string>
-    <string name="signed_in_sync_disabled" msgid="6574910480212121933">"Aangemeld, synchronisatie is uitgeschakeld"</string>
-    <string name="signed_in_sync_error" msgid="5557609237101936924">"Aangemeld, synchronisatiefout"</string>
     <string name="add_account_label" msgid="2035321485672826779">"Account toevoegen"</string>
     <string name="header_data_and_synchronization" msgid="7274711697016911550">"Gegevens en synchronisatie"</string>
     <string name="preference_change_password_title" msgid="6468827554159468315">"Wachtwoord wijzigen"</string>
