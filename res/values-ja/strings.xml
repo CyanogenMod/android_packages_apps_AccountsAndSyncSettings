@@ -39,5 +39,19 @@
     <string name="sync_is_failing">"現在同期で問題が発生しています。しばらくお待ちください。"</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">"Google Syncへようこそ"</font>" "\n"このサービスを使用すると、データを同期してどこからでも連絡先や予定などにアクセスできます。"</string>
     <string name="header_application_sync_settings">"アプリケーションの同期設定"</string>
+    <!-- no translation found for header_manage_accounts (381956296995298770) -->
+    <skip />
     <string name="header_general_sync_settings">"同期の基本設定"</string>
+    <string name="add_account_label">"アカウントを追加"</string>
+    <string name="header_data_and_synchronization">"データと同期"</string>
+    <string name="preference_change_password_title">"パスワードを変更"</string>
+    <string name="header_account_settings">"アカウントの設定"</string>
+    <string name="remove_account_label">"アカウントを削除"</string>
+    <string name="header_add_an_account">"アカウントを追加"</string>
+    <string name="finish_button_label">"完了"</string>
+    <string name="really_remove_account_title">"アカウントを削除"</string>
+    <string name="really_remove_account_message">"このアカウントを削除してよろしいですか？削除すると、アカウントに関連するすべてのデータが削除されます。"\n"続けますか？"</string>
+    <string name="remove_account_failed">"このアカウントを削除できませんでした。"</string>
+    <string name="provider_label">"プッシュ型登録"</string>
+    <string name="sync_item_title">"<xliff:g id="AUTHORITY">%s</xliff:g>を同期"</string>
 </resources>

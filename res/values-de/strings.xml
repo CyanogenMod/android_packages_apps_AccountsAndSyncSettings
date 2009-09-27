@@ -38,5 +38,19 @@
     <string name="sync_is_failing">"Bei der Synchronisierung treten derzeit Probleme auf. Sie wird in Kürze fortgesetzt."</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">"Willkommen bei Google Sync!"</font>\n"Mit dieser Funktion von Google können Sie Ihre Daten synchronisieren, um auf Ihre Kontakte, Termine und vieles mehr zuzugreifen - wo immer Sie auch sind!"</string>
     <string name="header_application_sync_settings">"Anwendungssynchronisierung"</string>
+    <!-- no translation found for header_manage_accounts (381956296995298770) -->
+    <skip />
     <string name="header_general_sync_settings">"Allgemeine Synchronisierungseinstellungen"</string>
+    <string name="add_account_label">"Konto hinzufügen"</string>
+    <string name="header_data_and_synchronization">"Daten und Synchronisierung"</string>
+    <string name="preference_change_password_title">"Passwort ändern"</string>
+    <string name="header_account_settings">"Kontoeinstellungen"</string>
+    <string name="remove_account_label">"Konto entfernen"</string>
+    <string name="header_add_an_account">"Konto hinzufügen"</string>
+    <string name="finish_button_label">"Fertigstellen"</string>
+    <string name="really_remove_account_title">"Konto entfernen"</string>
+    <string name="really_remove_account_message">"Möchten Sie dieses Konto wirklich entfernen? Hierdurch werden alle mit dem Konto verknüpften Daten gelöscht. "\n"Vorgang fortsetzen?"</string>
+    <string name="remove_account_failed">"Dieses Konto konnte nicht entfernt werden."</string>
+    <string name="provider_label">"Push-Abos"</string>
+    <string name="sync_item_title">"<xliff:g id="AUTHORITY">%s</xliff:g> synchronisieren"</string>
 </resources>

@@ -38,6 +38,20 @@
     <string name="sync_do_nothing">"No hagas nada por el momento."</string>
     <string name="sync_is_failing">"En este momento la sincronización experimenta problemas. Volverá en breve."</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">"¡Bienvenido a\nGoogle Sync!"</font>" "\n"Un método de Google que sincroniza datos para permitir el acceso a tus contactos, citas y mucho más desde cualquier lugar en donde estés."</string>
-    <string name="header_application_sync_settings">"Configuración de sincronización de la aplicación"</string>
+    <string name="header_application_sync_settings">"Config. de sincroniz. de la aplic."</string>
+    <!-- no translation found for header_manage_accounts (381956296995298770) -->
+    <skip />
     <string name="header_general_sync_settings">"Configuración de sincronización general"</string>
+    <string name="add_account_label">"Agregar cuenta"</string>
+    <string name="header_data_and_synchronization">"Datos y sincronización"</string>
+    <string name="preference_change_password_title">"Cambiar contraseña"</string>
+    <string name="header_account_settings">"Configuración de cuenta"</string>
+    <string name="remove_account_label">"Eliminar cuenta"</string>
+    <string name="header_add_an_account">"Agregar una cuenta"</string>
+    <string name="finish_button_label">"Finalizar"</string>
+    <string name="really_remove_account_title">"Eliminar cuenta"</string>
+    <string name="really_remove_account_message">"¿Deseas realmente eliminar esta cuenta? Al eliminarla se eliminarán todos los datos asociados con la cuenta. "\n"¿Deseas proceder?"</string>
+    <string name="remove_account_failed">"No se pudo eliminar esta cuenta"</string>
+    <string name="provider_label">"Suscripciones de inserción"</string>
+    <string name="sync_item_title">"Sincronización<xliff:g id="AUTHORITY">%s</xliff:g>"</string>
 </resources>

@@ -37,6 +37,20 @@
     <string name="sync_do_nothing">"Nu niets doen."</string>
     <string name="sync_is_failing">"Er zijn momenteel problemen met de synchronisatie. Synchronisatie wordt snel opnieuw uitgevoerd."</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">"Welkom bij Google Sync!"</font>" "\n"Een benadering van Google voor de synchronisatie van gegevens, zodat u altijd en overal toegang heeft tot uw contacten, afspraken en nog veel meer."</string>
-    <string name="header_application_sync_settings">"Synchronisatie-instellingen van de toepassing"</string>
+    <string name="header_application_sync_settings">"Synchronisatie-instellingen toepassing"</string>
+    <!-- no translation found for header_manage_accounts (381956296995298770) -->
+    <skip />
     <string name="header_general_sync_settings">"Algemene instellingen voor synchronisatie"</string>
+    <string name="add_account_label">"Account toevoegen"</string>
+    <string name="header_data_and_synchronization">"Gegevens en synchronisatie"</string>
+    <string name="preference_change_password_title">"Wachtwoord wijzigen"</string>
+    <string name="header_account_settings">"Accountinstellingen"</string>
+    <string name="remove_account_label">"Account verwijderen"</string>
+    <string name="header_add_an_account">"Een account toevoegen"</string>
+    <string name="finish_button_label">"Voltooien"</string>
+    <string name="really_remove_account_title">"Account verwijderen"</string>
+    <string name="really_remove_account_message">"Weet u zeker dat u dit account wilt verwijderen? Als u het verwijdert, worden alle gegevens die aan dit account zijn gekoppeld, ook verwijderd. "\n"Wilt u doorgaan?"</string>
+    <string name="remove_account_failed">"Kan dit account niet verwijderen."</string>
+    <string name="provider_label">"Abonnementen doorvoeren"</string>
+    <string name="sync_item_title">"<xliff:g id="AUTHORITY">%s</xliff:g> synchroniseren"</string>
 </resources>

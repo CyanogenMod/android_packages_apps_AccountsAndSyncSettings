@@ -39,5 +39,19 @@
     <string name="sync_is_failing">"Проблемы с синхронизацией. Скоро все снова будет работать."</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">"Добро пожаловать в Google Sync!"</font>" "\n"Подход Google к синхронизации данных, помогает получить информацию о контактах, встречах и многом другом, где бы вы ни были."</string>
     <string name="header_application_sync_settings">"Настройки синхронизации приложения"</string>
+    <!-- no translation found for header_manage_accounts (381956296995298770) -->
+    <skip />
     <string name="header_general_sync_settings">"Общие настройки синхронизации"</string>
+    <string name="add_account_label">"Добавить аккаунт"</string>
+    <string name="header_data_and_synchronization">"Данные и синхронизация"</string>
+    <string name="preference_change_password_title">"Изменить пароль"</string>
+    <string name="header_account_settings">"Настройки аккаунта"</string>
+    <string name="remove_account_label">"Удалить аккаунт"</string>
+    <string name="header_add_an_account">"Добавить аккаунт"</string>
+    <string name="finish_button_label">"Готово"</string>
+    <string name="really_remove_account_title">"Удалить аккаунт"</string>
+    <string name="really_remove_account_message">"Удалить этот аккаунт? Это действие приведет к удалению всех данных, связанных с аккаунтом. "\n"Продолжить?"</string>
+    <string name="remove_account_failed">"Невозможно удалить этот аккаунт."</string>
+    <string name="provider_label">"Подписки Push"</string>
+    <string name="sync_item_title">"Синхр. <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
 </resources>

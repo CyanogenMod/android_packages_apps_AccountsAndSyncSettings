@@ -39,5 +39,19 @@
     <string name="sync_is_failing">"Det er midlertidige problemer med synkroniseringen. Vent litt."</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">"Velkommen til Google-synkronisering!"</font>" "\n"En Google-løsning for å synkronisere data så du får tilgang til kontakter, avtaler og mer uansett hvor du er."</string>
     <string name="header_application_sync_settings">"Synkronisering av applikasjoner"</string>
+    <!-- no translation found for header_manage_accounts (381956296995298770) -->
+    <skip />
     <string name="header_general_sync_settings">"Generelle synkroniseringsinnstillinger"</string>
+    <string name="add_account_label">"Legg til konto"</string>
+    <string name="header_data_and_synchronization">"Data og synkronisering"</string>
+    <string name="preference_change_password_title">"Endre passord"</string>
+    <string name="header_account_settings">"Kontoinnstillinger"</string>
+    <string name="remove_account_label">"Fjern konto"</string>
+    <string name="header_add_an_account">"Legg til en konto"</string>
+    <string name="finish_button_label">"Fullfør"</string>
+    <string name="really_remove_account_title">"Fjern konto"</string>
+    <string name="really_remove_account_message">"Er du sikker på at du vil fjerne denne kontoen? Hvis du fjerner den, fjernes samtidig alle data som er tilknyttet kontoen. "\n"Vil du fortsette?"</string>
+    <string name="remove_account_failed">"Kunne ikke fjerne denne kontoen."</string>
+    <string name="provider_label">"Push-abonnementer"</string>
+    <string name="sync_item_title">"Synkroniser <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
 </resources>

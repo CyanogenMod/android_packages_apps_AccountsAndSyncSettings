@@ -39,5 +39,19 @@
     <string name="sync_is_failing">"Det är för närvarande problem med synkronisering. Det fungerar igen om en stund."</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">"Välkommen till Google Sync!"</font>" "\n"En funktion i Google som du kan använda om du vill synkronisera data så att du kommer åt dina kontakter, din kalender osv. var du än befinner dig."</string>
     <string name="header_application_sync_settings">"Programmets synkroniseringsinställningar"</string>
+    <!-- no translation found for header_manage_accounts (381956296995298770) -->
+    <skip />
     <string name="header_general_sync_settings">"Allmänna synkroniseringsinställningar"</string>
+    <string name="add_account_label">"Lägg till konto"</string>
+    <string name="header_data_and_synchronization">"Data  och synkronisering"</string>
+    <string name="preference_change_password_title">"Byt lösenord"</string>
+    <string name="header_account_settings">"Kontoinställningar"</string>
+    <string name="remove_account_label">"Ta bort konto"</string>
+    <string name="header_add_an_account">"Lägg till ett konto"</string>
+    <string name="finish_button_label">"Avsluta"</string>
+    <string name="really_remove_account_title">"Ta bort konto"</string>
+    <string name="really_remove_account_message">"Vill du ta bort kontot? Om du tar bort det försvinner alla data som tillhör det. "\n"Vill du fortsätta?"</string>
+    <string name="remove_account_failed">"Det gick inte att ta bort kontot."</string>
+    <string name="provider_label">"Push-prenumerationer"</string>
+    <string name="sync_item_title">"Synkronisera <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
 </resources>

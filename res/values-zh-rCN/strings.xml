@@ -39,5 +39,19 @@
     <string name="sync_is_failing">"同步现在遇到问题。很快将返回此操作。"</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">"欢迎使用 Google Sync！"</font>\n"Google 同步数据的方法可以让您从任何地方访问您的联系人、约会以及更多信息。"</string>
     <string name="header_application_sync_settings">"应用程序同步设置"</string>
+    <!-- no translation found for header_manage_accounts (381956296995298770) -->
+    <skip />
     <string name="header_general_sync_settings">"常规同步设置"</string>
+    <string name="add_account_label">"添加帐户"</string>
+    <string name="header_data_and_synchronization">"数据与同步"</string>
+    <string name="preference_change_password_title">"更改密码"</string>
+    <string name="header_account_settings">"帐户设置"</string>
+    <string name="remove_account_label">"删除帐户"</string>
+    <string name="header_add_an_account">"添加帐户"</string>
+    <string name="finish_button_label">"完成"</string>
+    <string name="really_remove_account_title">"删除帐户"</string>
+    <string name="really_remove_account_message">"确实要删除此帐户吗？删除该帐户将删除与之关联的所有数据。"\n"是否继续？"</string>
+    <string name="remove_account_failed">"无法删除此帐户。"</string>
+    <string name="provider_label">"推送订阅"</string>
+    <string name="sync_item_title">"同步<xliff:g id="AUTHORITY">%s</xliff:g>"</string>
 </resources>

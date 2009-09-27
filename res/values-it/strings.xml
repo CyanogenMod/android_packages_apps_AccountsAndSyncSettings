@@ -38,5 +38,19 @@
     <string name="sync_is_failing">"La sincronizzazione presenta dei problemi. L\'operazione verrà ripristinata a breve."</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">"Benvenuto in Google Sync."</font>" "\n"L\'approccio di Google alla sincronizzazione di dati per consentirti l\'accesso ai tuoi contatti, appuntamenti e altro ancora, dovunque tu sia."</string>
     <string name="header_application_sync_settings">"Impostazioni sincronizzazione applicazioni"</string>
+    <!-- no translation found for header_manage_accounts (381956296995298770) -->
+    <skip />
     <string name="header_general_sync_settings">"Impostazioni generali di sincronizzazione"</string>
+    <string name="add_account_label">"Aggiungi account"</string>
+    <string name="header_data_and_synchronization">"Dati e sincronizzazione"</string>
+    <string name="preference_change_password_title">"Cambia password"</string>
+    <string name="header_account_settings">"Impostazioni account"</string>
+    <string name="remove_account_label">"Rimuovi account"</string>
+    <string name="header_add_an_account">"Aggiungi un account"</string>
+    <string name="finish_button_label">"Fine"</string>
+    <string name="really_remove_account_title">"Rimuovi account"</string>
+    <string name="really_remove_account_message">"Vuoi davvero rimuovere questo account? Se lo rimuovi verranno rimossi anche tutti i dati associati. "\n"Continuare?"</string>
+    <string name="remove_account_failed">"Impossibile rimuovere questo account."</string>
+    <string name="provider_label">"Sottoscrizioni push"</string>
+    <string name="sync_item_title">"Sincronizza <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
 </resources>

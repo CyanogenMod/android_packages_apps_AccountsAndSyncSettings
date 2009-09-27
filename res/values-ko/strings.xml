@@ -39,5 +39,19 @@
     <string name="sync_is_failing">"동기화에 현재 문제가 발생했습니다. 곧 다시 동기화됩니다."</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">"Google 동기화를 시작합니다."</font>" "\n"사용자가 어디에서든지 주소록, 일정 등에 액세스할 수 있도록 데이터를 동기화하는 방법입니다."</string>
     <string name="header_application_sync_settings">"응용프로그램 동기화 설정"</string>
+    <!-- no translation found for header_manage_accounts (381956296995298770) -->
+    <skip />
     <string name="header_general_sync_settings">"기본 동기화 설정"</string>
+    <string name="add_account_label">"계정 추가"</string>
+    <string name="header_data_and_synchronization">"데이터 및 동기화"</string>
+    <string name="preference_change_password_title">"비밀번호 변경"</string>
+    <string name="header_account_settings">"계정 설정"</string>
+    <string name="remove_account_label">"계정 삭제"</string>
+    <string name="header_add_an_account">"계정 추가"</string>
+    <string name="finish_button_label">"마침"</string>
+    <string name="really_remove_account_title">"계정 삭제"</string>
+    <string name="really_remove_account_message">"계정을 삭제하시겠습니까? 계정을 삭제하면 계정과 연결된 모든 데이터가 삭제됩니다. "\n"계속하시겠습니까?"</string>
+    <string name="remove_account_failed">"이 계정을 삭제할 수 없습니다."</string>
+    <string name="provider_label">"구독정보 푸시"</string>
+    <string name="sync_item_title">"<xliff:g id="AUTHORITY">%s</xliff:g> 동기화"</string>
 </resources>

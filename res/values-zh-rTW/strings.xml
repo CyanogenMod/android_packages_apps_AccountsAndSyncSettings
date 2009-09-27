@@ -38,5 +38,19 @@
     <string name="sync_is_failing">"同步處理目前發生問題。將於短時間內恢復。"</string>
     <string name="sync_plug"><font fgcolor="#ffffffff">"歡迎使用 Google Sync！"</font>\n"這是 Google 所提供用於同步處理資料的程式，可讓您隨時隨地存取聯絡人、約會等資料。"</string>
     <string name="header_application_sync_settings">"應用程式同步處理設定"</string>
+    <!-- no translation found for header_manage_accounts (381956296995298770) -->
+    <skip />
     <string name="header_general_sync_settings">"一般同步處理設定"</string>
+    <string name="add_account_label">"新增帳戶"</string>
+    <string name="header_data_and_synchronization">"資料與資料同步"</string>
+    <string name="preference_change_password_title">"變更密碼"</string>
+    <string name="header_account_settings">"帳戶設定"</string>
+    <string name="remove_account_label">"移除帳戶"</string>
+    <string name="header_add_an_account">"新增帳戶"</string>
+    <string name="finish_button_label">"完成"</string>
+    <string name="really_remove_account_title">"移除帳戶"</string>
+    <string name="really_remove_account_message">"確定要移除這個帳戶嗎？移除帳戶將會一併移除所有與其關聯的資料。"\n"要繼續嗎？"</string>
+    <string name="remove_account_failed">"無法移除這個帳戶。"</string>
+    <string name="provider_label">"預先載入訂閱項目"</string>
+    <string name="sync_item_title">"同步處理<xliff:g id="AUTHORITY">%s</xliff:g>"</string>
 </resources>
