@@ -18,10 +18,9 @@ package com.android.settings;
 
 import com.android.providers.subscribedfeeds.R;
 
+import android.accounts.Account;
 import android.app.Activity;
 import android.content.ContentResolver;
-import android.content.Context;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,10 +30,6 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.ImageView;
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.accounts.AuthenticatorDescription;
 
 /**
  * Presents multiple options for handling the case where a sync was aborted because there
@@ -46,6 +41,7 @@ public class SyncActivityTooManyDeletes extends Activity
 
     private long mNumDeletes;
     private Account mAccount;
+    private String mAuthority;
     private String mProvider;
 
     @Override
@@ -60,6 +56,7 @@ public class SyncActivityTooManyDeletes extends Activity
 
         mNumDeletes = extras.getLong("numDeletes");
         mAccount = (Account) extras.getParcelable("account");
+        mAuthority = extras.getString("authority");
         mProvider = extras.getString("provider");
 
         // the order of these must match up with the constants for position used in onItemClick
@@ -123,7 +120,7 @@ public class SyncActivityTooManyDeletes extends Activity
         extras.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
         extras.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
         extras.putBoolean(ContentResolver.SYNC_EXTRAS_UPLOAD, true);
-        ContentResolver.requestSync(mAccount, mProvider, extras);
+        ContentResolver.requestSync(mAccount, mAuthority, extras);
     }
 
     private void startSyncUndoDeletes() {
@@ -132,6 +129,6 @@ public class SyncActivityTooManyDeletes extends Activity
         extras.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
         extras.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
         extras.putBoolean(ContentResolver.SYNC_EXTRAS_UPLOAD, true);
-        ContentResolver.requestSync(mAccount, mProvider, extras);
+        ContentResolver.requestSync(mAccount, mAuthority, extras);
     }
 }
