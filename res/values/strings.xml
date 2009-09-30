@@ -36,7 +36,7 @@
     <!-- Data synchronization settings screen, setting option name -->
     <string name="sync_automatically">Auto-sync</string>
     <!-- Data synchronization settings screen, setting option summary text when check box is selected -->
-    <string name="sync_automatically_summary">Automatically sync data</string>
+    <string name="sync_automatically_summary">Applications sync data automatically</string>
     <!-- Data synchronization settings screen, setting option name -->
     <string name="settings_backup">Back up settings</string>
     <!-- Data synchronization settings screen, setting option summary text when check box is selected -->
@@ -46,7 +46,7 @@
     <!-- Data synchronization settings screen, menu option -->
     <string name="sync_menu_sync_cancel">Cancel sync</string>
     <!-- Data synchronization settings screen, summary of a sync provider (for example, Gmail) when autosync is off and the user wants to do a one-time sync. -->
-    <string name="sync_one_time_sync">Select to sync now<xliff:g id="last_sync_time">\n%1$s</xliff:g></string>
+    <string name="sync_one_time_sync">Touch to sync now<xliff:g id="last_sync_time">\n%1$s</xliff:g></string>
     <!-- Data synchronization settings screen, checkbox setting option name. Controls whether Gmail should be synced.  Should use "Gmail" to refer to this app.-->
     <string name="sync_gmail">Gmail</string>
     <!-- Data synchronization settings screen, checkbox setting option name. Controls whether Calendar shoudl be synced. -->
@@ -90,7 +90,7 @@
     <!-- Button label to add an account -->
     <string name="add_account_label">Add account</string>
     <!-- Header for data and synchronization -->
-    <string name="header_data_and_synchronization">Data and synchronization</string>
+    <string name="header_data_and_synchronization">Data &amp; synchronization</string>
     <!-- Preference item that lets the user change password -->
     <string name="preference_change_password_title">Change password</string>
     <!-- Header that appears at the top of Account Settings screen -->
@@ -104,10 +104,10 @@
     <!-- Title of remove message for remove account dialog -->
     <string name="really_remove_account_title">Remove account</string>
     <!-- Remove account message in dialog -->
-    <string name="really_remove_account_message">Do you really want to delete this account? Deleting it will also delete all of its messages, contacts, and other data from the phone.
+    <string name="really_remove_account_message">Do you really want to remove this account? Removing it will also delete all of its messages, contacts, and other data from the phone.
     \nProceed?</string>
     <!-- This is shown if the autheticator for a given account fails to remove it. -->
-    <string name="remove_account_failed">This account is required by some applications. You can only delete it by resetting the phone to factory defaults (which deletes all your personal data). You do that in the Settings application, under About phone.</string>
+    <string name="remove_account_failed">This account is required by some applications. You can only remove it by resetting the phone to factory defaults (which deletes all your personal data). You do that in the Settings application, under Privacy.</string>
     <!-- What to show in messaging that refers to this provider, e.g. AccountSyncSettings -->
     <string name="provider_label">Push subscriptions</string>
     <!-- Formatter in AccountSyncSettings for each application we wish to synchronize, e.g. "Sync Calendar" -->
