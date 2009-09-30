@@ -37,6 +37,16 @@ public class AddAccountSettings extends AccountPreferenceBase {
     private static final String TAG = "AddAccount";
     private String[] mAuthorities;
     private PreferenceGroup mAddAccountGroup;
+    private ArrayList<ProviderEntry> mProviderList = new ArrayList<ProviderEntry>();;
+
+    private static class ProviderEntry {
+        private final CharSequence name;
+        private final String type;
+        ProviderEntry(CharSequence providerName, String accountType) {
+            name = providerName;
+            type = accountType;
+        }
+    }
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -51,10 +61,7 @@ public class AddAccountSettings extends AccountPreferenceBase {
 
     @Override
     protected void onAuthDescriptionsUpdated() {
-        // Add all account types to the preference screen
-        mAddAccountGroup.removeAll();
-
-        // Add the new ones
+        // Create list of providers to show on preference screen
         for (int i = 0; i < mAuthDescs.length; i++) {
             String accountType = mAuthDescs[i].type;
             CharSequence providerName = getLabelForType(accountType);
@@ -73,13 +80,27 @@ public class AddAccountSettings extends AccountPreferenceBase {
                 }
             }
             if (addAccountPref) {
-                Drawable drawable = getDrawableForType(accountType);
-                mAddAccountGroup.addPreference(
-                        new ProviderPreference(this, accountType, drawable, providerName));
-                Log.v(TAG, "Added new pref for provider " + providerName);
+                mProviderList.add(new ProviderEntry(providerName, accountType));
             } else {
                 Log.v(TAG, "Skipped pref " + providerName + ": has no authority we need");
             }
+        }
+
+        if (mProviderList.size() == 1) {
+            // If there's only one provider that matches, just run it.
+            addAccount(mProviderList.get(0).type);
+            finish();
+        } else if (mProviderList.size() > 0) {
+            mAddAccountGroup.removeAll();
+            for (ProviderEntry pref : mProviderList) {
+                Drawable drawable = getDrawableForType(pref.type);
+                ProviderPreference p = new ProviderPreference(this, pref.type, drawable, pref.name);
+                mAddAccountGroup.addPreference(p);
+            }
+        } else {
+            String auths = new String();
+            for (String a : mAuthorities) auths += a + " ";
+            Log.w(TAG, "No providers found for authorities: " + auths);
         }
     }
 
@@ -96,6 +117,10 @@ public class AddAccountSettings extends AccountPreferenceBase {
                 Log.d(TAG, "addAccount failed: " + e);
             } catch (AuthenticatorException e) {
                 Log.d(TAG, "addAccount failed: " + e);
+            } finally {
+                if (mProviderList.size() <= 1) {
+                    finish(); // don't show an empty screen
+                }
             }
         }
     };
@@ -105,16 +130,20 @@ public class AddAccountSettings extends AccountPreferenceBase {
         if (preference instanceof ProviderPreference) {
             ProviderPreference pref = (ProviderPreference) preference;
             Log.v(TAG, "Attempting to add account of type " + pref.getAccountType());
-            AccountManager.get(this).addAccount(
-                    pref.getAccountType(),
-                    null, /* authTokenType */
-                    null, /* requiredFeatures */
-                    null, /* addAccountOptions */
-                    this,
-                    mCallback,
-                    null /* handler */);
+            addAccount(pref.getAccountType());
             finish();
         }
         return true;
+    }
+
+    private void addAccount(String accountType) {
+        AccountManager.get(this).addAccount(
+                accountType,
+                null, /* authTokenType */
+                null, /* requiredFeatures */
+                null, /* addAccountOptions */
+                this,
+                mCallback,
+                null /* handler */);
     }
 }
