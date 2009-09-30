@@ -60,7 +60,7 @@ import java.io.IOException;
  */
 public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
     private final SubscribedFeedsClient mSubscribedFeedsClient;
-    public static final String ACCOUNT_TYPE = "com.google.GAIA";
+    public static final String ACCOUNT_TYPE = "com.google";
     public static final String FEATURE_SERVICE_PREFIX = "service_";
 
     private final static String FEED_URL = "https://android.clients.google.com/gsync/sub";
@@ -235,7 +235,7 @@ public class SubscribedFeedsSyncAdapter extends AbstractGDataSyncAdapter {
         String authToken;
         try {
             authToken = AccountManager.get(getContext()).blockingGetAuthToken(
-                    new Account(accountName, "com.google.GAIA"), service, true);
+                    new Account(accountName, "com.google"), service, true);
         } catch (IOException e) {
             Log.e("Sync", "caught exception while attempting to get an " +
                     "authtoken for account " + account +
