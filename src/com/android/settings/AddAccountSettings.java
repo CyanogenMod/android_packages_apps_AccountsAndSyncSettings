@@ -106,11 +106,12 @@ public class AddAccountSettings extends AccountPreferenceBase {
 
     private AccountManagerCallback<Bundle> mCallback = new AccountManagerCallback<Bundle>() {
         public void run(AccountManagerFuture<Bundle> future) {
+            boolean accountAdded = false;
             try {
                 Bundle bundle = future.getResult();
                 bundle.keySet();
+                accountAdded = true;
                 Log.d(TAG, "account added: " + bundle);
-                finish();
             } catch (OperationCanceledException e) {
                 Log.d(TAG, "addAccount was canceled");
             } catch (IOException e) {
@@ -118,8 +119,8 @@ public class AddAccountSettings extends AccountPreferenceBase {
             } catch (AuthenticatorException e) {
                 Log.d(TAG, "addAccount failed: " + e);
             } finally {
-                if (mProviderList.size() <= 1) {
-                    finish(); // don't show an empty screen
+                if (mProviderList.size() <= 1 || accountAdded) {
+                    finish();
                 }
             }
         }
