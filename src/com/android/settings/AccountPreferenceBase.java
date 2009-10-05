@@ -25,7 +25,7 @@ import com.google.android.collect.Maps;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.AuthenticatorDescription;
-import android.accounts.OnAccountsUpdatedListener;
+import android.accounts.OnAccountsUpdateListener;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SyncAdapterType;
@@ -38,7 +38,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
 import android.util.Log;
 
-class AccountPreferenceBase extends PreferenceActivity implements OnAccountsUpdatedListener {
+class AccountPreferenceBase extends PreferenceActivity implements OnAccountsUpdateListener {
     protected static final String TAG = "AccountSettings";
     public static final String AUTHORITIES_FILTER_KEY = "authorities";
     private Map<String, AuthenticatorDescription> mTypeToAuthDescription

@@ -38,7 +38,6 @@ import android.content.SyncAdapterType;
 import android.content.pm.ProviderInfo;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.preference.Preference;
