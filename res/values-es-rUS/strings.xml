@@ -23,14 +23,13 @@
     <string name="background_data_dialog_title" msgid="6303755495467986079">"Atención"</string>
     <string name="background_data_dialog_message" msgid="8417297954700022363">"Al desactivar los datos de fondo, se prolonga la vida útil de la batería y se reduce el uso de los datos. Algunas aplicaciones incluso pueden utilizar una conexión de datos de fondo."</string>
     <string name="sync_automatically" msgid="4694735102757960100">"Sincroniz. automática"</string>
-    <!-- no translation found for sync_automatically_summary (4598895616781542745) -->
-    <skip />
+    <string name="sync_automatically_summary" msgid="4598895616781542745">"Las aplicaciones sincronizan los datos automáticamente."</string>
     <string name="settings_backup" msgid="6114299464740014762">"Hacer una copia de seguridad de configuraciones"</string>
     <string name="settings_backup_summary" msgid="1787552172618610178">"Hacer una copia de seguridad de mi configuración"</string>
     <string name="sync_menu_sync_now" msgid="5796024841315572404">"Sincronizar ahora"</string>
     <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Cancelar sincronización"</string>
-    <!-- no translation found for sync_one_time_sync (3274364877518422827) -->
-    <skip />
+    <string name="sync_one_time_sync" msgid="3274364877518422827">"Tocar para sincronizar ahora<xliff:g id="LAST_SYNC_TIME">
+%1$s</xliff:g>"</string>
     <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
     <string name="sync_calendar" msgid="1796292773734071897">"Calendario"</string>
     <string name="sync_contacts" msgid="2035690905925565660">"Contactos"</string>
@@ -47,18 +46,15 @@
     <string name="sync_disabled" msgid="185731301298967302">"Sincronización desactivada"</string>
     <string name="sync_error" msgid="681431702824599812">"Error de sincronización"</string>
     <string name="add_account_label" msgid="2035321485672826779">"Agregar cuenta"</string>
-    <!-- no translation found for header_data_and_synchronization (6286257845276834071) -->
-    <skip />
+    <string name="header_data_and_synchronization" msgid="6286257845276834071">"Sincronización y datos"</string>
     <string name="preference_change_password_title" msgid="6468827554159468315">"Cambiar contraseña"</string>
     <string name="header_account_settings" msgid="4950809499418403792">"Configuración de la cuenta"</string>
     <string name="remove_account_label" msgid="5624712684599197863">"Eliminar cuenta"</string>
     <string name="header_add_an_account" msgid="2198078922829535425">"Agregar una cuenta"</string>
     <string name="finish_button_label" msgid="6121560986057356757">"Finalizar"</string>
     <string name="really_remove_account_title" msgid="8808121039511188784">"Eliminar cuenta"</string>
-    <!-- no translation found for really_remove_account_message (3293445755620109578) -->
-    <skip />
-    <!-- no translation found for remove_account_failed (8178924513521241001) -->
-    <skip />
+    <string name="really_remove_account_message" msgid="3293445755620109578">"¿Realmente deseas eliminar·esta cuenta? Si lo haces, también suprimirás todos sus mensajes, contactos y otros datos del teléfono. "\n"¿Deseas continuar?"</string>
+    <string name="remove_account_failed" msgid="8178924513521241001">"Algunas aplicaciones requieren esta cuenta. Sólo puedes suprimirla si restableces la configuración predeterminada de fábrica en el teléfono (la cual suprime todos tus datos personales). Puedes hacerlo en la aplicación Configuración, dentro de Privacidad."</string>
     <string name="provider_label" msgid="6191617139291321517">"Suscripciones de inserción"</string>
     <string name="sync_item_title" msgid="7984962124867021854">"Sincronización<xliff:g id="AUTHORITY">%s</xliff:g>"</string>
     <string name="cant_sync_dialog_title" msgid="3016197392261471761">"No se puede realizar la sincronización manual"</string>
