@@ -58,13 +58,14 @@ import java.util.HashMap;
 
 public class AccountSyncSettings extends AccountPreferenceBase implements OnClickListener {
     private static final String ACCOUNT_KEY = "account";
-    private static final String TAG = "SyncSettings";
+    private static final String TAG = "AccountSettings";
     private static final String CHANGE_PASSWORD_KEY = "changePassword";
     private static final int MENU_SYNC_NOW_ID = Menu.FIRST;
     private static final int MENU_SYNC_CANCEL_ID = Menu.FIRST + 1;
     private static final int REALLY_REMOVE_DIALOG = 100;
     private static final int FAILED_REMOVAL_DIALOG = 101;
     private static final int CANT_DO_ONETIME_SYNC_DIALOG = 102;
+    private static final boolean LDEBUG = Log.isLoggable(TAG, Log.DEBUG);
     private TextView mUserId;
     private TextView mProviderId;
     private ImageView mProviderIcon;
@@ -165,7 +166,7 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
 
         mAccount = (Account) getIntent().getParcelableExtra(ACCOUNT_KEY);
         if (mAccount != null) {
-            Log.v(TAG, "Got account: " + mAccount);
+            if (LDEBUG) Log.v(TAG, "Got account: " + mAccount);
             mUserId.setText(mAccount.name);
             mProviderId.setText(mAccount.type);
         }
@@ -339,7 +340,7 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
             if (lastSyncFailed && !activelySyncing && !authorityIsPending) {
                 syncIsFailing = true;
             }
-            if (Log.isLoggable(TAG, Log.DEBUG)) {
+            if (LDEBUG) {
                 Log.d(TAG, "Update sync status: " + account + " " + authority +
                         " active = " + activelySyncing + " pend =" +  authorityIsPending);
             }
@@ -393,7 +394,7 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
                     authorities = new ArrayList<String>();
                     accountTypeToAuthorities.put(sa.accountType, authorities);
                 }
-                if (Log.isLoggable(TAG, Log.DEBUG)) {
+                if (LDEBUG) {
                     Log.d(TAG, "onAccountUpdated: added authority " + sa.authority
                             + " to accountType " + sa.accountType);
                 }
@@ -412,16 +413,14 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
 
         for (int i = 0, n = accounts.length; i < n; i++) {
             final Account account = accounts[i];
-            Log.d(TAG, "looking for sync adapters that match account " + account);
+            if (LDEBUG) Log.d(TAG, "looking for sync adapters that match account " + account);
             final ArrayList<String> authorities = accountTypeToAuthorities.get(account.type);
             if (authorities != null && (mAccount == null || mAccount.equals(account))) {
                 for (int j = 0, m = authorities.size(); j < m; j++) {
                     final String authority = authorities.get(j);
                     // We could check services here....
                     int syncState = ContentResolver.getIsSyncable(account, authority);
-                    if (Log.isLoggable(TAG, Log.DEBUG)) {
-                        Log.d(TAG, "  found authority " + authority + " " + syncState);
-                    }
+                    if (LDEBUG) Log.d(TAG, "  found authority " + authority + " " + syncState);
                     if (syncState > 0) {
                         addSyncStateCheckBox(account, authority);
                     }
