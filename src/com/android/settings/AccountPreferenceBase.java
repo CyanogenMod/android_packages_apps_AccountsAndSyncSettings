@@ -41,6 +41,7 @@ import android.util.Log;
 class AccountPreferenceBase extends PreferenceActivity implements OnAccountsUpdateListener {
     protected static final String TAG = "AccountSettings";
     public static final String AUTHORITIES_FILTER_KEY = "authorities";
+    private static final boolean LDEBUG = Log.isLoggable(TAG, Log.DEBUG);;
     private Map<String, AuthenticatorDescription> mTypeToAuthDescription
             = new HashMap<String, AuthenticatorDescription>();
     protected AuthenticatorDescription[] mAuthDescs;
@@ -113,7 +114,10 @@ class AccountPreferenceBase extends PreferenceActivity implements OnAccountsUpda
                     authorities = new ArrayList<String>();
                     mAccountTypeToAuthorities.put(sa.accountType, authorities);
                 }
-                Log.d(TAG, "added authority " + sa.authority + " to accountType " + sa.accountType);
+                if (LDEBUG) {
+                    Log.d(TAG, "added authority " + sa.authority + " to accountType " 
+                            + sa.accountType);
+                }
                 authorities.add(sa.authority);
             }
         }

@@ -34,7 +34,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class AddAccountSettings extends AccountPreferenceBase {
-    private static final String TAG = "AddAccount";
+    private static final String TAG = "AccountSettings";
+    private static final boolean LDEBUG = Log.isLoggable(TAG, Log.DEBUG);
     private String[] mAuthorities;
     private PreferenceGroup mAddAccountGroup;
     private ArrayList<ProviderEntry> mProviderList = new ArrayList<ProviderEntry>();;
@@ -82,7 +83,7 @@ public class AddAccountSettings extends AccountPreferenceBase {
             if (addAccountPref) {
                 mProviderList.add(new ProviderEntry(providerName, accountType));
             } else {
-                Log.v(TAG, "Skipped pref " + providerName + ": has no authority we need");
+                if (LDEBUG) Log.v(TAG, "Skipped pref " + providerName + ": has no authority we need");
             }
         }
 
@@ -111,13 +112,13 @@ public class AddAccountSettings extends AccountPreferenceBase {
                 Bundle bundle = future.getResult();
                 bundle.keySet();
                 accountAdded = true;
-                Log.d(TAG, "account added: " + bundle);
+                if (LDEBUG) Log.d(TAG, "account added: " + bundle);
             } catch (OperationCanceledException e) {
-                Log.d(TAG, "addAccount was canceled");
+                if (LDEBUG) Log.d(TAG, "addAccount was canceled");
             } catch (IOException e) {
-                Log.d(TAG, "addAccount failed: " + e);
+                if (LDEBUG) Log.d(TAG, "addAccount failed: " + e);
             } catch (AuthenticatorException e) {
-                Log.d(TAG, "addAccount failed: " + e);
+                if (LDEBUG) Log.d(TAG, "addAccount failed: " + e);
             } finally {
                 if (mProviderList.size() <= 1 || accountAdded) {
                     finish();
@@ -130,7 +131,7 @@ public class AddAccountSettings extends AccountPreferenceBase {
     public boolean onPreferenceTreeClick(PreferenceScreen preferences, Preference preference) {
         if (preference instanceof ProviderPreference) {
             ProviderPreference pref = (ProviderPreference) preference;
-            Log.v(TAG, "Attempting to add account of type " + pref.getAccountType());
+            if (LDEBUG) Log.v(TAG, "Attempting to add account of type " + pref.getAccountType());
             addAccount(pref.getAccountType());
             finish();
         }
