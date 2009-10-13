@@ -15,42 +15,66 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label">"Sincronización de feeds"</string>
-    <string name="sync_settings">"Sincronización de datos"</string>
-    <string name="sync_too_many_deletes">"Límite de eliminaciones superado"</string>
-    <string name="background_data">"Datos de referencia"</string>
-    <string name="background_data_summary">"Habilitar el uso de datos de referencia"</string>
-    <string name="background_data_dialog_title">"Atención"</string>
-    <string name="background_data_dialog_message">"Si inhabilitas los datos de referencia, ahorrarás batería y reducirás el uso de datos. Es posible que algunas aplicaciones sigan utilizando la conexión de datos de referencia."</string>
-    <string name="sync_automatically">"Sincronización automática"</string>
-    <string name="sync_automatically_summary">"Sincronizar datos de forma automática"</string>
-    <string name="sync_menu_sync_now">"Sincronizar ahora"</string>
-    <string name="sync_menu_sync_cancel">"Cancelar sincronización"</string>
-    <string name="sync_one_time_sync">"Seleccionar para realizar la sincronización ahora<xliff:g id="LAST_SYNC_TIME">
-%1$s</xliff:g>"</string>
-    <string name="sync_gmail">"Gmail"</string>
-    <string name="sync_calendar">"Calendar"</string>
-    <string name="sync_contacts">"Contactos"</string>
-    <string name="sync_too_many_deletes_desc">"Hay <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> elementos eliminados para <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, cuenta <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. ¿Qué quieres hacer?"</string>
-    <string name="sync_really_delete">"Eliminar los elementos"</string>
-    <string name="sync_undo_deletes">"Deshacer las eliminaciones"</string>
-    <string name="sync_do_nothing">"No hacer nada por ahora"</string>
-    <string name="sync_is_failing">"En este momento hay problemas con la sincronización. Se restablecerá en breve."</string>
-    <string name="sync_plug"><font fgcolor="#ffffffff">"Te damos la bienvenida a Google Sync."</font>" "\n"Un servicio de Google para sincronizar datos y permitir así el acceso a tus contactos, citas, etc. desde cualquier ubicación."</string>
-    <string name="header_application_sync_settings">"Configuración de sincronización de aplicación"</string>
+    <!-- no translation found for app_label (569000083919693222) -->
+    <skip />
+    <!-- no translation found for sync_settings (8707056705985552604) -->
+    <skip />
+    <string name="sync_too_many_deletes" msgid="1621369057980827097">"Límite de eliminaciones superado"</string>
+    <string name="background_data" msgid="1103557117473896066">"Datos de referencia"</string>
+    <!-- no translation found for background_data_summary (9048259510387973822) -->
+    <skip />
+    <string name="background_data_dialog_title" msgid="6303755495467986079">"Atención"</string>
+    <!-- no translation found for background_data_dialog_message (8417297954700022363) -->
+    <skip />
+    <string name="sync_automatically" msgid="4694735102757960100">"Sincronización automática"</string>
+    <!-- no translation found for sync_automatically_summary (4598895616781542745) -->
+    <skip />
+    <string name="settings_backup" msgid="6114299464740014762">"Realizar copia de seguridad de configuración"</string>
+    <!-- no translation found for settings_backup_summary (1787552172618610178) -->
+    <skip />
+    <string name="sync_menu_sync_now" msgid="5796024841315572404">"Sincronizar ahora"</string>
+    <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Cancelar sincronización"</string>
+    <!-- no translation found for sync_one_time_sync (3274364877518422827) -->
+    <skip />
+    <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
+    <string name="sync_calendar" msgid="1796292773734071897">"Calendar"</string>
+    <string name="sync_contacts" msgid="2035690905925565660">"Contactos"</string>
+    <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"Hay <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> elementos eliminados para <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, cuenta <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. ¿Qué quieres hacer?"</string>
+    <string name="sync_really_delete" msgid="5456355204562588976">"Eliminar los elementos"</string>
+    <string name="sync_undo_deletes" msgid="8695514459839593307">"Deshacer las eliminaciones"</string>
+    <string name="sync_do_nothing" msgid="5798755982392201673">"No hacer nada por ahora"</string>
+    <string name="sync_is_failing" msgid="5230237058552433773">"En este momento hay problemas con la sincronización. Se restablecerá en breve."</string>
+    <!-- no translation found for sync_plug (7020432439004167162) -->
+    <skip />
+    <string name="header_application_sync_settings" msgid="5263025067167527890">"Configuración de sincronización de aplicación"</string>
     <!-- no translation found for header_manage_accounts (381956296995298770) -->
     <skip />
-    <string name="header_general_sync_settings">"Configuración de sincronización general"</string>
-    <string name="add_account_label">"Añadir cuenta"</string>
-    <string name="header_data_and_synchronization">"Datos y sincronización"</string>
-    <string name="preference_change_password_title">"Cambiar contraseña"</string>
-    <string name="header_account_settings">"Configuración de la cuenta"</string>
-    <string name="remove_account_label">"Eliminar cuenta"</string>
-    <string name="header_add_an_account">"Añadir una cuenta"</string>
-    <string name="finish_button_label">"Finalizar"</string>
-    <string name="really_remove_account_title">"Eliminar cuenta"</string>
-    <string name="really_remove_account_message">"¿Realmente quieres eliminar esta cuenta? Si la eliminas, se eliminarán todos los datos asociados a ella. "\n"¿Quieres continuar?"</string>
-    <string name="remove_account_failed">"Esta cuenta no se ha podido eliminar."</string>
-    <string name="provider_label">"Enviar suscripciones"</string>
-    <string name="sync_item_title">"Sincronizar <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
+    <string name="header_general_sync_settings" msgid="1598537524696692308">"Configuración de sincronización general"</string>
+    <!-- no translation found for sync_enabled (913018877443997502) -->
+    <skip />
+    <!-- no translation found for sync_disabled (185731301298967302) -->
+    <skip />
+    <!-- no translation found for sync_error (681431702824599812) -->
+    <skip />
+    <string name="add_account_label" msgid="2035321485672826779">"Añadir cuenta"</string>
+    <!-- no translation found for header_data_and_synchronization (6286257845276834071) -->
+    <skip />
+    <string name="preference_change_password_title" msgid="6468827554159468315">"Cambiar contraseña"</string>
+    <!-- no translation found for header_account_settings (4950809499418403792) -->
+    <skip />
+    <string name="remove_account_label" msgid="5624712684599197863">"Eliminar cuenta"</string>
+    <string name="header_add_an_account" msgid="2198078922829535425">"Añadir una cuenta"</string>
+    <string name="finish_button_label" msgid="6121560986057356757">"Finalizar"</string>
+    <string name="really_remove_account_title" msgid="8808121039511188784">"Eliminar cuenta"</string>
+    <!-- no translation found for really_remove_account_message (3293445755620109578) -->
+    <skip />
+    <!-- no translation found for remove_account_failed (8178924513521241001) -->
+    <skip />
+    <!-- no translation found for provider_label (6191617139291321517) -->
+    <skip />
+    <string name="sync_item_title" msgid="7984962124867021854">"Sincronizar <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
+    <!-- no translation found for cant_sync_dialog_title (3016197392261471761) -->
+    <skip />
+    <!-- no translation found for cant_sync_dialog_message (7200115394296632300) -->
+    <skip />
 </resources>

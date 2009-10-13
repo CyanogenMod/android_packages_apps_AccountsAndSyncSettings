@@ -15,43 +15,66 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (2800463760279909883) -->
+    <!-- no translation found for app_label (569000083919693222) -->
     <skip />
-    <string name="sync_settings">"データの同期"</string>
-    <string name="sync_too_many_deletes">"削除の制限を超えました"</string>
-    <string name="background_data">"バックグラウンドデータ"</string>
-    <string name="background_data_summary">"バックグラウンドデータの使用を有効にする"</string>
-    <string name="background_data_dialog_title">"注意"</string>
-    <string name="background_data_dialog_message">"バックグラウンドデータを無効にすると、データの使用が減るため電池を節約できます。一部のアプリケーションでは引き続きバックグラウンドデータの接続を使用します。"</string>
-    <string name="sync_automatically">"自動同期"</string>
-    <string name="sync_automatically_summary">"自動的にデータを同期する"</string>
-    <string name="sync_menu_sync_now">"今すぐ同期"</string>
-    <string name="sync_menu_sync_cancel">"同期をキャンセル"</string>
-    <string name="sync_one_time_sync">"今すぐ同期を選択<xliff:g id="LAST_SYNC_TIME">
-%1$s</xliff:g>"</string>
-    <string name="sync_gmail">"Gmail"</string>
-    <string name="sync_calendar">"カレンダー"</string>
-    <string name="sync_contacts">"連絡先"</string>
-    <string name="sync_too_many_deletes_desc">"<xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>アカウントの<xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>で<xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g>件の削除があります。操作を選択してください。"</string>
-    <string name="sync_really_delete">"項目を削除します。"</string>
-    <string name="sync_undo_deletes">"削除を元に戻します。"</string>
-    <string name="sync_do_nothing">"今は何もしません。"</string>
-    <string name="sync_is_failing">"現在同期で問題が発生しています。しばらくお待ちください。"</string>
-    <string name="sync_plug"><font fgcolor="#ffffffff">"Google Syncへようこそ"</font>" "\n"このサービスを使用すると、データを同期してどこからでも連絡先や予定などにアクセスできます。"</string>
-    <string name="header_application_sync_settings">"アプリケーションの同期設定"</string>
+    <!-- no translation found for sync_settings (8707056705985552604) -->
+    <skip />
+    <string name="sync_too_many_deletes" msgid="1621369057980827097">"削除の制限を超えました"</string>
+    <string name="background_data" msgid="1103557117473896066">"バックグラウンドデータ"</string>
+    <!-- no translation found for background_data_summary (9048259510387973822) -->
+    <skip />
+    <string name="background_data_dialog_title" msgid="6303755495467986079">"注意"</string>
+    <!-- no translation found for background_data_dialog_message (8417297954700022363) -->
+    <skip />
+    <string name="sync_automatically" msgid="4694735102757960100">"自動同期"</string>
+    <!-- no translation found for sync_automatically_summary (4598895616781542745) -->
+    <skip />
+    <string name="settings_backup" msgid="6114299464740014762">"設定をバックアップ"</string>
+    <!-- no translation found for settings_backup_summary (1787552172618610178) -->
+    <skip />
+    <string name="sync_menu_sync_now" msgid="5796024841315572404">"今すぐ同期"</string>
+    <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"同期をキャンセル"</string>
+    <!-- no translation found for sync_one_time_sync (3274364877518422827) -->
+    <skip />
+    <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
+    <string name="sync_calendar" msgid="1796292773734071897">"カレンダー"</string>
+    <string name="sync_contacts" msgid="2035690905925565660">"連絡先"</string>
+    <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"<xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>アカウントの<xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>で<xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g>件の削除があります。操作を選択してください。"</string>
+    <string name="sync_really_delete" msgid="5456355204562588976">"項目を削除します。"</string>
+    <string name="sync_undo_deletes" msgid="8695514459839593307">"削除を元に戻します。"</string>
+    <string name="sync_do_nothing" msgid="5798755982392201673">"今は何もしません。"</string>
+    <string name="sync_is_failing" msgid="5230237058552433773">"現在同期で問題が発生しています。しばらくお待ちください。"</string>
+    <!-- no translation found for sync_plug (7020432439004167162) -->
+    <skip />
+    <string name="header_application_sync_settings" msgid="5263025067167527890">"アプリケーションの同期設定"</string>
     <!-- no translation found for header_manage_accounts (381956296995298770) -->
     <skip />
-    <string name="header_general_sync_settings">"同期の基本設定"</string>
-    <string name="add_account_label">"アカウントを追加"</string>
-    <string name="header_data_and_synchronization">"データと同期"</string>
-    <string name="preference_change_password_title">"パスワードを変更"</string>
-    <string name="header_account_settings">"アカウントの設定"</string>
-    <string name="remove_account_label">"アカウントを削除"</string>
-    <string name="header_add_an_account">"アカウントを追加"</string>
-    <string name="finish_button_label">"完了"</string>
-    <string name="really_remove_account_title">"アカウントを削除"</string>
-    <string name="really_remove_account_message">"このアカウントを削除してよろしいですか？削除すると、アカウントに関連するすべてのデータが削除されます。"\n"続けますか？"</string>
-    <string name="remove_account_failed">"このアカウントを削除できませんでした。"</string>
-    <string name="provider_label">"プッシュ型登録"</string>
-    <string name="sync_item_title">"<xliff:g id="AUTHORITY">%s</xliff:g>を同期"</string>
+    <string name="header_general_sync_settings" msgid="1598537524696692308">"同期の基本設定"</string>
+    <!-- no translation found for sync_enabled (913018877443997502) -->
+    <skip />
+    <!-- no translation found for sync_disabled (185731301298967302) -->
+    <skip />
+    <!-- no translation found for sync_error (681431702824599812) -->
+    <skip />
+    <string name="add_account_label" msgid="2035321485672826779">"アカウントを追加"</string>
+    <!-- no translation found for header_data_and_synchronization (6286257845276834071) -->
+    <skip />
+    <string name="preference_change_password_title" msgid="6468827554159468315">"パスワードを変更"</string>
+    <!-- no translation found for header_account_settings (4950809499418403792) -->
+    <skip />
+    <string name="remove_account_label" msgid="5624712684599197863">"アカウントを削除"</string>
+    <string name="header_add_an_account" msgid="2198078922829535425">"アカウントを追加"</string>
+    <string name="finish_button_label" msgid="6121560986057356757">"完了"</string>
+    <string name="really_remove_account_title" msgid="8808121039511188784">"アカウントを削除"</string>
+    <!-- no translation found for really_remove_account_message (3293445755620109578) -->
+    <skip />
+    <!-- no translation found for remove_account_failed (8178924513521241001) -->
+    <skip />
+    <!-- no translation found for provider_label (6191617139291321517) -->
+    <skip />
+    <string name="sync_item_title" msgid="7984962124867021854">"<xliff:g id="AUTHORITY">%s</xliff:g>を同期"</string>
+    <!-- no translation found for cant_sync_dialog_title (3016197392261471761) -->
+    <skip />
+    <!-- no translation found for cant_sync_dialog_message (7200115394296632300) -->
+    <skip />
 </resources>

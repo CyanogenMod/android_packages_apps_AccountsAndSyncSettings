@@ -15,42 +15,66 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label">"同步資訊提供"</string>
-    <string name="sync_settings">"資料同步處理"</string>
-    <string name="sync_too_many_deletes">"達到刪除上限"</string>
-    <string name="background_data">"背景資料"</string>
-    <string name="background_data_summary">"啟用背景資料"</string>
-    <string name="background_data_dialog_title">"注意"</string>
-    <string name="background_data_dialog_message">"停用背景資料可節省電源並減少資料的使用。但某些應用程式可能仍會使用背景資料連線。"</string>
-    <string name="sync_automatically">"自動同步處理"</string>
-    <string name="sync_automatically_summary">"自動同步處理資料"</string>
-    <string name="sync_menu_sync_now">"立即同步處理"</string>
-    <string name="sync_menu_sync_cancel">"取消同步處理"</string>
-    <string name="sync_one_time_sync">"選取此處立即開始同步處理<xliff:g id="LAST_SYNC_TIME">
-%1$s</xliff:g>"</string>
-    <string name="sync_gmail">"Gmail"</string>
-    <string name="sync_calendar">"Google 日曆"</string>
-    <string name="sync_contacts">"聯絡人"</string>
-    <string name="sync_too_many_deletes_desc">"<xliff:g id="ACCOUNT_NAME">%3$s</xliff:g> 帳戶的 <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g> 同步有 <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> 個刪除的項目。您想要怎麼做？"</string>
-    <string name="sync_really_delete">"刪除這些項目。"</string>
-    <string name="sync_undo_deletes">"復原刪除。"</string>
-    <string name="sync_do_nothing">"暫停執行 。"</string>
-    <string name="sync_is_failing">"同步處理目前發生問題。將於短時間內恢復。"</string>
-    <string name="sync_plug"><font fgcolor="#ffffffff">"歡迎使用 Google Sync！"</font>\n"這是 Google 所提供用於同步處理資料的程式，可讓您隨時隨地存取聯絡人、約會等資料。"</string>
-    <string name="header_application_sync_settings">"應用程式同步處理設定"</string>
+    <!-- no translation found for app_label (569000083919693222) -->
+    <skip />
+    <!-- no translation found for sync_settings (8707056705985552604) -->
+    <skip />
+    <string name="sync_too_many_deletes" msgid="1621369057980827097">"達到刪除上限"</string>
+    <string name="background_data" msgid="1103557117473896066">"背景資料"</string>
+    <!-- no translation found for background_data_summary (9048259510387973822) -->
+    <skip />
+    <string name="background_data_dialog_title" msgid="6303755495467986079">"注意"</string>
+    <!-- no translation found for background_data_dialog_message (8417297954700022363) -->
+    <skip />
+    <string name="sync_automatically" msgid="4694735102757960100">"自動同步處理"</string>
+    <!-- no translation found for sync_automatically_summary (4598895616781542745) -->
+    <skip />
+    <string name="settings_backup" msgid="6114299464740014762">"備份設定"</string>
+    <!-- no translation found for settings_backup_summary (1787552172618610178) -->
+    <skip />
+    <string name="sync_menu_sync_now" msgid="5796024841315572404">"立即同步處理"</string>
+    <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"取消同步處理"</string>
+    <!-- no translation found for sync_one_time_sync (3274364877518422827) -->
+    <skip />
+    <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
+    <string name="sync_calendar" msgid="1796292773734071897">"Google 日曆"</string>
+    <string name="sync_contacts" msgid="2035690905925565660">"聯絡人"</string>
+    <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"<xliff:g id="ACCOUNT_NAME">%3$s</xliff:g> 帳戶的 <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g> 同步有 <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> 個刪除的項目。您想要怎麼做？"</string>
+    <string name="sync_really_delete" msgid="5456355204562588976">"刪除這些項目。"</string>
+    <string name="sync_undo_deletes" msgid="8695514459839593307">"復原刪除。"</string>
+    <string name="sync_do_nothing" msgid="5798755982392201673">"暫停執行 。"</string>
+    <string name="sync_is_failing" msgid="5230237058552433773">"同步處理目前發生問題。將於短時間內恢復。"</string>
+    <!-- no translation found for sync_plug (7020432439004167162) -->
+    <skip />
+    <string name="header_application_sync_settings" msgid="5263025067167527890">"應用程式同步處理設定"</string>
     <!-- no translation found for header_manage_accounts (381956296995298770) -->
     <skip />
-    <string name="header_general_sync_settings">"一般同步處理設定"</string>
-    <string name="add_account_label">"新增帳戶"</string>
-    <string name="header_data_and_synchronization">"資料與資料同步"</string>
-    <string name="preference_change_password_title">"變更密碼"</string>
-    <string name="header_account_settings">"帳戶設定"</string>
-    <string name="remove_account_label">"移除帳戶"</string>
-    <string name="header_add_an_account">"新增帳戶"</string>
-    <string name="finish_button_label">"完成"</string>
-    <string name="really_remove_account_title">"移除帳戶"</string>
-    <string name="really_remove_account_message">"確定要移除這個帳戶嗎？移除帳戶將會一併移除所有與其關聯的資料。"\n"要繼續嗎？"</string>
-    <string name="remove_account_failed">"無法移除這個帳戶。"</string>
-    <string name="provider_label">"預先載入訂閱項目"</string>
-    <string name="sync_item_title">"同步處理<xliff:g id="AUTHORITY">%s</xliff:g>"</string>
+    <string name="header_general_sync_settings" msgid="1598537524696692308">"一般同步處理設定"</string>
+    <!-- no translation found for sync_enabled (913018877443997502) -->
+    <skip />
+    <!-- no translation found for sync_disabled (185731301298967302) -->
+    <skip />
+    <!-- no translation found for sync_error (681431702824599812) -->
+    <skip />
+    <string name="add_account_label" msgid="2035321485672826779">"新增帳戶"</string>
+    <!-- no translation found for header_data_and_synchronization (6286257845276834071) -->
+    <skip />
+    <string name="preference_change_password_title" msgid="6468827554159468315">"變更密碼"</string>
+    <!-- no translation found for header_account_settings (4950809499418403792) -->
+    <skip />
+    <string name="remove_account_label" msgid="5624712684599197863">"移除帳戶"</string>
+    <string name="header_add_an_account" msgid="2198078922829535425">"新增帳戶"</string>
+    <string name="finish_button_label" msgid="6121560986057356757">"完成"</string>
+    <string name="really_remove_account_title" msgid="8808121039511188784">"移除帳戶"</string>
+    <!-- no translation found for really_remove_account_message (3293445755620109578) -->
+    <skip />
+    <!-- no translation found for remove_account_failed (8178924513521241001) -->
+    <skip />
+    <!-- no translation found for provider_label (6191617139291321517) -->
+    <skip />
+    <string name="sync_item_title" msgid="7984962124867021854">"同步處理<xliff:g id="AUTHORITY">%s</xliff:g>"</string>
+    <!-- no translation found for cant_sync_dialog_title (3016197392261471761) -->
+    <skip />
+    <!-- no translation found for cant_sync_dialog_message (7200115394296632300) -->
+    <skip />
 </resources>
