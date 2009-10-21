@@ -56,7 +56,7 @@
     <string name="really_remove_account_message" msgid="3293445755620109578">"¿Realmente deseas eliminar·esta cuenta? Si lo haces, también suprimirás todos sus mensajes, contactos y otros datos del teléfono. "\n"¿Deseas continuar?"</string>
     <string name="remove_account_failed" msgid="8178924513521241001">"Algunas aplicaciones requieren esta cuenta. Sólo puedes suprimirla si restableces la configuración predeterminada de fábrica en el teléfono (la cual suprime todos tus datos personales). Puedes hacerlo en la aplicación Configuración, dentro de Privacidad."</string>
     <string name="provider_label" msgid="6191617139291321517">"Suscripciones de inserción"</string>
-    <string name="sync_item_title" msgid="7984962124867021854">"Sincronización<xliff:g id="AUTHORITY">%s</xliff:g>"</string>
+    <string name="sync_item_title" msgid="7984962124867021854">"Sincronización <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
     <string name="cant_sync_dialog_title" msgid="3016197392261471761">"No se puede realizar la sincronización manual"</string>
     <string name="cant_sync_dialog_message" msgid="7200115394296632300">"La sincronización de este elemento actualmente está desactivada. Para cambiar tus preferencias, activa momentáneamente los datos de fondo y la sincronización automática."</string>
 </resources>
