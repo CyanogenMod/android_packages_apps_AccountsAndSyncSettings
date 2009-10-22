@@ -15,22 +15,27 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="2800463760279909883">"Συγχρονισμός ροών δεδομένων"</string>
+    <!-- no translation found for app_label (569000083919693222) -->
+    <skip />
     <!-- no translation found for sync_settings (8707056705985552604) -->
     <skip />
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"Έγινε υπέρβαση του ορίου διαγραφής."</string>
     <string name="background_data" msgid="1103557117473896066">"Δεδομένα φόντου"</string>
-    <string name="background_data_summary" msgid="4689952168187153486">"Ενεργοποίηση χρήσης δεδομένων φόντου"</string>
+    <!-- no translation found for background_data_summary (9048259510387973822) -->
+    <skip />
     <string name="background_data_dialog_title" msgid="6303755495467986079">"Προσοχή"</string>
-    <string name="background_data_dialog_message" msgid="2817489591533703840">"Η απενεργοποίηση δεδομένων φόντου εξοικονομεί ενέργεια μπαταρίας και μειώνει τη χρήση δεδομένων. Ορισμένες εφαρμογές ενδέχεται να συνεχίσουν να χρησιμοποιούν τη σύνδεση δεδομένων φόντου."</string>
+    <!-- no translation found for background_data_dialog_message (8417297954700022363) -->
+    <skip />
     <string name="sync_automatically" msgid="4694735102757960100">"Αυτόματος συγχρονισμός"</string>
-    <string name="sync_automatically_summary" msgid="6210073947698673774">"Αυτόματος συγχρονισμός δεδομένων"</string>
+    <!-- no translation found for sync_automatically_summary (4598895616781542745) -->
+    <skip />
     <string name="settings_backup" msgid="6114299464740014762">"Δημιουργία αντιγράφων ασφαλείας για τις ρυθμίσεις"</string>
-    <string name="settings_backup_summary" msgid="5308702862293201877">"Ενεργοποίηση της δημιουργίας αντιγράφων ασφαλείας των ρυθμίσεων"</string>
+    <!-- no translation found for settings_backup_summary (1787552172618610178) -->
+    <skip />
     <string name="sync_menu_sync_now" msgid="5796024841315572404">"Να γίνει συγχρονισμός τώρα"</string>
     <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Ακύρωση συγχρονισμού"</string>
-    <string name="sync_one_time_sync" msgid="3474532720071919514">"Επιλέξτε για συγχρονισμό τώρα<xliff:g id="LAST_SYNC_TIME">
-%1$s</xliff:g>"</string>
+    <!-- no translation found for sync_one_time_sync (3274364877518422827) -->
+    <skip />
     <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
     <string name="sync_calendar" msgid="1796292773734071897">"Ημερολόγιο"</string>
     <string name="sync_contacts" msgid="2035690905925565660">"Επαφές"</string>
@@ -39,21 +44,37 @@
     <string name="sync_undo_deletes" msgid="8695514459839593307">"Αναίρεση των διαγραφών."</string>
     <string name="sync_do_nothing" msgid="5798755982392201673">"Να μην γίνει καμία ενέργεια τώρα."</string>
     <string name="sync_is_failing" msgid="5230237058552433773">"Το Sync αντιμετωπίζει προβλήματα αυτή τη στιγμή. Θα είναι διαθέσιμο ξανά σε λίγο."</string>
-    <string name="sync_plug" msgid="4526246957714417280"><font fgcolor="#ffffffff">"Καλώς ορίσατε στο Google Sync!"</font>" "\n"Μια προσέγγιση της Google στον συγχρονισμό δεδομένων ώστε να αποκτήσετε πρόσβαση στις επαφές σας, στις συναντήσεις σας και σε άλλα, οπουδήποτε κι αν είστε."</string>
+    <!-- no translation found for sync_plug (7020432439004167162) -->
+    <skip />
     <string name="header_application_sync_settings" msgid="5263025067167527890">"Ρυθμίσεις συγχρονισμού εφαρμογής"</string>
     <!-- no translation found for header_manage_accounts (381956296995298770) -->
     <skip />
     <string name="header_general_sync_settings" msgid="1598537524696692308">"Γενικές ρυθμίσεις συγχρονισμού"</string>
+    <!-- no translation found for sync_enabled (913018877443997502) -->
+    <skip />
+    <!-- no translation found for sync_disabled (185731301298967302) -->
+    <skip />
+    <!-- no translation found for sync_error (681431702824599812) -->
+    <skip />
     <string name="add_account_label" msgid="2035321485672826779">"Προσθήκη λογαριασμού"</string>
-    <string name="header_data_and_synchronization" msgid="7274711697016911550">"Δεδομένα και συγχρονισμός"</string>
+    <!-- no translation found for header_data_and_synchronization (6286257845276834071) -->
+    <skip />
     <string name="preference_change_password_title" msgid="6468827554159468315">"Αλλαγή κωδικού πρόσβασης"</string>
-    <string name="header_account_settings" msgid="8795624691307728708">"Ρυθμίσεις λογαριασμού"</string>
+    <!-- no translation found for header_account_settings (4950809499418403792) -->
+    <skip />
     <string name="remove_account_label" msgid="5624712684599197863">"Κατάργηση λογαριασμού"</string>
     <string name="header_add_an_account" msgid="2198078922829535425">"Προσθήκη λογαριασμού"</string>
     <string name="finish_button_label" msgid="6121560986057356757">"Τέλος"</string>
     <string name="really_remove_account_title" msgid="8808121039511188784">"Κατάργηση λογαριασμού"</string>
-    <string name="really_remove_account_message" msgid="9058660516139501549">"Θέλετε σίγουρα να καταργήσετε αυτόν τον λογαριασμό; Η κατάργησή του θα καταργήσει και όλα τα δεδομένα που σχετίζονται με τον λογαριασμό. "\n"Συνέχεια;"</string>
-    <string name="remove_account_failed" msgid="1834355229721070397">"Δεν ήταν δυνατή η κατάργηση αυτού του λογαριασμού."</string>
-    <string name="provider_label" msgid="4860292144158484350">"Προώθηση συνδρομών"</string>
+    <!-- no translation found for really_remove_account_message (3293445755620109578) -->
+    <skip />
+    <!-- no translation found for remove_account_failed (8178924513521241001) -->
+    <skip />
+    <!-- no translation found for provider_label (6191617139291321517) -->
+    <skip />
     <string name="sync_item_title" msgid="7984962124867021854">"Συγχρονισμός εφαρμογής <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
+    <!-- no translation found for cant_sync_dialog_title (3016197392261471761) -->
+    <skip />
+    <!-- no translation found for cant_sync_dialog_message (7200115394296632300) -->
+    <skip />
 </resources>
