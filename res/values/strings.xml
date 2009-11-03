@@ -19,7 +19,7 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Title of the feed synchronization activity. -->
-    <string name="app_label">Sync feeds</string>
+    <string name="app_label">Account and Sync Settings</string>
     <!-- Sync settings -->
     <!-- Main Settings screen setting option name to go into the screen for data sync settings-->
     <string name="sync_settings">Accounts &amp; sync settings</string>
