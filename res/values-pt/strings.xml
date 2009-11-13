@@ -15,7 +15,7 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="569000083919693222">"Sincronizar feeds"</string>
+    <string name="app_label" msgid="3706018265751197270">"Configurações de conta e sincronização"</string>
     <string name="sync_settings" msgid="8707056705985552604">"Configurações de Contas e sincronização"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"Limite de exclusão excedido"</string>
     <string name="background_data" msgid="1103557117473896066">"Dados de segundo plano"</string>

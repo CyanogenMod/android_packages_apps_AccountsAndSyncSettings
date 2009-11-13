@@ -15,7 +15,7 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="569000083919693222">"Synkroniser feeds"</string>
+    <string name="app_label" msgid="3706018265751197270">"Indstillinger for konto og synkronisering"</string>
     <string name="sync_settings" msgid="8707056705985552604">"Indstillinger for konti og synkronisering"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"Grænsen for sletning er overskredet"</string>
     <string name="background_data" msgid="1103557117473896066">"Baggrundsdata"</string>

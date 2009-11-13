@@ -15,7 +15,7 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="569000083919693222">"同步處理資訊提供"</string>
+    <string name="app_label" msgid="3706018265751197270">"帳戶與同步處理設定"</string>
     <string name="sync_settings" msgid="8707056705985552604">"帳戶與同步處理設定"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"達到刪除上限"</string>
     <string name="background_data" msgid="1103557117473896066">"背景資料"</string>
