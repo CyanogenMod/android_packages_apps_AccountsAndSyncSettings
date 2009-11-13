@@ -25,12 +25,15 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.accounts.Account;
 
 public class SyncStateCheckBoxPreference extends CheckBoxPreference {
 
     private boolean mIsActive = false;
     private boolean mIsPending = false;
     private boolean mFailed = false;
+    private Account mAccount;
+    private String mAuthority;
 
     /**
      * A mode for this preference where clicking does a one-time sync instead of
@@ -40,6 +43,15 @@ public class SyncStateCheckBoxPreference extends CheckBoxPreference {
     
     public SyncStateCheckBoxPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
+        setWidgetLayoutResource(R.layout.preference_widget_sync_toggle);
+        mAccount = null;
+        mAuthority = null;
+    }
+
+    public SyncStateCheckBoxPreference(Context context, Account account, String authority) {
+        super(context, null);
+        mAccount = account;
+        mAuthority = authority;
         setWidgetLayoutResource(R.layout.preference_widget_sync_toggle);
     }
 
@@ -51,11 +63,15 @@ public class SyncStateCheckBoxPreference extends CheckBoxPreference {
         View syncFailedView = view.findViewById(R.id.sync_failed);
 
         syncActiveView.setVisibility(mIsActive ? View.VISIBLE : View.GONE);
-        AnimationDrawable anim = (AnimationDrawable) syncActiveView.getDrawable();
+        final AnimationDrawable anim = (AnimationDrawable) syncActiveView.getDrawable();
         boolean showError;
         boolean showPending;
         if (mIsActive) {
-            anim.start();
+            syncActiveView.post(new Runnable() {
+                public void run() {
+                    anim.start();
+                }
+            });
             showPending = false;
             showError = false;
         } else {
@@ -138,5 +154,12 @@ public class SyncStateCheckBoxPreference extends CheckBoxPreference {
             super.onClick();
         }            
     }
-    
+
+    public Account getAccount() {
+        return mAccount;
+    }
+
+    public String getAuthority() {
+        return mAuthority;
+    }
 }
