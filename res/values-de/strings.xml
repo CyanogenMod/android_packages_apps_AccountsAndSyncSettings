@@ -19,7 +19,7 @@
     <string name="sync_settings" msgid="8707056705985552604">"Einstellungen für Konten &amp; Synchronisierung"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"Löschbegrenzung überschritten"</string>
     <string name="background_data" msgid="1103557117473896066">"Hintergrunddaten"</string>
-    <string name="background_data_summary" msgid="9048259510387973822">"Die Anwendungen können jederzeit Daten synchronisieren, senden und empfangen"</string>
+    <string name="background_data_summary" msgid="9048259510387973822">"Anwendungen können Daten synchronisieren, senden und empfangen."</string>
     <string name="background_data_dialog_title" msgid="6303755495467986079">"Achtung"</string>
     <string name="background_data_dialog_message" msgid="8417297954700022363">"Durch die Deaktivierung von Hintergrunddaten kann die Akkulaufzeit verlängert und die Verwendung von Daten verringert werden. Einige Anwendungen nutzen die Hintergrunddatenverbindung möglicherweise weiterhin."</string>
     <string name="sync_automatically" msgid="4694735102757960100">"Autom. synchronisieren"</string>

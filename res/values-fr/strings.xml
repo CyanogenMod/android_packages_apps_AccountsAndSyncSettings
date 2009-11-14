@@ -19,7 +19,7 @@
     <string name="sync_settings" msgid="8707056705985552604">"Paramètres de compte et de synchronisation"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"Le nombre maximum de suppressions a été atteint."</string>
     <string name="background_data" msgid="1103557117473896066">"Données en arrière-plan"</string>
-    <string name="background_data_summary" msgid="9048259510387973822">"Les applications peuvent synchroniser, envoyer et recevoir des données à tout moment."</string>
+    <string name="background_data_summary" msgid="9048259510387973822">"Synchronisation, envoi et réception des données à tout moment"</string>
     <string name="background_data_dialog_title" msgid="6303755495467986079">"Attention"</string>
     <string name="background_data_dialog_message" msgid="8417297954700022363">"La désactivation des données en arrière-plan permet d\'économiser la batterie et de réduire l\'utilisation des données. Certaines applications peuvent utiliser la connexion des données en arrière-plan."</string>
     <string name="sync_automatically" msgid="4694735102757960100">"Synchronisation auto"</string>
@@ -57,6 +57,6 @@
     <string name="remove_account_failed" msgid="8178924513521241001">"Ce compte est utilisé par des applications. Pour le supprimer, vous devez rétablir les paramètres par défaut du téléphone (ce qui supprimera toutes vos données personnelles). Pour cela, allez dans l\'application Paramètres, sous Confidentialité."</string>
     <string name="provider_label" msgid="6191617139291321517">"Abonnements Push"</string>
     <string name="sync_item_title" msgid="7984962124867021854">"Synchroniser <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
-    <string name="cant_sync_dialog_title" msgid="3016197392261471761">"Impossible de procéder à la synchronisation manuelle."</string>
+    <string name="cant_sync_dialog_title" msgid="3016197392261471761">"Synchronisation manuelle impossible"</string>
     <string name="cant_sync_dialog_message" msgid="7200115394296632300">"La synchronisation de cet élément est actuellement désactivée. Pour modifier vos préférences, activez temporairement les données en arrière-plan et la synchronisation automatique."</string>
 </resources>

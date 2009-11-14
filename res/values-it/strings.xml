@@ -19,13 +19,13 @@
     <string name="sync_settings" msgid="8707056705985552604">"Impostazioni account e sincronizzazione"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"Limite di eliminazioni superato"</string>
     <string name="background_data" msgid="1103557117473896066">"Dati in background"</string>
-    <string name="background_data_summary" msgid="9048259510387973822">"Le applicazioni possono sincronizzare, inviare e ricevere dati in qualsiasi momento"</string>
+    <string name="background_data_summary" msgid="9048259510387973822">"Le applicaz. possono sincronizzare, inviare e ricevere dati in ogni momento"</string>
     <string name="background_data_dialog_title" msgid="6303755495467986079">"Attenzione"</string>
     <string name="background_data_dialog_message" msgid="8417297954700022363">"La disattivazione dei dati in background consente di estendere la durata delle batterie e di ridurre l\'utilizzo dei dati. Alcune applicazioni potrebbero utilizzare comunque la connessione dati in background."</string>
     <string name="sync_automatically" msgid="4694735102757960100">"Sincronizz. automatica"</string>
     <string name="sync_automatically_summary" msgid="4598895616781542745">"Le applicazioni sincronizzano i dati automaticamente"</string>
     <string name="settings_backup" msgid="6114299464740014762">"Backup impostazioni"</string>
-    <string name="settings_backup_summary" msgid="1787552172618610178">"Backup delle mie impostazioni"</string>
+    <string name="settings_backup_summary" msgid="1787552172618610178">"Backup delle mie impost."</string>
     <string name="sync_menu_sync_now" msgid="5796024841315572404">"Sincronizza ora"</string>
     <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Annulla sincronizzazione"</string>
     <string name="sync_one_time_sync" msgid="3274364877518422827">"Tocca per sincronizzare ora <xliff:g id="LAST_SYNC_TIME">
