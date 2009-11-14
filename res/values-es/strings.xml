@@ -54,7 +54,7 @@
     <string name="finish_button_label" msgid="6121560986057356757">"Finalizar"</string>
     <string name="really_remove_account_title" msgid="8808121039511188784">"Eliminar cuenta"</string>
     <string name="really_remove_account_message" msgid="3293445755620109578">"¿Deseas eliminar realmente esta cuenta? Si la eliminas, se eliminarán también todos los mensajes, los contactos y otros datos del teléfono. "\n"¿Quieres continuar?"</string>
-    <string name="remove_account_failed" msgid="8178924513521241001">"Algunas aplicaciones necesitan esta cuenta. Solo puedes eliminarla restableciendo los valores predeterminados de fábrica del teléfono(esta acción elimina todos tus datos personales). Para ello, accede a \"Configuración\", \"Privacidad\"."</string>
+    <string name="remove_account_failed" msgid="8178924513521241001">"Algunas aplicaciones necesitan esta cuenta. Solo puedes eliminarla restableciendo los valores predeterminados de fábrica del teléfono(esta acción elimina todos tus datos personales). Para ello, accede a \"Ajustes\", \"Privacidad\"."</string>
     <string name="provider_label" msgid="6191617139291321517">"Enviar suscripciones"</string>
     <string name="sync_item_title" msgid="7984962124867021854">"Sincronizar <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
     <string name="cant_sync_dialog_title" msgid="3016197392261471761">"No se puede realizar la sincronización de forma manual."</string>

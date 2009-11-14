@@ -19,11 +19,11 @@
     <string name="sync_settings" msgid="8707056705985552604">"계정 및 동기화 설정"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"삭제 한도를 초과했습니다."</string>
     <string name="background_data" msgid="1103557117473896066">"배경 데이터"</string>
-    <string name="background_data_summary" msgid="9048259510387973822">"응용프로그램이 언제든지 데이터를 동기화하고 보내고 받을 수 있습니다."</string>
+    <string name="background_data_summary" msgid="9048259510387973822">"응용프로그램에서 언제든지 데이터를 동기화하고 보내고 받음"</string>
     <string name="background_data_dialog_title" msgid="6303755495467986079">"주의"</string>
     <string name="background_data_dialog_message" msgid="8417297954700022363">"백그라운드 데이터를 사용하지 않도록 설정하면 배터리 수명이 늘어나고 데이터 사용률이 낮아집니다. 일부 응용프로그램은 여전히 백그라운드 데이터 연결을 사용할 수 있습니다."</string>
     <string name="sync_automatically" msgid="4694735102757960100">"자동 동기화"</string>
-    <string name="sync_automatically_summary" msgid="4598895616781542745">"응용프로그램이 데이터를 자동으로 동기화합니다."</string>
+    <string name="sync_automatically_summary" msgid="4598895616781542745">"응용프로그램에서 데이터를 자동으로 동기화함"</string>
     <string name="settings_backup" msgid="6114299464740014762">"설정 백업"</string>
     <string name="settings_backup_summary" msgid="1787552172618610178">"내 설정 백업"</string>
     <string name="sync_menu_sync_now" msgid="5796024841315572404">"지금 동기화"</string>

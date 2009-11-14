@@ -19,7 +19,7 @@
     <string name="sync_settings" msgid="8707056705985552604">"Настройки аккаунтов и синхронизации"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"Превышен предел удаления"</string>
     <string name="background_data" msgid="1103557117473896066">"Использовать фоновые данные"</string>
-    <string name="background_data_summary" msgid="9048259510387973822">"Программы могут синхронизироваться, отправлять и принимать данные в любое время."</string>
+    <string name="background_data_summary" msgid="9048259510387973822">"Синхронизация, отправка и прием данных возможны в любое время"</string>
     <string name="background_data_dialog_title" msgid="6303755495467986079">"Внимание"</string>
     <string name="background_data_dialog_message" msgid="8417297954700022363">"Отключение фоновых данных экономит энергию батареи и уменьшает использование данных. Некоторые приложения могут, тем не менее, использовать фоновую передачу данных."</string>
     <string name="sync_automatically" msgid="4694735102757960100">"Автосинхронизация"</string>

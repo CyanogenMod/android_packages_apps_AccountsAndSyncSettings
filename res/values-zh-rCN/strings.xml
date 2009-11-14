@@ -20,9 +20,9 @@
     <string name="sync_settings" msgid="8707056705985552604">"帐户与同步设置"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"超出删除限制"</string>
     <string name="background_data" msgid="1103557117473896066">"背景数据"</string>
-    <string name="background_data_summary" msgid="9048259510387973822">"应用程序能够随时同步、发送和接收数据"</string>
+    <string name="background_data_summary" msgid="9048259510387973822">"应用程序随时可以同步、发送和接收数据"</string>
     <string name="background_data_dialog_title" msgid="6303755495467986079">"注意事项"</string>
-    <string name="background_data_dialog_message" msgid="8417297954700022363">"禁用背景数据可延长电池寿命并可降低数据使用量。有些应用程序可能仍会使用背景数据连接。"</string>
+    <string name="background_data_dialog_message" msgid="8417297954700022363">"停用背景数据可延长电池使用时间并减少数据使用量。但某些应用程序可能仍会使用背景数据连接。"</string>
     <string name="sync_automatically" msgid="4694735102757960100">"自动同步"</string>
     <string name="sync_automatically_summary" msgid="4598895616781542745">"应用程序自动同步数据"</string>
     <string name="settings_backup" msgid="6114299464740014762">"备份设置"</string>
@@ -38,7 +38,7 @@
     <string name="sync_really_delete" msgid="5456355204562588976">"删除这些项。"</string>
     <string name="sync_undo_deletes" msgid="8695514459839593307">"撤消删除。"</string>
     <string name="sync_do_nothing" msgid="5798755982392201673">"目前不进行任何操作。"</string>
-    <string name="sync_is_failing" msgid="5230237058552433773">"同步现在遇到问题。很快将返回此操作。"</string>
+    <string name="sync_is_failing" msgid="5230237058552433773">"同步目前发生问题。将在短时间内恢复。"</string>
     <string name="sync_plug" msgid="7020432439004167162"><font fgcolor="#ffffffff">"欢迎使用 Google sync！"</font>" "\n"Google 的这款同步数据工具可以让您从任何地方访问您的联系人、约会以及更多信息。"</string>
     <string name="header_application_sync_settings" msgid="5263025067167527890">"应用程序同步设置"</string>
     <string name="header_manage_accounts" msgid="381956296995298770">"管理帐户"</string>
