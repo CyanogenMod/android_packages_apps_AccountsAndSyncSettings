@@ -2,28 +2,53 @@
         package="com.android.providers.subscribedfeeds"
         android:sharedUserId="android.uid.system">
 
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="com.google.android.googleapps.permission.GOOGLE_AUTH" />
-    <uses-permission android:name="com.google.android.googleapps.permission.GOOGLE_AUTH.cp" />
-    <uses-permission android:name="com.google.android.googleapps.permission.GOOGLE_AUTH.cl" />
-    <uses-permission android:name="com.google.android.googleapps.permission.GOOGLE_AUTH.mail" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.BACKUP" />
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.READ_SYNC_STATS" />
-    <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_READ" />
-    <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_WRITE" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
 
     <application android:process="system"
                  android:allowClearUserData="false"
                  android:icon="@drawable/app_icon"
                  android:label="@string/app_label">
 
-        <uses-library android:name="com.google.android.gtalkservice" />
-
-        <activity android:name="com.android.settings.SyncSettings" android:label="@string/sync_settings">
+        <activity android:name="com.android.settings.ManageAccountsSettings"
+            android:label="@string/sync_settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.settings.SYNC_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.android.settings.AccountSyncSettings"
+            android:label="@string/sync_settings"
+            android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.settings.ACCOUNT_SYNC_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.android.settings.AccountSyncSettingsInAddAccount"
+            android:label="@string/sync_settings"
+            android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.settings.ACCOUNT_SYNC_SETTINGS_ADD_ACCOUNT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.android.settings.AddAccountSettings"
+            android:label="@string/header_add_an_account">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.settings.ADD_ACCOUNT_SETTINGS" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -36,25 +61,5 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <provider android:name="GoogleSubscribedFeedsProvider"
-                android:authorities="subscribedfeeds" android:syncable="true"
-                android:multiprocess="false"
-                android:readPermission="android.permission.SUBSCRIBED_FEEDS_READ"
-                android:writePermission="android.permission.SUBSCRIBED_FEEDS_WRITE" />
-
-        <receiver android:name="SubscribedFeedsBroadcastReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.GTALK_DATA_MESSAGE_RECEIVED" />
-                <category android:name="GSYNC_TICKLE"/>
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="com.android.subscribedfeeds.action.REFRESH" />
-            </intent-filter>
-        </receiver>
-        <service android:name="SubscribedFeedsIntentService"/>
     </application>
 </manifest>
