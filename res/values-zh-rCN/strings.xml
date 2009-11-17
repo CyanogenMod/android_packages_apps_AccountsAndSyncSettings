@@ -15,8 +15,7 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- no translation found for app_label (3706018265751197270) -->
-    <skip />
+    <string name="app_label" msgid="3706018265751197270">"帐户与同步设置"</string>
     <string name="sync_settings" msgid="8707056705985552604">"帐户与同步设置"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"超出删除限制"</string>
     <string name="background_data" msgid="1103557117473896066">"背景数据"</string>
