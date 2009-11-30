@@ -40,9 +40,9 @@
     <string name="sync_is_failing" msgid="5230237058552433773">"La synchronisation rencontre actuellement des problèmes. Elle sera rétablie sous peu."</string>
     <string name="sync_plug" msgid="7020432439004167162"><font fgcolor="#ffffffff">"Bienvenue sur Google Sync !"</font>" "\n"Une solution Google pour synchroniser vos données et vous permettre d\'accéder à vos contacts, rendez-vous, etc. où que vous soyez."</string>
     <string name="header_application_sync_settings" msgid="5263025067167527890">"Paramètres des applications"</string>
-    <string name="header_manage_accounts" msgid="381956296995298770">"Gérer les comptes"</string>
+    <string name="header_manage_accounts" msgid="381956296995298770">"Gestion des comptes"</string>
     <string name="header_general_sync_settings" msgid="1598537524696692308">"Paramètres généraux"</string>
-    <string name="sync_enabled" msgid="913018877443997502">"La synchronisation est activée."</string>
+    <string name="sync_enabled" msgid="913018877443997502">"Synchronisation activée"</string>
     <string name="sync_disabled" msgid="185731301298967302">"La synchronisation est désactivée."</string>
     <string name="sync_error" msgid="681431702824599812">"Erreur de synchronisation"</string>
     <string name="add_account_label" msgid="2035321485672826779">"Ajouter un compte"</string>
