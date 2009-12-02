@@ -71,7 +71,7 @@ public class AddAccountSettings extends AccountPreferenceBase {
             // then include them all.
             ArrayList<String> accountAuths = getAuthoritiesForAccountType(accountType);
             boolean addAccountPref = true;
-            if (mAuthorities != null && mAuthorities.length > 0) {
+            if (mAuthorities != null && mAuthorities.length > 0 && accountAuths != null) {
                 addAccountPref = false;
                 for (int k = 0; k < mAuthorities.length; k++) {
                     if (accountAuths.contains(mAuthorities[k])) {
