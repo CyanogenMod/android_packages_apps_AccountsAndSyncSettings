@@ -18,12 +18,12 @@
 */
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
     <ListView xmlns:android="http://schemas.android.com/apk/res/android" android:id="@android:id/list"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1"
         android:drawSelectorOnTop="false"
@@ -31,19 +31,19 @@
     />
 
     <TextView android:id="@+id/sync_settings_error_info"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/sync_is_failing" />
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@android:drawable/bottom_bar">
 
         <View
             android:layout_width="0dip"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"/>
 
         <Button android:id="@+id/add_account_button"
@@ -55,7 +55,7 @@
 
         <View
             android:layout_width="0dip"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"/>
     </LinearLayout>
 
