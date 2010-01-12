@@ -15,22 +15,21 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="569000083919693222">"Feeds synchroniseren"</string>
+    <string name="app_label" msgid="3706018265751197270">"Account- en synchronisatie-instellingen"</string>
     <string name="sync_settings" msgid="8707056705985552604">"Account- en synchronisatie-instellingen"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"Verwijderingslimiet overschreden"</string>
     <string name="background_data" msgid="1103557117473896066">"Achtergrondgegevens"</string>
-    <string name="background_data_summary" msgid="9048259510387973822">"Toepassingen kunnen gegevens op elk gewenst moment synchroniseren, verzenden en ontvangen"</string>
+    <string name="background_data_summary" msgid="9048259510387973822">"Toepassingen kunnen gegevens synchroniseren, verzenden en ontvangen"</string>
     <string name="background_data_dialog_title" msgid="6303755495467986079">"Let op"</string>
     <string name="background_data_dialog_message" msgid="8417297954700022363">"Als u achtergrondgegevens uitschakelt, bespaart u acculading en wordt het gegevensverbruik verlaagd. Sommige toepassingen maken mogelijk nog steeds gebruik van de achtergrondgegevensverbinding."</string>
     <string name="sync_automatically" msgid="4694735102757960100">"Automatische synchronisatie"</string>
-    <!-- no translation found for sync_automatically_summary (4598895616781542745) -->
-    <skip />
+    <string name="sync_automatically_summary" msgid="4598895616781542745">"Toepassingen kunnen gegevens automatisch synchroniseren"</string>
     <string name="settings_backup" msgid="6114299464740014762">"Back-up van instellingen maken"</string>
     <string name="settings_backup_summary" msgid="1787552172618610178">"Back-up maken van mijn instellingen"</string>
     <string name="sync_menu_sync_now" msgid="5796024841315572404">"Nu synchroniseren"</string>
     <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Synchronisatie annuleren"</string>
-    <!-- no translation found for sync_one_time_sync (3274364877518422827) -->
-    <skip />
+    <string name="sync_one_time_sync" msgid="3274364877518422827">"Aanraken om nu te synchroniseren<xliff:g id="LAST_SYNC_TIME">
+%1$s</xliff:g>"</string>
     <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
     <string name="sync_calendar" msgid="1796292773734071897">"Agenda"</string>
     <string name="sync_contacts" msgid="2035690905925565660">"Contacten"</string>
@@ -47,18 +46,15 @@
     <string name="sync_disabled" msgid="185731301298967302">"Synchroniseren uitgeschakeld"</string>
     <string name="sync_error" msgid="681431702824599812">"Fout bij synchroniseren"</string>
     <string name="add_account_label" msgid="2035321485672826779">"Account toevoegen"</string>
-    <!-- no translation found for header_data_and_synchronization (6286257845276834071) -->
-    <skip />
+    <string name="header_data_and_synchronization" msgid="6286257845276834071">"Gegevens en synchronisatie"</string>
     <string name="preference_change_password_title" msgid="6468827554159468315">"Wachtwoord wijzigen"</string>
     <string name="header_account_settings" msgid="4950809499418403792">"Accountinstellingen"</string>
     <string name="remove_account_label" msgid="5624712684599197863">"Account verwijderen"</string>
     <string name="header_add_an_account" msgid="2198078922829535425">"Een account toevoegen"</string>
     <string name="finish_button_label" msgid="6121560986057356757">"Voltooien"</string>
     <string name="really_remove_account_title" msgid="8808121039511188784">"Account verwijderen"</string>
-    <!-- no translation found for really_remove_account_message (3293445755620109578) -->
-    <skip />
-    <!-- no translation found for remove_account_failed (8178924513521241001) -->
-    <skip />
+    <string name="really_remove_account_message" msgid="3293445755620109578">"Wilt u dit account echt verwijderen? Als u het account verwijdert, worden ook alle accountberichten, contacten en andere gegevens van de telefoon verwijderd. "\n"Doorgaan?"</string>
+    <string name="remove_account_failed" msgid="8178924513521241001">"Dit account is vereist voor sommige toepassingen. U kunt het account alleen verwijderen door de telefoon te herstellen naar de fabrieksinstellingen (al uw persoonlijke gegevens worden gewist). U kunt dit doen via de toepassing Instellingen, bij \'Privacy\'."</string>
     <string name="provider_label" msgid="6191617139291321517">"Abonnementen doorvoeren"</string>
     <string name="sync_item_title" msgid="7984962124867021854">"<xliff:g id="AUTHORITY">%s</xliff:g> synchroniseren"</string>
     <string name="cant_sync_dialog_title" msgid="3016197392261471761">"Kan niet handmatig synchroniseren"</string>

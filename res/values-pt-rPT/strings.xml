@@ -15,11 +15,11 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="569000083919693222">"Sincronizar feeds"</string>
+    <string name="app_label" msgid="3706018265751197270">"Definições de conta e de sincronização"</string>
     <string name="sync_settings" msgid="8707056705985552604">"Definições de contas e sincronização"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"Limite de eliminações excedido"</string>
     <string name="background_data" msgid="1103557117473896066">"Dados em segundo plano"</string>
-    <string name="background_data_summary" msgid="9048259510387973822">"As aplicações podem sincronizar, enviar e receber dados em qualquer momento"</string>
+    <string name="background_data_summary" msgid="9048259510387973822">"Aplicações podem sincronizar, enviar/receber dados a qualq. momento"</string>
     <string name="background_data_dialog_title" msgid="6303755495467986079">"Atenção"</string>
     <string name="background_data_dialog_message" msgid="8417297954700022363">"A desactivação de dados em segundo plano economiza a bateria e reduz a utilização de dados. Algumas aplicações podem continuar a utilizar a ligação de dados em segundo plano."</string>
     <string name="sync_automatically" msgid="4694735102757960100">"Sincronização automática"</string>

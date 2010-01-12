@@ -15,17 +15,17 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="569000083919693222">"Sincronizar feeds"</string>
-    <string name="sync_settings" msgid="8707056705985552604">"Configurações de Contas e sincronização"</string>
+    <string name="app_label" msgid="3706018265751197270">"Configurações de conta e sincronização"</string>
+    <string name="sync_settings" msgid="8707056705985552604">"Configurações de contas e sincronização"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"Limite de exclusão excedido"</string>
     <string name="background_data" msgid="1103557117473896066">"Dados de segundo plano"</string>
-    <string name="background_data_summary" msgid="9048259510387973822">"Os aplicativos podem sincronizar, enviar e receber dados a qualquer momento"</string>
+    <string name="background_data_summary" msgid="9048259510387973822">"Aplicativos sincronizam, enviam e recebem dados a qualquer momento"</string>
     <string name="background_data_dialog_title" msgid="6303755495467986079">"Atenção"</string>
     <string name="background_data_dialog_message" msgid="8417297954700022363">"A desativação dos dados de segundo plano estende a vida útil da bateria e diminui o uso dos dados. Alguns aplicativos ainda podem usar a conexão de dados de segundo plano."</string>
     <string name="sync_automatically" msgid="4694735102757960100">"Sinc. automática"</string>
     <string name="sync_automatically_summary" msgid="4598895616781542745">"Aplicativos sincronizam dados automaticamente"</string>
     <string name="settings_backup" msgid="6114299464740014762">"Fazer backup das configurações"</string>
-    <string name="settings_backup_summary" msgid="1787552172618610178">"Fazer backup de minhas configurações"</string>
+    <string name="settings_backup_summary" msgid="1787552172618610178">"Fazer backup das conf."</string>
     <string name="sync_menu_sync_now" msgid="5796024841315572404">"Sincronizar agora"</string>
     <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Cancelar a sincronização"</string>
     <string name="sync_one_time_sync" msgid="3274364877518422827">"Toque para sincronizar agora<xliff:g id="LAST_SYNC_TIME">

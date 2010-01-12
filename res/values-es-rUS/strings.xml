@@ -15,11 +15,11 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="569000083919693222">"Canales de sincronización"</string>
+    <string name="app_label" msgid="3706018265751197270">"Parámetros de configuración de cuenta y sincronización"</string>
     <string name="sync_settings" msgid="8707056705985552604">"Configuración de cuentas y sincronización"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"Eliminar el límite excedido"</string>
     <string name="background_data" msgid="1103557117473896066">"Datos de fondo"</string>
-    <string name="background_data_summary" msgid="9048259510387973822">"Las aplicaciones se pueden sincronizar, enviar y pueden recibir datos en cualquier momento"</string>
+    <string name="background_data_summary" msgid="9048259510387973822">"Las aplic.  pueden sincronizar, enviar y  recibir datos en cualq. mom."</string>
     <string name="background_data_dialog_title" msgid="6303755495467986079">"Atención"</string>
     <string name="background_data_dialog_message" msgid="8417297954700022363">"Al desactivar los datos de fondo, se prolonga la vida útil de la batería y se reduce el uso de los datos. Algunas aplicaciones incluso pueden utilizar una conexión de datos de fondo."</string>
     <string name="sync_automatically" msgid="4694735102757960100">"Sincroniz. automática"</string>

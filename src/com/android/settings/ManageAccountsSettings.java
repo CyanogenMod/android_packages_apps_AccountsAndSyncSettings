@@ -225,7 +225,7 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
             final ArrayList<String> auths = getAuthoritiesForAccountType(account.type);
 
             boolean showAccount = true;
-            if (mAuthorities != null) {
+            if (mAuthorities != null && auths != null) {
                 showAccount = false;
                 for (String requestedAuthority : mAuthorities) {
                     if (auths.contains(requestedAuthority)) {
