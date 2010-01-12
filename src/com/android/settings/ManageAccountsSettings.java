@@ -43,6 +43,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -184,25 +185,32 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
             Account account = accountPref.getAccount();
             int syncCount = 0;
             boolean syncIsFailing = false;
-            for (String authority : accountPref.getAuthorities()) {
-                SyncStatusInfo status = ContentResolver.getSyncStatus(account, authority);
-                boolean syncEnabled = ContentResolver.getSyncAutomatically(account, authority)
-                        && masterSyncAutomatically
-                        && backgroundDataSetting;
-                boolean authorityIsPending = ContentResolver.isSyncPending(account, authority);
-                boolean activelySyncing = activeSyncValues != null
-                        && activeSyncValues.authority.equals(authority)
-                        && activeSyncValues.account.equals(account);
-                boolean lastSyncFailed = status != null
-                        && syncEnabled
-                        && status.lastFailureTime != 0
-                        && status.getLastFailureMesgAsInt(0)
-                           != ContentResolver.SYNC_ERROR_SYNC_ALREADY_IN_PROGRESS;
-                if (lastSyncFailed && !activelySyncing && !authorityIsPending) {
-                    syncIsFailing = true;
-                    anySyncFailed = true;
+            final ArrayList<String> authorities = accountPref.getAuthorities();
+            if (authorities != null) {
+                for (String authority : authorities) {
+                    SyncStatusInfo status = ContentResolver.getSyncStatus(account, authority);
+                    boolean syncEnabled = ContentResolver.getSyncAutomatically(account, authority)
+                            && masterSyncAutomatically
+                            && backgroundDataSetting;
+                    boolean authorityIsPending = ContentResolver.isSyncPending(account, authority);
+                    boolean activelySyncing = activeSyncValues != null
+                            && activeSyncValues.authority.equals(authority)
+                            && activeSyncValues.account.equals(account);
+                    boolean lastSyncFailed = status != null
+                            && syncEnabled
+                            && status.lastFailureTime != 0
+                            && status.getLastFailureMesgAsInt(0)
+                               != ContentResolver.SYNC_ERROR_SYNC_ALREADY_IN_PROGRESS;
+                    if (lastSyncFailed && !activelySyncing && !authorityIsPending) {
+                        syncIsFailing = true;
+                        anySyncFailed = true;
+                    }
+                    syncCount += syncEnabled && userFacing.contains(authority) ? 1 : 0;
                 }
-                syncCount += syncEnabled && userFacing.contains(authority) ? 1 : 0;
+            } else {
+                if (Log.isLoggable(TAG, Log.VERBOSE)) {
+                    Log.v(TAG, "no syncadapters found for " + account);
+                }
             }
             int syncStatus = AccountPreference.SYNC_DISABLED;
             if (syncIsFailing) {
