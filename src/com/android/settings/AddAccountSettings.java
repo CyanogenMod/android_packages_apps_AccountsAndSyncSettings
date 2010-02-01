@@ -120,9 +120,7 @@ public class AddAccountSettings extends AccountPreferenceBase {
             } catch (AuthenticatorException e) {
                 if (LDEBUG) Log.d(TAG, "addAccount failed: " + e);
             } finally {
-                if (mProviderList.size() <= 1 || accountAdded) {
-                    finish();
-                }
+                finish();
             }
         }
     };
@@ -133,7 +131,6 @@ public class AddAccountSettings extends AccountPreferenceBase {
             ProviderPreference pref = (ProviderPreference) preference;
             if (LDEBUG) Log.v(TAG, "Attempting to add account of type " + pref.getAccountType());
             addAccount(pref.getAccountType());
-            finish();
         }
         return true;
     }
