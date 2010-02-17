@@ -174,7 +174,7 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
         updateAuthDescriptions();
         onAccountsUpdated(AccountManager.get(this).getAccounts());
     }
-    
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -239,11 +239,7 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
             Account account = syncPref.getAccount();
             boolean syncAutomatically = ContentResolver.getSyncAutomatically(account, authority);
             if (syncPref.isOneTimeSyncMode()) {
-                if (syncAutomatically) {
-                    requestOrCancelSync(account, authority, true);
-                } else {
-                    showDialog(CANT_DO_ONETIME_SYNC_DIALOG);
-                }
+                requestOrCancelSync(account, authority, true);
             } else {
                 boolean syncOn = syncPref.isChecked();
                 boolean oldSyncState = syncAutomatically;
@@ -366,8 +362,9 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
             final boolean masterSyncAutomatically = ContentResolver.getMasterSyncAutomatically();
             final boolean backgroundDataEnabled = connManager.getBackgroundDataSetting();
-            syncPref.setOneTimeSyncMode(!masterSyncAutomatically || !backgroundDataEnabled);
-            syncPref.setChecked(syncEnabled);
+            final boolean oneTimeSyncMode = !masterSyncAutomatically || !backgroundDataEnabled;
+            syncPref.setOneTimeSyncMode(oneTimeSyncMode);
+            syncPref.setChecked(oneTimeSyncMode || syncEnabled);
         }
         mErrorInfoView.setVisibility(syncIsFailing ? View.VISIBLE : View.GONE);
     }

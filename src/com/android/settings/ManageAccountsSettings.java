@@ -191,7 +191,8 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
                     SyncStatusInfo status = ContentResolver.getSyncStatus(account, authority);
                     boolean syncEnabled = ContentResolver.getSyncAutomatically(account, authority)
                             && masterSyncAutomatically
-                            && backgroundDataSetting;
+                            && backgroundDataSetting
+                            && (ContentResolver.getIsSyncable(account, authority) > 0);
                     boolean authorityIsPending = ContentResolver.isSyncPending(account, authority);
                     boolean activelySyncing = activeSyncValues != null
                             && activeSyncValues.authority.equals(authority)
