@@ -195,8 +195,8 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
                             && (ContentResolver.getIsSyncable(account, authority) > 0);
                     boolean authorityIsPending = ContentResolver.isSyncPending(account, authority);
                     boolean activelySyncing = activeSyncValues != null
-                            && activeSyncValues.authority.equals(authority)
-                            && activeSyncValues.account.equals(account);
+                            && activeSyncValues.getAuthority().equals(authority)
+                            && activeSyncValues.getAccount().equals(account);
                     boolean lastSyncFailed = status != null
                             && syncEnabled
                             && status.lastFailureTime != 0

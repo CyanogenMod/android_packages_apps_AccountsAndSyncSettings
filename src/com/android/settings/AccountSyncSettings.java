@@ -326,8 +326,8 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
             boolean initialSync = status == null ? false : status.initialize;
 
             boolean activelySyncing = activeSyncValues != null
-                    && activeSyncValues.account.equals(account)
-                    && activeSyncValues.authority.equals(authority);
+                    && activeSyncValues.getAccount().equals(account)
+                    && activeSyncValues.getAuthority().equals(authority);
             boolean lastSyncFailed = status != null
                     && status.lastFailureTime != 0
                     && status.getLastFailureMesgAsInt(0)
