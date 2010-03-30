@@ -60,7 +60,7 @@
     <string name="really_remove_account_message" msgid="3293445755620109578">"Opravdu chcete tento účet odebrat? Z telefonu budou smazány také všechny zprávy, kontakty a další data tohoto účtu. "\n"Pokračovat?"</string>
     <string name="remove_account_failed" msgid="8178924513521241001">"Tento účet je požadován některými aplikacemi. Můžete jej odebrat pouze obnovením výchozího nastavení telefonu z výroby (které smaže všechna osobní data). Můžete to provést v Nastavení v části Ochrana osobních údajů."</string>
     <string name="provider_label" msgid="6191617139291321517">"Zobrazit odběry"</string>
-    <string name="sync_item_title" msgid="7984962124867021854">"Synchronizace služby <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
+    <string name="sync_item_title" msgid="7984962124867021854">"Synchronizovat <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
     <string name="cant_sync_dialog_title" msgid="3016197392261471761">"Nelze ručně synchronizovat"</string>
     <string name="cant_sync_dialog_message" msgid="7200115394296632300">"Synchronizace této položky je aktuálně deaktivována. Chcete-li předvolbu změnit, dočasně zapněte přenos dat na pozadí a automatickou synchronizaci."</string>
 </resources>

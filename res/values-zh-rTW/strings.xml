@@ -58,7 +58,7 @@
     <string name="finish_button_label" msgid="6121560986057356757">"完成"</string>
     <string name="really_remove_account_title" msgid="8808121039511188784">"移除帳戶"</string>
     <string name="really_remove_account_message" msgid="3293445755620109578">"確定要移除帳戶嗎？移除帳戶後，手機上的訊息、聯絡人和其他資料將一併遭到刪除。"\n"您要繼續嗎？"</string>
-    <string name="remove_account_failed" msgid="8178924513521241001">"部分應用程式需要使用此帳戶。如要移除此帳戶，您必須將手機還原至出廠預設值 (這會刪除您全部的個人資料)；請至 [設定] 應用程式的 [隱私權] 中進行還原。"</string>
+    <string name="remove_account_failed" msgid="8178924513521241001">"部分應用程式需要使用此帳戶。如要移除此帳戶，您必須將手機還原至出廠預設值 (這會刪除您全部的個人資料)；請至 [設定] 應用程式的 [隱私權設定] 中進行還原。"</string>
     <string name="provider_label" msgid="6191617139291321517">"發送訂閱"</string>
     <string name="sync_item_title" msgid="7984962124867021854">"同步處理<xliff:g id="AUTHORITY">%s</xliff:g>"</string>
     <string name="cant_sync_dialog_title" msgid="3016197392261471761">"無法手動同步處理"</string>

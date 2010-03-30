@@ -47,7 +47,7 @@
     <string name="header_manage_accounts" msgid="381956296995298770">"Gestion des comptes"</string>
     <string name="header_general_sync_settings" msgid="1598537524696692308">"Paramètres généraux"</string>
     <string name="sync_enabled" msgid="913018877443997502">"Synchronisation activée"</string>
-    <string name="sync_disabled" msgid="185731301298967302">"La synchronisation est désactivée."</string>
+    <string name="sync_disabled" msgid="185731301298967302">"Synchronisation désactivée"</string>
     <string name="sync_error" msgid="681431702824599812">"Erreur de synchronisation"</string>
     <string name="add_account_label" msgid="2035321485672826779">"Ajouter un compte"</string>
     <string name="header_data_and_synchronization" msgid="6286257845276834071">"Données et synchronisation"</string>

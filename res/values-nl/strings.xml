@@ -23,10 +23,10 @@
     <string name="sync_settings" msgid="8707056705985552604">"Account- en synchronisatie-instellingen"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"Verwijderingslimiet overschreden"</string>
     <string name="background_data" msgid="1103557117473896066">"Achtergrondgegevens"</string>
-    <string name="background_data_summary" msgid="9048259510387973822">"Toepassingen kunnen gegevens synchroniseren, verzenden en ontvangen"</string>
+    <string name="background_data_summary" msgid="9048259510387973822">"Onbeperkt gegevens synchroniseren, verzenden en ontvangen"</string>
     <string name="background_data_dialog_title" msgid="6303755495467986079">"Let op"</string>
-    <string name="background_data_dialog_message" msgid="8417297954700022363">"Als u achtergrondgegevens uitschakelt, bespaart u acculading en wordt het gegevensverbruik verlaagd. Sommige toepassingen maken mogelijk nog steeds gebruik van de achtergrondgegevensverbinding."</string>
-    <string name="sync_automatically" msgid="4694735102757960100">"Automatische synchronisatie"</string>
+    <string name="background_data_dialog_message" msgid="8417297954700022363">"Als u achtergrondgegevens uitschakelt, bespaart u acculading en wordt het gegevensverbruik verlaagd. Sommige toepassingen maken mogelijk nog steeds gebruik van de verbinding voor achtergrondgegevens."</string>
+    <string name="sync_automatically" msgid="4694735102757960100">"Auto-synchronisatie"</string>
     <string name="sync_automatically_summary" msgid="4598895616781542745">"Toepassingen kunnen gegevens automatisch synchroniseren"</string>
     <string name="settings_backup" msgid="6114299464740014762">"Back-up van instellingen maken"</string>
     <string name="settings_backup_summary" msgid="1787552172618610178">"Back-up maken van mijn instellingen"</string>

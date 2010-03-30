@@ -58,7 +58,7 @@
     <string name="finish_button_label" msgid="6121560986057356757">"Afslut"</string>
     <string name="really_remove_account_title" msgid="8808121039511188784">"Fjern konto"</string>
     <string name="really_remove_account_message" msgid="3293445755620109578">"Ønsker du virkelig at fjerne denne konto? Hvis du fjerner den, slettes også alle dens beskeder, kontakter og andre data fra telefonen. "\n"Fortsæt?"</string>
-    <string name="remove_account_failed" msgid="8178924513521241001">"Denne konto kræves af nogle programmer. Du kan kun fjerne den ved at nulstille telefonen til fabriksstandard (hvilket sletter alle dine personlige oplysninger). Du kan gøre dette i Indstillinger under Fortrolighed."</string>
+    <string name="remove_account_failed" msgid="8178924513521241001">"Denne konto kræves af nogle programmer. Du kan kun fjerne den ved at gendanne telefonen til fabriksstandard (hvilket sletter alle dine personlige oplysninger). Du kan gøre dette under Fortrolighed i Indstillinger."</string>
     <string name="provider_label" msgid="6191617139291321517">"Push-abonnementer"</string>
     <string name="sync_item_title" msgid="7984962124867021854">"Synkroniser <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
     <string name="cant_sync_dialog_title" msgid="3016197392261471761">"Kan ikke synkronisere manuelt"</string>
