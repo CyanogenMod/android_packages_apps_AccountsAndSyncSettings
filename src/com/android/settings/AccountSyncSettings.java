@@ -28,7 +28,7 @@ import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.ActiveSyncInfo;
+import android.content.SyncInfo;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -212,7 +212,7 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        boolean syncActive = ContentResolver.getActiveSync() != null;
+        boolean syncActive = ContentResolver.getCurrentSync() != null;
         menu.findItem(MENU_SYNC_NOW_ID).setVisible(!syncActive);
         menu.findItem(MENU_SYNC_CANCEL_ID).setVisible(syncActive);
         return true;
@@ -304,7 +304,7 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
     protected void onSyncStateUpdated() {
         // iterate over all the preferences, setting the state properly for each
         Date date = new Date();
-        ActiveSyncInfo activeSyncValues = ContentResolver.getActiveSync();
+        SyncInfo currentSync = ContentResolver.getCurrentSync();
         boolean syncIsFailing = false;
 
         // Refresh the sync status checkboxes - some syncs may have become active.
@@ -325,9 +325,9 @@ public class AccountSyncSettings extends AccountPreferenceBase implements OnClic
             boolean authorityIsPending = status == null ? false : status.pending;
             boolean initialSync = status == null ? false : status.initialize;
 
-            boolean activelySyncing = activeSyncValues != null
-                    && activeSyncValues.getAccount().equals(account)
-                    && activeSyncValues.getAuthority().equals(authority);
+            boolean activelySyncing = currentSync != null
+                    && new Account(currentSync.account.name, currentSync.account.type).equals(account)
+                    && currentSync.authority.equals(authority);
             boolean lastSyncFailed = status != null
                     && status.lastFailureTime != 0
                     && status.getLastFailureMesgAsInt(0)

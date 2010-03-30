@@ -17,13 +17,12 @@
 package com.android.settings;
 
 import com.android.providers.subscribedfeeds.R;
-import com.google.android.collect.Maps;
 
 import android.accounts.AccountManager;
 import android.accounts.Account;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.ActiveSyncInfo;
+import android.content.SyncInfo;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -33,21 +32,16 @@ import android.content.SyncStatusInfo;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.HashSet;
 
 public class ManageAccountsSettings extends AccountPreferenceBase implements View.OnClickListener {
@@ -162,7 +156,7 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
         mAutoSyncCheckbox.setChecked(masterSyncAutomatically);
 
         // iterate over all the preferences, setting the state properly for each
-        ActiveSyncInfo activeSyncValues = ContentResolver.getActiveSync();
+        SyncInfo currentSync = ContentResolver.getCurrentSync();
 
         boolean anySyncFailed = false; // true if sync on any account failed
 
@@ -194,9 +188,9 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
                             && backgroundDataSetting
                             && (ContentResolver.getIsSyncable(account, authority) > 0);
                     boolean authorityIsPending = ContentResolver.isSyncPending(account, authority);
-                    boolean activelySyncing = activeSyncValues != null
-                            && activeSyncValues.getAuthority().equals(authority)
-                            && activeSyncValues.getAccount().equals(account);
+                    boolean activelySyncing = currentSync != null
+                            && currentSync.authority.equals(authority)
+                            && new Account(currentSync.account.name, currentSync.account.type).equals(account);
                     boolean lastSyncFailed = status != null
                             && syncEnabled
                             && status.lastFailureTime != 0
