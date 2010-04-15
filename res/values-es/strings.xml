@@ -26,7 +26,7 @@
     <string name="background_data_summary" msgid="9048259510387973822">"Las aplicaciones pueden sincronizar datos, enviarlos y recibirlos en cualquier momento."</string>
     <string name="background_data_dialog_title" msgid="6303755495467986079">"Atención"</string>
     <string name="background_data_dialog_message" msgid="8417297954700022363">"Si inhabilitas los datos de referencia, aumentarás la duración de la batería y reducirás el uso de datos. Es posible que algunas aplicaciones sigan utilizando la conexión de datos de referencia."</string>
-    <string name="sync_automatically" msgid="4694735102757960100">"Sincronización automática"</string>
+    <string name="sync_automatically" msgid="4694735102757960100">"Sincron automática"</string>
     <string name="sync_automatically_summary" msgid="4598895616781542745">"Las aplicaciones sincronizan los datos de forma automática."</string>
     <string name="settings_backup" msgid="6114299464740014762">"Realizar copia de seguridad de configuración"</string>
     <string name="settings_backup_summary" msgid="1787552172618610178">"Realizar copia de seguridad de mi configuración"</string>
