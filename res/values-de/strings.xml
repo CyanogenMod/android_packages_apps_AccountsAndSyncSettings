@@ -23,7 +23,7 @@
     <string name="sync_settings" msgid="8707056705985552604">"Einstellungen für Konten &amp; Synchronisierung"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"Löschbegrenzung überschritten"</string>
     <string name="background_data" msgid="1103557117473896066">"Hintergrunddaten"</string>
-    <string name="background_data_summary" msgid="9048259510387973822">"Anwendungen können Daten synchronisieren, senden und empfangen."</string>
+    <string name="background_data_summary" msgid="9048259510387973822">"Daten können synchronisiert, gesendet und empfangen werden."</string>
     <string name="background_data_dialog_title" msgid="6303755495467986079">"Achtung"</string>
     <string name="background_data_dialog_message" msgid="8417297954700022363">"Durch die Deaktivierung von Hintergrunddaten kann die Akkulaufzeit verlängert und die Verwendung von Daten verringert werden. Einige Anwendungen nutzen die Hintergrunddatenverbindung möglicherweise weiterhin."</string>
     <string name="sync_automatically" msgid="4694735102757960100">"Autom. synchronisieren"</string>
@@ -34,7 +34,7 @@
     <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Synchronisierung abbrechen"</string>
     <string name="sync_one_time_sync" msgid="3274364877518422827">"Zum sofortigen Synchronisieren berühren<xliff:g id="LAST_SYNC_TIME">
 %1$s</xliff:g>"</string>
-    <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
+    <string name="sync_gmail" msgid="5806053858668452000">"Google Mail"</string>
     <string name="sync_calendar" msgid="1796292773734071897">"Google Kalender"</string>
     <string name="sync_contacts" msgid="2035690905925565660">"Kontakte"</string>
     <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"Für <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, Konto <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>, liegen <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> gelöschte Elemente vor. Was möchten Sie tun?"</string>

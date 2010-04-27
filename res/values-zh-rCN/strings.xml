@@ -24,7 +24,7 @@
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"超出删除限制"</string>
     <string name="background_data" msgid="1103557117473896066">"背景数据"</string>
     <string name="background_data_summary" msgid="9048259510387973822">"应用程序随时可以同步、发送和接收数据"</string>
-    <string name="background_data_dialog_title" msgid="6303755495467986079">"注意事项"</string>
+    <string name="background_data_dialog_title" msgid="6303755495467986079">"注意"</string>
     <string name="background_data_dialog_message" msgid="8417297954700022363">"停用背景数据可延长电池使用时间并减少数据使用量。但某些应用程序可能仍会使用背景数据连接。"</string>
     <string name="sync_automatically" msgid="4694735102757960100">"自动同步"</string>
     <string name="sync_automatically_summary" msgid="4598895616781542745">"应用程序自动同步数据"</string>
@@ -36,7 +36,7 @@
 %1$s</xliff:g>"</string>
     <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
     <string name="sync_calendar" msgid="1796292773734071897">"日历"</string>
-    <string name="sync_contacts" msgid="2035690905925565660">"联系人"</string>
+    <string name="sync_contacts" msgid="2035690905925565660">"通讯录"</string>
     <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"帐户<xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>有 <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g> 个关于<xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>的删除项。您要如何操作？"</string>
     <string name="sync_really_delete" msgid="5456355204562588976">"删除这些项。"</string>
     <string name="sync_undo_deletes" msgid="8695514459839593307">"撤消删除。"</string>

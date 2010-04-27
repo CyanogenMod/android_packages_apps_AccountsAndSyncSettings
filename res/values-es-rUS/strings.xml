@@ -42,7 +42,7 @@
     <string name="sync_undo_deletes" msgid="8695514459839593307">"Deshacer eliminaciones."</string>
     <string name="sync_do_nothing" msgid="5798755982392201673">"No hagas nada por el momento."</string>
     <string name="sync_is_failing" msgid="5230237058552433773">"En este momento la sincronización experimenta problemas. Volverá en breve."</string>
-    <string name="sync_plug" msgid="7020432439004167162"><font fgcolor="#ffffffff">"¡Bienvenido a\nGoogle sync!"</font>" "\n"Un método de Google que sincroniza datos para permitir el acceso a tus contactos, citas y mucho más desde cualquier lugar en donde estés."</string>
+    <string name="sync_plug" msgid="7020432439004167162"><font fgcolor="#ffffffff">"¡Bienvenido a Google sync!"</font>" "\n"Un método de Google que sincroniza datos para permitir el acceso a tus contactos, citas y mucho más desde cualquier lugar en donde estés."</string>
     <string name="header_application_sync_settings" msgid="5263025067167527890">"Config. de sincroniz. de la aplic."</string>
     <string name="header_manage_accounts" msgid="381956296995298770">"Administrar cuentas"</string>
     <string name="header_general_sync_settings" msgid="1598537524696692308">"Configuración de sincronización general"</string>

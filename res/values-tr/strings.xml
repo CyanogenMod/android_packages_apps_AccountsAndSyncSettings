@@ -57,10 +57,10 @@
     <string name="header_add_an_account" msgid="2198078922829535425">"Bir hesap ekleyin"</string>
     <string name="finish_button_label" msgid="6121560986057356757">"Son"</string>
     <string name="really_remove_account_title" msgid="8808121039511188784">"Hesabı kaldır"</string>
-    <string name="really_remove_account_message" msgid="3293445755620109578">"Bu hesabı gerçekten kaldırmak istiyor musunuz? Bunu kaldırmak, bu hesaba ait tüm mesajları, kişileri ve telefondaki diğer verilerini de silecektir. "\n"Devam etmek istiyor musunuz?"</string>
+    <string name="really_remove_account_message" msgid="3293445755620109578">"Bu hesabı gerçekten kaldırmak istiyor musunuz? Bunu kaldırmak, bu hesaba ait tüm mesajları, kişileri ve telefondaki diğer verileri de silecektir. "\n"Devam etmek istiyor musunuz?"</string>
     <string name="remove_account_failed" msgid="8178924513521241001">"Bu hesap, bazı uygulamalar için gereklidir. Hesabı ancak telefonu varsayılan fabrika ayarlarına geri döndürerek kaldırabilirsiniz (tüm kişisel verileriniz silinir). Bu işlemi Ayarlar uygulamasında, Gizlilik altında gerçekleştirebilirsiniz."</string>
     <string name="provider_label" msgid="6191617139291321517">"Abonelik şart koş"</string>
-    <string name="sync_item_title" msgid="7984962124867021854">"Senkronize et: <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
+    <string name="sync_item_title" msgid="7984962124867021854">"<xliff:g id="AUTHORITY">%s</xliff:g> senkronize et"</string>
     <string name="cant_sync_dialog_title" msgid="3016197392261471761">"Manuel olarak senkronize edilemiyor"</string>
     <string name="cant_sync_dialog_message" msgid="7200115394296632300">"Bu öğe için senkronizasyon şu anda devre dışı bırakılmış durumdadır. Tercihinizi değiştirmek için geçici olarak arka plan verilerini ve otomatik senkronizasyonu açın."</string>
 </resources>

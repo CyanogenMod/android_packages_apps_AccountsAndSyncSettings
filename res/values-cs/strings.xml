@@ -37,10 +37,10 @@
     <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
     <string name="sync_calendar" msgid="1796292773734071897">"Kalendář"</string>
     <string name="sync_contacts" msgid="2035690905925565660">"Kontakty"</string>
-    <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"Počet smazaných položek: <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g>, typ synchronizace: <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, účet: <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Jakou akci chcete provést?"</string>
+    <string name="sync_too_many_deletes_desc" msgid="699495654174066067">"Smazané předměty: <xliff:g id="NUMBER_OF_DELETED_ITEMS">%1$d</xliff:g>, typ synchronizace: <xliff:g id="TYPE_OF_SYNC">%2$s</xliff:g>, účet: <xliff:g id="ACCOUNT_NAME">%3$s</xliff:g>. Jaká akce má být provedena?"</string>
     <string name="sync_really_delete" msgid="5456355204562588976">"Smazat položky."</string>
     <string name="sync_undo_deletes" msgid="8695514459839593307">"Vrátit mazání zpět."</string>
-    <string name="sync_do_nothing" msgid="5798755982392201673">"Nyní neprovádět žádnou akci."</string>
+    <string name="sync_do_nothing" msgid="5798755982392201673">"Neprovádět akci."</string>
     <string name="sync_is_failing" msgid="5230237058552433773">"Nastaly potíže se synchronizací. Služba bude brzy obnovena."</string>
     <string name="sync_plug" msgid="7020432439004167162"><font fgcolor="#ffffffff">"Vítá vás aplikace Google Sync"</font>" "\n"Nový pohled na synchronizaci dat v režii Googlu. Poskytuje vám přístup ke kontaktům, schůzkám a dalším informacím, ať jste kdekoli."</string>
     <string name="header_application_sync_settings" msgid="5263025067167527890">"Nastavení synchronizace aplikací"</string>
@@ -60,7 +60,7 @@
     <string name="really_remove_account_message" msgid="3293445755620109578">"Opravdu chcete tento účet odebrat? Z telefonu budou smazány také všechny zprávy, kontakty a další data tohoto účtu. "\n"Pokračovat?"</string>
     <string name="remove_account_failed" msgid="8178924513521241001">"Tento účet je požadován některými aplikacemi. Můžete jej odebrat pouze obnovením výchozího nastavení telefonu z výroby (které smaže všechna osobní data). Můžete to provést v Nastavení v části Ochrana osobních údajů."</string>
     <string name="provider_label" msgid="6191617139291321517">"Zobrazit odběry"</string>
-    <string name="sync_item_title" msgid="7984962124867021854">"Synchronizovat <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
+    <string name="sync_item_title" msgid="7984962124867021854">"Synchronizace služby <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
     <string name="cant_sync_dialog_title" msgid="3016197392261471761">"Nelze ručně synchronizovat"</string>
     <string name="cant_sync_dialog_message" msgid="7200115394296632300">"Synchronizace této položky je aktuálně deaktivována. Chcete-li předvolbu změnit, dočasně zapněte přenos dat na pozadí a automatickou synchronizaci."</string>
 </resources>

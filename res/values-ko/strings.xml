@@ -22,7 +22,7 @@
     <string name="app_label" msgid="3706018265751197270">"계정 및 동기화 설정"</string>
     <string name="sync_settings" msgid="8707056705985552604">"계정 및 동기화 설정"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"삭제 한도를 초과했습니다."</string>
-    <string name="background_data" msgid="1103557117473896066">"배경 데이터"</string>
+    <string name="background_data" msgid="1103557117473896066">"백그라운드 데이터"</string>
     <string name="background_data_summary" msgid="9048259510387973822">"응용프로그램에서 언제든지 데이터를 동기화하고 보내고 받음"</string>
     <string name="background_data_dialog_title" msgid="6303755495467986079">"주의"</string>
     <string name="background_data_dialog_message" msgid="8417297954700022363">"백그라운드 데이터를 사용하지 않도록 설정하면 배터리 수명이 늘어나고 데이터 사용률이 낮아집니다. 일부 응용프로그램은 여전히 백그라운드 데이터 연결을 사용할 수 있습니다."</string>
@@ -58,7 +58,7 @@
     <string name="finish_button_label" msgid="6121560986057356757">"마침"</string>
     <string name="really_remove_account_title" msgid="8808121039511188784">"계정 삭제"</string>
     <string name="really_remove_account_message" msgid="3293445755620109578">"계정을 삭제하시겠습니까? 삭제하면 휴대전화의 메시지, 연락처 및 다른 데이터가 모두 지워집니다. "\n"계속하시겠습니까?"</string>
-    <string name="remove_account_failed" msgid="8178924513521241001">"일부 응용프로그램의 경우 이 계정이 필요합니다. 휴대전화를 기본값으로 재설정해야 계정을 삭제할 수 있으며 이 경우 모든 개인정보가 삭제됩니다. 개인정보 보호 아래의 설정 응용프로그램에서 재설정을 수행할 수 있습니다."</string>
+    <string name="remove_account_failed" msgid="8178924513521241001">"일부 응용프로그램의 경우 이 계정이 필요합니다. 휴대전화를 기본값으로 재설정해야 계정을 삭제할 수 있으며 이 경우 모든 개인정보가 삭제됩니다. \'설정\'의 \'개인정보 보호\'메뉴에서 재설정할 수 있습니다."</string>
     <string name="provider_label" msgid="6191617139291321517">"구독정보 푸시"</string>
     <string name="sync_item_title" msgid="7984962124867021854">"<xliff:g id="AUTHORITY">%s</xliff:g> 동기화"</string>
     <string name="cant_sync_dialog_title" msgid="3016197392261471761">"수동으로 동기화할 수 없음"</string>
