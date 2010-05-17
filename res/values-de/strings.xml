@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_label" msgid="3706018265751197270">"Konto- und Synchronisierungseinstellungen"</string>
+    <string name="app_label" msgid="3706018265751197270">"Konto- &amp; Synchronisierungseinst."</string>
     <string name="sync_settings" msgid="8707056705985552604">"Einstellungen für Konten &amp; Synchronisierung"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"Löschbegrenzung überschritten"</string>
     <string name="background_data" msgid="1103557117473896066">"Hintergrunddaten"</string>
@@ -29,7 +29,7 @@
     <string name="sync_automatically" msgid="4694735102757960100">"Autom. synchronisieren"</string>
     <string name="sync_automatically_summary" msgid="4598895616781542745">"Anwendungen synchronisieren Daten automatisch."</string>
     <string name="settings_backup" msgid="6114299464740014762">"Einstellungen sichern"</string>
-    <string name="settings_backup_summary" msgid="1787552172618610178">"Meine Einstellungen sichern"</string>
+    <string name="settings_backup_summary" msgid="1787552172618610178">"Einstellungen sichern"</string>
     <string name="sync_menu_sync_now" msgid="5796024841315572404">"Jetzt synchronisieren"</string>
     <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Synchronisierung abbrechen"</string>
     <string name="sync_one_time_sync" msgid="3274364877518422827">"Zum sofortigen Synchronisieren berühren<xliff:g id="LAST_SYNC_TIME">
@@ -50,7 +50,7 @@
     <string name="sync_disabled" msgid="185731301298967302">"Synchronisierung deaktiviert"</string>
     <string name="sync_error" msgid="681431702824599812">"Synchronisierungsfehler"</string>
     <string name="add_account_label" msgid="2035321485672826779">"Konto hinzufügen"</string>
-    <string name="header_data_and_synchronization" msgid="6286257845276834071">"Daten und Synchronisierung"</string>
+    <string name="header_data_and_synchronization" msgid="6286257845276834071">"Daten &amp; Synchronisierung"</string>
     <string name="preference_change_password_title" msgid="6468827554159468315">"Passwort ändern"</string>
     <string name="header_account_settings" msgid="4950809499418403792">"Kontoeinstellungen"</string>
     <string name="remove_account_label" msgid="5624712684599197863">"Konto entfernen"</string>
