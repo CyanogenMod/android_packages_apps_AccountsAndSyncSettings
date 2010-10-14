@@ -60,7 +60,7 @@
     <string name="really_remove_account_message" msgid="3293445755620109578">"Möchten Sie dieses Konto wirklich entfernen? Hierdurch werden auch die zugehörigen Nachrichten, Kontakte und anderen Daten auf dem Telefon gelöscht. "\n"Vorgang fortsetzen?"</string>
     <string name="remove_account_failed" msgid="8178924513521241001">"Dieses Konto wird von einigen Anwendungen benötigt. Sie können es nur entfernen, indem Sie das Telefon auf die Werkseinstellungen zurücksetzen und so alle persönlichen Daten löschen. Wählen Sie hierfür unter \"Datenschutz\" die Option \"Einstellungen\"."</string>
     <string name="provider_label" msgid="6191617139291321517">"Push-Abos"</string>
-    <string name="sync_item_title" msgid="7984962124867021854">"<xliff:g id="AUTHORITY">%s</xliff:g> synchronisieren"</string>
+    <string name="sync_item_title" msgid="7984962124867021854">"<xliff:g id="AUTHORITY">%s</xliff:g> synchr."</string>
     <string name="cant_sync_dialog_title" msgid="3016197392261471761">"Manuelle Synchronisierung kann nicht durchgeführt werden"</string>
     <string name="cant_sync_dialog_message" msgid="7200115394296632300">"Die Synchronisierung ist für dieses Element zurzeit deaktiviert. Zur Änderung Ihrer Voreinstellungen aktivieren Sie vorübergehend Hintergrunddaten und automatische Synchronisierung."</string>
 </resources>
