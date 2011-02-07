@@ -58,7 +58,7 @@
     <string name="finish_button_label" msgid="6121560986057356757">"마침"</string>
     <string name="really_remove_account_title" msgid="8808121039511188784">"계정 삭제"</string>
     <string name="really_remove_account_message" msgid="3293445755620109578">"계정을 삭제하시겠습니까? 삭제하면 휴대전화의 메시지, 연락처 및 다른 데이터가 모두 지워집니다. "\n"계속하시겠습니까?"</string>
-    <string name="remove_account_failed" msgid="8178924513521241001">"일부 애플리케이션의 경우 이 계정이 필요합니다. 휴대전화를 기본값으로 재설정해야 계정을 삭제할 수 있으며 이 경우 모든 개인정보가 삭제됩니다. \'설정\'의 \'개인정보 보호\'메뉴에서 재설정할 수 있습니다."</string>
+    <string name="remove_account_failed" msgid="8178924513521241001">"일부 애플리케이션의 경우 이 계정이 필요합니다. 휴대전화를 공장 초기화해야 계정을 삭제할 수 있으며 이 경우 모든 개인정보가 삭제됩니다. \'설정\'의 \'개인정보 보호\'메뉴에서 재설정할 수 있습니다."</string>
     <string name="provider_label" msgid="6191617139291321517">"구독정보 푸시"</string>
     <string name="sync_item_title" msgid="7984962124867021854">"<xliff:g id="AUTHORITY">%s</xliff:g> 동기화"</string>
     <string name="cant_sync_dialog_title" msgid="3016197392261471761">"수동으로 동기화할 수 없음"</string>
