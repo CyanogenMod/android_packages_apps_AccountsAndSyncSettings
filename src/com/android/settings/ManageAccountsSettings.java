@@ -150,7 +150,7 @@ public class ManageAccountsSettings extends AccountPreferenceBase implements Vie
         // Set background connection state
         ConnectivityManager connManager =
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        boolean backgroundDataSetting = mBackgroundDataCheckBox.isChecked();
+        boolean backgroundDataSetting = connManager.getBackgroundDataSetting();
         mBackgroundDataCheckBox.setChecked(backgroundDataSetting);
         boolean masterSyncAutomatically = ContentResolver.getMasterSyncAutomatically();
         mAutoSyncCheckbox.setChecked(masterSyncAutomatically);
