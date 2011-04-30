@@ -23,9 +23,9 @@
     <string name="sync_settings" msgid="8707056705985552604">"Inställningar för konton och synkronisering"</string>
     <string name="sync_too_many_deletes" msgid="1621369057980827097">"Gränsen för borttagning har överskridits"</string>
     <string name="background_data" msgid="1103557117473896066">"Bakgrundsdata"</string>
-    <string name="background_data_summary" msgid="9048259510387973822">"Program kan synkronisera, skicka och ta emot data när som helst"</string>
+    <string name="background_data_summary" msgid="9048259510387973822">"Appar kan synkronisera, skicka och ta emot data när som helst"</string>
     <string name="background_data_dialog_title" msgid="6303755495467986079">"Obs!"</string>
-    <string name="background_data_dialog_message" msgid="8417297954700022363">"Om du inaktiverar bakgrundsdata sparar du batteri och minskar dataanvändning. Vissa program kanske fortfarande använder anslutningen för bakgrundsdata."</string>
+    <string name="background_data_dialog_message" msgid="8417297954700022363">"Om du inaktiverar bakgrundsdata sparar du batteri och minskar dataanvändning. Vissa appar kanske fortfarande använder anslutningen för bakgrundsdata."</string>
     <string name="sync_automatically" msgid="4694735102757960100">"Automatisk synkron."</string>
     <string name="sync_automatically_summary" msgid="4598895616781542745">"Programmen synkroniserar data automatiskt"</string>
     <string name="settings_backup" msgid="6114299464740014762">"Säkerhetskopiera inställningar"</string>
@@ -58,7 +58,7 @@
     <string name="finish_button_label" msgid="6121560986057356757">"Avsluta"</string>
     <string name="really_remove_account_title" msgid="8808121039511188784">"Ta bort konto"</string>
     <string name="really_remove_account_message" msgid="3293445755620109578">"Vill du ta bort kontot? Om du tar bort kontot tar du också bort alla meddelanden, kontakter och andra data från telefonen. "\n"Vill du fortsätta?"</string>
-    <string name="remove_account_failed" msgid="8178924513521241001">"Det här kontot krävs av vissa program. Du kan bara ta bort det om du återställer telefonens fabriksinställningar (vilket raderar alla personliga data). Om du vill göra det öppnar du menyn Sekretess och väljer Inställningar."</string>
+    <string name="remove_account_failed" msgid="8178924513521241001">"Det här kontot krävs av vissa appar. Du kan bara ta bort det om du återställer telefonens fabriksinställningar (vilket raderar alla personliga data). Om du vill göra det öppnar du menyn Sekretess och väljer Inställningar."</string>
     <string name="provider_label" msgid="6191617139291321517">"Push-prenumerationer"</string>
     <string name="sync_item_title" msgid="7984962124867021854">"Synkronisera <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
     <string name="cant_sync_dialog_title" msgid="3016197392261471761">"Det går inte att synkronisera manuellt"</string>
