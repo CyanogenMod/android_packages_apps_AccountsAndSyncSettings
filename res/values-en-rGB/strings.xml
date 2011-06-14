@@ -57,7 +57,7 @@
     <string name="header_add_an_account" msgid="2198078922829535425">"Add an account"</string>
     <string name="finish_button_label" msgid="6121560986057356757">"Finish"</string>
     <string name="really_remove_account_title" msgid="8808121039511188784">"Remove account"</string>
-    <string name="really_remove_account_message" msgid="3293445755620109578">\n"BREAK"</string>
+    <string name="really_remove_account_message" msgid="3293445755620109578">"Do you really want to remove this account? Removing it will also delete all of its messages, contacts, and other data from the phone."\n"Proceed?"</string>
     <string name="remove_account_failed" msgid="8178924513521241001">"This account is required by some applications. You can only remove it by resetting the phone to factory default settings (which deletes all your personal data). You do that in the Settings application, under Privacy."</string>
     <string name="provider_label" msgid="6191617139291321517">"Push subscriptions"</string>
     <string name="sync_item_title" msgid="7984962124867021854">"Sync <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
