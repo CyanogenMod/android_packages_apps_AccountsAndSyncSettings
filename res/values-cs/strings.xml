@@ -22,14 +22,14 @@
   <string name="sync_settings" msgid="8707056705985552604">"Nastavení účtů a synchronizace"</string>
   <string name="sync_too_many_deletes" msgid="1621369057980827097">"Byl překročen limit mazání."</string>
   <string name="background_data" msgid="1103557117473896066">"Data na pozadí"</string>
-  <string name="background_data_summary" msgid="9048259510387973822">"Aplikace mohou kdykoli synchronizovat, odesílat a přijímat data."</string>
+  <string name="background_data_summary" msgid="9048259510387973822">"Aplikace mohou kdykoli synchronizovat, tj. odesílat a přijímat data."</string>
   <string name="background_data_dialog_title" msgid="6303755495467986079">"Upozornění"</string>
   <string name="background_data_dialog_message" msgid="8417297954700022363">"Deaktivace přenosu dat na pozadí šetří baterii a snižuje objem použitých dat. Některé aplikace mohou přesto datové připojení na pozadí používat."</string>
   <string name="sync_automatically" msgid="4694735102757960100">"Automatická synchronizace"</string>
   <string name="sync_automatically_summary" msgid="4598895616781542745">"Aplikace synchronizují data automaticky"</string>
   <string name="settings_backup" msgid="6114299464740014762">"Zálohovat nastavení"</string>
   <string name="settings_backup_summary" msgid="1787552172618610178">"Zálohovat moje nastavení"</string>
-  <string name="sync_menu_sync_now" msgid="5796024841315572404">"Synchronizovat nyní"</string>
+  <string name="sync_menu_sync_now" msgid="5796024841315572404">"Provést synchronizaci"</string>
   <string name="sync_menu_sync_cancel" msgid="1005480041232010062">"Zrušit synchronizaci"</string>
   <string name="sync_one_time_sync" msgid="3274364877518422827">"Dotykem provedete synchronizaci nyní<xliff:g id="LAST_SYNC_TIME">\n%1$s</xliff:g>"</string>
   <string name="sync_gmail" msgid="5806053858668452000">"Gmail"</string>
@@ -61,7 +61,7 @@
   <string name="really_remove_account_message" msgid="3293445755620109578">"Opravdu chcete tento účet odebrat? Z telefonu budou smazány také všechny zprávy, kontakty a další data tohoto účtu.\nPokračovat?"</string>
   <string name="remove_account_failed" msgid="8178924513521241001">"Tento účet je požadován některými aplikacemi. Můžete jej odebrat pouze obnovením výchozího nastavení telefonu z výroby (které smaže všechna osobní data). Můžete to provést v \'Nastavení\' v části \'Ochrana osobních údajů\'."</string>
   <string name="provider_label" msgid="6191617139291321517">"Zobrazit odběry"</string>
-  <string name="sync_item_title" msgid="7984962124867021854">"Synchronizace služby <xliff:g id="AUTHORITY">%s</xliff:g>"</string>
+  <string name="sync_item_title" msgid="7984962124867021854">"Služba <xliff:g id="authority">%s</xliff:g>"</string>
   <string name="cant_sync_dialog_title" msgid="3016197392261471761">"Nelze ručně synchronizovat"</string>
   <string name="cant_sync_dialog_message" msgid="7200115394296632300">"Synchronizace této položky je aktuálně deaktivována. Chcete-li předvolbu změnit, dočasně zapněte přenos dat na pozadí a automatickou synchronizaci."</string>
 </resources>
